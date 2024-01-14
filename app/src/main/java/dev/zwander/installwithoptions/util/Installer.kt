@@ -46,13 +46,13 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.core.content.IntentCompat
 import androidx.documentfile.provider.DocumentFile
-import com.google.gson.GsonBuilder
 import dev.zwander.installwithoptions.BuildConfig
 import dev.zwander.installwithoptions.IShellInterface
 import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.data.DataModel
 import dev.zwander.installwithoptions.data.DataModel.shizukuGranted
 import dev.zwander.installwithoptions.data.InstallOption
+import dev.zwander.installwithoptions.data.Settings
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import rikka.shizuku.Shizuku
@@ -72,7 +72,7 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
     val shizukuGranted by shizukuGranted.collectAsState()
     val scope = rememberCoroutineScope()
     val permissionStarter = rememberLauncherForActivityResult(contract = ActivityResultContracts.StartActivityForResult()) {
-        Log.e("InstallWithOptions", "permission result ${GsonBuilder().create().toJson(it)}")
+        Log.e("InstallWithOptions", "permission result ${Settings.gson.toJson(it)}")
     }
 
     var statuses by remember {

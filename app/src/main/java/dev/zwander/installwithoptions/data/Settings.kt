@@ -20,30 +20,42 @@ import kotlinx.coroutines.launch
 
 object Settings {
     object Keys {
-        val selectedOptions = SettingsKey.Complex(
-            key = "selectedOptions",
-            default = listOf(),
-            serializer = { options ->
-                options?.map { it.value }
-                    ?.let { gson.toJson(it) }
-            },
-            deserializer = {
-                if (it == null) {
-                    listOf()
-                } else {
-                    val values = gson.fromJson<ArrayList<Int>>(
-                        it,
-                        object : TypeToken<ArrayList<Int>>() {}.type,
-                    )
+        val selectedOptions by lazy {
+            SettingsKey.Complex(
+                key = "selectedOptions",
+                default = listOf(),
+                serializer = { options ->
+                    options?.map { it.value }
+                        ?.let { gson.toJson(it) }
+                },
+                deserializer = {
+                    if (it == null) {
+                        listOf()
+                    } else {
+                        val values = gson.fromJson<ArrayList<Int>>(
+                            it,
+                            object : TypeToken<ArrayList<Int>>() {}.type,
+                        )
 
-                    values.mapNotNull { value -> getInstallOptions().find { opt -> opt.value == value } }
-                }
-            },
-            settings = settings,
-        )
+                        values.mapNotNull { value -> getInstallOptions().find { opt -> opt.value == value } }
+                    }
+                },
+                settings = settings,
+            )
+        }
+
+        val enableCrashReports by lazy {
+            SettingsKey.Boolean(
+                key = "enableCrashReports",
+                default = false,
+                settings = settings,
+            )
+        }
     }
 
-    val settings = PreferenceManager.getDefaultSharedPreferences(App.context)
+    val settings by lazy {
+        PreferenceManager.getDefaultSharedPreferences(App.context)
+    }
     val gson = GsonBuilder().create()
 }
 
@@ -273,5 +285,30 @@ sealed class SettingsKey<Type> {
                 }
             }
         }
+    }
+}
+
+sealed interface IOptionItem {
+    val label: String
+    val desc: String?
+    val listKey: String
+
+    data class ActionOptionItem(
+        override val label: String,
+        override val desc: String?,
+        override val listKey: String,
+        val action: suspend () -> Unit,
+    ) : IOptionItem
+
+    sealed interface BasicOptionItem<T> : IOptionItem {
+        val key: SettingsKey<T>
+        override val listKey: String
+            get() = key.key
+
+        data class BooleanItem(
+            override val label: String,
+            override val desc: String?,
+            override val key: SettingsKey<Boolean>,
+        ) : BasicOptionItem<Boolean>
     }
 }

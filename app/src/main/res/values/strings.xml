@@ -16,6 +16,10 @@
     <string name="patreon">Patreon</string>
     <string name="mastodon">Mastodon</string>
     <string name="supporters">Supporters</string>
+    <string name="settings">Settings</string>
+    
+    <string name="enable_crash_reports">Enable Crash Reports</string>
+    <string name="enable_crash_reports_desc">Allow Install with Options to send anonymous crash and error logs to Bugsnag. Disabling this requires an app restart to take effect.</string>
 
     <string name="shizuku_not_installed">Shizuku not Installed</string>
     <string name="shizuku_not_installed_desc">Shizuku is required for this app to function. Would you like to download it now?</string>

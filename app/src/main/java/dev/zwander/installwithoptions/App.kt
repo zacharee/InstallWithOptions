@@ -7,8 +7,14 @@ import android.os.Build
 import com.bugsnag.android.Bugsnag
 import com.bugsnag.android.performance.BugsnagPerformance
 import com.getkeepsafe.relinker.ReLinker
+import dev.zwander.installwithoptions.data.Settings
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.lsposed.hiddenapibypass.HiddenApiBypass
 
+@OptIn(DelicateCoroutinesApi::class)
 class App : Application() {
     companion object {
         @SuppressLint("StaticFieldLeak")
@@ -18,17 +24,30 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        context = this
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             HiddenApiBypass.setHiddenApiExemptions("")
         }
 
+        if (Settings.Keys.enableCrashReports.getValue() == true) {
+            startBugsnag()
+        }
+
+        GlobalScope.launch(Dispatchers.IO) {
+            Settings.Keys.enableCrashReports.asMutableStateFlow().collect {
+                if (it == true && !Bugsnag.isStarted()) {
+                    startBugsnag()
+                }
+            }
+        }
+    }
+
+    private fun startBugsnag() {
         ReLinker.loadLibrary(this, "bugsnag-ndk")
         ReLinker.loadLibrary(this, "bugsnag-plugin-android-anr")
 
         Bugsnag.start(this)
         BugsnagPerformance.start(this)
-
-        context = this
     }
 }
