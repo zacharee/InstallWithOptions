@@ -137,8 +137,8 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
                         it.uri,
                         "r",
                     )
-                },
-                options.map { it.value },
+                }.toTypedArray(),
+                options.map { it.value }.toIntArray(),
                 split,
             )
         }
@@ -282,23 +282,23 @@ class InternalInstaller(private val context: Context) {
             .packageInstaller
 
     fun installPackage(
-        fileDescriptors: List<AssetFileDescriptor>,
-        options: List<Int>,
+        fileDescriptors: Array<AssetFileDescriptor>,
+        options: IntArray,
         splits: Boolean
     ) {
         if (splits) {
             installPackagesInSession(fileDescriptors, options)
         } else {
             fileDescriptors.forEach { fd ->
-                installPackagesInSession(listOf(fd), options)
+                installPackagesInSession(arrayOf(fd), options)
             }
         }
     }
 
     @SuppressLint("InlinedApi")
     private fun installPackagesInSession(
-        fileDescriptors: List<AssetFileDescriptor>,
-        options: List<Int>
+        fileDescriptors: Array<AssetFileDescriptor>,
+        options: IntArray,
     ) {
         var session: IPackageInstallerSession? = null
 

@@ -10,20 +10,16 @@ class ShellInterface(context: Context) : IShellInterface.Stub() {
     private val realContext = context.createPackageContext("com.android.shell", 0)
     private val installer = InternalInstaller(realContext)
 
-    @Suppress("UNCHECKED_CAST")
     override fun install(
-        fileDescriptors: List<*>,
-        options: List<*>,
+        fileDescriptors: Array<AssetFileDescriptor>,
+        options: IntArray,
         splits: Boolean,
     ) {
         if (Looper.myLooper() == null) {
             Looper.prepare()
         }
 
-        val castedFileDescriptors = fileDescriptors as List<AssetFileDescriptor>
-        val castedOptions = options as List<Int>
-
-        installer.installPackage(castedFileDescriptors, castedOptions, splits)
+        installer.installPackage(fileDescriptors, options, splits)
     }
 
     override fun destroy() {
