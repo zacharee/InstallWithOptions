@@ -271,9 +271,15 @@ fun MainContent(modifier: Modifier = Modifier) {
                                     shape = CircleShape,
                                 )
                                 .clip(CircleShape)
-                                .clickable(enabled = selectedFiles.isNotEmpty()) {
-                                    showingSelectedFiles = true
-                                },
+                                .then(
+                                    if (selectedFiles.isNotEmpty()) {
+                                        Modifier.clickable {
+                                            showingSelectedFiles = true
+                                        }
+                                    } else {
+                                        Modifier
+                                    },
+                                ),
                             contentAlignment = Alignment.Center,
                         ) {
                             Text(text = selectedFiles.size.toString())
