@@ -11,6 +11,12 @@
     <string name="close_app">Close App</string>
     <string name="open_shizuku">Open Shizuku</string>
 
+    <string name="website">Website</string>
+    <string name="github">GitHub</string>
+    <string name="patreon">Patreon</string>
+    <string name="mastodon">Mastodon</string>
+    <string name="supporters">Supporters</string>
+
     <string name="shizuku_not_installed">Shizuku not Installed</string>
     <string name="shizuku_not_installed_desc">Shizuku is required for this app to function. Would you like to download it now?</string>
 

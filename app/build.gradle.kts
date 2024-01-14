@@ -69,4 +69,5 @@ dependencies {
     implementation(libs.androidx.preference)
     implementation(libs.gson)
     implementation(libs.material)
+    implementation(libs.patreonSupportersRetrieval)
 }

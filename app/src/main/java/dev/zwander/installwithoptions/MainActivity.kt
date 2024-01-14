@@ -1,8 +1,6 @@
 package dev.zwander.installwithoptions
 
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -57,6 +55,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.documentfile.provider.DocumentFile
 import dev.icerock.moko.mvvm.flow.compose.collectAsMutableState
+import dev.zwander.installwithoptions.components.Footer
 import dev.zwander.installwithoptions.data.DataModel
 import dev.zwander.installwithoptions.data.DataModel.shizukuGranted
 import dev.zwander.installwithoptions.data.InstallOption
@@ -64,6 +63,7 @@ import dev.zwander.installwithoptions.data.rememberInstallOptions
 import dev.zwander.installwithoptions.ui.theme.InstallWithOptionsTheme
 import dev.zwander.installwithoptions.util.ShizukuState
 import dev.zwander.installwithoptions.util.ShizukuUtils
+import dev.zwander.installwithoptions.util.launchUrl
 import dev.zwander.installwithoptions.util.rememberPackageInstaller
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuProvider
@@ -105,15 +105,7 @@ class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListe
                             confirmButton = {
                                 TextButton(
                                     onClick = {
-                                        try {
-                                            startActivity(
-                                                Intent(
-                                                    Intent.ACTION_VIEW,
-                                                    Uri.parse("https://shizuku.rikka.app/")
-                                                )
-                                            )
-                                        } catch (_: Exception) {
-                                        }
+                                        launchUrl("https://shizuku.rikka.app/")
                                     },
                                 ) {
                                     Text(text = stringResource(id = R.string.download))
@@ -292,6 +284,8 @@ fun MainContent(modifier: Modifier = Modifier) {
                         Text(text = stringResource(id = R.string.install))
                     }
                 }
+
+                Footer(modifier = Modifier.fillMaxWidth())
             }
         }
 
