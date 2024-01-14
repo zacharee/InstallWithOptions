@@ -3,7 +3,6 @@ package dev.zwander.installwithoptions
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -66,7 +65,6 @@ import dev.zwander.installwithoptions.ui.theme.InstallWithOptionsTheme
 import dev.zwander.installwithoptions.util.ShizukuState
 import dev.zwander.installwithoptions.util.ShizukuUtils
 import dev.zwander.installwithoptions.util.rememberPackageInstaller
-import org.lsposed.hiddenapibypass.HiddenApiBypass
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuProvider
 
@@ -75,10 +73,6 @@ class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListe
         super.onCreate(savedInstanceState)
 
         Shizuku.addRequestPermissionResultListener(this)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            HiddenApiBypass.setHiddenApiExemptions("")
-        }
 
         enableEdgeToEdge()
         setContent {

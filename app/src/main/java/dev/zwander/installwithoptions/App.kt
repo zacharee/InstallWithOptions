@@ -3,6 +3,8 @@ package dev.zwander.installwithoptions
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
+import android.os.Build
+import org.lsposed.hiddenapibypass.HiddenApiBypass
 
 class App : Application() {
     companion object {
@@ -13,6 +15,10 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            HiddenApiBypass.setHiddenApiExemptions("")
+        }
 
         context = this
     }
