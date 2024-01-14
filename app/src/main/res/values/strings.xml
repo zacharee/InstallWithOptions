@@ -7,6 +7,15 @@
     <string name="success">Success</string>
     <string name="installation_complete">Installation Complete</string>
     <string name="status_item">%1$s: %2$s</string>
+    <string name="download">Download</string>
+    <string name="close_app">Close App</string>
+    <string name="open_shizuku">Open Shizuku</string>
+
+    <string name="shizuku_not_installed">Shizuku not Installed</string>
+    <string name="shizuku_not_installed_desc">Shizuku is required for this app to function. Would you like to download it now?</string>
+
+    <string name="shizuku_not_running">Shizuku not Running</string>
+    <string name="shizuku_not_running_desc">Shizuku needs to be running for this app to function. Follow the directions in the Shizuku app to start it.</string>
 
     <string name="install_question">Bulk or Split?</string>
     <string name="install_question_desc">You have multiple files selected for installation. Are these separate apps or split files for one app?</string>

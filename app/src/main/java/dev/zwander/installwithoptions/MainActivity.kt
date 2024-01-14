@@ -1,6 +1,8 @@
 package dev.zwander.installwithoptions
 
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -42,6 +44,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -60,25 +63,18 @@ import dev.zwander.installwithoptions.data.DataModel.shizukuGranted
 import dev.zwander.installwithoptions.data.InstallOption
 import dev.zwander.installwithoptions.data.rememberInstallOptions
 import dev.zwander.installwithoptions.ui.theme.InstallWithOptionsTheme
+import dev.zwander.installwithoptions.util.ShizukuState
+import dev.zwander.installwithoptions.util.ShizukuUtils
 import dev.zwander.installwithoptions.util.rememberPackageInstaller
 import org.lsposed.hiddenapibypass.HiddenApiBypass
 import rikka.shizuku.Shizuku
+import rikka.shizuku.ShizukuProvider
 
 class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         Shizuku.addRequestPermissionResultListener(this)
-
-        try {
-            if (Shizuku.checkSelfPermission() != PackageManager.PERMISSION_GRANTED) {
-                Shizuku.requestPermission(100)
-            } else {
-                shizukuGranted.value = true
-            }
-        } catch (e: Exception) {
-            finish()
-        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             HiddenApiBypass.setHiddenApiExemptions("")
@@ -87,10 +83,97 @@ class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListe
         enableEdgeToEdge()
         setContent {
             InstallWithOptionsTheme {
+                val shizukuState by ShizukuUtils.rememberShizukuState()
+
                 MainContent(
                     modifier = Modifier
                         .fillMaxSize(),
                 )
+
+                LaunchedEffect(key1 = shizukuState) {
+                    if (shizukuState == ShizukuState.RUNNING) {
+                        try {
+                            if (Shizuku.checkSelfPermission() != PackageManager.PERMISSION_GRANTED) {
+                                Shizuku.requestPermission(100)
+                            } else {
+                                shizukuGranted.value = true
+                            }
+                        } catch (e: Exception) {
+                            finish()
+                        }
+                    }
+                }
+
+                when (shizukuState) {
+                    ShizukuState.NOT_INSTALLED -> {
+                        AlertDialog(
+                            onDismissRequest = {},
+                            confirmButton = {
+                                TextButton(
+                                    onClick = {
+                                        try {
+                                            startActivity(
+                                                Intent(
+                                                    Intent.ACTION_VIEW,
+                                                    Uri.parse("https://shizuku.rikka.app/")
+                                                )
+                                            )
+                                        } catch (_: Exception) {
+                                        }
+                                    },
+                                ) {
+                                    Text(text = stringResource(id = R.string.download))
+                                }
+                            },
+                            dismissButton = {
+                                TextButton(
+                                    onClick = { finish() },
+                                ) {
+                                    Text(text = stringResource(id = R.string.close_app))
+                                }
+                            },
+                            title = {
+                                Text(text = stringResource(id = R.string.shizuku_not_installed))
+                            },
+                            text = {
+                                Text(text = stringResource(id = R.string.shizuku_not_installed_desc))
+                            },
+                        )
+                    }
+
+                    ShizukuState.INSTALLED_NOT_RUNNING -> {
+                        AlertDialog(
+                            onDismissRequest = {},
+                            confirmButton = {
+                                TextButton(
+                                    onClick = {
+                                        try {
+                                            startActivity(packageManager.getLaunchIntentForPackage(ShizukuProvider.MANAGER_APPLICATION_ID))
+                                        } catch (_: Exception) {
+                                        }
+                                    },
+                                ) {
+                                    Text(text = stringResource(id = R.string.open_shizuku))
+                                }
+                            },
+                            dismissButton = {
+                                TextButton(
+                                    onClick = { finish() },
+                                ) {
+                                    Text(text = stringResource(id = R.string.close_app))
+                                }
+                            },
+                            title = {
+                                Text(text = stringResource(id = R.string.shizuku_not_running))
+                            },
+                            text = {
+                                Text(text = stringResource(id = R.string.shizuku_not_running_desc))
+                            },
+                        )
+                    }
+
+                    else -> {}
+                }
             }
         }
     }
@@ -170,7 +253,8 @@ fun MainContent(modifier: Modifier = Modifier) {
                 }
 
                 Row(
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
                         .padding(bottom = 8.dp, start = 8.dp, end = 8.dp),
                     horizontalArrangement = Arrangement.spacedBy(4.dp),
                     verticalAlignment = Alignment.CenterVertically,
