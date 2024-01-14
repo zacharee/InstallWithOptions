@@ -4,11 +4,10 @@ import android.content.Context
 import android.content.res.AssetFileDescriptor
 import android.net.Uri
 import android.os.Looper
-import dev.zwander.installwithoptions.IContentResolver
 import dev.zwander.installwithoptions.IShellInterface
 import kotlin.system.exitProcess
 
-class ShellInterface(private val context: Context) : IShellInterface.Stub() {
+class ShellInterface(context: Context) : IShellInterface.Stub() {
     private val installer = InternalInstaller(context)
 
     @Suppress("UNCHECKED_CAST")
