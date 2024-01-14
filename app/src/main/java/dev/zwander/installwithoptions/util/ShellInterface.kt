@@ -11,6 +11,7 @@ import kotlin.system.exitProcess
 class ShellInterface(private val context: Context) : IShellInterface.Stub() {
     private val installer = InternalInstaller(context)
 
+    @Suppress("UNCHECKED_CAST")
     override fun install(
         fileDescriptors: List<*>,
         fileUris: List<*>,
