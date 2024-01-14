@@ -1,6 +1,5 @@
 package dev.zwander.installwithoptions;
 
-import dev.zwander.installwithoptions.IContentResolver;
 import java.util.List;
 
 interface IShellInterface {
