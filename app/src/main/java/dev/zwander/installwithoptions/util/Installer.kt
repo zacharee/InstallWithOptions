@@ -20,6 +20,8 @@ import android.os.ParcelFileDescriptor
 import android.os.ServiceManager
 import android.os.UserHandle
 import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
@@ -44,6 +46,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.core.content.IntentCompat
 import androidx.documentfile.provider.DocumentFile
+import com.google.gson.GsonBuilder
 import dev.zwander.installwithoptions.BuildConfig
 import dev.zwander.installwithoptions.IShellInterface
 import dev.zwander.installwithoptions.R
@@ -68,6 +71,9 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
     val context = LocalContext.current
     val shizukuGranted by shizukuGranted.collectAsState()
     val scope = rememberCoroutineScope()
+    val permissionStarter = rememberLauncherForActivityResult(contract = ActivityResultContracts.StartActivityForResult()) {
+        Log.e("InstallWithOptions", "permission result ${GsonBuilder().create().toJson(it)}")
+    }
 
     var statuses by remember {
         mutableStateOf<List<Pair<String, String>>>(listOf())
@@ -96,15 +102,13 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
 
                     when (status) {
                         PackageInstaller.STATUS_PENDING_USER_ACTION -> {
-                            context.startActivity(
-                                IntentCompat.getParcelableExtra(
-                                    intent,
-                                    Intent.EXTRA_INTENT,
-                                    Intent::class.java
-                                )?.apply {
-                                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                }
+                            val requestIntent = IntentCompat.getParcelableExtra(
+                                intent,
+                                Intent.EXTRA_INTENT,
+                                Intent::class.java
                             )
+
+                            permissionStarter.launch(requestIntent)
                         }
 
                         PackageInstaller.STATUS_SUCCESS -> {
@@ -304,12 +308,11 @@ class InternalInstaller(private val context: Context) {
             ).apply {
                 options.reduceOrNull { acc, i -> acc or i }?.let { flags -> installFlags = flags }
             }
-            val ctx = context.createPackageContext("com.android.shell", 0)
             val sessionId =
                 packageInstaller.createSession(params, "system", "system", UserHandle.myUserId())
             session = packageInstaller.openSession(sessionId)
             val statusIntent = PendingIntent.getBroadcast(
-                ctx, Random.nextInt(),
+                context, Random.nextInt(),
                 Intent(INSTALL_STATUS_ACTION).apply {
                     `package` = BuildConfig.APPLICATION_ID
                 },

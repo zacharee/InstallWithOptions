@@ -24,6 +24,7 @@ fun getInstallOptions() = InstallOption::class.sealedSubclasses
     .mapNotNull { it.objectInstance }
     .filter { Build.VERSION.SDK_INT >= it.minSdk && Build.VERSION.SDK_INT <= it.maxSdk }
 
+@Suppress("unused")
 sealed class InstallOption(
     override val minSdk: Int = Build.VERSION_CODES.BASE,
     override val maxSdk: Int = Int.MAX_VALUE,
@@ -101,13 +102,13 @@ sealed class InstallOption(
 //        descResource = R.string.force_volume_uuid_desc,
 //    )
 
-    @Keep
-    data object ForcePermissionPrompt : InstallOption(
-        value = PackageManager.INSTALL_FORCE_PERMISSION_PROMPT,
-        minSdk = Build.VERSION_CODES.N,
-        labelResource = R.string.force_permission_prompt,
-        descResource = R.string.force_permission_prompt_desc,
-    )
+//    @Keep
+//    data object ForcePermissionPrompt : InstallOption(
+//        value = PackageManager.INSTALL_FORCE_PERMISSION_PROMPT,
+//        minSdk = Build.VERSION_CODES.N,
+//        labelResource = R.string.force_permission_prompt,
+//        descResource = R.string.force_permission_prompt_desc,
+//    )
 
     @Keep
     data object InstantApp : InstallOption(

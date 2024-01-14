@@ -7,7 +7,8 @@ import dev.zwander.installwithoptions.IShellInterface
 import kotlin.system.exitProcess
 
 class ShellInterface(context: Context) : IShellInterface.Stub() {
-    private val installer = InternalInstaller(context)
+    private val realContext = context.createPackageContext("com.android.shell", 0)
+    private val installer = InternalInstaller(realContext)
 
     @Suppress("UNCHECKED_CAST")
     override fun install(
