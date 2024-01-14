@@ -68,4 +68,5 @@ dependencies {
     implementation(libs.moko.mvvm)
     implementation(libs.androidx.preference)
     implementation(libs.gson)
+    implementation(libs.material)
 }
