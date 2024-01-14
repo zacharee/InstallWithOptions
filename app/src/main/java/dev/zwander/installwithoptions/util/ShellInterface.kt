@@ -2,7 +2,6 @@ package dev.zwander.installwithoptions.util
 
 import android.content.Context
 import android.content.res.AssetFileDescriptor
-import android.net.Uri
 import android.os.Looper
 import dev.zwander.installwithoptions.IShellInterface
 import kotlin.system.exitProcess
@@ -13,7 +12,6 @@ class ShellInterface(context: Context) : IShellInterface.Stub() {
     @Suppress("UNCHECKED_CAST")
     override fun install(
         fileDescriptors: List<*>,
-        fileUris: List<*>,
         options: List<*>,
         splits: Boolean,
     ) {
@@ -22,10 +20,9 @@ class ShellInterface(context: Context) : IShellInterface.Stub() {
         }
 
         val castedFileDescriptors = fileDescriptors as List<AssetFileDescriptor>
-        val castedFiles = fileUris as List<Uri>
         val castedOptions = options as List<Int>
 
-        installer.installPackage(castedFileDescriptors, castedFiles, castedOptions, splits)
+        installer.installPackage(castedFileDescriptors, castedOptions, splits)
     }
 
     override fun destroy() {

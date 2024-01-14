@@ -14,7 +14,6 @@ import android.content.pm.IPackageInstallerSession
 import android.content.pm.IPackageManager
 import android.content.pm.PackageInstaller
 import android.content.res.AssetFileDescriptor
-import android.net.Uri
 import android.os.FileBridge.FileBridgeOutputStream
 import android.os.IBinder
 import android.os.ParcelFileDescriptor
@@ -135,7 +134,6 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
                         "r",
                     )
                 },
-                files.map { it.uri },
                 options.map { it.value },
                 split,
             )
@@ -281,15 +279,14 @@ class InternalInstaller(private val context: Context) {
 
     fun installPackage(
         fileDescriptors: List<AssetFileDescriptor>,
-        files: List<Uri>,
         options: List<Int>,
         splits: Boolean
     ) {
         if (splits) {
-            installPackagesInSession(fileDescriptors, files, options)
+            installPackagesInSession(fileDescriptors, options)
         } else {
-            files.forEachIndexed { index, file ->
-                installPackagesInSession(listOf(fileDescriptors[index]), listOf(file), options)
+            fileDescriptors.forEach { fd ->
+                installPackagesInSession(listOf(fd), options)
             }
         }
     }
@@ -297,7 +294,6 @@ class InternalInstaller(private val context: Context) {
     @SuppressLint("InlinedApi")
     private fun installPackagesInSession(
         fileDescriptors: List<AssetFileDescriptor>,
-        files: List<Uri>,
         options: List<Int>
     ) {
         var session: IPackageInstallerSession? = null
@@ -320,12 +316,11 @@ class InternalInstaller(private val context: Context) {
                 PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_ALLOW_UNSAFE_IMPLICIT_INTENT,
             )
 
-            files.forEachIndexed { index, file ->
-                val doc = DocumentFile.fromSingleUri(ctx, file)
+            fileDescriptors.forEachIndexed { index, fd ->
                 val writer = session?.openWrite(
-                    doc?.name ?: "file_${index}",
+                    "file_${index}",
                     0,
-                    doc?.length() ?: -1,
+                    fd.length,
                 )?.run {
                     if (PackageInstaller.ENABLE_REVOCABLE_FD) {
                         ParcelFileDescriptor.AutoCloseOutputStream(this)
@@ -335,7 +330,7 @@ class InternalInstaller(private val context: Context) {
                 }
 
                 writer?.use { output ->
-                    fileDescriptors[index].createInputStream()?.use { input ->
+                    fd.createInputStream()?.use { input ->
                         input.copyTo(output)
                     }
                 }
