@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.0-alpha04"
+agp = "8.4.0-alpha07"
 gson = "2.10.1"
 material = "1.12.0-alpha03"
 patreonsupportersretrieval = "d2e9143db2"
@@ -11,7 +11,7 @@ kotlin = "1.9.22"
 coreKtx = "1.12.0"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.8.2"
-composeBom = "2023.10.01"
+composeBom = "2024.01.00-alpha03"
 moko-mvvm = "0.16.1"
 preference = "1.2.1"
 bugsnag-android = "6.1.0"
@@ -30,7 +30,7 @@ shizuku-provider = { module = "dev.rikka.shizuku:provider", version.ref = "shizu
 hiddenapibypass = { module = "org.lsposed.hiddenapibypass:hiddenapibypass", version.ref = "hiddenapibypass" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-bom = { module = "dev.chrisbanes.compose:compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
