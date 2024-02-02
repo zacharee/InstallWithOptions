@@ -200,7 +200,7 @@ fun MainContent(modifier: Modifier = Modifier) {
     val (install, isInstalling) = rememberPackageInstaller(selectedFiles)
 
     Box(
-        modifier = modifier
+        modifier = modifier,
     ) {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -219,7 +219,7 @@ fun MainContent(modifier: Modifier = Modifier) {
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                     contentPadding = PaddingValues(8.dp),
                 ) {
-                    items(items = options, key = { it.value }) { option ->
+                    items(items = options, key = { it.labelResource }) { option ->
                         OptionItem(
                             option = option,
                             isSelected = selectedOptions?.contains(option) == true,
