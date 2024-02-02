@@ -211,8 +211,8 @@ sealed class InstallOption(
     @Keep
     data object DisableAllowedApexUpdateCheck : InstallOption(
         // Bug in AOSP from 12-13 where the APEX flag here shared a value with AllWhitelistRestrictedPermissions.
-        value = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE) 0x00400000 else PackageManager.INSTALL_DISABLE_ALLOWED_APEX_UPDATE_CHECK,
-        minSdk = Build.VERSION_CODES.S,
+        value = PackageManager.INSTALL_DISABLE_ALLOWED_APEX_UPDATE_CHECK,
+        minSdk = Build.VERSION_CODES.UPSIDE_DOWN_CAKE,
         labelResource = R.string.disable_allowed_apex_update_check,
         descResource = R.string.disable_allowed_apex_update_check_desc,
     )
