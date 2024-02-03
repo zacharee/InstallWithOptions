@@ -185,9 +185,15 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
         }
 
         onDispose {
-            if (shizukuGranted) {
-                Shizuku.unbindUserService(args, connection, true)
-            } else {
+            try {
+                if (shizukuGranted) {
+                    Shizuku.unbindUserService(args, connection, true)
+                } else {
+                    shellInterface = null
+                }
+            } catch (_: Exception) {
+                // Don't care about the error.
+            } finally {
                 shellInterface = null
             }
         }
