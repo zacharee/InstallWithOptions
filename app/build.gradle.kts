@@ -79,4 +79,6 @@ dependencies {
     implementation(libs.bugsnag.android.performance)
     implementation(libs.relinker)
     implementation(libs.material.components)
+    implementation(libs.libsu.core)
+    implementation(libs.libsu.service)
 }

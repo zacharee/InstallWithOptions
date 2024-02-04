@@ -1,24 +1,13 @@
-@file:Suppress("DEPRECATION")
-
 package dev.zwander.installwithoptions.util
 
-import android.annotation.SuppressLint
-import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.ServiceConnection
-import android.content.pm.IPackageInstallerSession
-import android.content.pm.IPackageManager
 import android.content.pm.PackageInstaller
-import android.content.res.AssetFileDescriptor
-import android.os.FileBridge.FileBridgeOutputStream
 import android.os.IBinder
-import android.os.ParcelFileDescriptor
-import android.os.ServiceManager
-import android.os.UserHandle
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -47,18 +36,14 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.IntentCompat
 import androidx.documentfile.provider.DocumentFile
 import dev.zwander.installwithoptions.BuildConfig
-import dev.zwander.installwithoptions.IShellInterface
 import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.data.DataModel
-import dev.zwander.installwithoptions.data.DataModel.shizukuGranted
 import dev.zwander.installwithoptions.data.InstallOption
 import dev.zwander.installwithoptions.data.Settings
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import rikka.shizuku.Shizuku
-import kotlin.random.Random
 
-private const val INSTALL_STATUS_ACTION =
+const val INSTALL_STATUS_ACTION =
     "${BuildConfig.APPLICATION_ID}.intent.action.INSTALL_STATUS"
 
 data class Installer(
@@ -69,7 +54,6 @@ data class Installer(
 @Composable
 fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
     val context = LocalContext.current
-    val shizukuGranted by shizukuGranted.collectAsState()
     val scope = rememberCoroutineScope()
     val permissionStarter = rememberLauncherForActivityResult(contract = ActivityResultContracts.StartActivityForResult()) {
         Log.e("InstallWithOptions", "permission result ${Settings.gson.toJson(it)}")
@@ -87,9 +71,10 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
     var showingConfirmation by remember {
         mutableStateOf(false)
     }
-    var shellInterface by remember {
-        mutableStateOf<IShellInterface?>(null)
+    val rootAdapter = remember {
+        ShizukuRootAdapter(context)
     }
+    val shellInterface = rootAdapter.rememberShellInterface()
 
     val receiver = remember {
         object : BroadcastReceiver() {
@@ -160,42 +145,6 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
 
         onDispose {
             context.unregisterReceiver(receiver)
-        }
-    }
-
-    DisposableEffect(key1 = shizukuGranted) {
-        val args = Shizuku.UserServiceArgs(ComponentName(context, ShellInterface::class.java))
-            .tag("shell_service")
-            .processNameSuffix("shell_service")
-            .debuggable(BuildConfig.DEBUG)
-            .daemon(false)
-
-        val connection = object : ServiceConnection {
-            override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-                shellInterface = IShellInterface.Stub.asInterface(service)
-            }
-
-            override fun onServiceDisconnected(name: ComponentName?) {
-                shellInterface = null
-            }
-        }
-
-        if (shizukuGranted) {
-            Shizuku.bindUserService(args, connection)
-        }
-
-        onDispose {
-            try {
-                if (shizukuGranted) {
-                    Shizuku.unbindUserService(args, connection, true)
-                } else {
-                    shellInterface = null
-                }
-            } catch (_: Exception) {
-                // Don't care about the error.
-            } finally {
-                shellInterface = null
-            }
         }
     }
 
@@ -280,76 +229,4 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
         },
         isInstalling = isInstalling,
     )
-}
-
-class InternalInstaller(private val context: Context) {
-    private val packageInstaller =
-        IPackageManager.Stub.asInterface(ServiceManager.getService("package"))
-            .packageInstaller
-
-    fun installPackage(
-        fileDescriptors: Array<AssetFileDescriptor>,
-        options: IntArray,
-        splits: Boolean
-    ) {
-        if (splits) {
-            installPackagesInSession(fileDescriptors, options)
-        } else {
-            fileDescriptors.forEach { fd ->
-                installPackagesInSession(arrayOf(fd), options)
-            }
-        }
-    }
-
-    @SuppressLint("InlinedApi")
-    private fun installPackagesInSession(
-        fileDescriptors: Array<AssetFileDescriptor>,
-        options: IntArray,
-    ) {
-        var session: IPackageInstallerSession? = null
-
-        try {
-            val params = PackageInstaller.SessionParams(
-                PackageInstaller.SessionParams.MODE_FULL_INSTALL,
-            ).apply {
-                options.reduceOrNull { acc, i -> acc or i }?.let { flags -> installFlags = flags }
-            }
-            val sessionId =
-                packageInstaller.createSession(params, "system", "system", UserHandle.myUserId())
-            session = packageInstaller.openSession(sessionId)
-            val statusIntent = PendingIntent.getBroadcast(
-                context, Random.nextInt(),
-                Intent(INSTALL_STATUS_ACTION).apply {
-                    `package` = BuildConfig.APPLICATION_ID
-                },
-                PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_ALLOW_UNSAFE_IMPLICIT_INTENT,
-            )
-
-            fileDescriptors.forEachIndexed { index, fd ->
-                val writer = session?.openWrite(
-                    "file_${index}",
-                    0,
-                    fd.length,
-                )?.run {
-                    if (PackageInstaller.ENABLE_REVOCABLE_FD) {
-                        ParcelFileDescriptor.AutoCloseOutputStream(this)
-                    } else {
-                        FileBridgeOutputStream(this)
-                    }
-                }
-
-                writer?.use { output ->
-                    fd.createInputStream()?.use { input ->
-                        input.copyTo(output)
-                    }
-                }
-            }
-
-            session?.commit(statusIntent.intentSender, false)
-        } catch (e: Throwable) {
-            e.printStackTrace()
-            Log.e("InstallWithOptions", "error", e)
-            session?.abandon()
-        }
-    }
 }

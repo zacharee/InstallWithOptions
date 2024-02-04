@@ -1,6 +1,5 @@
 package dev.zwander.installwithoptions
 
-import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -33,7 +32,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedCard
@@ -41,7 +39,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -57,125 +54,42 @@ import androidx.documentfile.provider.DocumentFile
 import dev.icerock.moko.mvvm.flow.compose.collectAsMutableState
 import dev.zwander.installwithoptions.components.Footer
 import dev.zwander.installwithoptions.data.DataModel
-import dev.zwander.installwithoptions.data.DataModel.shizukuGranted
 import dev.zwander.installwithoptions.data.InstallOption
 import dev.zwander.installwithoptions.data.rememberInstallOptions
 import dev.zwander.installwithoptions.ui.theme.InstallWithOptionsTheme
-import dev.zwander.installwithoptions.util.ShizukuState
-import dev.zwander.installwithoptions.util.ShizukuUtils
-import dev.zwander.installwithoptions.util.launchUrl
+import dev.zwander.installwithoptions.util.ElevatedPermissionHandler
 import dev.zwander.installwithoptions.util.rememberPackageInstaller
-import rikka.shizuku.Shizuku
-import rikka.shizuku.ShizukuProvider
 
-class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListener {
+class MainActivity : ComponentActivity() {
+    private val permissionHandler by lazy {
+        ElevatedPermissionHandler(
+            context = this,
+            finishCallback = ::finish,
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Shizuku.addRequestPermissionResultListener(this)
+        permissionHandler.onCreate()
 
         enableEdgeToEdge()
         setContent {
             InstallWithOptionsTheme {
-                val shizukuState by ShizukuUtils.rememberShizukuState()
-
                 MainContent(
                     modifier = Modifier
                         .fillMaxSize(),
                 )
 
-                LaunchedEffect(key1 = shizukuState) {
-                    if (shizukuState == ShizukuState.RUNNING) {
-                        try {
-                            if (Shizuku.checkSelfPermission() != PackageManager.PERMISSION_GRANTED) {
-                                Shizuku.requestPermission(100)
-                            } else {
-                                shizukuGranted.value = true
-                            }
-                        } catch (e: Exception) {
-                            finish()
-                        }
-                    }
-                }
-
-                when (shizukuState) {
-                    ShizukuState.NOT_INSTALLED -> {
-                        AlertDialog(
-                            onDismissRequest = {},
-                            confirmButton = {
-                                TextButton(
-                                    onClick = {
-                                        launchUrl("https://shizuku.rikka.app/")
-                                    },
-                                ) {
-                                    Text(text = stringResource(id = R.string.download))
-                                }
-                            },
-                            dismissButton = {
-                                TextButton(
-                                    onClick = { finish() },
-                                ) {
-                                    Text(text = stringResource(id = R.string.close_app))
-                                }
-                            },
-                            title = {
-                                Text(text = stringResource(id = R.string.shizuku_not_installed))
-                            },
-                            text = {
-                                Text(text = stringResource(id = R.string.shizuku_not_installed_desc))
-                            },
-                        )
-                    }
-
-                    ShizukuState.INSTALLED_NOT_RUNNING -> {
-                        AlertDialog(
-                            onDismissRequest = {},
-                            confirmButton = {
-                                TextButton(
-                                    onClick = {
-                                        try {
-                                            startActivity(packageManager.getLaunchIntentForPackage(ShizukuProvider.MANAGER_APPLICATION_ID))
-                                        } catch (_: Exception) {
-                                        }
-                                    },
-                                ) {
-                                    Text(text = stringResource(id = R.string.open_shizuku))
-                                }
-                            },
-                            dismissButton = {
-                                TextButton(
-                                    onClick = { finish() },
-                                ) {
-                                    Text(text = stringResource(id = R.string.close_app))
-                                }
-                            },
-                            title = {
-                                Text(text = stringResource(id = R.string.shizuku_not_running))
-                            },
-                            text = {
-                                Text(text = stringResource(id = R.string.shizuku_not_running_desc))
-                            },
-                        )
-                    }
-
-                    else -> {}
-                }
+                permissionHandler.PermissionTracker()
             }
-        }
-    }
-
-    override fun onRequestPermissionResult(requestCode: Int, grantResult: Int) {
-        if (grantResult != PackageManager.PERMISSION_GRANTED) {
-            finish()
-        } else {
-            shizukuGranted.value = true
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
 
-        Shizuku.removeRequestPermissionResultListener(this)
+        permissionHandler.onDestroy()
     }
 }
 
@@ -338,7 +252,6 @@ fun MainContent(modifier: Modifier = Modifier) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OptionItem(
     option: InstallOption,

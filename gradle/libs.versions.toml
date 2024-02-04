@@ -9,6 +9,7 @@ documentfile = "1.1.0-alpha01"
 hiddenapibypass = "4.3"
 kotlin = "1.9.22"
 coreKtx = "1.12.0"
+libsu = "5.2.2"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.8.2"
 composeBom = "2024.01.00-alpha03"
@@ -41,6 +42,8 @@ androidx-preference = { module = "androidx.preference:preference", version.ref =
 bugsnag-android = { module = "com.bugsnag:bugsnag-android", version.ref = "bugsnag-android" }
 bugsnag-android-performance = { module = "com.bugsnag:bugsnag-android-performance", version.ref = "bugsnag-android-performance" }
 material-components = { module = "com.google.android.material:material", version.ref = "materialComponents" }
+libsu-core = { module = "com.github.topjohnwu.libsu:core", version.ref = "libsu" }
+libsu-service = { module = "com.github.topjohnwu.libsu:service", version.ref = "libsu" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
