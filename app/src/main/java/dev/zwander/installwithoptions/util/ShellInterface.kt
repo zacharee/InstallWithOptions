@@ -7,6 +7,7 @@ import android.os.Looper
 import androidx.annotation.Keep
 import androidx.core.os.UserHandleCompat
 import dev.zwander.installwithoptions.BuildConfig
+import dev.zwander.installwithoptions.IOptionsApplier
 import dev.zwander.installwithoptions.IShellInterface
 import rikka.shizuku.Shizuku
 import kotlin.system.exitProcess
@@ -32,12 +33,13 @@ class ShellInterface(context: Context) : IShellInterface.Stub() {
         fileDescriptors: Array<AssetFileDescriptor>,
         options: IntArray,
         splits: Boolean,
+        applier: IOptionsApplier,
     ) {
         if (Looper.myLooper() == null) {
             Looper.prepare()
         }
 
-        installer.installPackage(fileDescriptors, options, splits)
+        installer.installPackage(fileDescriptors, options, splits, applier)
     }
 
     override fun destroy() {

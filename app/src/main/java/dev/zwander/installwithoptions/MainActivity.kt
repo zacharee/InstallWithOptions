@@ -35,6 +35,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -55,7 +56,9 @@ import dev.icerock.moko.mvvm.flow.compose.collectAsMutableState
 import dev.zwander.installwithoptions.components.Footer
 import dev.zwander.installwithoptions.data.DataModel
 import dev.zwander.installwithoptions.data.InstallOption
+import dev.zwander.installwithoptions.data.MutableOption
 import dev.zwander.installwithoptions.data.rememberInstallOptions
+import dev.zwander.installwithoptions.data.rememberMutableOptions
 import dev.zwander.installwithoptions.ui.theme.InstallWithOptionsTheme
 import dev.zwander.installwithoptions.util.ElevatedPermissionHandler
 import dev.zwander.installwithoptions.util.rememberPackageInstaller
@@ -110,7 +113,9 @@ fun MainContent(modifier: Modifier = Modifier) {
                 DocumentFile.fromSingleUri(context, uri)
             }
         }
-    val options = rememberInstallOptions()
+    val options = (rememberInstallOptions() + rememberMutableOptions()).sortedBy {
+        context.resources.getString(it.labelResource)
+    }
     val (install, isInstalling) = rememberPackageInstaller(selectedFiles)
 
     Box(
@@ -134,21 +139,34 @@ fun MainContent(modifier: Modifier = Modifier) {
                     contentPadding = PaddingValues(8.dp),
                 ) {
                     items(items = options, key = { it.labelResource }) { option ->
-                        OptionItem(
-                            option = option,
-                            isSelected = selectedOptions?.contains(option) == true,
-                            onSelectedChange = {
-                                selectedOptions = if (it) {
-                                    if (selectedOptions?.contains(option) == false) {
-                                        (selectedOptions ?: listOf()) + option
-                                    } else {
-                                        selectedOptions
+                        when (option) {
+                            is InstallOption -> {
+                                OptionItem(
+                                    option = option,
+                                    isSelected = selectedOptions?.contains(option) == true,
+                                    onSelectedChange = {
+                                        selectedOptions = if (it) {
+                                            if (selectedOptions?.contains(option) == false) {
+                                                (selectedOptions ?: listOf()) + option
+                                            } else {
+                                                selectedOptions
+                                            }
+                                        } else {
+                                            (selectedOptions ?: listOf()) - option
+                                        }
+                                    },
+                                )
+                            }
+                            is MutableOption<*> -> {
+                                when (option.value.value) {
+                                    is String? -> {
+                                        @Suppress("UNCHECKED_CAST")
+                                        TextOptionItem(option = option as MutableOption<String>)
                                     }
-                                } else {
-                                    (selectedOptions ?: listOf()) - option
                                 }
-                            },
-                        )
+                            }
+                            else -> {}
+                        }
                     }
                 }
 
@@ -284,6 +302,46 @@ fun OptionItem(
                 Text(
                     text = stringResource(id = option.descResource),
                     style = MaterialTheme.typography.bodySmall,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun TextOptionItem(
+    option: MutableOption<String>,
+    modifier: Modifier = Modifier,
+) {
+    var state by option.value.collectAsMutableState()
+
+    OutlinedCard(
+        modifier = modifier,
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(8.dp),
+        ) {
+            Column(
+                modifier = Modifier.weight(1f),
+            ) {
+                Text(
+                    text = stringResource(id = option.labelResource),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+
+                Text(
+                    text = stringResource(id = option.descResource),
+                    style = MaterialTheme.typography.bodySmall,
+                )
+
+                Spacer(modifier = Modifier.size(4.dp))
+
+                OutlinedTextField(
+                    value = state ?: "",
+                    onValueChange = { state = it },
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }

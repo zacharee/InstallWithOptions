@@ -33,10 +33,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.IntentCompat
 import androidx.documentfile.provider.DocumentFile
 import dev.zwander.installwithoptions.BuildConfig
+import dev.zwander.installwithoptions.IOptionsApplier
 import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.data.DataModel
 import dev.zwander.installwithoptions.data.InstallOption
 import dev.zwander.installwithoptions.data.Settings
+import dev.zwander.installwithoptions.data.getMutableOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -72,6 +74,15 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
         ShizukuRootAdapter(context)
     }
     val shellInterface = rootAdapter.rememberShellInterface()
+
+    val applier = remember {
+        object : IOptionsApplier.Stub() {
+            override fun applyOptions(params: PackageInstaller.SessionParams): PackageInstaller.SessionParams {
+                getMutableOptions().forEach { it.apply(params) }
+                return params.copy()
+            }
+        }
+    }
 
     val receiver = remember {
         object : BroadcastReceiver() {
@@ -122,6 +133,7 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
                 }.toTypedArray(),
                 options.map { it.value }.toIntArray(),
                 split,
+                applier,
             )
         }
     }

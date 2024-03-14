@@ -16,6 +16,7 @@ import android.os.ServiceManager
 import android.os.UserHandle
 import android.util.Log
 import dev.zwander.installwithoptions.BuildConfig
+import dev.zwander.installwithoptions.IOptionsApplier
 import kotlin.random.Random
 
 class InternalInstaller(private val context: Context) {
@@ -26,13 +27,14 @@ class InternalInstaller(private val context: Context) {
     fun installPackage(
         fileDescriptors: Array<AssetFileDescriptor>,
         options: IntArray,
-        splits: Boolean
+        splits: Boolean,
+        applier: IOptionsApplier,
     ) {
         if (splits) {
-            installPackagesInSession(fileDescriptors, options)
+            installPackagesInSession(fileDescriptors, options, applier)
         } else {
             fileDescriptors.forEach { fd ->
-                installPackagesInSession(arrayOf(fd), options)
+                installPackagesInSession(arrayOf(fd), options, applier)
             }
         }
     }
@@ -41,14 +43,16 @@ class InternalInstaller(private val context: Context) {
     private fun installPackagesInSession(
         fileDescriptors: Array<AssetFileDescriptor>,
         options: IntArray,
+        applier: IOptionsApplier,
     ) {
         var session: IPackageInstallerSession? = null
 
         try {
             val params = PackageInstaller.SessionParams(
                 PackageInstaller.SessionParams.MODE_FULL_INSTALL,
-            ).apply {
+            ).run {
                 options.reduceOrNull { acc, i -> acc or i }?.let { flags -> installFlags = flags }
+                applier.applyOptions(this)
             }
             val sessionId =
                 packageInstaller.createSession(params, "system", "system", UserHandle.myUserId())

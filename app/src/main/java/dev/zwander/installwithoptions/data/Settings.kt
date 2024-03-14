@@ -209,7 +209,7 @@ sealed class SettingsKey<Type> {
         override val settings: SharedPreferences,
     ) : SettingsKey<kotlin.String>() {
         override fun getValue(): kotlin.String? {
-            return default?.let { settings.getString(key, default) }
+            return settings.getString(key, default)
         }
 
         override fun setValue(value: kotlin.String?) {
