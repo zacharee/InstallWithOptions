@@ -1,13 +1,13 @@
 [versions]
 agp = "8.4.0-alpha13"
 gson = "2.10.1"
-material = "1.12.0-alpha03"
+material = "1.12.0-beta01"
 patreonsupportersretrieval = "d2e9143db2"
 relinker = "1.4.5"
 shizuku = "13.1.5"
 documentfile = "1.1.0-alpha01"
 hiddenapibypass = "4.3"
-kotlin = "1.9.22"
+kotlin = "1.9.23"
 coreKtx = "1.12.0"
 libsu = "5.2.2"
 lifecycleRuntimeKtx = "2.7.0"
@@ -18,7 +18,7 @@ preference = "1.2.1"
 bugsnag-android = "6.2.0"
 bugsnag-android-gradle = "8.1.0"
 bugsnag-android-performance = "1.2.2"
-materialComponents = "1.12.0-alpha03"
+materialComponents = "1.12.0-beta01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
