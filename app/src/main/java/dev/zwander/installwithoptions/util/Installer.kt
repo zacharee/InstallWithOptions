@@ -123,18 +123,22 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
             isInstalling = true
         }
 
-        scope.launch(Dispatchers.IO) {
-            shellInterface?.install(
-                files.map {
-                    context.contentResolver.openAssetFileDescriptor(
-                        it.uri,
-                        "r",
-                    )
-                }.toTypedArray(),
-                options.map { it.value }.toIntArray(),
-                split,
-                applier,
-            )
+        try {
+            scope.launch(Dispatchers.IO) {
+                shellInterface?.install(
+                    files.map {
+                        context.contentResolver.openAssetFileDescriptor(
+                            it.uri,
+                            "r",
+                        )
+                    }.toTypedArray(),
+                    options.map { it.value }.toIntArray(),
+                    split,
+                    applier,
+                )
+            }
+        } catch (e: Exception) {
+            statuses = files.map{ (it.name ?: it.uri.toString()) to (e.localizedMessage ?: e.message ?: e.toString()) }
         }
     }
 
