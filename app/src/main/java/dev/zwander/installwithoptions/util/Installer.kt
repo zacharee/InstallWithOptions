@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageInstaller
+import android.os.Parcel
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -79,7 +80,8 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
         object : IOptionsApplier.Stub() {
             override fun applyOptions(params: PackageInstaller.SessionParams): PackageInstaller.SessionParams {
                 getMutableOptions().forEach { it.apply(params) }
-                return params.copy()
+
+                return PackageInstaller.SessionParams(Parcel().apply { params.writeToParcel(this, 0) })
             }
         }
     }
