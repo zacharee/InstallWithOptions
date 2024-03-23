@@ -81,7 +81,7 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
             override fun applyOptions(params: PackageInstaller.SessionParams): PackageInstaller.SessionParams {
                 getMutableOptions().forEach { it.apply(params) }
 
-                return PackageInstaller.SessionParams(Parcel().apply { params.writeToParcel(this, 0) })
+                return PackageInstaller.SessionParams(Parcel.obtain().apply { params.writeToParcel(this, 0) })
             }
         }
     }
