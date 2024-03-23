@@ -34,12 +34,19 @@ class ShellInterface(context: Context) : IShellInterface.Stub() {
         options: IntArray,
         splits: Boolean,
         applier: IOptionsApplier,
+        installerPackageName: String?,
     ) {
         if (Looper.myLooper() == null) {
             Looper.prepare()
         }
 
-        installer.installPackage(fileDescriptors, options, splits, applier)
+        installer.installPackage(
+            fileDescriptors,
+            options,
+            splits,
+            applier,
+            installerPackageName.takeIf { !it.isNullOrBlank() } ?: "shell",
+        )
     }
 
     override fun destroy() {

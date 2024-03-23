@@ -1,5 +1,6 @@
 package dev.zwander.installwithoptions.data
 
+import android.annotation.SuppressLint
 import android.content.pm.PackageInstaller.SessionParams
 import android.os.Build
 import androidx.annotation.Keep
@@ -47,7 +48,8 @@ sealed class MutableOption<T>(
             settings = Settings.settings,
         ),
         operator = {
-            if (!it.isNullOrBlank()) {
+            @SuppressLint("NewApi")
+            if (!it.isNullOrBlank() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 setInstallerPackageName(it)
             }
         },

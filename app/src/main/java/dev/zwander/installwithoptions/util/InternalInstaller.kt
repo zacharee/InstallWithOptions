@@ -10,6 +10,7 @@ import android.content.pm.IPackageInstallerSession
 import android.content.pm.IPackageManager
 import android.content.pm.PackageInstaller
 import android.content.res.AssetFileDescriptor
+import android.os.Build
 import android.os.FileBridge
 import android.os.ParcelFileDescriptor
 import android.os.ServiceManager
@@ -29,12 +30,13 @@ class InternalInstaller(private val context: Context) {
         options: IntArray,
         splits: Boolean,
         applier: IOptionsApplier,
+        installerPackageName: String,
     ) {
         if (splits) {
-            installPackagesInSession(fileDescriptors, options, applier)
+            installPackagesInSession(fileDescriptors, options, applier, installerPackageName)
         } else {
             fileDescriptors.forEach { fd ->
-                installPackagesInSession(arrayOf(fd), options, applier)
+                installPackagesInSession(arrayOf(fd), options, applier, installerPackageName)
             }
         }
     }
@@ -44,6 +46,7 @@ class InternalInstaller(private val context: Context) {
         fileDescriptors: Array<AssetFileDescriptor>,
         options: IntArray,
         applier: IOptionsApplier,
+        installerPackageName: String,
     ) {
         var session: IPackageInstallerSession? = null
 
@@ -54,8 +57,23 @@ class InternalInstaller(private val context: Context) {
                 options.reduceOrNull { acc, i -> acc or i }?.let { flags -> installFlags = flags }
                 applier.applyOptions(this)
             }
-            val sessionId =
-                packageInstaller.createSession(params, "system", "system", UserHandle.myUserId())
+            val sessionId = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                packageInstaller.createSession(params, installerPackageName, installerPackageName, UserHandle.myUserId())
+            } else {
+                packageInstaller::class.java
+                    .getMethod(
+                        "createSession",
+                        PackageInstaller.SessionParams::class.java,
+                        String::class.java,
+                        Int::class.java
+                    )
+                    .invoke(
+                        packageInstaller,
+                        params,
+                        installerPackageName,
+                        UserHandle.myUserId(),
+                    ) as Int
+            }
             session = packageInstaller.openSession(sessionId)
             val statusIntent = PendingIntent.getBroadcast(
                 context, Random.nextInt(),

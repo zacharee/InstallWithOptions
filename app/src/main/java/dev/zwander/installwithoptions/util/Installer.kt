@@ -38,6 +38,7 @@ import dev.zwander.installwithoptions.IOptionsApplier
 import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.data.DataModel
 import dev.zwander.installwithoptions.data.InstallOption
+import dev.zwander.installwithoptions.data.MutableOption
 import dev.zwander.installwithoptions.data.Settings
 import dev.zwander.installwithoptions.data.getMutableOptions
 import kotlinx.coroutines.Dispatchers
@@ -137,6 +138,7 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
                     options.map { it.value }.toIntArray(),
                     split,
                     applier,
+                    MutableOption.InstallerPackage.settingsKey.getValue(),
                 )
             }
         } catch (e: Exception) {
