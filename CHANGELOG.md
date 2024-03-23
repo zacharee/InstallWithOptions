@@ -1,3 +1,6 @@
+# 0.4.1
+- Crash fixes.
+
 # 0.4.0
 - Add ability to specify installer package.
 
