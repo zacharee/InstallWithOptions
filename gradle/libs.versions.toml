@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.0-alpha13"
+agp = "8.4.0-beta01"
 gson = "2.10.1"
 material = "1.12.0-beta01"
 patreonsupportersretrieval = "d2e9143db2"
