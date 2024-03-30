@@ -105,9 +105,9 @@ class InternalInstaller(private val context: Context) {
 
             session?.commit(statusIntent.intentSender, false)
         } catch (e: Throwable) {
-            e.printStackTrace()
             Log.e("InstallWithOptions", "error", e)
             session?.abandon()
+            throw e
         }
     }
 }
