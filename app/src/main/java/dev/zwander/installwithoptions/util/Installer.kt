@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageInstaller
-import android.os.Parcel
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -56,9 +55,10 @@ data class Installer(
 fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
-    val permissionStarter = rememberLauncherForActivityResult(contract = ActivityResultContracts.StartActivityForResult()) {
-        Log.e("InstallWithOptions", "permission result ${Settings.gson.toJson(it)}")
-    }
+    val permissionStarter =
+        rememberLauncherForActivityResult(contract = ActivityResultContracts.StartActivityForResult()) {
+            Log.e("InstallWithOptions", "permission result ${Settings.gson.toJson(it)}")
+        }
 
     var statuses by remember {
         mutableStateOf<List<Pair<String, String>>>(listOf())
@@ -82,7 +82,7 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
             override fun applyOptions(params: PackageInstaller.SessionParams): PackageInstaller.SessionParams {
                 getMutableOptions().forEach { it.apply(params) }
 
-                return PackageInstaller.SessionParams(Parcel.obtain().apply { params.writeToParcel(this, 0) })
+                return params
             }
         }
     }
@@ -126,8 +126,8 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
             isInstalling = true
         }
 
-        try {
-            scope.launch(Dispatchers.IO) {
+        scope.launch(Dispatchers.IO) {
+            try {
                 shellInterface?.install(
                     files.map {
                         context.contentResolver.openAssetFileDescriptor(
@@ -140,9 +140,12 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
                     applier,
                     MutableOption.InstallerPackage.settingsKey.getValue(),
                 )
+            } catch (e: Exception) {
+                statuses = files.map {
+                    (it.name ?: it.uri.toString()) to (e.localizedMessage ?: e.message
+                    ?: e.toString())
+                }
             }
-        } catch (e: Exception) {
-            statuses = files.map{ (it.name ?: it.uri.toString()) to (e.localizedMessage ?: e.message ?: e.toString()) }
         }
     }
 
