@@ -8,6 +8,7 @@ import android.content.pm.PackageInstaller
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
@@ -29,14 +30,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.core.content.IntentCompat
+import androidx.core.text.HtmlCompat
 import androidx.documentfile.provider.DocumentFile
 import dev.zwander.installwithoptions.BuildConfig
 import dev.zwander.installwithoptions.IOptionsApplier
 import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.data.DataModel
 import dev.zwander.installwithoptions.data.InstallOption
+import dev.zwander.installwithoptions.data.InstallResult
+import dev.zwander.installwithoptions.data.InstallStatus
 import dev.zwander.installwithoptions.data.MutableOption
 import dev.zwander.installwithoptions.data.Settings
 import dev.zwander.installwithoptions.data.getMutableOptions
@@ -61,7 +66,7 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
         }
 
     var statuses by remember {
-        mutableStateOf<List<Pair<String, String>>>(listOf())
+        mutableStateOf<List<InstallResult>>(listOf())
     }
     var isInstalling by remember {
         mutableStateOf(false)
@@ -109,11 +114,19 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
 
                         PackageInstaller.STATUS_SUCCESS -> {
                             statuses =
-                                statuses + (packageName to context.resources.getString(R.string.success))
+                                statuses + InstallResult(
+                                    status = InstallStatus.SUCCESS,
+                                    packageName = packageName,
+                                    message = context.resources.getString(R.string.success),
+                                )
                         }
 
                         else -> {
-                            statuses = statuses + (packageName to message)
+                            statuses = statuses + InstallResult(
+                                status = InstallStatus.FAILURE,
+                                packageName = packageName,
+                                message = message,
+                            )
                         }
                     }
                 }
@@ -142,8 +155,11 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
                 )
             } catch (e: Exception) {
                 statuses = files.map {
-                    (it.name ?: it.uri.toString()) to (e.localizedMessage ?: e.message
-                    ?: e.toString())
+                    InstallResult(
+                        status = InstallStatus.FAILURE,
+                        packageName = it.name ?: it.uri.toString(),
+                        message = e.localizedMessage ?: e.message ?: e.toString(),
+                    )
                 }
             }
         }
@@ -209,27 +225,40 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
                 }
             },
             title = {
-                Text(text = stringResource(id = R.string.installation_complete))
+                Text(
+                    text = stringResource(
+                        id = if (s.any { it.status == InstallStatus.FAILURE }) {
+                            R.string.installation_errors
+                        } else {
+                            R.string.installation_complete
+                        },
+                    ),
+                )
             },
             text = {
                 SelectionContainer {
                     LazyColumn(
                         modifier = Modifier.fillMaxWidth(),
-                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
                     ) {
-                        items(items = s) {
-                            Text(
-                                text = stringResource(
-                                    id = R.string.status_item,
-                                    try {
-                                        context.packageManager.getApplicationInfo(it.first, 0)
-                                            .loadLabel(context.packageManager).toString()
-                                    } catch (e: Throwable) {
-                                        it.first
-                                    },
-                                    it.second,
+                        items(items = s) { res ->
+                            AndroidView(
+                                factory = { AppCompatTextView(it) },
+                            ) { tv ->
+                                tv.text = HtmlCompat.fromHtml(
+                                    context.resources.getString(
+                                        R.string.status_item,
+                                        try {
+                                            context.packageManager.getApplicationInfo(res.packageName, 0)
+                                                .loadLabel(context.packageManager).toString()
+                                        } catch (e: Throwable) {
+                                            res.packageName
+                                        },
+                                        res.message,
+                                    ),
+                                    HtmlCompat.FROM_HTML_MODE_COMPACT,
                                 )
-                            )
+                            }
                         }
                     }
                 }
