@@ -1,3 +1,8 @@
+# 0.4.2
+- Fix an issue where installs would immediately silently fail, resulting in an infinite loading animation.
+- Fix some formatting and error handling.
+- Better format statuses for installation results.
+
 # 0.4.1
 - Crash fixes.
 
