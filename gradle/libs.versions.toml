@@ -1,7 +1,6 @@
 [versions]
-agp = "8.4.0-beta01"
+agp = "8.4.0-rc01"
 gson = "2.10.1"
-material = "1.12.0-beta01"
 patreonsupportersretrieval = "d2e9143db2"
 relinker = "1.4.5"
 shizuku = "13.1.5"
@@ -12,19 +11,18 @@ coreKtx = "1.12.0"
 libsu = "5.2.2"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.8.2"
-composeBom = "2024.01.00-alpha03"
+composeBom = "2024.04.00-alpha01"
 moko-mvvm = "0.16.1"
 preference = "1.2.1"
-bugsnag-android = "6.2.0"
+bugsnag-android = "6.3.0"
 bugsnag-android-gradle = "8.1.0"
 bugsnag-android-performance = "1.2.2"
-materialComponents = "1.12.0-beta01"
+materialComponents = "1.12.0-rc01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-documentfile = { module = "androidx.documentfile:documentfile", version.ref = "documentfile" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
-material = { module = "com.google.android.material:material", version.ref = "material" }
 patreonSupportersRetrieval = { module = "com.github.zacharee:PatreonSupportersRetrieval", version.ref = "patreonsupportersretrieval" }
 relinker = { module = "com.getkeepsafe.relinker:relinker", version.ref = "relinker" }
 shizuku-api = { module = "dev.rikka.shizuku:api", version.ref = "shizuku" }

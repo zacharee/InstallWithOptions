@@ -73,7 +73,6 @@ dependencies {
     implementation(libs.moko.mvvm)
     implementation(libs.androidx.preference)
     implementation(libs.gson)
-    implementation(libs.material)
     implementation(libs.patreonSupportersRetrieval)
     implementation(libs.bugsnag.android)
     implementation(libs.bugsnag.android.performance)
