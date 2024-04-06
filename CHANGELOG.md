@@ -1,3 +1,6 @@
+# 0.4.3
+- Fix a crash on Android 14 QPR3 Beta 2 caused by an issue in Compose.
+
 # 0.4.2
 - Fix an issue where installs would immediately silently fail, resulting in an infinite loading animation.
 - Fix some formatting and error handling.
