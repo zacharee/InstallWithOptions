@@ -246,7 +246,9 @@ fun MainContent(modifier: Modifier = Modifier) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
-                    CircularProgressIndicator()
+                    CircularProgressIndicator(
+                        color = Color.White,
+                    )
                     Text(
                         text = "$completed / $total",
                         color = Color.White,
