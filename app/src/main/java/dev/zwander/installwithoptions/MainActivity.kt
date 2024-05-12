@@ -133,6 +133,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         super.onDestroy()
 
         permissionHandler.onDestroy()
+        cacheDir.deleteRecursively()
     }
 
     private fun checkIntentForPackage(intent: Intent) {

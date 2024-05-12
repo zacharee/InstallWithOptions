@@ -15,13 +15,19 @@ fun Context.handleIncomingUris(uris: List<Uri>) {
     val currentSelection = DataModel.selectedFiles.value.toMutableMap()
 
     fun addApkFile(file: DocumentFile) {
-        val fd = contentResolver.openAssetFileDescriptor(file.uri, "r") ?: return
-        val apkFile = PackageParser.parseApkLite(fd.fileDescriptor, file.name, 0)
+        val realFile = if (file.uri.scheme == "file") file else run {
+            contentResolver.openInputStream(file.uri).use { input ->
+                val dest = File(cacheDir, "${file.name ?: file.uri}")
+                dest.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+                DocumentFile.fromFile(dest)
+            }
+        }
+        val apkFile = PackageParser.parseApkLite(File(realFile.uri.path), 0)
         val packageList = currentSelection[apkFile.packageName] ?: listOf()
 
         currentSelection[apkFile.packageName] = (packageList + file).distinctBy { "${apkFile.packageName}:${it.name}" }
-
-        fd.close()
     }
 
     uris.forEach { uri ->
