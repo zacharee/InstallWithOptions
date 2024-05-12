@@ -1,50 +1,50 @@
 [versions]
-agp = "8.4.0-rc01"
-gson = "2.10.1"
-patreonsupportersretrieval = "d2e9143db2"
-relinker = "1.4.5"
-shizuku = "13.1.5"
-documentfile = "1.1.0-alpha01"
-hiddenapibypass = "4.3"
-kotlin = "1.9.23"
-coreKtx = "1.12.0"
-libsu = "5.2.2"
-lifecycleRuntimeKtx = "2.7.0"
-activityCompose = "1.8.2"
-composeBom = "2024.04.00-alpha01"
-moko-mvvm = "0.16.1"
-preference = "1.2.1"
-bugsnag-android = "6.3.0"
+activityCompose = "1.9.0"
+agp = "8.4.0"
+bugsnag-android = "6.4.0"
 bugsnag-android-gradle = "8.1.0"
 bugsnag-android-performance = "1.2.2"
-materialComponents = "1.12.0-rc01"
+composeBom = "2024.04.00-alpha02"
+coreKtx = "1.13.1"
+documentfile = "1.1.0-alpha01"
+gson = "2.10.1"
+hiddenapibypass = "4.3"
+kotlin = "2.0.0-RC3"
+libsu = "5.2.2"
+lifecycleRuntimeKtx = "2.7.0"
+materialComponents = "1.12.0"
+moko-mvvm = "0.16.1"
+patreonsupportersretrieval = "d2e9143db2"
+preference = "1.2.1"
+relinker = "1.4.5"
+shizuku = "13.1.5"
 
 [libraries]
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { module = "dev.chrisbanes.compose:compose-bom", version.ref = "composeBom" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-documentfile = { module = "androidx.documentfile:documentfile", version.ref = "documentfile" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-preference = { module = "androidx.preference:preference", version.ref = "preference" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+bugsnag-android = { module = "com.bugsnag:bugsnag-android", version.ref = "bugsnag-android" }
+bugsnag-android-performance = { module = "com.bugsnag:bugsnag-android-performance", version.ref = "bugsnag-android-performance" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+hiddenapibypass = { module = "org.lsposed.hiddenapibypass:hiddenapibypass", version.ref = "hiddenapibypass" }
+libsu-core = { module = "com.github.topjohnwu.libsu:core", version.ref = "libsu" }
+libsu-service = { module = "com.github.topjohnwu.libsu:service", version.ref = "libsu" }
+material-components = { module = "com.google.android.material:material", version.ref = "materialComponents" }
+moko-mvvm = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "moko-mvvm" }
 patreonSupportersRetrieval = { module = "com.github.zacharee:PatreonSupportersRetrieval", version.ref = "patreonsupportersretrieval" }
 relinker = { module = "com.getkeepsafe.relinker:relinker", version.ref = "relinker" }
 shizuku-api = { module = "dev.rikka.shizuku:api", version.ref = "shizuku" }
 shizuku-provider = { module = "dev.rikka.shizuku:provider", version.ref = "shizuku" }
-hiddenapibypass = { module = "org.lsposed.hiddenapibypass:hiddenapibypass", version.ref = "hiddenapibypass" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { module = "dev.chrisbanes.compose:compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-moko-mvvm = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "moko-mvvm" }
-androidx-preference = { module = "androidx.preference:preference", version.ref = "preference" }
-bugsnag-android = { module = "com.bugsnag:bugsnag-android", version.ref = "bugsnag-android" }
-bugsnag-android-performance = { module = "com.bugsnag:bugsnag-android-performance", version.ref = "bugsnag-android-performance" }
-material-components = { module = "com.google.android.material:material", version.ref = "materialComponents" }
-libsu-core = { module = "com.github.topjohnwu.libsu:core", version.ref = "libsu" }
-libsu-service = { module = "com.github.topjohnwu.libsu:service", version.ref = "libsu" }
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-application = { id = "com.android.application", version.ref = "agp" }
 bugsnag-android = { id = "com.bugsnag.android.gradle", version.ref = "bugsnag-android-gradle" }
-
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

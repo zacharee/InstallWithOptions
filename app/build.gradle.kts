@@ -1,8 +1,7 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
-
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.bugsnag.android)
 }
 
@@ -22,7 +21,7 @@ android {
             useSupportLibrary = true
         }
 
-        archivesName = "InstallWithOptions_${versionName}"
+        extensions.getByType(BasePluginExtension::class.java).archivesName.set("InstallWithOptions_${versionName}")
     }
 
     buildTypes {
@@ -45,9 +44,6 @@ android {
         compose = true
         buildConfig = true
         aidl = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.11"
     }
     packaging {
         resources {
