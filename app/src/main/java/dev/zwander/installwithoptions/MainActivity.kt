@@ -245,6 +245,7 @@ fun MainContent(modifier: Modifier = Modifier) {
             ) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     CircularProgressIndicator(
                         color = Color.White,
