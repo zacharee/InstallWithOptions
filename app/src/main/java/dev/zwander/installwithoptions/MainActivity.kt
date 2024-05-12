@@ -321,6 +321,7 @@ fun MainContent(modifier: Modifier = Modifier) {
             text = {
                 LazyColumn(
                     modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     items(items = selectedFiles) {
                         Text(text = it.name ?: it.uri.toString())
