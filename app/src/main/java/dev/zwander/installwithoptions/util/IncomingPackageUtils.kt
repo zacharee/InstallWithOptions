@@ -11,6 +11,7 @@ import net.lingala.zip4j.ZipFile
 import java.io.File
 
 fun Context.handleIncomingUris(uris: List<Uri>) {
+    DataModel.isImporting.value = true
     val currentSelection = DataModel.selectedFiles.value.toMutableMap()
 
     fun addApkFile(file: DocumentFile) {
@@ -36,6 +37,7 @@ fun Context.handleIncomingUris(uris: List<Uri>) {
     }
 
     DataModel.selectedFiles.value = currentSelection
+    DataModel.isImporting.value = false
 }
 
 private fun Context.copyZipToCacheAndExtract(zip: DocumentFile): List<DocumentFile> {

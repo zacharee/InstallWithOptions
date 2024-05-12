@@ -61,6 +61,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -85,8 +86,12 @@ import dev.zwander.installwithoptions.util.ElevatedPermissionHandler
 import dev.zwander.installwithoptions.util.handleIncomingUris
 import dev.zwander.installwithoptions.util.plus
 import dev.zwander.installwithoptions.util.rememberPackageInstaller
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     private val permissionHandler by lazy {
         ElevatedPermissionHandler(
             context = this,
@@ -132,7 +137,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkIntentForPackage(intent: Intent) {
         intent.data?.let {
-            handleIncomingUris(listOf(it))
+            launch(Dispatchers.IO) {
+                handleIncomingUris(listOf(it))
+            }
         }
     }
 }
@@ -140,16 +147,21 @@ class MainActivity : AppCompatActivity() {
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainContent(modifier: Modifier = Modifier) {
+    val scope = rememberCoroutineScope()
+
     var selectedFiles by DataModel.selectedFiles.collectAsMutableState()
     var showingSelectedFiles by remember {
         mutableStateOf(false)
     }
     var selectedOptions by DataModel.selectedOptions.collectAsMutableState()
+    val isImporting by DataModel.isImporting.collectAsState()
 
     val context = LocalContext.current
     val fileSelector =
         rememberLauncherForActivityResult(contract = ActivityResultContracts.OpenMultipleDocuments()) { uris ->
-            context.handleIncomingUris(uris)
+            scope.launch(Dispatchers.IO) {
+                context.handleIncomingUris(uris)
+            }
         }
     val options = (rememberInstallOptions() + rememberMutableOptions()).sortedBy {
         context.resources.getString(it.labelResource)
@@ -324,6 +336,32 @@ fun MainContent(modifier: Modifier = Modifier) {
                 }
             }
         }
+
+        AnimatedVisibility(
+            visible = isImporting,
+            modifier = Modifier.fillMaxSize(),
+            enter = fadeIn(),
+            exit = fadeOut(),
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black.copy(alpha = 0.5f))
+                    .clickable(
+                        interactionSource = remember {
+                            MutableInteractionSource()
+                        },
+                        indication = null,
+                        enabled = true,
+                        onClick = {},
+                    ),
+                contentAlignment = Alignment.Center,
+            ) {
+                CircularProgressIndicator(
+                    color = Color.White,
+                )
+            }
+        }
     }
 
     if (showingSelectedFiles) {
@@ -344,7 +382,8 @@ fun MainContent(modifier: Modifier = Modifier) {
                     selectedFiles.forEach { (pkg, files) ->
                         stickyHeader {
                             Row(
-                                modifier = Modifier.fillMaxWidth()
+                                modifier = Modifier
+                                    .fillMaxWidth()
                                     .background(color = MaterialTheme.colorScheme.surfaceContainerHigh),
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically,
@@ -370,7 +409,8 @@ fun MainContent(modifier: Modifier = Modifier) {
 
                         items(items = files) {
                             Row(
-                                modifier = Modifier.fillMaxWidth()
+                                modifier = Modifier
+                                    .fillMaxWidth()
                                     .background(color = MaterialTheme.colorScheme.surfaceContainerHigh),
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically,

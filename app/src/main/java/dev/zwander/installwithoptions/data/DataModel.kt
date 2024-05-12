@@ -8,4 +8,5 @@ object DataModel {
     val rootGranted = MutableStateFlow(false)
     val selectedOptions = Settings.Keys.selectedOptions.asMutableStateFlow()
     val selectedFiles = MutableStateFlow(mapOf<String, List<DocumentFile>>())
+    val isImporting = MutableStateFlow(false)
 }
