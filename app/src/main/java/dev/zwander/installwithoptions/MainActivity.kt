@@ -1,5 +1,6 @@
 package dev.zwander.installwithoptions
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -99,6 +100,13 @@ class MainActivity : AppCompatActivity() {
                 permissionHandler.PermissionTracker()
             }
         }
+
+        checkIntentForPackage(intent)
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        checkIntentForPackage(intent)
+        super.onNewIntent(intent)
     }
 
     override fun onDestroy() {
@@ -106,13 +114,20 @@ class MainActivity : AppCompatActivity() {
 
         permissionHandler.onDestroy()
     }
+
+    private fun checkIntentForPackage(intent: Intent) {
+        if (intent.type == "application/vnd.android.package-archive") {
+            val apkUri = intent.data ?: return
+            val file = DocumentFile.fromSingleUri(this, apkUri) ?: return
+
+            DataModel.selectedFiles.value += file
+        }
+    }
 }
 
 @Composable
 fun MainContent(modifier: Modifier = Modifier) {
-    var selectedFiles by remember {
-        mutableStateOf(listOf<DocumentFile>())
-    }
+    var selectedFiles by DataModel.selectedFiles.collectAsMutableState()
     var showingSelectedFiles by remember {
         mutableStateOf(false)
     }
