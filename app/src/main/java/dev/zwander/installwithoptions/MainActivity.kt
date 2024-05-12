@@ -1,6 +1,7 @@
 package dev.zwander.installwithoptions
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -18,19 +19,22 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.displayCutout
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -59,6 +63,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.documentfile.provider.DocumentFile
@@ -84,8 +89,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge(
-            navigationBarStyle = SystemBarStyle.dark(Color.Transparent.toArgb()),
+            navigationBarStyle = SystemBarStyle.auto(Color.Transparent.toArgb(), Color.Transparent.toArgb()),
         )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.isNavigationBarContrastEnforced = false
+        }
         super.onCreate(savedInstanceState)
 
         permissionHandler.onCreate()
@@ -153,8 +161,7 @@ fun MainContent(modifier: Modifier = Modifier) {
         ) {
             Scaffold(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .imePadding(),
+                    .fillMaxSize(),
                 bottomBar = {
                     Surface(
                         modifier = Modifier.fillMaxWidth(),
@@ -164,11 +171,8 @@ fun MainContent(modifier: Modifier = Modifier) {
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(
-                                    WindowInsets.systemBars
-                                        .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Bottom)
-                                        .asPaddingValues()
-                                ),
+                                .navigationBarsPadding()
+                                .imePadding(),
                         ) {
                             Row(
                                 modifier = Modifier
@@ -225,11 +229,19 @@ fun MainContent(modifier: Modifier = Modifier) {
                     }
                 },
                 content = { contentPadding ->
+                    val nonBottom = PaddingValues(
+                        top = contentPadding.calculateTopPadding(),
+                        start = contentPadding.calculateStartPadding(LocalLayoutDirection.current),
+                        end = contentPadding.calculateEndPadding(LocalLayoutDirection.current),
+                    )
+                    val bottom = PaddingValues(bottom = contentPadding.calculateBottomPadding())
+
                     LazyColumn(
                         modifier = Modifier
-                            .fillMaxSize(),
+                            .fillMaxSize()
+                            .padding(bottom),
                         verticalArrangement = Arrangement.spacedBy(8.dp),
-                        contentPadding = contentPadding +
+                        contentPadding = nonBottom +
                                 WindowInsets.displayCutout.only(WindowInsetsSides.Horizontal)
                                     .asPaddingValues(),
                     ) {
