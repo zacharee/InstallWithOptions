@@ -1,3 +1,12 @@
+# 0.5.0
+- Automatically detect split APKs and normal APKs inside a single selection and group them accordingly.
+- Add preliminary ability to import split APKs (.xapk or .apkm).
+- Add view target to open APKs from the system open sheet.
+- Add ability to remove packages or individual APKs from the install queue.
+- Add text below install progress indicator to show how many packages have completed their install.
+- Update explanation for "Grant All Requested Permissions" to be clearer that it's about runtime permission only.
+- UI tweaks.
+
 # 0.4.3
 - Fix a crash on Android 14 QPR3 Beta 2 caused by an issue in Compose.
 
