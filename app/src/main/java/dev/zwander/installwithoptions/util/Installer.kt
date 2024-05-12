@@ -54,6 +54,8 @@ const val INSTALL_STATUS_ACTION =
 data class Installer(
     val install: () -> Unit,
     val isInstalling: Boolean,
+    val totalPackages: Int,
+    val completed: Int,
 )
 
 @Composable
@@ -106,23 +108,36 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
                             val requestIntent = IntentCompat.getParcelableExtra(
                                 intent,
                                 Intent.EXTRA_INTENT,
-                                Intent::class.java
+                                Intent::class.java,
                             )
 
-                            permissionStarter.launch(requestIntent)
+                            if (requestIntent != null) {
+                                permissionStarter.launch(requestIntent)
+                            } else {
+                                statuses = statuses.toMutableList().apply {
+                                    removeIf { it.packageName == packageName }
+                                } + InstallResult(
+                                    status = InstallStatus.FAILURE,
+                                    packageName = packageName,
+                                    message = context.resources.getString(R.string.permission_intent_was_null),
+                                )
+                            }
                         }
 
                         PackageInstaller.STATUS_SUCCESS -> {
-                            statuses =
-                                statuses + InstallResult(
-                                    status = InstallStatus.SUCCESS,
-                                    packageName = packageName,
-                                    message = context.resources.getString(R.string.success),
-                                )
+                            statuses = statuses.toMutableList().apply {
+                                removeIf { it.packageName == packageName }
+                            } + InstallResult(
+                                status = InstallStatus.SUCCESS,
+                                packageName = packageName,
+                                message = context.resources.getString(R.string.success),
+                            )
                         }
 
                         else -> {
-                            statuses = statuses + InstallResult(
+                            statuses = statuses.toMutableList().apply {
+                                removeIf { it.packageName == packageName }
+                            } + InstallResult(
                                 status = InstallStatus.FAILURE,
                                 packageName = packageName,
                                 message = message,
@@ -277,5 +292,7 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
             }
         },
         isInstalling = isInstalling,
+        totalPackages = files.size,
+        completed = statuses.size,
     )
 }

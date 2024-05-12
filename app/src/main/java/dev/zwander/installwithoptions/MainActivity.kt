@@ -117,7 +117,7 @@ fun MainContent(modifier: Modifier = Modifier) {
     val options = (rememberInstallOptions() + rememberMutableOptions()).sortedBy {
         context.resources.getString(it.labelResource)
     }
-    val (install, isInstalling) = rememberPackageInstaller(selectedFiles)
+    val (install, isInstalling, total, completed) = rememberPackageInstaller(selectedFiles)
 
     Box(
         modifier = modifier,
@@ -187,7 +187,7 @@ fun MainContent(modifier: Modifier = Modifier) {
                             modifier = Modifier
                                 .size(24.dp)
                                 .border(
-                                    border = ButtonDefaults.outlinedButtonBorder,
+                                    border = ButtonDefaults.outlinedButtonBorder(true),
                                     shape = CircleShape,
                                 )
                                 .clip(CircleShape)
@@ -243,7 +243,15 @@ fun MainContent(modifier: Modifier = Modifier) {
                     ),
                 contentAlignment = Alignment.Center,
             ) {
-                CircularProgressIndicator()
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    CircularProgressIndicator()
+                    Text(
+                        text = "$completed / $total",
+                        color = Color.White,
+                    )
+                }
             }
         }
     }
