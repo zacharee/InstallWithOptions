@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.InstallWithOptions" parent="Theme.Material3.DynamicColors.DayNight" />
+    <style name="Theme.InstallWithOptions" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+    </style>
 </resources>

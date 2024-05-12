@@ -73,7 +73,6 @@ private val footerItems = listOf(
     ),
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Footer(
     modifier: Modifier = Modifier,

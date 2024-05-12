@@ -21,7 +21,7 @@ class ElevatedPermissionHandler(
     private val finishCallback: () -> Unit,
 ) : Shizuku.OnRequestPermissionResultListener {
     fun onCreate() {
-        DataModel.rootGranted.value = Shell.isAppGrantedRoot() == null && Shell.getShell().isRoot
+        DataModel.rootGranted.value = Shell.getShell().isRoot
         Shizuku.addRequestPermissionResultListener(this)
     }
 
