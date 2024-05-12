@@ -18,6 +18,7 @@ patreonsupportersretrieval = "d2e9143db2"
 preference = "1.2.1"
 relinker = "1.4.5"
 shizuku = "13.1.5"
+zip4j = "2.11.5"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -42,6 +43,7 @@ patreonSupportersRetrieval = { module = "com.github.zacharee:PatreonSupportersRe
 relinker = { module = "com.getkeepsafe.relinker:relinker", version.ref = "relinker" }
 shizuku-api = { module = "dev.rikka.shizuku:api", version.ref = "shizuku" }
 shizuku-provider = { module = "dev.rikka.shizuku:provider", version.ref = "shizuku" }
+zip4j = { module = "net.lingala.zip4j:zip4j", version.ref = "zip4j" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

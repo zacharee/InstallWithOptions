@@ -1,10 +1,8 @@
 package dev.zwander.installwithoptions
 
 import android.content.Intent
-import android.content.pm.PackageParser
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
@@ -14,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -40,11 +39,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedCard
@@ -70,7 +73,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
-import androidx.documentfile.provider.DocumentFile
 import dev.icerock.moko.mvvm.flow.compose.collectAsMutableState
 import dev.zwander.installwithoptions.components.Footer
 import dev.zwander.installwithoptions.data.DataModel
@@ -80,10 +82,10 @@ import dev.zwander.installwithoptions.data.rememberInstallOptions
 import dev.zwander.installwithoptions.data.rememberMutableOptions
 import dev.zwander.installwithoptions.ui.theme.InstallWithOptionsTheme
 import dev.zwander.installwithoptions.util.ElevatedPermissionHandler
+import dev.zwander.installwithoptions.util.handleIncomingUris
 import dev.zwander.installwithoptions.util.plus
 import dev.zwander.installwithoptions.util.rememberPackageInstaller
 
-@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     private val permissionHandler by lazy {
         ElevatedPermissionHandler(
@@ -129,24 +131,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkIntentForPackage(intent: Intent) {
-        if (intent.type == "application/vnd.android.package-archive") {
-            val selected = DataModel.selectedFiles.value.toMutableMap()
-            val apkUri = intent.data ?: return
-            val file = DocumentFile.fromSingleUri(this, apkUri) ?: return
-
-            val fd = contentResolver.openAssetFileDescriptor(apkUri, "r") ?: return
-            val apkFile = PackageParser.parseApkLite(fd.fileDescriptor, file.name, 0)
-
-            val packageList = selected[apkFile.packageName] ?: listOf()
-
-            selected[apkFile.packageName] = packageList + file
-            fd.close()
-
-            DataModel.selectedFiles.value = selected
+        intent.data?.let {
+            handleIncomingUris(listOf(it))
         }
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainContent(modifier: Modifier = Modifier) {
     var selectedFiles by DataModel.selectedFiles.collectAsMutableState()
@@ -158,20 +149,7 @@ fun MainContent(modifier: Modifier = Modifier) {
     val context = LocalContext.current
     val fileSelector =
         rememberLauncherForActivityResult(contract = ActivityResultContracts.OpenMultipleDocuments()) { uris ->
-            val selected = selectedFiles.toMutableMap()
-
-            uris.forEach { uri ->
-                val file = DocumentFile.fromSingleUri(context, uri) ?: return@forEach
-                val fd = context.contentResolver.openAssetFileDescriptor(uri, "r") ?: return@forEach
-                val apkFile = PackageParser.parseApkLite(fd.fileDescriptor, file.name, 0)
-
-                val packageList = selected[apkFile.packageName] ?: listOf()
-
-                selected[apkFile.packageName] = packageList + file
-                fd.close()
-            }
-
-            selectedFiles = selected
+            context.handleIncomingUris(uris)
         }
     val options = (rememberInstallOptions() + rememberMutableOptions()).sortedBy {
         context.resources.getString(it.labelResource)
@@ -207,7 +185,11 @@ fun MainContent(modifier: Modifier = Modifier) {
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
                                 OutlinedButton(
-                                    onClick = { fileSelector.launch(arrayOf("application/vnd.android.package-archive")) },
+                                    onClick = {
+                                        fileSelector.launch(
+                                            arrayOf("*/*"),
+                                        )
+                                    },
                                     modifier = Modifier.weight(1f),
                                 ) {
                                     Box(
@@ -359,21 +341,66 @@ fun MainContent(modifier: Modifier = Modifier) {
                 LazyColumn(
                     modifier = Modifier.fillMaxWidth(),
                 ) {
-                    items(items = selectedFiles.entries.flatMap { listOf(it.key) + it.value }) {
-                        if (it is String) {
-                            Text(
-                                text = it,
-                                fontWeight = FontWeight.Bold,
-                                textDecoration = TextDecoration.Underline,
-                                modifier = Modifier.padding(top = 8.dp, bottom = 0.dp),
-                            )
+                    selectedFiles.forEach { (pkg, files) ->
+                        stickyHeader {
+                            Row(
+                                modifier = Modifier.fillMaxWidth()
+                                    .background(color = MaterialTheme.colorScheme.surfaceContainerHigh),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = pkg,
+                                    fontWeight = FontWeight.Bold,
+                                    textDecoration = TextDecoration.Underline,
+                                )
+
+                                IconButton(
+                                    onClick = {
+                                        selectedFiles -= pkg
+                                    },
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Filled.Delete,
+                                        contentDescription = stringResource(id = R.string.remove),
+                                    )
+                                }
+                            }
                         }
 
-                        if (it is DocumentFile) {
-                            Text(
-                                text = it.name ?: it.uri.toString(),
-                                modifier = Modifier.padding(top = 0.dp, bottom = 4.dp),
-                            )
+                        items(items = files) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth()
+                                    .background(color = MaterialTheme.colorScheme.surfaceContainerHigh),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = it.name ?: it.uri.toString(),
+                                    modifier = Modifier.weight(1f),
+                                )
+
+                                if (files.size > 1) {
+                                    IconButton(
+                                        onClick = {
+                                            selectedFiles = selectedFiles.toMutableMap().apply {
+                                                val newList = this[pkg]?.minus(it)
+
+                                                if (newList.isNullOrEmpty()) {
+                                                    remove(pkg)
+                                                } else {
+                                                    this[pkg] = newList
+                                                }
+                                            }
+                                        },
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Filled.Delete,
+                                            contentDescription = stringResource(id = R.string.remove),
+                                        )
+                                    }
+                                }
+                            }
                         }
                     }
                 }

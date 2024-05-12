@@ -75,4 +75,5 @@ dependencies {
     implementation(libs.material.components)
     implementation(libs.libsu.core)
     implementation(libs.libsu.service)
+    implementation(libs.zip4j)
 }
