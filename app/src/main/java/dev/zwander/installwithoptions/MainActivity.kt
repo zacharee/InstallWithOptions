@@ -1,8 +1,10 @@
 package dev.zwander.installwithoptions
 
 import android.content.Intent
+import android.content.pm.PackageParser
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
@@ -65,6 +67,8 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.documentfile.provider.DocumentFile
 import dev.icerock.moko.mvvm.flow.compose.collectAsMutableState
@@ -79,6 +83,7 @@ import dev.zwander.installwithoptions.util.ElevatedPermissionHandler
 import dev.zwander.installwithoptions.util.plus
 import dev.zwander.installwithoptions.util.rememberPackageInstaller
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     private val permissionHandler by lazy {
         ElevatedPermissionHandler(
@@ -125,10 +130,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkIntentForPackage(intent: Intent) {
         if (intent.type == "application/vnd.android.package-archive") {
+            val selected = DataModel.selectedFiles.value.toMutableMap()
             val apkUri = intent.data ?: return
             val file = DocumentFile.fromSingleUri(this, apkUri) ?: return
 
-            DataModel.selectedFiles.value += file
+            val fd = contentResolver.openAssetFileDescriptor(apkUri, "r") ?: return
+            val apkFile = PackageParser.parseApkLite(fd.fileDescriptor, file.name, 0)
+
+            val packageList = selected[apkFile.packageName] ?: listOf()
+
+            selected[apkFile.packageName] = packageList + file
+            fd.close()
+
+            DataModel.selectedFiles.value = selected
         }
     }
 }
@@ -144,9 +158,20 @@ fun MainContent(modifier: Modifier = Modifier) {
     val context = LocalContext.current
     val fileSelector =
         rememberLauncherForActivityResult(contract = ActivityResultContracts.OpenMultipleDocuments()) { uris ->
-            selectedFiles = uris.mapNotNull { uri ->
-                DocumentFile.fromSingleUri(context, uri)
+            val selected = selectedFiles.toMutableMap()
+
+            uris.forEach { uri ->
+                val file = DocumentFile.fromSingleUri(context, uri) ?: return@forEach
+                val fd = context.contentResolver.openAssetFileDescriptor(uri, "r") ?: return@forEach
+                val apkFile = PackageParser.parseApkLite(fd.fileDescriptor, file.name, 0)
+
+                val packageList = selected[apkFile.packageName] ?: listOf()
+
+                selected[apkFile.packageName] = packageList + file
+                fd.close()
             }
+
+            selectedFiles = selected
         }
     val options = (rememberInstallOptions() + rememberMutableOptions()).sortedBy {
         context.resources.getString(it.labelResource)
@@ -204,7 +229,7 @@ fun MainContent(modifier: Modifier = Modifier) {
                                             ),
                                         contentAlignment = Alignment.Center,
                                     ) {
-                                        Text(text = selectedFiles.size.toString())
+                                        Text(text = selectedFiles.flatMap { it.value }.size.toString())
                                     }
 
                                     Spacer(modifier = Modifier.size(8.dp))
@@ -333,10 +358,23 @@ fun MainContent(modifier: Modifier = Modifier) {
             text = {
                 LazyColumn(
                     modifier = Modifier.fillMaxWidth(),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    items(items = selectedFiles) {
-                        Text(text = it.name ?: it.uri.toString())
+                    items(items = selectedFiles.entries.flatMap { listOf(it.key) + it.value }) {
+                        if (it is String) {
+                            Text(
+                                text = it,
+                                fontWeight = FontWeight.Bold,
+                                textDecoration = TextDecoration.Underline,
+                                modifier = Modifier.padding(top = 8.dp, bottom = 0.dp),
+                            )
+                        }
+
+                        if (it is DocumentFile) {
+                            Text(
+                                text = it.name ?: it.uri.toString(),
+                                modifier = Modifier.padding(top = 0.dp, bottom = 4.dp),
+                            )
+                        }
                     }
                 }
             }

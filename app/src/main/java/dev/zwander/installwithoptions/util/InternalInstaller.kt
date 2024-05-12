@@ -26,18 +26,13 @@ class InternalInstaller(private val context: Context) {
             .packageInstaller
 
     fun installPackage(
-        fileDescriptors: Array<AssetFileDescriptor>,
+        fileDescriptors: Map<String, List<AssetFileDescriptor>>,
         options: IntArray,
-        splits: Boolean,
         applier: IOptionsApplier,
         installerPackageName: String,
     ) {
-        if (splits) {
-            installPackagesInSession(fileDescriptors, options, applier, installerPackageName)
-        } else {
-            fileDescriptors.forEach { fd ->
-                installPackagesInSession(arrayOf(fd), options, applier, installerPackageName)
-            }
+        fileDescriptors.forEach { (_, fds) ->
+            installPackagesInSession(fds.toTypedArray(), options, applier, installerPackageName)
         }
     }
 

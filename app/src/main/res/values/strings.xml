@@ -30,11 +30,6 @@
     <string name="shizuku_not_running">Shizuku not Running</string>
     <string name="shizuku_not_running_desc">Shizuku needs to be running for this app to function. Follow the directions in the Shizuku app to start it.</string>
 
-    <string name="install_question">Bulk or Split?</string>
-    <string name="install_question_desc">You have multiple files selected for installation. Are these separate apps or split files for one app?</string>
-    <string name="separate_apps">Separate Apps</string>
-    <string name="split_app">Split App</string>
-
     <string name="replace_existing">Replace Existing</string>
     <string name="replace_existing_desc">If the package being installed already exists, replace/upgrade it.</string>
     

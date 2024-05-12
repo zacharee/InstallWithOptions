@@ -30,9 +30,8 @@ class ShellInterface(context: Context) : IShellInterface.Stub() {
     })
 
     override fun install(
-        fileDescriptors: Array<AssetFileDescriptor>,
+        fileDescriptors: Map<*, *>,
         options: IntArray,
-        splits: Boolean,
         applier: IOptionsApplier,
         installerPackageName: String?,
     ) {
@@ -41,9 +40,8 @@ class ShellInterface(context: Context) : IShellInterface.Stub() {
         }
 
         installer.installPackage(
-            fileDescriptors,
+            fileDescriptors as Map<String, List<AssetFileDescriptor>>,
             options,
-            splits,
             applier,
             installerPackageName.takeIf { !it.isNullOrBlank() } ?: "shell",
         )

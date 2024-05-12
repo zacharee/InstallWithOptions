@@ -7,5 +7,5 @@ object DataModel {
     val shizukuAvailable = MutableStateFlow(false)
     val rootGranted = MutableStateFlow(false)
     val selectedOptions = Settings.Keys.selectedOptions.asMutableStateFlow()
-    val selectedFiles = MutableStateFlow(listOf<DocumentFile>())
+    val selectedFiles = MutableStateFlow(mapOf<String, List<DocumentFile>>())
 }

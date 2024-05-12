@@ -59,7 +59,7 @@ data class Installer(
 )
 
 @Composable
-fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
+fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val permissionStarter =
@@ -76,9 +76,9 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
 
     val options by DataModel.selectedOptions.collectAsState()
 
-    var showingConfirmation by remember {
-        mutableStateOf(false)
-    }
+//    var showingConfirmation by remember {
+//        mutableStateOf(false)
+//    }
     val rootAdapter = remember {
         ShizukuRootAdapter(context)
     }
@@ -149,7 +149,7 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
         }
     }
 
-    fun installPackage(files: List<DocumentFile>, options: List<InstallOption>, split: Boolean) {
+    fun installPackage(files: Map<String, List<DocumentFile>>, options: List<InstallOption>) {
         if (shellInterface != null) {
             isInstalling = true
         }
@@ -157,24 +157,27 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
         scope.launch(Dispatchers.IO) {
             try {
                 shellInterface?.install(
-                    files.map {
-                        context.contentResolver.openAssetFileDescriptor(
-                            it.uri,
-                            "r",
-                        )
-                    }.toTypedArray(),
+                    files.map { (k, v) ->
+                        k to v.map {
+                            context.contentResolver.openAssetFileDescriptor(
+                                it.uri,
+                                "r",
+                            )
+                        }
+                    }.toMap(),
                     options.map { it.value }.toIntArray(),
-                    split,
                     applier,
                     MutableOption.InstallerPackage.settingsKey.getValue(),
                 )
             } catch (e: Exception) {
-                statuses = files.map {
-                    InstallResult(
-                        status = InstallStatus.FAILURE,
-                        packageName = it.name ?: it.uri.toString(),
-                        message = e.localizedMessage ?: e.message ?: e.toString(),
-                    )
+                statuses = files.flatMap { (_, v) ->
+                    v.map {
+                        InstallResult(
+                            status = InstallStatus.FAILURE,
+                            packageName = it.name ?: it.uri.toString(),
+                            message = e.localizedMessage ?: e.message ?: e.toString(),
+                        )
+                    }
                 }
             }
         }
@@ -199,37 +202,37 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
         }
     }
 
-    if (showingConfirmation) {
-        AlertDialog(
-            onDismissRequest = { showingConfirmation = false },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        installPackage(files, options ?: listOf(), true)
-                        showingConfirmation = false
-                    },
-                ) {
-                    Text(text = stringResource(id = R.string.split_app))
-                }
-            },
-            dismissButton = {
-                TextButton(
-                    onClick = {
-                        installPackage(files, options ?: listOf(), false)
-                        showingConfirmation = false
-                    },
-                ) {
-                    Text(text = stringResource(id = R.string.separate_apps))
-                }
-            },
-            title = {
-                Text(text = stringResource(id = R.string.install_question))
-            },
-            text = {
-                Text(text = stringResource(id = R.string.install_question_desc))
-            },
-        )
-    }
+//    if (showingConfirmation) {
+//        AlertDialog(
+//            onDismissRequest = { showingConfirmation = false },
+//            confirmButton = {
+//                TextButton(
+//                    onClick = {
+//                        installPackage(files, options ?: listOf(), true)
+//                        showingConfirmation = false
+//                    },
+//                ) {
+//                    Text(text = stringResource(id = R.string.split_app))
+//                }
+//            },
+//            dismissButton = {
+//                TextButton(
+//                    onClick = {
+//                        installPackage(files, options ?: listOf(), false)
+//                        showingConfirmation = false
+//                    },
+//                ) {
+//                    Text(text = stringResource(id = R.string.separate_apps))
+//                }
+//            },
+//            title = {
+//                Text(text = stringResource(id = R.string.install_question))
+//            },
+//            text = {
+//                Text(text = stringResource(id = R.string.install_question_desc))
+//            },
+//        )
+//    }
 
     statuses.takeIf { it.isNotEmpty() && it.size == files.size }?.let { s ->
         AlertDialog(
@@ -284,11 +287,7 @@ fun rememberPackageInstaller(files: List<DocumentFile>): Installer {
     return Installer(
         install = remember(files.hashCode(), options.hashCode()) {
             {
-                if (files.size > 1) {
-                    showingConfirmation = true
-                } else {
-                    installPackage(files, options ?: listOf(), false)
-                }
+                installPackage(files, options ?: listOf())
             }
         },
         isInstalling = isInstalling,
