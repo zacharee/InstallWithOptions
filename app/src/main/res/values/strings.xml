@@ -55,7 +55,7 @@
     <string name="allow_downgrade_desc">Attempts to downgrade the currently-installed version of the package to the one being installed.</string>
     
     <string name="grant_all_permissions">Grant All Requested Permissions</string>
-    <string name="grant_all_permissions_desc">Automatically grant all permissions the package is requesting.</string>
+    <string name="grant_all_permissions_desc">Automatically grant all permissions the package is requesting. Note that this only applies to runtime permissions. Special permissions like All Files Access or Accessibility won\'t be automatically granted.</string>
     
     <string name="force_volume_uuid">Force Volume UUID</string>
     <string name="force_volume_uuid_desc">Allows specifying a volume UUID to install the package to.</string>
