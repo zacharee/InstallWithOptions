@@ -76,9 +76,6 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
 
     val options by DataModel.selectedOptions.collectAsState()
 
-//    var showingConfirmation by remember {
-//        mutableStateOf(false)
-//    }
     val rootAdapter = remember {
         ShizukuRootAdapter(context)
     }
@@ -201,38 +198,6 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
             context.unregisterReceiver(receiver)
         }
     }
-
-//    if (showingConfirmation) {
-//        AlertDialog(
-//            onDismissRequest = { showingConfirmation = false },
-//            confirmButton = {
-//                TextButton(
-//                    onClick = {
-//                        installPackage(files, options ?: listOf(), true)
-//                        showingConfirmation = false
-//                    },
-//                ) {
-//                    Text(text = stringResource(id = R.string.split_app))
-//                }
-//            },
-//            dismissButton = {
-//                TextButton(
-//                    onClick = {
-//                        installPackage(files, options ?: listOf(), false)
-//                        showingConfirmation = false
-//                    },
-//                ) {
-//                    Text(text = stringResource(id = R.string.separate_apps))
-//                }
-//            },
-//            title = {
-//                Text(text = stringResource(id = R.string.install_question))
-//            },
-//            text = {
-//                Text(text = stringResource(id = R.string.install_question_desc))
-//            },
-//        )
-//    }
 
     statuses.takeIf { it.isNotEmpty() && it.size == files.size }?.let { s ->
         AlertDialog(
