@@ -114,4 +114,14 @@
 
     <string name="installer_package">Installer Package</string>
     <string name="installer_package_desc">Specify the package name of the app that Android should report this APK was installed by (e.g., com.android.vending).</string>
+    
+    <string name="install_reason">Install Reason</string>
+    <string name="install_reason_desc">Set the reason for this installation.</string>
+    
+    <string name="install_reason_unknown">Unknown</string>
+    <string name="install_reason_policy">Policy</string>
+    <string name="install_reason_device_restore">Device Restore</string>
+    <string name="install_reason_device_setup">Device Setup</string>
+    <string name="install_reason_user">User</string>
+    <string name="install_reason_rollback">Rollback</string>
 </resources>

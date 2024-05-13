@@ -51,7 +51,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedCard
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -270,29 +269,23 @@ fun MainContent(modifier: Modifier = Modifier) {
                                 is InstallOption -> {
                                     OptionItem(
                                         option = option,
-                                        isSelected = selectedOptions?.contains(option) == true,
+                                        isSelected = selectedOptions.contains(option),
                                         onSelectedChange = {
                                             selectedOptions = if (it) {
-                                                if (selectedOptions?.contains(option) == false) {
-                                                    (selectedOptions ?: listOf()) + option
+                                                if (!selectedOptions.contains(option)) {
+                                                    selectedOptions + option
                                                 } else {
                                                     selectedOptions
                                                 }
                                             } else {
-                                                (selectedOptions ?: listOf()) - option
+                                                selectedOptions - option
                                             }
                                         },
                                     )
                                 }
 
                                 is MutableOption<*> -> {
-                                    val value by option.value.collectAsState()
-                                    when (value) {
-                                        is String? -> {
-                                            @Suppress("UNCHECKED_CAST")
-                                            TextOptionItem(option = option as MutableOption<String>)
-                                        }
-                                    }
+                                    option.Render(modifier = Modifier.fillMaxWidth())
                                 }
 
                                 else -> {}
@@ -482,46 +475,6 @@ fun OptionItem(
                 Text(
                     text = stringResource(id = option.descResource),
                     style = MaterialTheme.typography.bodySmall,
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun TextOptionItem(
-    option: MutableOption<String>,
-    modifier: Modifier = Modifier,
-) {
-    var state by option.value.collectAsMutableState()
-
-    OutlinedCard(
-        modifier = modifier,
-    ) {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(8.dp),
-        ) {
-            Column(
-                modifier = Modifier.weight(1f),
-            ) {
-                Text(
-                    text = stringResource(id = option.labelResource),
-                    style = MaterialTheme.typography.titleMedium,
-                )
-
-                Text(
-                    text = stringResource(id = option.descResource),
-                    style = MaterialTheme.typography.bodySmall,
-                )
-
-                Spacer(modifier = Modifier.size(4.dp))
-
-                OutlinedTextField(
-                    value = state ?: "",
-                    onValueChange = { state = it },
-                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }

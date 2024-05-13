@@ -245,14 +245,14 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                         }
                     }
                 }
-            }
+            },
         )
     }
 
     return Installer(
         install = remember(files.hashCode(), options.hashCode()) {
             {
-                installPackage(files, options ?: listOf())
+                installPackage(files, options)
             }
         },
         isInstalling = isInstalling,

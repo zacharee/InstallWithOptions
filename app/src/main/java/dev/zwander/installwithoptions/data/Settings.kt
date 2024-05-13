@@ -25,8 +25,7 @@ object Settings {
                 key = "selectedOptions",
                 default = listOf(),
                 serializer = { options ->
-                    options?.map { it.value }
-                        ?.let { gson.toJson(it) }
+                    options.map { it.value }.let { gson.toJson(it) }
                 },
                 deserializer = {
                     if (it == null) {
@@ -59,13 +58,14 @@ object Settings {
     val gson = GsonBuilder().create()
 }
 
-sealed class SettingsKey<Type> {
+@Suppress("unused", "UNCHECKED_CAST")
+sealed class SettingsKey<Type : Any?> {
     abstract val key: kotlin.String
-    abstract val default: Type?
+    abstract val default: Type
     abstract val settings: SharedPreferences
 
-    abstract fun getValue(): Type?
-    abstract fun setValue(value: Type?)
+    abstract fun getValue(): Type
+    abstract fun setValue(value: Type)
 
     protected fun registerListener(callback: (Type?) -> Unit): SharedPreferences.OnSharedPreferenceChangeListener {
         val listener =
@@ -81,10 +81,10 @@ sealed class SettingsKey<Type> {
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    fun asMutableStateFlow(): MutableStateFlow<Type?> {
+    fun asMutableStateFlow(): MutableStateFlow<Type> {
         val wrappedFlow = MutableStateFlow(getValue())
-        val flow = object : MutableStateFlow<Type?> by wrappedFlow {
-            override var value: Type?
+        val flow = object : MutableStateFlow<Type> by wrappedFlow {
+            override var value: Type
                 get() = wrappedFlow.value
                 set(value) {
                     wrappedFlow.value = value
@@ -93,14 +93,14 @@ sealed class SettingsKey<Type> {
                     }
                 }
 
-            override suspend fun emit(value: Type?) {
+            override suspend fun emit(value: Type) {
                 wrappedFlow.emit(value)
                 GlobalScope.launch(Dispatchers.IO) {
                     setValue(value)
                 }
             }
 
-            override fun tryEmit(value: Type?): kotlin.Boolean {
+            override fun tryEmit(value: Type): kotlin.Boolean {
                 return wrappedFlow.tryEmit(value).also {
                     if (it) {
                         GlobalScope.launch(Dispatchers.IO) {
@@ -112,14 +112,14 @@ sealed class SettingsKey<Type> {
         }
 
         registerListener {
-            flow.value = it
+            flow.value = it ?: default
         }
 
         return flow
     }
 
     @Composable
-    fun collectAsMutableState(): MutableState<Type?> {
+    fun collectAsMutableState(): MutableState<Type> {
         val state = remember {
             mutableStateOf(getValue())
         }
@@ -141,18 +141,28 @@ sealed class SettingsKey<Type> {
         return state
     }
 
-    operator fun invoke(): Type? = getValue()
+    operator fun invoke(): Type = getValue()
+    operator fun invoke(value: Type) = setValue(value)
 
-    data class Boolean(
+    fun getAndSetDefaultIfNonExistent(defValue: Type): Type {
+        return if (settings.contains(key)) {
+            getValue()
+        } else {
+            setValue(defValue)
+            defValue
+        }
+    }
+
+    data class Boolean<T : kotlin.Boolean?>(
         override val key: kotlin.String,
-        override val default: kotlin.Boolean?,
+        override val default: T,
         override val settings: SharedPreferences,
-    ) : SettingsKey<kotlin.Boolean>() {
-        override fun getValue(): kotlin.Boolean? {
-            return default?.let { settings.getBoolean(key, default) }
+    ) : SettingsKey<T>() {
+        override fun getValue(): T {
+            return default?.let { settings.getBoolean(key, default) } as T
         }
 
-        override fun setValue(value: kotlin.Boolean?) {
+        override fun setValue(value: T) {
             settings.edit {
                 if (value == null) {
                     remove(key)
@@ -163,16 +173,16 @@ sealed class SettingsKey<Type> {
         }
     }
 
-    data class Int(
+    data class Int<T : kotlin.Int?>(
         override val key: kotlin.String,
-        override val default: kotlin.Int?,
+        override val default: T,
         override val settings: SharedPreferences,
-    ) : SettingsKey<kotlin.Int>() {
-        override fun getValue(): kotlin.Int? {
-            return default?.let { settings.getInt(key, default) }
+    ) : SettingsKey<T>() {
+        override fun getValue(): T {
+            return default?.let { settings.getInt(key, default) } as T
         }
 
-        override fun setValue(value: kotlin.Int?) {
+        override fun setValue(value: T) {
             settings.edit {
                 if (value == null) {
                     remove(key)
@@ -183,16 +193,16 @@ sealed class SettingsKey<Type> {
         }
     }
 
-    data class Long(
+    data class Long<T : kotlin.Long?>(
         override val key: kotlin.String,
-        override val default: kotlin.Long?,
+        override val default: T,
         override val settings: SharedPreferences,
-    ) : SettingsKey<kotlin.Long>() {
-        override fun getValue(): kotlin.Long? {
-            return default?.let { settings.getLong(key, default) }
+    ) : SettingsKey<T>() {
+        override fun getValue(): T {
+            return default?.let { settings.getLong(key, default) } as T
         }
 
-        override fun setValue(value: kotlin.Long?) {
+        override fun setValue(value: T) {
             settings.edit {
                 if (value == null) {
                     remove(key)
@@ -203,16 +213,16 @@ sealed class SettingsKey<Type> {
         }
     }
 
-    data class String(
+    data class String<T : kotlin.String?>(
         override val key: kotlin.String,
-        override val default: kotlin.String?,
+        override val default: T,
         override val settings: SharedPreferences,
-    ) : SettingsKey<kotlin.String>() {
-        override fun getValue(): kotlin.String? {
-            return settings.getString(key, default)
+    ) : SettingsKey<T>() {
+        override fun getValue(): T {
+            return settings.getString(key, default) as T
         }
 
-        override fun setValue(value: kotlin.String?) {
+        override fun setValue(value: T) {
             settings.edit {
                 if (value == null) {
                     remove(key)
@@ -223,16 +233,16 @@ sealed class SettingsKey<Type> {
         }
     }
 
-    data class Float(
+    data class Float<T : kotlin.Float?>(
         override val key: kotlin.String,
-        override val default: kotlin.Float?,
+        override val default: T,
         override val settings: SharedPreferences,
-    ) : SettingsKey<kotlin.Float>() {
-        override fun getValue(): kotlin.Float? {
-            return default?.let { settings.getFloat(key, default) }
+    ) : SettingsKey<T>() {
+        override fun getValue(): T {
+            return default?.let { settings.getFloat(key, default) } as T
         }
 
-        override fun setValue(value: kotlin.Float?) {
+        override fun setValue(value: T) {
             settings.edit {
                 if (value == null) {
                     remove(key)
@@ -243,16 +253,16 @@ sealed class SettingsKey<Type> {
         }
     }
 
-    data class Double(
+    data class Double<T : kotlin.Double?>(
         override val key: kotlin.String,
-        override val default: kotlin.Double,
+        override val default: T,
         override val settings: SharedPreferences,
-    ) : SettingsKey<kotlin.Double>() {
-        override fun getValue(): kotlin.Double {
-            return settings.getString(key, default.toString()).toDoubleOrNull() ?: default
+    ) : SettingsKey<T>() {
+        override fun getValue(): T {
+            return (settings.getString(key, default.toString()).toDoubleOrNull() ?: default) as T
         }
 
-        override fun setValue(value: kotlin.Double?) {
+        override fun setValue(value: T) {
             settings.edit {
                 if (value == null) {
                     remove(key)
@@ -265,16 +275,16 @@ sealed class SettingsKey<Type> {
 
     data class Complex<Type>(
         override val key: kotlin.String,
-        override val default: Type?,
-        val deserializer: (kotlin.String?) -> Type?,
-        val serializer: (Type?) -> kotlin.String?,
+        override val default: Type,
+        val deserializer: (kotlin.String?) -> Type,
+        val serializer: (Type) -> kotlin.String?,
         override val settings: SharedPreferences,
     ) : SettingsKey<Type>() {
-        override fun getValue(): Type? {
+        override fun getValue(): Type {
             return deserializer(default?.let { settings.getString(key, serializer(default)) })
         }
 
-        override fun setValue(value: Type?) {
+        override fun setValue(value: Type) {
             val serialized = serializer(value)
 
             settings.edit {
