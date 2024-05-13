@@ -252,6 +252,7 @@ fun MainContent(modifier: Modifier = Modifier) {
                         top = contentPadding.calculateTopPadding(),
                         start = contentPadding.calculateStartPadding(LocalLayoutDirection.current),
                         end = contentPadding.calculateEndPadding(LocalLayoutDirection.current),
+                        bottom = 8.dp,
                     )
                     val bottom = PaddingValues(bottom = contentPadding.calculateBottomPadding())
 
