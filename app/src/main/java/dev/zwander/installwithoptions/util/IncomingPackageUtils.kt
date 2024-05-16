@@ -24,10 +24,12 @@ fun Context.handleIncomingUris(uris: List<Uri>) {
                 DocumentFile.fromFile(dest)
             }
         }
-        val apkFile = PackageParser.parseApkLite(File(realFile.uri.path), 0)
-        val packageList = currentSelection[apkFile.packageName] ?: listOf()
+        try {
+            val apkFile = PackageParser.parseApkLite(File(realFile.uri.path), 0)
+            val packageList = currentSelection[apkFile.packageName] ?: listOf()
 
-        currentSelection[apkFile.packageName] = (packageList + file).distinctBy { "${apkFile.packageName}:${it.name}" }
+            currentSelection[apkFile.packageName] = (packageList + file).distinctBy { "${apkFile.packageName}:${it.name}" }
+        } catch (_: PackageParser.PackageParserException) {}
     }
 
     uris.forEach { uri ->
