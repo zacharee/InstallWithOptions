@@ -1,4 +1,4 @@
-pluginManagement {
+settings.gradle.ktspluginManagement {
     repositories {
         google {
             content {
