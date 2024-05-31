@@ -6,8 +6,10 @@ import android.content.Context
 import android.content.pm.PackageParser
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
+import com.bugsnag.android.Bugsnag
 import dev.zwander.installwithoptions.data.DataModel
 import net.lingala.zip4j.ZipFile
+import net.lingala.zip4j.exception.ZipException
 import java.io.File
 
 fun Context.handleIncomingUris(uris: List<Uri>) {
@@ -62,7 +64,13 @@ private fun Context.copyZipToCacheAndExtract(zip: DocumentFile): List<DocumentFi
     }
 
     val zipFile = ZipFile(destFile)
-    zipFile.extractAll(destDir.absolutePath)
+
+    try {
+        zipFile.extractAll(destDir.absolutePath)
+    } catch (e: ZipException) {
+        Bugsnag.notify(e)
+        return listOf()
+    }
 
     return destDir.listFiles()?.mapNotNull { file ->
         val documentFile = DocumentFile.fromFile(file)
