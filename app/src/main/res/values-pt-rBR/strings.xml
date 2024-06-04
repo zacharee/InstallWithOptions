@@ -1,11 +1,12 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="choose_files">Escolher Arquivos</string>
     <string name="selected_files">Arquivos Selecionados</string>
     <string name="install">Instalar</string>
     <string name="success">Sucesso</string>
     <string name="installation_complete">Instalação Concluída</string>
-    <string name="status_item">%1$s: %2$s</string>
+    <string name="installation_errors">Errors Installing</string>
+    <string name="status_item"><![CDATA[%1$s: %2$s]]></string>
     <string name="download">Baixar</string>
     <string name="close_app">Fechar App</string>
     <string name="open_shizuku">Abrir Shizuku</string>
@@ -15,6 +16,9 @@
     <string name="mastodon">Mastodon</string>
     <string name="supporters">Apoiadores</string>
     <string name="settings">Configurações</string>
+    <string name="remove">Remove</string>
+    <string name="translate">Translate</string>
+    <string name="permission_intent_was_null">Permission Intent was null!</string>
     <string name="enable_crash_reports">Ativar Relatório de Erros</string>
     <string name="enable_crash_reports_desc">Permitir ao app enviar logs anônimos de falhas e erros para o Bugsnag. Desabilitar essa opção requer uma reinicialização do aplicativo para entrar em vigor.</string>
     <string name="shizuku_not_installed">Shizuku não instalado</string>
@@ -75,4 +79,14 @@
     <string name="from_managed_user_or_profile_desc">Indica que a sessão atual é de um usuário ou perfil gerenciado.</string>
     <string name="ignore_dexopt_profile">Ignorar Perfil Dexopt</string>
     <string name="ignore_dexopt_profile_desc">Ignorar os perfis dexopt para este pacote durante a instalação.</string>
+    <string name="installer_package">Installer Package</string>
+    <string name="installer_package_desc">Specify the package name of the app that Android should report this APK was installed by (e.g., com.android.vending).</string>
+    <string name="install_reason">Install Reason</string>
+    <string name="install_reason_desc">Set the reason for this installation.</string>
+    <string name="install_reason_unknown">Unknown</string>
+    <string name="install_reason_policy">Policy</string>
+    <string name="install_reason_device_restore">Device Restore</string>
+    <string name="install_reason_device_setup">Device Setup</string>
+    <string name="install_reason_user">User</string>
+    <string name="install_reason_rollback">Rollback</string>
 </resources>
