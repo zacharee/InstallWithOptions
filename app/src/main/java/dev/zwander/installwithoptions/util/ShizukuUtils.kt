@@ -4,13 +4,13 @@ import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.compose.currentStateAsState
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuProvider
 
@@ -29,7 +29,7 @@ object ShizukuUtils {
     @Composable
     fun rememberShizukuState(): State<ShizukuState> {
         val context = LocalContext.current
-        val lifecycleState by LocalLifecycleOwner.current.lifecycle.currentStateFlow.collectAsState()
+        val lifecycleState by LocalLifecycleOwner.current.lifecycle.currentStateAsState()
         val shizukuState = remember {
             mutableStateOf(ShizukuState.NOT_INSTALLED)
         }
