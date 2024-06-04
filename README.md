@@ -5,6 +5,13 @@ Install with Options uses Shizuku to run with shell permissions, allowing you to
 
 It also supports installing split APKs or batch-installing multiple separate apps.
 
+# Translating
+[![Crowdin](https://badges.crowdin.net/install-with-options/localized.svg)](https://crowdin.com/project/install-with-options)
+
+Install with Options uses Crowdin for translations.
+
+https://crowdin.com/project/install-with-options
+
 ## Screenshots
 <img src="https://github.com/zacharee/InstallWithOptions/assets/9020352/67ccc61a-27cd-4055-bc29-2d086c5db3ae" width="400"></img>
 <img src="https://github.com/zacharee/InstallWithOptions/assets/9020352/598a9bcf-dc0e-4226-a3a1-c9327833197a" width="400"></img>
