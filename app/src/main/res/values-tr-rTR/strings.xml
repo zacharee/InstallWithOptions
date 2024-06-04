@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">Seçeneklerle Yükle</string>
-
     <string name="choose_files">Dosyaları Seçin</string>
     <string name="selected_files">Seçili Dosyalar</string>
     <string name="install">İndir</string>
@@ -9,7 +7,7 @@
     <string name="status_item">%1$s: %2$s</string>
     <string name="download">İndir</string>
     <string name="close_app">Uygulamayı Kapat</string>
-    <string name="open_shizuku">Shizuku'yu aç</string>
+    <string name="open_shizuku">Shizuku\'yu aç</string>
 
     <string name="website">Web sitesi</string>
     <string name="github">GitHub</string>
@@ -19,18 +17,13 @@
     <string name="settings">Ayarlar</string>
     
     <string name="enable_crash_reports">Çökme Raporlarını Etkinleştir</string>
-    <string name="enable_crash_reports_desc">Seçeneklerle Yükle'nin anonim çökme ve hata günlüklerini Bugsnag'a göndermesine izin verin. Bunu devre dışı bırakmak, etkili olması için uygulamanın yeniden başlatılmasını gerektirir.</string>
+    <string name="enable_crash_reports_desc">Seçeneklerle Yükle\'nin anonim çökme ve hata günlüklerini Bugsnag\'a göndermesine izin verin. Bunu devre dışı bırakmak, etkili olması için uygulamanın yeniden başlatılmasını gerektirir.</string>
 
     <string name="shizuku_not_installed">Shizuku Yüklü Değil</string>
     <string name="shizuku_not_installed_desc">Bu uygulamanın çalışması için Shizuku gereklidir. Şimdi indirmek ister misiniz?</string>
 
     <string name="shizuku_not_running">Shizuku Çalışmıyor</string>
-    <string name="shizuku_not_running_desc">Bu uygulamanın çalışması için Shizuku'nun çalışıyor olması gerekir. Başlatmak için Shizuku uygulamasındaki talimatları izleyin.</string>
-
-    <string name="install_question">Toplu mu yoksa Bölünmüş mü?</string>
-    <string name="install_question_desc">Yükleme için birden fazla dosya seçtiniz. Bunlar ayrı uygulamalar mı yoksa tek bir uygulama için bölünmüş dosyalar mı?</string>
-    <string name="separate_apps">Ayrı Uygulamalar</string>
-    <string name="split_app">Bölünmüş Uygulamalar</string>
+    <string name="shizuku_not_running_desc">Bu uygulamanın çalışması için Shizuku\'nun çalışıyor olması gerekir. Başlatmak için Shizuku uygulamasındaki talimatları izleyin.</string>
 
     <string name="replace_existing">Mevcut Olanı Değiştirin</string>
     <string name="replace_existing_desc">Kurulmakta olan paket zaten mevcutsa, onu değiştirin/yükseltin.</string>
@@ -44,7 +37,7 @@
     <string name="external">Harici</string>
     <string name="external_desc">Paketi harici depolama alanına yüklenmeye zorlayın.</string>
     
-    <string name="from_adb">ADB'den</string>
+    <string name="from_adb">ADB\'den</string>
     <string name="from_adb_desc">Sisteme yükleme isteğinin ADB tarafından yapıldığını söyler.</string>
 
     <string name="all_users">Tüm Kullanıcılar</string>
@@ -56,8 +49,8 @@
     <string name="grant_all_permissions">Talep Edilen Tüm İzinleri Ver</string>
     <string name="grant_all_permissions_desc">Paketin talep ettiği tüm izinleri otomatik olarak verin.</string>
     
-    <string name="force_volume_uuid">Birim UUID'sini Zorla</string>
-    <string name="force_volume_uuid_desc">Paketi yüklemek için bir birim UUID'si belirtmeye izin verir.</string>
+    <string name="force_volume_uuid">Birim UUID\'sini Zorla</string>
+    <string name="force_volume_uuid_desc">Paketi yüklemek için bir birim UUID\'si belirtmeye izin verir.</string>
     
     <string name="force_permission_prompt">İzin İstemini Zorla</string>
     <string name="force_permission_prompt_desc">Sistem yükleyicilerini bile yükleme onay istemini göstermeye zorlar.</string>
@@ -93,12 +86,12 @@
     <string name="all_whitelist_restricted_permissions_desc">Yüklenmekte olan paket için kısıtlı izinler verilmesine izin verin.</string>
 
     <string name="disable_allowed_apex_update_check">İzin Verilen APEX Güncelleme Denetimini Devre Dışı Bırak</string>
-    <string name="disable_allowed_apex_update_check_desc">Yüklü APEX'in güncellenip güncellenemeyeceğini kontrol etmeyin.</string>
+    <string name="disable_allowed_apex_update_check_desc">Yüklü APEX\'in güncellenip güncellenemeyeceğini kontrol etmeyin.</string>
 
     <string name="bypass_low_target_sdk_block">Düşük Hedef SDK Bloğunu Baypas Et</string>
     <string name="bypass_low_target_sdk_block_desc">Eski SDK sürümlerini hedefleyen uygulamaların yüklenmesine izin verir.</string>
 
-    <string name="force_sdk">SDK'yı Zorla</string>
+    <string name="force_sdk">SDK\'yı Zorla</string>
     <string name="force_sdk_desc">SDK harflerini hedefleyen paketlerin yüklenmesine veya yükseltilmesine izin verir.</string>
 
     <string name="dry_run">Kuru Çalıştırma</string>
@@ -114,7 +107,7 @@
     <string name="ignore_dexopt_profile_desc">Kurulum sırasında bu paket için dexopt profillerini yoksay.</string>
 
     <string name="installer_package">Yükleyici Paketi</string>
-    <string name="installer_package_desc">Android'in bu APK'nın yüklendiğini bildirmesi gereken uygulamanın paket adını belirtin (örneğin, com.android.vending).</string>
+    <string name="installer_package_desc">Android\'in bu APK\'nın yüklendiğini bildirmesi gereken uygulamanın paket adını belirtin (örneğin, com.android.vending).</string>
 
     <string name="install_reason">Kurulum Nedeni</string>
     <string name="install_reason_desc">Bu kurulumun nedenini belirleyin.</string>
