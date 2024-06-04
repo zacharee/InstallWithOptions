@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Install with Options</string>
+    <string name="app_name" translatable="false">Install with Options</string>
 
     <string name="choose_files">Choose Files</string>
     <string name="selected_files">Selected Files</string>
@@ -19,6 +19,7 @@
     <string name="supporters">Supporters</string>
     <string name="settings">Settings</string>
     <string name="remove">Remove</string>
+    <string name="translate">Translate</string>
 
     <string name="permission_intent_was_null">Permission Intent was null!</string>
     

@@ -18,7 +18,6 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -60,6 +59,11 @@ private val footerItems = listOf(
         painter = { painterResource(id = R.drawable.github) },
         description = R.string.github,
         onClick = { launchUrl("https://github.com/zacharee/InstallWithOptions") },
+    ),
+    FooterItem(
+        painter = { painterResource(id = R.drawable.translate) },
+        description = R.string.translate,
+        onClick = { launchUrl("https://crowdin.com/project/install-with-options") },
     ),
     FooterItem(
         painter = { painterResource(id = R.drawable.mastodon) },
@@ -234,7 +238,6 @@ fun FooterItem(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun BooleanPreference(
     item: IOptionItem.BasicOptionItem.BooleanItem,
@@ -245,7 +248,7 @@ private fun BooleanPreference(
     Card(
         modifier = modifier,
         onClick = {
-            state = !(state ?: false)
+            state = !state
         },
     ) {
         Row(
@@ -260,7 +263,7 @@ private fun BooleanPreference(
             )
 
             Switch(
-                checked = state ?: false,
+                checked = state,
                 onCheckedChange = {
                     state = it
                 },
@@ -269,7 +272,6 @@ private fun BooleanPreference(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ActionPreference(
     item: IOptionItem.ActionOptionItem,

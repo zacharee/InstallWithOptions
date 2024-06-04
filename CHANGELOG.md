@@ -1,3 +1,10 @@
+# 0.6.0
+- Add "Install Reason" option.
+- Add Brazilian Portuguese.
+- Add Turkish.
+- UI tweaks.
+- Crash fixes.
+
 # 0.5.0
 - Automatically detect split APKs and normal APKs inside a single selection and group them accordingly.
 - Add preliminary ability to import split APKs (.xapk or .apkm).
