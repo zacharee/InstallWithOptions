@@ -19,6 +19,7 @@
     <string name="supporters">Supporters</string>
     <string name="settings">Settings</string>
     <string name="remove">Remove</string>
+    <string name="translate">Translate</string>
 
     <string name="permission_intent_was_null">Permission Intent was null!</string>
     
