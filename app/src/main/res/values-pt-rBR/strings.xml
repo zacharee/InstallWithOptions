@@ -2,9 +2,9 @@
 <resources>
     <string name="choose_files">Escolher arquivos</string>
     <string name="selected_files">Arquivos selecionados</string>
-    <string name="install">Instale</string>
+    <string name="install">Install</string>
     <string name="success">Êxito</string>
-    <string name="installation_complete">Instalação Concluída</string>
+    <string name="installation_complete">Instalação concluída</string>
     <string name="installation_errors">Erros Instalando</string>
     <string name="status_item"><![CDATA[%1$s: %2$s]]></string>
     <string name="download">Baixar</string>
