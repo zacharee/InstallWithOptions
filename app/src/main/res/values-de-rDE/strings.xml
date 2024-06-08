@@ -30,10 +30,10 @@
     <string name="allow_test">Allow Test</string>
     <string name="allow_test_desc">If the package being installed is a test-only app, allow it to be installed.</string>
     <string name="internal">Internal</string>
-    <string name="internal_desc">Force the package to be installed to internal storage.</string>
-    <string name="external">External</string>
-    <string name="external_desc">Force the package to be installed to external storage.</string>
-    <string name="from_adb">From ADB</string>
+    <string name="internal_desc">Installation auf internen Speicher erzwingen</string>
+    <string name="external">Extern</string>
+    <string name="external_desc">Installation auf externen Speicher erzwingen</string>
+    <string name="from_adb">Über ADB</string>
     <string name="from_adb_desc">Tells the system that the install request was made by ADB.</string>
     <string name="all_users">All Users</string>
     <string name="all_users_desc">Install the package for all users on the system, instead of just the specified or default user.</string>
