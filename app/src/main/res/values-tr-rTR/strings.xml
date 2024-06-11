@@ -83,6 +83,7 @@
     <string name="installer_package_desc">Android\'in bu APK\'nın yüklendiğini bildirmesi gereken uygulamanın paket adını belirtin (örneğin, com.android.vending).</string>
     <string name="install_reason">Kurulum Nedeni</string>
     <string name="install_reason_desc">Bu kurulumun nedenini belirleyin.</string>
+    <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
     <string name="install_reason_unknown">Bilinmiyor</string>
     <string name="install_reason_policy">Politika</string>
     <string name="install_reason_device_restore">Cihaz Geri Yükleme</string>
