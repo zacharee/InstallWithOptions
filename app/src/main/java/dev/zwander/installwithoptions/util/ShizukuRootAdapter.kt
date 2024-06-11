@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import android.os.IBinder
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.collectAsState
@@ -15,6 +16,7 @@ import androidx.compose.runtime.setValue
 import com.topjohnwu.superuser.ipc.RootService
 import dev.zwander.installwithoptions.BuildConfig
 import dev.zwander.installwithoptions.IShellInterface
+import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.data.DataModel
 import rikka.shizuku.Shizuku
 
@@ -84,10 +86,14 @@ class ShizukuRootAdapter(private val context: Context) {
             return
         }
 
-        when (mode) {
-            Mode.SHIZUKU -> Shizuku.bindUserService(shizukuArgs, connection)
-            Mode.ROOT -> RootService.bind(rootServiceIntent, connection)
-            else -> {}
+        try {
+            when (mode) {
+                Mode.SHIZUKU -> Shizuku.bindUserService(shizukuArgs, connection)
+                Mode.ROOT -> RootService.bind(rootServiceIntent, connection)
+                else -> {}
+            }
+        } catch (e: Throwable) {
+            Toast.makeText(context, R.string.error_binding_service, Toast.LENGTH_SHORT).show()
         }
     }
 
