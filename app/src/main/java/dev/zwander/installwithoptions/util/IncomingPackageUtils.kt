@@ -11,47 +11,43 @@ import dev.zwander.installwithoptions.data.DataModel
 import net.lingala.zip4j.ZipFile
 import net.lingala.zip4j.exception.ZipException
 import java.io.File
-import java.io.FileNotFoundException
 
 fun Context.handleIncomingUris(uris: List<Uri>) {
     DataModel.isImporting.value = true
     val currentSelection = DataModel.selectedFiles.value.toMutableMap()
 
-    fun addApkFile(file: DocumentFile) {
-        try {
-            val realFile = if (file.uri.scheme == "file") file else run {
-                contentResolver.openInputStream(file.uri).use { input ->
-                    val dest = File(cacheDir, "${file.name ?: file.uri}")
-                    dest.outputStream().use { output ->
-                        input.copyTo(output)
-                    }
-                    DocumentFile.fromFile(dest)
-                }
-            }
-            val apkFile = PackageParser.parseApkLite(File(realFile.uri.path), 0)
-            val packageList = currentSelection[apkFile.packageName] ?: listOf()
-
-            currentSelection[apkFile.packageName] = (packageList + file).distinctBy { "${apkFile.packageName}:${it.name}" }
-        } catch (_: PackageParser.PackageParserException) {
-        } catch (_: IllegalStateException) {
-        } catch (_: FileNotFoundException) {
-        }
-    }
-
     uris.forEach { uri ->
         val file = DocumentFile.fromSingleUri(this, uri) ?: return@forEach
 
         if (file.isApk) {
-            addApkFile(file)
+            addApkFile(file, currentSelection)
         } else if (file.isSplitBundle) {
             copyZipToCacheAndExtract(file).forEach { innerFile ->
-                addApkFile(innerFile)
+                addApkFile(innerFile, currentSelection)
             }
         }
     }
 
     DataModel.selectedFiles.value = currentSelection
     DataModel.isImporting.value = false
+}
+
+private fun Context.addApkFile(file: DocumentFile, currentSelection: MutableMap<String, List<DocumentFile>>) {
+    try {
+        val realFile = if (file.uri.scheme == "file") file else run {
+            contentResolver.openInputStream(file.uri).use { input ->
+                val dest = File(cacheDir, "${file.name ?: file.uri}")
+                dest.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+                DocumentFile.fromFile(dest)
+            }
+        }
+        val apkFile = PackageParser.parseApkLite(File(realFile.uri.path), 0)
+        val packageList = currentSelection[apkFile.packageName] ?: listOf()
+
+        currentSelection[apkFile.packageName] = (packageList + file).distinctBy { "${apkFile.packageName}:${it.name}" }
+    } catch (_: Throwable) {}
 }
 
 private fun Context.copyZipToCacheAndExtract(zip: DocumentFile): List<DocumentFile> {
