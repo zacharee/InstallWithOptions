@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Choose Files</string>
+    <string name="choose_files">اختر الملفات</string>
     <string name="selected_files">Selected Files</string>
     <string name="install">Install</string>
     <string name="success">Success</string>
@@ -83,6 +83,8 @@
     <string name="installer_package_desc">Specify the package name of the app that Android should report this APK was installed by (e.g., com.android.vending).</string>
     <string name="install_reason">Install Reason</string>
     <string name="install_reason_desc">Set the reason for this installation.</string>
+    <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
+    <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
     <string name="install_reason_unknown">Unknown</string>
     <string name="install_reason_policy">Policy</string>
     <string name="install_reason_device_restore">Device Restore</string>

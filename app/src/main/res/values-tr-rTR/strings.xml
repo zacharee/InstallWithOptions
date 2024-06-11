@@ -6,7 +6,7 @@
     <string name="success">Başarılı</string>
     <string name="installation_complete">Kurulum Tamamlandı</string>
     <string name="installation_errors">Errors Installing</string>
-    <string name="status_item"><![CDATA[%1$s: %2$s]]></string>
+    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">İndir</string>
     <string name="close_app">Uygulamayı Kapat</string>
     <string name="open_shizuku">Shizuku\'yu aç</string>
@@ -83,6 +83,8 @@
     <string name="installer_package_desc">Android\'in bu APK\'nın yüklendiğini bildirmesi gereken uygulamanın paket adını belirtin (örneğin, com.android.vending).</string>
     <string name="install_reason">Kurulum Nedeni</string>
     <string name="install_reason_desc">Bu kurulumun nedenini belirleyin.</string>
+    <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
+    <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
     <string name="install_reason_unknown">Bilinmiyor</string>
     <string name="install_reason_policy">Politika</string>
     <string name="install_reason_device_restore">Cihaz Geri Yükleme</string>

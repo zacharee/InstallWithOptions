@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Choose Files</string>
-    <string name="selected_files">Selected Files</string>
-    <string name="install">Install</string>
-    <string name="success">Success</string>
-    <string name="installation_complete">Installation Complete</string>
-    <string name="installation_errors">Errors Installing</string>
+    <string name="choose_files">Dateien auswählen</string>
+    <string name="selected_files">Ausgewählte Dateien</string>
+    <string name="install">Installieren</string>
+    <string name="success">Erfolgreich</string>
+    <string name="installation_complete">Installation vollständig</string>
+    <string name="installation_errors">Installationsfehler</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Download</string>
-    <string name="close_app">Close App</string>
-    <string name="open_shizuku">Open Shizuku</string>
+    <string name="close_app">App schließen</string>
+    <string name="open_shizuku">Shizuku öffnen</string>
     <string name="website">Website</string>
     <string name="github">GitHub</string>
     <string name="patreon">Patreon</string>
     <string name="mastodon">Mastodon</string>
-    <string name="supporters">Supporters</string>
+    <string name="supporters">Supporter</string>
     <string name="settings">Settings</string>
     <string name="remove">Remove</string>
     <string name="translate">Translate</string>
@@ -30,10 +30,10 @@
     <string name="allow_test">Allow Test</string>
     <string name="allow_test_desc">If the package being installed is a test-only app, allow it to be installed.</string>
     <string name="internal">Internal</string>
-    <string name="internal_desc">Force the package to be installed to internal storage.</string>
-    <string name="external">External</string>
-    <string name="external_desc">Force the package to be installed to external storage.</string>
-    <string name="from_adb">From ADB</string>
+    <string name="internal_desc">Installation auf internen Speicher erzwingen</string>
+    <string name="external">Extern</string>
+    <string name="external_desc">Installation auf externen Speicher erzwingen.</string>
+    <string name="from_adb">Über ADB</string>
     <string name="from_adb_desc">Tells the system that the install request was made by ADB.</string>
     <string name="all_users">All Users</string>
     <string name="all_users_desc">Install the package for all users on the system, instead of just the specified or default user.</string>
@@ -83,6 +83,8 @@
     <string name="installer_package_desc">Specify the package name of the app that Android should report this APK was installed by (e.g., com.android.vending).</string>
     <string name="install_reason">Install Reason</string>
     <string name="install_reason_desc">Set the reason for this installation.</string>
+    <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
+    <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
     <string name="install_reason_unknown">Unknown</string>
     <string name="install_reason_policy">Policy</string>
     <string name="install_reason_device_restore">Device Restore</string>
