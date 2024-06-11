@@ -84,6 +84,7 @@
     <string name="install_reason">Kurulum Nedeni</string>
     <string name="install_reason_desc">Bu kurulumun nedenini belirleyin.</string>
     <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
+    <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
     <string name="install_reason_unknown">Bilinmiyor</string>
     <string name="install_reason_policy">Politika</string>
     <string name="install_reason_device_restore">Cihaz Geri Yükleme</string>
