@@ -1,8 +1,10 @@
 package dev.zwander.installwithoptions
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
@@ -202,9 +204,11 @@ fun MainContent(modifier: Modifier = Modifier) {
                             ) {
                                 OutlinedButton(
                                     onClick = {
-                                        fileSelector.launch(
-                                            arrayOf("*/*"),
-                                        )
+                                        try {
+                                            fileSelector.launch(arrayOf("*/*"))
+                                        } catch (e: ActivityNotFoundException) {
+                                            Toast.makeText(context, R.string.error_selecting_files, Toast.LENGTH_SHORT).show()
+                                        }
                                     },
                                     modifier = Modifier.weight(1f),
                                 ) {

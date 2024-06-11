@@ -118,6 +118,8 @@
     
     <string name="install_reason">Install Reason</string>
     <string name="install_reason_desc">Set the reason for this installation.</string>
+
+    <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
     
     <string name="install_reason_unknown">Unknown</string>
     <string name="install_reason_policy">Policy</string>
