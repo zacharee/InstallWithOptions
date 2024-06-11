@@ -13,8 +13,8 @@ android {
         applicationId = "dev.zwander.installwithoptions"
         minSdk = 24
         targetSdk = 34
-        versionCode = 12
-        versionName = "0.6.0"
+        versionCode = 13
+        versionName = "0.6.1"
 
         vectorDrawables {
             useSupportLibrary = true
@@ -28,7 +28,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }

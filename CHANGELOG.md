@@ -1,3 +1,7 @@
+# 0.6.1
+- A bunch of crash fixes.
+- Update translations.
+
 # 0.6.0
 - Add "Install Reason" option.
 - Add Brazilian Portuguese.
