@@ -11,6 +11,7 @@ import dev.zwander.installwithoptions.data.DataModel
 import net.lingala.zip4j.ZipFile
 import net.lingala.zip4j.exception.ZipException
 import java.io.File
+import java.io.FileNotFoundException
 
 fun Context.handleIncomingUris(uris: List<Uri>) {
     DataModel.isImporting.value = true
@@ -33,6 +34,7 @@ fun Context.handleIncomingUris(uris: List<Uri>) {
             currentSelection[apkFile.packageName] = (packageList + file).distinctBy { "${apkFile.packageName}:${it.name}" }
         } catch (_: PackageParser.PackageParserException) {
         } catch (_: IllegalStateException) {
+        } catch (_: FileNotFoundException) {
         }
     }
 
