@@ -84,6 +84,7 @@
     <string name="install_reason">Instalar Motivo</string>
     <string name="install_reason_desc">Defina a razão para esta instalação.</string>
     <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
+    <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
     <string name="install_reason_unknown">Desconhecido</string>
     <string name="install_reason_policy">Políticas</string>
     <string name="install_reason_device_restore">Device Restore</string>
