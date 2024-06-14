@@ -44,7 +44,7 @@
     <string name="force_volume_uuid">指定卷UUID</string>
     <string name="force_volume_uuid_desc">允许指定要安装包的卷 UUID。</string>
     <string name="force_permission_prompt">强制权限提示</string>
-    <string name="force_permission_prompt_desc">Forces even system installers to show the install confirmation prompt.</string>
+    <string name="force_permission_prompt_desc">强制系统安装程序显示安装确认提示。</string>
     <string name="instant_app">Instant App</string>
     <string name="instant_app_desc">Install the package as an instant app.</string>
     <string name="dont_kill_app">Don\'t Kill App</string>
@@ -58,7 +58,7 @@
     <string name="apex">APEX</string>
     <string name="apex_desc">正在安装的软件包是一个 APEX 软件包。</string>
     <string name="enable_rollback">启用回滚</string>
-    <string name="enable_rollback_desc">Allow future rollbacks of this package.</string>
+    <string name="enable_rollback_desc">允许此软件包的回滚。</string>
     <string name="disable_verification">禁用验证</string>
     <string name="disable_verification_desc">在安装过程中禁用软件包验证。这不是签名验证！</string>
     <string name="staged">Staged</string>
