@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Choose Files</string>
-    <string name="selected_files">Selected Files</string>
-    <string name="install">Install</string>
-    <string name="success">Success</string>
-    <string name="installation_complete">Installation Complete</string>
+    <string name="choose_files">Elegir archivos</string>
+    <string name="selected_files">Seleccionar archivos</string>
+    <string name="install">Instalar</string>
+    <string name="success">Sucesos</string>
+    <string name="installation_complete">Instalación Complete</string>
     <string name="installation_errors">Errors Installing</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Download</string>
