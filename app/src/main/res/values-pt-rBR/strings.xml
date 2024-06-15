@@ -83,8 +83,8 @@
     <string name="installer_package_desc">Especifique o nome do pacote do aplicativo que o Android deve relatar que este APK foi instalado (por exemplo, com.android.vending).</string>
     <string name="install_reason">Instalar Motivo</string>
     <string name="install_reason_desc">Defina a razão para esta instalação.</string>
-    <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
-    <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
+    <string name="error_selecting_files">Por favor, certifique-se de que você tem um navegador de arquivos instalado para escolher APKs.</string>
+    <string name="error_binding_service">Não foi possível vincular o serviço privilegiado. Por favor, reinicie o seu dispositivo e tente novamente.</string>
     <string name="install_reason_unknown">Desconhecido</string>
     <string name="install_reason_policy">Políticas</string>
     <string name="install_reason_device_restore">Device Restore</string>
