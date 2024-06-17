@@ -86,9 +86,9 @@
     <string name="error_selecting_files">请确保您安装了一个文件管理器来选择 APK。</string>
     <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
     <string name="install_reason_unknown">Unknown</string>
-    <string name="install_reason_policy">Policy</string>
+    <string name="install_reason_policy">策略</string>
     <string name="install_reason_device_restore">设备恢复</string>
     <string name="install_reason_device_setup">Device Setup</string>
-    <string name="install_reason_user">User</string>
+    <string name="install_reason_user">用户</string>
     <string name="install_reason_rollback">回滚</string>
 </resources>
