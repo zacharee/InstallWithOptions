@@ -9,7 +9,7 @@
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Download</string>
     <string name="close_app">Close App</string>
-    <string name="open_shizuku">Shizuku terbuka</string>
+    <string name="open_shizuku">Open Shizuku</string>
     <string name="website">Website</string>
     <string name="github">GitHub</string>
     <string name="patreon">Patreon</string>
