@@ -5,7 +5,7 @@
     <string name="install">İndir</string>
     <string name="success">Başarılı</string>
     <string name="installation_complete">Kurulum Tamamlandı</string>
-    <string name="installation_errors">Errors Installing</string>
+    <string name="installation_errors">Yükleme Hataları</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">İndir</string>
     <string name="close_app">Uygulamayı Kapat</string>
@@ -16,9 +16,9 @@
     <string name="mastodon">Mastodon</string>
     <string name="supporters">Destekçiler</string>
     <string name="settings">Ayarlar</string>
-    <string name="remove">Remove</string>
-    <string name="translate">Translate</string>
-    <string name="permission_intent_was_null">Permission Intent was null!</string>
+    <string name="remove">Kaldır</string>
+    <string name="translate">Çevir</string>
+    <string name="permission_intent_was_null">İzin Amacı boş!</string>
     <string name="enable_crash_reports">Çökme Raporlarını Etkinleştir</string>
     <string name="enable_crash_reports_desc">Seçeneklerle Yükle\'nin anonim çökme ve hata günlüklerini Bugsnag\'a göndermesine izin verin. Bunu devre dışı bırakmak, etkili olması için uygulamanın yeniden başlatılmasını gerektirir.</string>
     <string name="shizuku_not_installed">Shizuku Yüklü Değil</string>
@@ -83,8 +83,8 @@
     <string name="installer_package_desc">Android\'in bu APK\'nın yüklendiğini bildirmesi gereken uygulamanın paket adını belirtin (örneğin, com.android.vending).</string>
     <string name="install_reason">Kurulum Nedeni</string>
     <string name="install_reason_desc">Bu kurulumun nedenini belirleyin.</string>
-    <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
-    <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
+    <string name="error_selecting_files">APK\'ları seçmek için lütfen bir dosya tarayıcınızın kurulu olduğundan emin olun.</string>
+    <string name="error_binding_service">Ayrıcalıklı hizmet bağlanamıyor. Lütfen cihazınızı yeniden başlatıp tekrar deneyin.</string>
     <string name="install_reason_unknown">Bilinmiyor</string>
     <string name="install_reason_policy">Politika</string>
     <string name="install_reason_device_restore">Cihaz Geri Yükleme</string>
