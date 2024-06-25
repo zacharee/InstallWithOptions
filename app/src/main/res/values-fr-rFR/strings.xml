@@ -38,7 +38,7 @@
     <string name="all_users">Tout les</string>
     <string name="all_users_desc">Installez le package pour tous les utilisateurs du système, au lieu de simplement pour l\'utilisateur spécifié ou par défaut.</string>
     <string name="allow_downgrade">Allow Downgrade</string>
-    <string name="allow_downgrade_desc">Attempts to downgrade the currently-installed version of the package to the one being installed.</string>
+    <string name="allow_downgrade_desc">Tente de rétrograder la version actuellement installée du package vers celle en cours d\'installation.</string>
     <string name="grant_all_permissions">Grant All Requested Permissions</string>
     <string name="grant_all_permissions_desc">Automatically grant all permissions the package is requesting. Note that this only applies to runtime permissions. Special permissions like All Files Access or Accessibility won\'t be automatically granted.</string>
     <string name="force_volume_uuid">Force Volume UUID</string>
