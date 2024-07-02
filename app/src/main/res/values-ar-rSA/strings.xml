@@ -2,7 +2,7 @@
 <resources>
     <string name="choose_files">اختر الملفات</string>
     <string name="selected_files">الملفات المختارة</string>
-    <string name="install">تثبيت</string>
+    <string name="install">Instal</string>
     <string name="success">نجاح</string>
     <string name="installation_complete">التثبيت اكتمل</string>
     <string name="installation_errors">خطأ التثبيت</string>
