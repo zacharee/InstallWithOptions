@@ -12,7 +12,7 @@
     <string name="open_shizuku">Abrir o Shizuku</string>
     <string name="website">Site</string>
     <string name="github">Github</string>
-    <string name="patreon">\".Patreon\"</string>
+    <string name="patreon">\":Patreon\".</string>
     <string name="mastodon">Mastodon</string>
     <string name="supporters">Apoiadores</string>
     <string name="settings">Configurações</string>
