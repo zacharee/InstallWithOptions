@@ -46,7 +46,7 @@
     <string name="force_permission_prompt">强制权限提示</string>
     <string name="force_permission_prompt_desc">强制系统安装程序显示安装确认提示。</string>
     <string name="instant_app">Instant App</string>
-    <string name="instant_app_desc">Install the package as an instant app.</string>
+    <string name="instant_app_desc">English</string>
     <string name="dont_kill_app">Don\'t Kill App</string>
     <string name="dont_kill_app_desc">在为拆分应用安装功能时使用，以防止主应用在安装过程中被杀死.</string>
     <string name="full_app">完整应用</string>
