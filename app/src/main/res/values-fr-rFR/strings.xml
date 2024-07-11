@@ -32,7 +32,7 @@
     <string name="internal">Internal</string>
     <string name="internal_desc">Forcer le pack pour installer dans l\'interne stockage.</string>
     <string name="external">Externe</string>
-    <string name="external_desc">Forcer le pack pour installer dans l\'interne stockage.</string>
+    <string name="external_desc">Force the package to be installed to external storage.</string>
     <string name="from_adb">Depuis ADB</string>
     <string name="from_adb_desc">Indique au système que la demande d\'installation a été effectuée par ADB.</string>
     <string name="all_users">Tout les</string>
