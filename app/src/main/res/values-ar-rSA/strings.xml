@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="choose_files">اختر الملفات</string>
-    <string name="selected_files">Selected Files</string>
-    <string name="install">Install</string>
-    <string name="success">Success</string>
-    <string name="installation_complete">Installation Complete</string>
-    <string name="installation_errors">Errors Installing</string>
+    <string name="selected_files">الملفات المختارة</string>
+    <string name="install">Instal</string>
+    <string name="success">نجاح</string>
+    <string name="installation_complete">التثبيت اكتمل</string>
+    <string name="installation_errors">خطأ التثبيت</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
-    <string name="download">Download</string>
-    <string name="close_app">Close App</string>
-    <string name="open_shizuku">Open Shizuku</string>
-    <string name="website">Website</string>
-    <string name="github">GitHub</string>
-    <string name="patreon">Patreon</string>
-    <string name="mastodon">Mastodon</string>
-    <string name="supporters">Supporters</string>
+    <string name="download">تحميل</string>
+    <string name="close_app">غلق التطبيق</string>
+    <string name="open_shizuku">فتح شيزوكو</string>
+    <string name="website">موقع</string>
+    <string name="github">الحصول</string>
+    <string name="patreon">باتريون</string>
+    <string name="mastodon">يجب</string>
+    <string name="supporters">مؤيدين</string>
     <string name="settings">Settings</string>
     <string name="remove">Remove</string>
     <string name="translate">Translate</string>
