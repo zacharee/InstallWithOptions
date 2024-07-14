@@ -27,7 +27,7 @@
     <string name="shizuku_not_running_desc">Shizuku necesita estar ejecutándose para que esta aplicación funcione. Sigue las instrucciones de la aplicación Shizuku para iniciarla.</string>
     <string name="replace_existing">Reemplazar existente</string>
     <string name="replace_existing_desc">Si el paquete que se está instalando ya existe, reemplazar/actualizarlo.</string>
-    <string name="allow_test">Allow Test</string>
+    <string name="allow_test">Permitir prueba</string>
     <string name="allow_test_desc">If the package being installed is a test-only app, allow it to be installed.</string>
     <string name="internal">Internal</string>
     <string name="internal_desc">Force the package to be installed to internal storage.</string>
