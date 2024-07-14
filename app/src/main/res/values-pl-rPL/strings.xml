@@ -5,7 +5,7 @@
     <string name="install">Instalowanie</string>
     <string name="success">Success</string>
     <string name="installation_complete">Instalacja zakończona</string>
-    <string name="installation_errors">Errors Installing</string>
+    <string name="installation_errors">Błędy instalacji</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Download</string>
     <string name="close_app">Close App</string>
