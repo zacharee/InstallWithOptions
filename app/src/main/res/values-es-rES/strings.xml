@@ -30,7 +30,7 @@
     <string name="allow_test">Permitir prueba</string>
     <string name="allow_test_desc">If the package being installed is a test-only app, allow it to be installed.</string>
     <string name="internal">Internal</string>
-    <string name="internal_desc">Force the package to be installed to internal storage.</string>
+    <string name="internal_desc">The-Dark-Knight-Rises-v1-1-64.apk.</string>
     <string name="external">External</string>
     <string name="external_desc">Force the package to be installed to external storage.</string>
     <string name="from_adb">From ADB</string>
