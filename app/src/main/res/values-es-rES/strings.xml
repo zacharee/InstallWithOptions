@@ -45,7 +45,7 @@
     <string name="force_volume_uuid_desc">Allows specifying a volume UUID to install the package to.</string>
     <string name="force_permission_prompt">Force Permission Prompt</string>
     <string name="force_permission_prompt_desc">Forces even system installers to show the install confirmation prompt.</string>
-    <string name="instant_app">Instant App</string>
+    <string name="instant_app">Instante App</string>
     <string name="instant_app_desc">Install the package as an instant app.</string>
     <string name="dont_kill_app">Don\'t Kill App</string>
     <string name="dont_kill_app_desc">Used when installing a feature for a split app to prevent the main app from being killed during install.</string>
