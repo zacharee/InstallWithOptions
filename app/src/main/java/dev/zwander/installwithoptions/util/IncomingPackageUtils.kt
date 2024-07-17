@@ -83,4 +83,4 @@ private val DocumentFile.isApk: Boolean
     get() = type == "application/vnd.android.package-archive" || name?.endsWith(".apk") == true
 
 private val DocumentFile.isSplitBundle: Boolean
-    get() = type == "application/zip" || name?.endsWith(".xapk") == true || name?.endsWith(".apkm") == true
+    get() = type == "application/zip" || name?.endsWith(".xapk") == true || name?.endsWith(".apkm") == true || name?.endsWith(".apks") == true
