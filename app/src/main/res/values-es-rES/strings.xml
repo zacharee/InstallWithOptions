@@ -31,7 +31,7 @@
     <string name="allow_test_desc">Si el paquete que se está instalando es una aplicación de solo prueba, permita que se instale.</string>
     <string name="internal">Interno</string>
     <string name="internal_desc">The-Dark-Knight-Rises-v1-1-64.apk.</string>
-    <string name="external">External</string>
+    <string name="external">Apex</string>
     <string name="external_desc">Forzar la instalación del paquete el almacenamiento externo.</string>
     <string name="from_adb">Desde ADB</string>
     <string name="from_adb_desc">Indica al sistema que la solicitud de instalación ha sido realizada por ADB.</string>
