@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="choose_files">Choose Files</string>
-    <string name="selected_files">Selected Files</string>
-    <string name="install">Install</string>
-    <string name="success">Success</string>
-    <string name="installation_complete">Installation Complete</string>
+    <string name="selected_files">Jffy</string>
+    <string name="install">If difficulty o</string>
+    <string name="success">Ghufch</string>
+    <string name="installation_complete">Bfgu</string>
     <string name="installation_errors">Errors Installing</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Download</string>
