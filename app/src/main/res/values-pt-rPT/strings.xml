@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="choose_files">Indonesia</string>
-    <string name="selected_files">Selected Files</string>
-    <string name="install">Install</string>
-    <string name="success">Success</string>
-    <string name="installation_complete">Installation Complete</string>
-    <string name="installation_errors">Errors Installing</string>
+    <string name="selected_files">Português </string>
+    <string name="install">Português </string>
+    <string name="success">Português </string>
+    <string name="installation_complete">Instalação completa</string>
+    <string name="installation_errors">Português</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
-    <string name="download">Download</string>
-    <string name="close_app">Close App</string>
+    <string name="download">Baixar</string>
+    <string name="close_app">Fechar Aplicação</string>
     <string name="open_shizuku">Open Shizuku</string>
     <string name="website">Website</string>
     <string name="github">GitHub</string>
