@@ -24,7 +24,7 @@
     <string name="shizuku_not_installed">Shizuku chưa được cài đặt</string>
     <string name="shizuku_not_installed_desc">Shizuku bắt buộc phải được cài đặt để ứng dụng này có thể chạy. Bạn muốn tải xuống Shizuku bây giờ không?</string>
     <string name="shizuku_not_running">Shizuku đã tắt</string>
-    <string name="shizuku_not_running_desc">Shizuku needs to be running for this app to function. Follow the directions in the Shizuku app to start it.</string>
+    <string name="shizuku_not_running_desc">Shizuku cần cho việc hoạt động của ứng dụng. Tải và làm theo hướng dẫn của shizuku để khởi động nó.</string>
     <string name="replace_existing">Replace Existing</string>
     <string name="replace_existing_desc">If the package being installed already exists, replace/upgrade it.</string>
     <string name="allow_test">Allow Test</string>
