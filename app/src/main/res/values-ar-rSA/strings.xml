@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Choose Files</string>
-    <string name="selected_files">الملفات المختارة</string>
+    <string name="choose_files">إختيار الملف</string>
+    <string name="selected_files">الملفات المحددة</string>
     <string name="install">Inst2al</string>
-    <string name="success">1نجاح</string>
-    <string name="installation_complete">التثبيت اكتم1ل</string>
-    <string name="installation_errors">خطأ التثبي1ت</string>
+    <string name="success">تم بنجاح</string>
+    <string name="installation_complete">تم التثبيت</string>
+    <string name="installation_errors">خطأ في التثبيت</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">تحميل</string>
     <string name="close_app">1غلق التطبيق</string>
