@@ -18,7 +18,7 @@
     <string name="settings">Paramètres</string>
     <string name="remove">Retirer</string>
     <string name="translate">Traduire</string>
-    <string name="permission_intent_was_null">L\'intention de permission était nulle!</string>
+    <string name="permission_intent_was_null">Permission Intent was null!</string>
     <string name="enable_crash_reports">Activer les Rapports de Plantage</string>
     <string name="enable_crash_reports_desc">Permettre à Install with Options d\'envoyer des journaux anonymes de plantage et d\'erreur à Bugsnag. La désactivation de cette option nécessite un redémarrage de l\'application pour prendre effet.</string>
     <string name="shizuku_not_installed">Shizuku non Installé</string>
