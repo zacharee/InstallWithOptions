@@ -6,7 +6,7 @@
     <string name="success">Êxito</string>
     <string name="installation_complete">Instalação Concluída</string>
     <string name="installation_errors">Erros ao Instalar</string>
-    <string name="status_item"><![CDATA[%1$s: %2$s]]></string>
+    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Baixar</string>
     <string name="close_app">Fechar o App</string>
     <string name="open_shizuku">Abrir o Shizuku</string>
