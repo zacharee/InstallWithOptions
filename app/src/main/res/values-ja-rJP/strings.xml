@@ -2,7 +2,7 @@
 <resources>
     <string name="choose_files">ファイルを選択</string>
     <string name="selected_files">選択されたファイル</string>
-    <string name="install">Ｇ</string>
+    <string name="install">Install</string>
     <string name="success">成功</string>
     <string name="installation_complete">インストールが完了しました</string>
     <string name="installation_errors">インストール中のエラー</string>
