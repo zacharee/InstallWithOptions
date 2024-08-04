@@ -59,7 +59,7 @@
     <string name="apex_desc">Indica que el paquete que se está instalando es un paquete APEX.</string>
     <string name="enable_rollback">Activar Rollback</string>
     <string name="enable_rollback_desc">Permitir revocaciones futuras de este paquete.</string>
-    <string name="disable_verification">Deshablitar verificación</string>
+    <string name="disable_verification">Deshabilitar verificación</string>
     <string name="disable_verification_desc">Deshabilita la verificación del paquete durante la instalación. Esto no es verificación de firmas.</string>
     <string name="staged">Escenificado</string>
     <string name="staged_desc">Indica que este paquete está siendo instalado como parte de una instalación escalonada.</string>
