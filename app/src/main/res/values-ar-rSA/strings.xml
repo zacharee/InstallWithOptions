@@ -2,7 +2,7 @@
 <resources>
     <string name="choose_files">إختيار الملف</string>
     <string name="selected_files">الملفات المحددة</string>
-    <string name="install">Inst2al</string>
+    <string name="install">تثبيت</string>
     <string name="success">تم بنجاح</string>
     <string name="installation_complete">تم التثبيت</string>
     <string name="installation_errors">خطأ في التثبيت</string>
@@ -12,7 +12,7 @@
     <string name="open_shizuku">فتح شيزوفريني1</string>
     <string name="website">موقع1</string>
     <string name="github">الحصول1</string>
-    <string name="patreon">1باتريون</string>
+    <string name="patreon">باتريون</string>
     <string name="mastodon">1يجب</string>
     <string name="supporters">1مؤيدين</string>
     <string name="settings">Settings</string>
