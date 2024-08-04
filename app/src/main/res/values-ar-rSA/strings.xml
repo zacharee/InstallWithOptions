@@ -15,8 +15,8 @@
     <string name="patreon">1باتريون</string>
     <string name="mastodon">1يجب</string>
     <string name="supporters">1مؤيدين</string>
-    <string name="settings">Set1tings</string>
-    <string name="remove">1Remove</string>
+    <string name="settings">Settings</string>
+    <string name="remove">Remove</string>
     <string name="translate">Translate</string>
     <string name="permission_intent_was_null">Permission Intent was null!</string>
     <string name="enable_crash_reports">Enable Crash Reports</string>
