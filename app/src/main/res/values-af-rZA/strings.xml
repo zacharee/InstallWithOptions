@@ -18,8 +18,8 @@
     <string name="settings">Yarda</string>
     <string name="remove">Uggh</string>
     <string name="translate">Translated</string>
-    <string name="permission_intent_was_null">Permission Intent was null!</string>
-    <string name="enable_crash_reports">Enable Crash Reports</string>
+    <string name="permission_intent_was_null">Hlo</string>
+    <string name="enable_crash_reports">Hloi</string>
     <string name="enable_crash_reports_desc">Allow Install with Options to send anonymous crash and error logs to Bugsnag. Disabling this requires an app restart to take effect.</string>
     <string name="shizuku_not_installed">Shizuku not Installed</string>
     <string name="shizuku_not_installed_desc">Shizuku is required for this app to function. Would you like to download it now?</string>
