@@ -50,8 +50,8 @@
     <string name="dont_kill_app">Don\'t Kill App</string>
     <string name="dont_kill_app_desc">在为拆分应用安装功能时使用，以防止主应用在安装过程中被杀死.</string>
     <string name="full_app">完整应用</string>
-    <string name="full_app_desc">Indicates that the package being installed is a full app. Can be used to upgrade instant apps to full apps.</string>
-    <string name="allocate_aggressive">Allocate Aggressive</string>
+    <string name="full_app_desc">表示正在安装的软件包是完整的应用程序。可以用来将即时应用程序升级为完整的应用程序。</string>
+    <string name="allocate_aggressive">分配侵略模式</string>
     <string name="allocate_aggressive_desc">Indicates that the package is \"critical to system health or security\" and will more aggressively delete clearable files to make space if needed.</string>
     <string name="virtual_preload">虚拟预加载</string>
     <string name="virtual_preload_desc">Indicates that the package is a virtual preload.</string>
