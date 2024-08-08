@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Elegir archivos</string>
+    <string name="choose_files">Seleccionar archivo</string>
     <string name="selected_files">Archivos seleccionados</string>
-    <string name="install">Instalar</string>
+    <string name="install">Instalar A Tale of Survival - Free_1.3.0_APKPure (1). apk</string>
     <string name="success">Éxito</string>
     <string name="installation_complete">Instalación Completa</string>
     <string name="installation_errors">Errores de instalación</string>
