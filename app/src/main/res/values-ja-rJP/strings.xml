@@ -2,7 +2,7 @@
 <resources>
     <string name="choose_files">ファイルを選択</string>
     <string name="selected_files">選択されたファイル</string>
-    <string name="install">Install</string>
+    <string name="install">インストール</string>
     <string name="success">成功</string>
     <string name="installation_complete">インストールが完了しました</string>
     <string name="installation_errors">インストール中のエラー</string>
@@ -68,15 +68,15 @@
     <string name="disable_allowed_apex_update_check">許可されたAPEX アップデートチェックを無効にする</string>
     <string name="disable_allowed_apex_update_check_desc">インストール済みの APEX を更新できるかどうかを確認しない。</string>
     <string name="bypass_low_target_sdk_block">低ターゲットSDKのブロックをバイパス</string>
-    <string name="bypass_low_target_sdk_block_desc">Allows apps targeting old SDK versions to be installed.</string>
+    <string name="bypass_low_target_sdk_block_desc">古いバージョンの SDK をインストールするアプリを許可します。</string>
     <string name="force_sdk">SDKを強制する</string>
     <string name="force_sdk_desc">Allows installing or upgrading packages targeting SDK letters.</string>
     <string name="dry_run">試運転</string>
     <string name="dry_run_desc">パッケージを確認しますが、インストールしないでください。</string>
     <string name="request_update_ownership">所有権の更新を要求する</string>
     <string name="request_update_ownership_desc">現在のセッションで所有権の有効化を有効にします。</string>
-    <string name="from_managed_user_or_profile">From Managed User or Profile</string>
-    <string name="from_managed_user_or_profile_desc">Indicates that the current session is from a managed user or profile.</string>
+    <string name="from_managed_user_or_profile">管理ユーザーまたはプロファイルから</string>
+    <string name="from_managed_user_or_profile_desc">現在のセッションが管理ユーザーまたはプロファイルからのものであることを示します。</string>
     <string name="ignore_dexopt_profile">Dexopt プロファイルを無視</string>
     <string name="ignore_dexopt_profile_desc">インストール中にこのパッケージの dexopt プロファイルを無視します。</string>
     <string name="installer_package">インストーラパッケージ</string>
