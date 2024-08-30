@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Choose Files</string>
+    <string name="choose_files">Elegir archivo</string>
     <string name="selected_files">Archivos seleccionados</string>
     <string name="install">Instalar</string>
     <string name="success">Éxito</string>
@@ -49,7 +49,7 @@
     <string name="instant_app_desc">Instalar el paquete como una aplicación instantánea.</string>
     <string name="dont_kill_app">No matar aplicación</string>
     <string name="dont_kill_app_desc">Utilizado al instalar una función para una aplicación dividida para evitar que la aplicación principal se cierre durante la instalación.</string>
-    <string name="full_app">Full App</string>
+    <string name="full_app">Aplicación completa</string>
     <string name="full_app_desc">Indica que el paquete que se está instalando es una aplicación completa. Puede utilizarse para actualizar aplicaciones instantáneas a aplicaciones completas.</string>
     <string name="allocate_aggressive">Asignar agresivo</string>
     <string name="allocate_aggressive_desc">Indica que el paquete es \"crítico para la seguridad o salud del sistema\" y borrará de forma más agresiva los archivos limpiables para hacer espacio si es necesario.</string>
