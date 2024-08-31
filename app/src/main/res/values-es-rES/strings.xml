@@ -50,7 +50,7 @@
     <string name="dont_kill_app">No matar aplicación</string>
     <string name="dont_kill_app_desc">Utilizado al instalar una función para una aplicación dividida para evitar que la aplicación principal se cierre durante la instalación.</string>
     <string name="full_app">Aplicación completa</string>
-    <string name="full_app_desc">Indica que el paquete que se está instalando es una aplicación completa. Puede utilizarse para actualizar aplicaciones instantáneas a aplicaciones completas.</string>
+    <string name="full_app_desc">Indicates that the package being installed is a full app. Can be used to upgrade instant apps to full apps.</string>
     <string name="allocate_aggressive">Asignar agresivo</string>
     <string name="allocate_aggressive_desc">Indica que el paquete es \"crítico para la seguridad o salud del sistema\" y borrará de forma más agresiva los archivos limpiables para hacer espacio si es necesario.</string>
     <string name="virtual_preload">Precarga virtual</string>
