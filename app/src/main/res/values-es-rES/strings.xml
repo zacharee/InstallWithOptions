@@ -67,7 +67,7 @@
     <string name="all_whitelist_restricted_permissions_desc">Permitir que se concedan permisos restringidos para el paquete que se está instalando.</string>
     <string name="disable_allowed_apex_update_check">Desactivar la verificación de actualización de APEX permitida</string>
     <string name="disable_allowed_apex_update_check_desc">No compruebe si el APEX instalado puede ser actualizado.</string>
-    <string name="bypass_low_target_sdk_block">Bypass bajo bloque SDK objetivo</string>
+    <string name="bypass_low_target_sdk_block">Omitir el bloqueo SDK de objetivo bajo</string>
     <string name="bypass_low_target_sdk_block_desc">Permite que se instalen aplicaciones que apuntan a versiones antiguas de SDK.</string>
     <string name="force_sdk">Forzar SDK</string>
     <string name="force_sdk_desc">Permite instalar o actualizar paquetes dirigidos a las letras SDK.</string>
