@@ -15,11 +15,11 @@
     <string name="patreon">باتريون</string>
     <string name="mastodon">1يجب</string>
     <string name="supporters">1مؤيدين</string>
-    <string name="settings">Settings</string>
-    <string name="remove">Remove</string>
-    <string name="translate">Translate</string>
-    <string name="permission_intent_was_null">Permission Intent was null!</string>
-    <string name="enable_crash_reports">Enable Crash Reports</string>
+    <string name="settings">إعدادات</string>
+    <string name="remove">إزالة</string>
+    <string name="translate">ترجمة</string>
+    <string name="permission_intent_was_null">نية الإذن كانت فارغة!</string>
+    <string name="enable_crash_reports">تمكين تقارير الأعطال</string>
     <string name="enable_crash_reports_desc">Allow Install with Options to send anonymous crash and error logs to Bugsnag. Disabling this requires an app restart to take effect.</string>
     <string name="shizuku_not_installed">Shizuku not Installed</string>
     <string name="shizuku_not_installed_desc">Shizuku is required for this app to function. Would you like to download it now?</string>
