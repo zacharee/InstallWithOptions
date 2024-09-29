@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="choose_files">Choose Files</string>
-    <string name="selected_files">Selected Files</string>
+    <string name="selected_files">Https://crowdin.com/project/install-with-options</string>
     <string name="install">Install</string>
     <string name="success">Success</string>
     <string name="installation_complete">Instalação completa</string>
