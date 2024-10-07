@@ -10,7 +10,7 @@
     <string name="download">Descarga</string>
     <string name="close_app">Cerrar la aplicación</string>
     <string name="open_shizuku">Abrir Shizuku</string>
-    <string name="website">Pagina Web</string>
+    <string name="website">Sitio Web</string>
     <string name="github">GitHub</string>
     <string name="patreon">Patreon</string>
     <string name="mastodon">Mastodon</string>
@@ -21,9 +21,9 @@
     <string name="permission_intent_was_null">¡Intento de permiso fue null!</string>
     <string name="enable_crash_reports">Activar reporte de errores</string>
     <string name="enable_crash_reports_desc">Permitir que Install with Options envie fallos y registros de errores anónimos a Bugsnag. Deshabilitar esto requiere reiniciar la aplicación para que surta efecto.</string>
-    <string name="shizuku_not_installed">Shizuku no esta instalado</string>
+    <string name="shizuku_not_installed">Shizuku no está instalado</string>
     <string name="shizuku_not_installed_desc">Shizuku es necesario para que esta aplicación funcione. ¿Te gustaría descargar ahora?</string>
-    <string name="shizuku_not_running">Shizuku no esta ejecutandose</string>
+    <string name="shizuku_not_running">Shizuku no está ejecutándose</string>
     <string name="shizuku_not_running_desc">Shizuku necesita estar ejecutado para que esta aplicación funcione. Sigue las instrucciones de la aplicación Shizuku para iniciarla.</string>
     <string name="replace_existing">Reemplazar existente</string>
     <string name="replace_existing_desc">Si el paquete que se está instalando ya existe, reemplazalo/actualizalo.</string>
