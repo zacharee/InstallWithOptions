@@ -39,6 +39,7 @@ class ShellInterface(context: Context) : IShellInterface.Stub() {
             Looper.prepare()
         }
 
+        @Suppress("UNCHECKED_CAST")
         installer.installPackage(
             fileDescriptors as Map<String, List<AssetFileDescriptor>>,
             options,
