@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Choose Files</string>
+    <string name="choose_files">파일 고르기</string>
     <string name="selected_files">선택한 파일</string>
     <string name="install">설치</string>
     <string name="success">완료</string>
