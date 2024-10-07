@@ -1,17 +1,17 @@
 [versions]
-activityCompose = "1.9.0"
-agp = "8.4.1"
-bugsnag-android = "6.5.0"
+activityCompose = "1.9.2"
+agp = "8.7.0"
+bugsnag-android = "6.8.0"
 bugsnag-android-gradle = "8.1.0"
-bugsnag-android-performance = "1.3.0"
-composeBom = "2024.05.00-alpha03"
+bugsnag-android-performance = "1.9.0"
+composeBom = "2024.09.03"
 coreKtx = "1.13.1"
 documentfile = "1.1.0-alpha01"
 gson = "2.11.0"
 hiddenapibypass = "4.3"
-kotlin = "2.0.0"
-libsu = "5.2.2"
-lifecycleRuntimeKtx = "2.8.1"
+kotlin = "2.0.20"
+libsu = "6.0.0"
+lifecycleRuntimeKtx = "2.8.6"
 materialComponents = "1.12.0"
 moko-mvvm = "0.16.1"
 patreonsupportersretrieval = "d2e9143db2"
@@ -22,7 +22,7 @@ zip4j = "2.11.5"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { module = "dev.chrisbanes.compose:compose-bom", version.ref = "composeBom" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-documentfile = { module = "androidx.documentfile:documentfile", version.ref = "documentfile" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
