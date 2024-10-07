@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Bhhhhhjjhh選擇檔案</string>
-    <string name="selected_files">Hhhhhhhhhhh已選擇的檔案</string>
-    <string name="install">Hhhhhhhhhh安裝</string>
-    <string name="success">Yyghghhh成功</string>
+    <string name="choose_files">選擇檔案</string>
+    <string name="selected_files">已選擇的檔案</string>
+    <string name="install">安裝</string>
+    <string name="success">成功</string>
     <string name="installation_complete">安裝完成</string>
     <string name="installation_errors">安裝時發生錯誤</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
@@ -80,15 +80,15 @@
     <string name="ignore_dexopt_profile">Ignore Dexopt Profile</string>
     <string name="ignore_dexopt_profile_desc">Ignore dexopt profiles for this package during installation.</string>
     <string name="installer_package">Installer Package</string>
-    <string name="installer_package_desc">(Com crowd.com)</string>
+    <string name="installer_package_desc">Specify the package name of the app that Android should report this APK was installed by (e.g., com.android.vending).</string>
     <string name="install_reason">安裝原因</string>
     <string name="install_reason_desc">設定此安裝的原因。</string>
-    <string name="error_selecting_files">Jjhjjjhjhu</string>
-    <string name="error_binding_service">Hjhjjjjjh</string>
+    <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
+    <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
     <string name="install_reason_unknown">未知</string>
     <string name="install_reason_policy">政策</string>
-    <string name="install_reason_device_restore">Yhhhjjjj</string>
-    <string name="install_reason_device_setup">Hjlgjjjjjhj</string>
+    <string name="install_reason_device_restore">Device Restore</string>
+    <string name="install_reason_device_setup">Device Setup</string>
     <string name="install_reason_user">使用者</string>
     <string name="install_reason_rollback">回滾</string>
 </resources>
