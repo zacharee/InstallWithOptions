@@ -54,14 +54,14 @@
     <string name="allocate_aggressive">分配侵略模式</string>
     <string name="allocate_aggressive_desc">Indicates that the package is \"critical to system health or security\" and will more aggressively delete clearable files to make space if needed.</string>
     <string name="virtual_preload">虚拟预加载</string>
-    <string name="virtual_preload_desc">English</string>
+    <string name="virtual_preload_desc">Indicates that the package is a virtual preload.</string>
     <string name="apex">APEX</string>
     <string name="apex_desc">正在安装的软件包是一个 APEX 软件包。</string>
     <string name="enable_rollback">启用回滚</string>
     <string name="enable_rollback_desc">允许此软件包的回滚。</string>
     <string name="disable_verification">禁用验证</string>
     <string name="disable_verification_desc">在安装过程中禁用软件包验证。这不是签名验证！</string>
-    <string name="staged">D</string>
+    <string name="staged">Staged</string>
     <string name="staged_desc">Indicates this package is being installed as part of a staged install.</string>
     <string name="all_whitelist_restricted_permissions">Allow Restricted Permissions</string>
     <string name="all_whitelist_restricted_permissions_desc">Allow restricted permissions to be granted for the package being installed.</string>
