@@ -25,7 +25,7 @@ class ShellInterface(context: Context) : IShellInterface.Stub() {
         systemContext.createPackageContextAsUser(
             BuildConfig.APPLICATION_ID,
             Context.CONTEXT_INCLUDE_CODE or Context.CONTEXT_IGNORE_SECURITY,
-            userHandle
+            userHandle,
         )
     })
 
