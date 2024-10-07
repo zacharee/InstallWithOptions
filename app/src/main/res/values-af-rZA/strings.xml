@@ -52,7 +52,7 @@
     <string name="full_app">Full App</string>
     <string name="full_app_desc">Indicates that the package being installed is a full app. Can be used to upgrade instant apps to full apps.</string>
     <string name="allocate_aggressive">Allocate Aggressive</string>
-    <string name="allocate_aggressive_desc">.</string>
+    <string name="allocate_aggressive_desc">Indicates that the package is \"critical to system health or security\" and will more aggressively delete clearable files to make space if needed.</string>
     <string name="virtual_preload">Virtual Preload</string>
     <string name="virtual_preload_desc">Indicates that the package is a virtual preload.</string>
     <string name="apex">APEX</string>
