@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Elegir archivo</string>
-    <string name="selected_files">Seleccionar Archivos</string>
+    <string name="choose_files">Seleccionar archivos</string>
+    <string name="selected_files">Archivos seleccionados</string>
     <string name="install">Instalar</string>
     <string name="success">Completado</string>
     <string name="installation_complete">Instalación completada</string>
@@ -10,7 +10,7 @@
     <string name="download">Descarga</string>
     <string name="close_app">Cerrar la aplicación</string>
     <string name="open_shizuku">Abrir Shizuku</string>
-    <string name="website">Pagina Web</string>
+    <string name="website">Sitio Web</string>
     <string name="github">GitHub</string>
     <string name="patreon">Patreon</string>
     <string name="mastodon">Mastodon</string>
@@ -21,9 +21,9 @@
     <string name="permission_intent_was_null">¡Intento de permiso fue null!</string>
     <string name="enable_crash_reports">Activar reporte de errores</string>
     <string name="enable_crash_reports_desc">Permitir que Install with Options envie fallos y registros de errores anónimos a Bugsnag. Deshabilitar esto requiere reiniciar la aplicación para que surta efecto.</string>
-    <string name="shizuku_not_installed">Shizuku no esta instalado</string>
+    <string name="shizuku_not_installed">Shizuku no está instalado</string>
     <string name="shizuku_not_installed_desc">Shizuku es necesario para que esta aplicación funcione. ¿Te gustaría descargar ahora?</string>
-    <string name="shizuku_not_running">Shizuku no esta ejecutandose</string>
+    <string name="shizuku_not_running">Shizuku no está ejecutándose</string>
     <string name="shizuku_not_running_desc">Shizuku necesita estar ejecutado para que esta aplicación funcione. Sigue las instrucciones de la aplicación Shizuku para iniciarla.</string>
     <string name="replace_existing">Reemplazar existente</string>
     <string name="replace_existing_desc">Si el paquete que se está instalando ya existe, reemplazalo/actualizalo.</string>
@@ -50,7 +50,7 @@
     <string name="dont_kill_app">No matar aplicación</string>
     <string name="dont_kill_app_desc">Utilizado al instalar una función para una aplicación dividida para evitar que la aplicación principal se cierre durante la instalación.</string>
     <string name="full_app">Aplicación completa</string>
-    <string name="full_app_desc">Indicates that the package being installed is a full app. Can be used to upgrade instant apps to full apps.</string>
+    <string name="full_app_desc">Indica que el paquete que se está instalando es una aplicación completa. Puede utilizarse para actualizar aplicaciones instantáneas a aplicaciones completas.</string>
     <string name="allocate_aggressive">Asignar agresivo</string>
     <string name="allocate_aggressive_desc">Indica que el paquete es \"crítico para la seguridad o salud del sistema\" y borrará de forma más agresiva los archivos limpiables para hacer espacio si es necesario.</string>
     <string name="virtual_preload">Precarga virtual</string>
