@@ -40,10 +40,10 @@
     <string name="allow_downgrade">Permitir Downgrade</string>
     <string name="allow_downgrade_desc">Tenta fazer downgrade da versão atualmente instalada do pacote para a que está sendo instalada.</string>
     <string name="grant_all_permissions">Conceder Todas as Permissões Solicitadas</string>
-    <string name="grant_all_permissions_desc">Conceder automaticamente todas as permissões que o pacote estiver solicitando.</string>
+    <string name="grant_all_permissions_desc">Conceder automaticamente todas as permissões que o pacote estiver solicitando. Observe que isso se aplica apenas a permissões de tempo de execução. Permissões especiais como Acesso a todos os arquivos ou Acessibilidade não serão concedidas automaticamente.</string>
     <string name="force_volume_uuid">Forçar Volume UUID</string>
     <string name="force_volume_uuid_desc">Permite especificar um volume UUID onde instalar o pacote.</string>
-    <string name="force_permission_prompt">Forçar Diálogo de Permissão</string>
+    <string name="force_permission_prompt">Forçar Pedido de Permissão</string>
     <string name="force_permission_prompt_desc">Força até mesmo os instaladores do sistema a mostrar o diálogo de confirmação de instalação.</string>
     <string name="instant_app">Instant App</string>
     <string name="instant_app_desc">Instalar o pacote como um instant app.</string>
