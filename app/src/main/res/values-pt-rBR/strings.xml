@@ -18,7 +18,7 @@
     <string name="settings">Configurações</string>
     <string name="remove">Remover</string>
     <string name="translate">Traduzir</string>
-    <string name="permission_intent_was_null">A intenção de permissão era nula!</string>
+    <string name="permission_intent_was_null">A intenção de permissão foi anulada!</string>
     <string name="enable_crash_reports">Ativar Relatório de Erros</string>
     <string name="enable_crash_reports_desc">Permitir ao app enviar logs anônimos de falhas e erros para o Bugsnag. Desabilitar essa opção requer uma reinicialização do aplicativo para entrar em vigor.</string>
     <string name="shizuku_not_installed">Shizuku não instalado</string>
