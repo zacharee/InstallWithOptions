@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">إختيار الملف</string>
+    <string name="choose_files">Choose Files</string>
     <string name="selected_files">الملفات المحددة</string>
     <string name="install">تثبيت</string>
     <string name="success">تم بنجاح</string>
