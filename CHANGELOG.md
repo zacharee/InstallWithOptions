@@ -1,3 +1,7 @@
+# 0.6.2
+- Add ability to import .apks files.
+- Update translations.
+
 # 0.6.1
 - A bunch of crash fixes.
 - Update translations.
