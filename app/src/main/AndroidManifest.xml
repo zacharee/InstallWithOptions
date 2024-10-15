@@ -49,6 +49,10 @@
         <meta-data
             android:name="com.bugsnag.android.API_KEY"
             android:value="32c84908d8e5003c417afd8acafdda75"/>
+
+        <meta-data
+            android:name="com.bugsnag.android.BUILD_UUID"
+            android:value="${build_uuid}" />
     </application>
 
 </manifest>

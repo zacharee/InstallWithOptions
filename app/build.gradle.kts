@@ -1,3 +1,5 @@
+import java.util.UUID
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -21,6 +23,7 @@ android {
         }
 
         extensions.getByType(BasePluginExtension::class.java).archivesName.set("InstallWithOptions_${versionName}")
+        manifestPlaceholders["build_uuid"] = UUID.nameUUIDFromBytes("InstallWithOptions_${versionCode}".toByteArray()).toString()
     }
 
     buildTypes {
