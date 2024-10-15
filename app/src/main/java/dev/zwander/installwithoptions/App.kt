@@ -30,13 +30,13 @@ class App : Application() {
             HiddenApiBypass.setHiddenApiExemptions("")
         }
 
-        if (Settings.Keys.enableCrashReports.getValue() == true) {
+        if (Settings.Keys.enableCrashReports.getValue()) {
             startBugsnag()
         }
 
         GlobalScope.launch(Dispatchers.IO) {
             Settings.Keys.enableCrashReports.asMutableStateFlow().collect {
-                if (it == true && !Bugsnag.isStarted()) {
+                if (it && !Bugsnag.isStarted()) {
                     startBugsnag()
                 }
             }
