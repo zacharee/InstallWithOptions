@@ -5,7 +5,12 @@ Install with Options uses Shizuku to run with shell permissions, allowing you to
 
 It also supports installing split APKs or batch-installing multiple separate apps.
 
-Downloads are available on the [Releases](https://github.com/zacharee/InstallWithOptions/releases) page.
+## Downloads
+### GitHub
+[![GitHub Release](https://img.shields.io/github/v/release/zacharee/InstallWithOptions?style=for-the-badge&logo=github&label=Install%20with%20Options&color=orange)](https://github.com/zacharee/InstallWithOptions/releases)
+
+### IzzyOnDroid
+[![Install with Options](https://img.shields.io/endpoint?url=https%3A%2F%2Fapt.izzysoft.de%2Ffdroid%2Fapi%2Fv1%2Fshield%2Fdev.zwander.installwithoptions&style=for-the-badge&logo=f-droid&label=Install%20with%20Options)](https://apt.izzysoft.de/fdroid/index/apk/dev.zwander.installwithoptions/)
 
 # Translating
 [![Crowdin](https://badges.crowdin.net/install-with-options/localized.svg)](https://crowdin.com/project/install-with-options)
