@@ -1,3 +1,6 @@
+# 0.6.3
+- Reduce APK size by removing native Bugsnag modules.
+
 # 0.6.2
 - Add ability to import .apks files.
 - Update translations.
