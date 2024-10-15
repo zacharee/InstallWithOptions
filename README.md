@@ -57,8 +57,9 @@ This option will only automatically grant _runtime_ permissions, like Camera or 
 Special permissions, like All Files Access, or special access, like Accessibility Services, will not be automatically granted or enabled.
 
 # Screenshots
-<img src="https://github.com/zacharee/InstallWithOptions/assets/9020352/67ccc61a-27cd-4055-bc29-2d086c5db3ae" width="400"></img>
-<img src="https://github.com/zacharee/InstallWithOptions/assets/9020352/598a9bcf-dc0e-4226-a3a1-c9327833197a" width="400"></img>
-<img src="https://github.com/zacharee/InstallWithOptions/assets/9020352/9831e9fe-6802-4334-87c3-16713d7ea93e" width="400"></img>
-<img src="https://github.com/zacharee/InstallWithOptions/assets/9020352/4400818f-d025-4318-b010-708f68395b17" width="400"></img>
-<img src="https://github.com/zacharee/InstallWithOptions/assets/9020352/ce119609-99ed-49a7-9e58-5bf76c0771aa" width="400"></img>
+<img src="https://github.com/user-attachments/assets/ce04ade4-a0f6-4a87-bd1c-f72c2e9fbd22" width="400"></img>
+<img src="https://github.com/user-attachments/assets/95834de4-b657-4024-b2e4-50e0df3cda36" width="400"></img>
+<img src="https://github.com/user-attachments/assets/46eaea5c-aaf1-428b-8759-4e43add3cfb1" width="400"></img>
+<img src="https://github.com/user-attachments/assets/bcfefdf6-08b3-4883-a0d6-8d845fe1cb15" width="400"></img>
+<img src="https://github.com/user-attachments/assets/98d8c34b-a60d-46a0-b282-78fcdf290731" width="400"></img>
+<img src="https://github.com/user-attachments/assets/904c59c8-2566-4757-aec5-e6b73d7b4aca" width="400"></img>
