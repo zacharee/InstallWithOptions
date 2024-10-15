@@ -1,9 +1,9 @@
 package dev.zwander.installwithoptions.util
 
-import android.app.ActivityThread
 import android.content.Context
 import android.content.res.AssetFileDescriptor
 import android.os.Looper
+import android.os.UserHandle
 import androidx.annotation.Keep
 import androidx.core.os.UserHandleCompat
 import dev.zwander.installwithoptions.BuildConfig
@@ -16,17 +16,27 @@ class ShellInterface(context: Context) : IShellInterface.Stub() {
     private val realContext = context.createPackageContext("com.android.shell", 0)
     private val installer = InternalInstaller(realContext)
 
-    @Suppress("INACCESSIBLE_TYPE")
+    @Suppress("PrivateApi")
     @Keep
     constructor() : this(kotlin.run {
-        val systemContext = ActivityThread.systemMain().systemContext as Context
+        val activityThreadClass = Class.forName("android.app.ActivityThread")
+        val systemMain = activityThreadClass.getMethod("systemMain")
+            .invoke(null)
+        val systemContext = activityThreadClass.getMethod("getSystemContent")
+            .invoke(systemMain) as Context
         val userHandle = UserHandleCompat.getUserHandleForUid(Shizuku.getUid())
 
-        systemContext.createPackageContextAsUser(
+        systemContext::class.java.getMethod(
+            "createPackageContextAsUser",
+            String::class.java,
+            Int::class.java,
+            UserHandle::class.java,
+        ).invoke(
+            systemContext,
             BuildConfig.APPLICATION_ID,
             Context.CONTEXT_INCLUDE_CODE or Context.CONTEXT_IGNORE_SECURITY,
             userHandle,
-        )
+        ) as Context
     })
 
     override fun install(

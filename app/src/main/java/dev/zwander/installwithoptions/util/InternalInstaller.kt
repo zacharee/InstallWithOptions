@@ -1,4 +1,4 @@
-@file:Suppress("DEPRECATION")
+@file:Suppress("PrivateApi")
 
 package dev.zwander.installwithoptions.util
 
@@ -6,24 +6,33 @@ import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.pm.IPackageInstallerSession
-import android.content.pm.IPackageManager
+import android.content.IntentSender
 import android.content.pm.PackageInstaller
 import android.content.res.AssetFileDescriptor
 import android.os.Build
-import android.os.FileBridge
+import android.os.IBinder
 import android.os.ParcelFileDescriptor
-import android.os.ServiceManager
 import android.os.UserHandle
 import android.util.Log
 import dev.zwander.installwithoptions.BuildConfig
 import dev.zwander.installwithoptions.IOptionsApplier
+import rikka.shizuku.ShizukuSystemProperties
+import rikka.shizuku.SystemServiceHelper
+import java.io.OutputStream
 import kotlin.random.Random
 
 class InternalInstaller(private val context: Context) {
-    private val packageInstaller =
-        IPackageManager.Stub.asInterface(ServiceManager.getService("package"))
-            .packageInstaller
+    private val packageInstaller by lazy {
+        val pmInstance = Class.forName("android.content.pm.IPackageManager\$Stub")
+            .getMethod("asInterface", IBinder::class.java)
+            .invoke(null, SystemServiceHelper.getSystemService("package"))
+
+        Class.forName("android.content.pm.IPackageManager")
+            .getMethod("getPackageInstaller")
+            .invoke(pmInstance)
+    }
+
+    private fun myUserId() = UserHandle::class.java.getMethod("myUserId").invoke(null) as Int
 
     fun installPackage(
         fileDescriptors: Map<String, List<AssetFileDescriptor>>,
@@ -43,65 +52,94 @@ class InternalInstaller(private val context: Context) {
         applier: IOptionsApplier,
         installerPackageName: String,
     ) {
-        var session: IPackageInstallerSession? = null
-
         try {
             val params = PackageInstaller.SessionParams(
                 PackageInstaller.SessionParams.MODE_FULL_INSTALL,
             ).run {
-                options.reduceOrNull { acc, i -> acc or i }?.let { flags -> installFlags = flags }
+                options.reduceOrNull { acc, i -> acc or i }?.let { flags ->
+                    PackageInstaller.SessionParams::class.java.getField("installFlags")
+                        .set(this, flags)
+                }
                 applier.applyOptions(this)
             }
             val sessionId = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                packageInstaller.createSession(params, installerPackageName, installerPackageName, UserHandle.myUserId())
+                packageInstaller::class.java
+                    .getMethod(
+                        "createSession",
+                        PackageInstaller.SessionParams::class.java,
+                        String::class.java, String::class.java, Int::class.java,
+                    )
+                    .invoke(
+                        packageInstaller,
+                        params,
+                        installerPackageName,
+                        installerPackageName,
+                        myUserId(),
+                    ) as Int
             } else {
                 packageInstaller::class.java
                     .getMethod(
                         "createSession",
                         PackageInstaller.SessionParams::class.java,
                         String::class.java,
-                        Int::class.java
+                        Int::class.java,
                     )
                     .invoke(
                         packageInstaller,
                         params,
                         installerPackageName,
-                        UserHandle.myUserId(),
+                        myUserId(),
                     ) as Int
             }
-            session = packageInstaller.openSession(sessionId)
-            val statusIntent = PendingIntent.getBroadcast(
-                context, Random.nextInt(),
-                Intent(INSTALL_STATUS_ACTION).apply {
-                    `package` = BuildConfig.APPLICATION_ID
-                },
-                PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_ALLOW_UNSAFE_IMPLICIT_INTENT,
-            )
+            val session = packageInstaller::class.java.getMethod("openSession")
+                .invoke(packageInstaller, sessionId) as Any
 
-            fileDescriptors.forEachIndexed { index, fd ->
-                val writer = session?.openWrite(
-                    "file_${index}",
-                    0,
-                    fd.length,
-                )?.run {
-                    if (PackageInstaller.ENABLE_REVOCABLE_FD) {
-                        ParcelFileDescriptor.AutoCloseOutputStream(this)
-                    } else {
-                        FileBridge.FileBridgeOutputStream(this)
+            try {
+                val statusIntent = PendingIntent.getBroadcast(
+                    context, Random.nextInt(),
+                    Intent(INSTALL_STATUS_ACTION).apply {
+                        `package` = BuildConfig.APPLICATION_ID
+                    },
+                    PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_ALLOW_UNSAFE_IMPLICIT_INTENT,
+                )
+
+                fileDescriptors.forEachIndexed { index, fd ->
+                    val writer = (session::class.java.getMethod(
+                        "openWrite",
+                        String::class.java,
+                        Long::class.java,
+                        Long::class.java,
+                    ).invoke(
+                        session,
+                        "file_${index}",
+                        0,
+                        fd.length,
+                    ) as ParcelFileDescriptor?)?.run {
+                        if (ShizukuSystemProperties.getBoolean("fw.revocable_fd", false)) {
+                            ParcelFileDescriptor.AutoCloseOutputStream(this)
+                        } else {
+                            Class.forName("android.os.FileBridge\$FileBridgeOutputStream")
+                                .getConstructor(ParcelFileDescriptor::class.java)
+                                .newInstance(this) as OutputStream
+                        }
+                    }
+
+                    writer?.use { output ->
+                        fd.createInputStream()?.use { input ->
+                            input.copyTo(output)
+                        }
                     }
                 }
 
-                writer?.use { output ->
-                    fd.createInputStream()?.use { input ->
-                        input.copyTo(output)
-                    }
-                }
+                session::class.java.getMethod("commit", IntentSender::class.java, Boolean::class.java)
+                    .invoke(session, statusIntent.intentSender, false)
+            } catch (e: Throwable) {
+                Log.e("InstallWithOptions", "error", e)
+                session::class.java.getMethod("abandon").invoke(session)
+                throw e
             }
-
-            session?.commit(statusIntent.intentSender, false)
         } catch (e: Throwable) {
             Log.e("InstallWithOptions", "error", e)
-            session?.abandon()
             throw e
         }
     }

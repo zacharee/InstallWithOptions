@@ -7,7 +7,6 @@ import android.os.Build
 import androidx.annotation.Keep
 import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,7 +15,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.DropdownMenu
@@ -35,7 +33,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalTextToolbar
 import androidx.compose.ui.res.stringResource
@@ -183,10 +180,10 @@ sealed class MutableOption<T : Any?>(
         ).apply {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 put(
-                    PackageManager.INSTALL_REASON_ROLLBACK,
+                    5 /* INSTALL_REASON_ROLLBACK */,
                     Option(
                         labelRes = R.string.install_reason_rollback,
-                        value = PackageManager.INSTALL_REASON_ROLLBACK,
+                        value = 5 /* INSTALL_REASON_ROLLBACK */,
                     ),
                 )
             }

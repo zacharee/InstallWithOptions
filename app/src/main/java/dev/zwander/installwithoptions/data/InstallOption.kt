@@ -1,6 +1,5 @@
 package dev.zwander.installwithoptions.data
 
-import android.content.pm.PackageManager
 import android.os.Build
 import androidx.annotation.Keep
 import androidx.annotation.StringRes
@@ -34,21 +33,21 @@ sealed class InstallOption(
 ) : BaseOption<Int>() {
     @Keep
     data object ReplaceExisting : InstallOption(
-        value = PackageManager.INSTALL_REPLACE_EXISTING,
+        value = 0x00000002,
         labelResource = R.string.replace_existing,
         descResource = R.string.replace_existing_desc,
     )
 
     @Keep
     data object AllowTest : InstallOption(
-        value = PackageManager.INSTALL_ALLOW_TEST,
+        value = 0x00000004,
         labelResource = R.string.allow_test,
         descResource = R.string.allow_test_desc,
     )
 
     @Keep
     data object Internal : InstallOption(
-        value = PackageManager.INSTALL_INTERNAL,
+        value = 0x00000010,
         labelResource = R.string.internal,
         descResource = R.string.internal_desc,
     )
@@ -63,14 +62,14 @@ sealed class InstallOption(
 
     @Keep
     data object FromAdb : InstallOption(
-        value = PackageManager.INSTALL_FROM_ADB,
+        value = 0x00000020,
         labelResource = R.string.from_adb,
         descResource = R.string.from_adb_desc,
     )
 
     @Keep
     data object ALlUsers : InstallOption(
-        value = PackageManager.INSTALL_ALL_USERS,
+        value = 0x00000040,
         labelResource = R.string.all_users,
         descResource = R.string.all_users_desc,
     )
@@ -88,7 +87,7 @@ sealed class InstallOption(
 
     @Keep
     data object GrantAllRequestedPermissions : InstallOption(
-        value = PackageManager.INSTALL_GRANT_ALL_REQUESTED_PERMISSIONS,
+        value = 0x00000100,
         minSdk = Build.VERSION_CODES.M,
         labelResource = R.string.grant_all_permissions,
         descResource = R.string.grant_all_permissions_desc,
@@ -112,7 +111,7 @@ sealed class InstallOption(
 
     @Keep
     data object InstantApp : InstallOption(
-        value = PackageManager.INSTALL_INSTANT_APP,
+        value = 0x00000800,
         minSdk = Build.VERSION_CODES.N,
         labelResource = R.string.instant_app,
         descResource = R.string.instant_app_desc,
@@ -120,7 +119,7 @@ sealed class InstallOption(
 
     @Keep
     data object DontKillApp : InstallOption(
-        value = PackageManager.INSTALL_DONT_KILL_APP,
+        value = 0x00001000,
         minSdk = Build.VERSION_CODES.N,
         labelResource = R.string.dont_kill_app,
         descResource = R.string.dont_kill_app_desc,
@@ -137,7 +136,7 @@ sealed class InstallOption(
 
     @Keep
     data object FullApp : InstallOption(
-        value = PackageManager.INSTALL_FULL_APP,
+        value = 0x00004000,
         minSdk = Build.VERSION_CODES.O,
         labelResource = R.string.full_app,
         descResource = R.string.full_app_desc,
@@ -145,7 +144,7 @@ sealed class InstallOption(
 
     @Keep
     data object AllocateAggressive : InstallOption(
-        value = PackageManager.INSTALL_ALLOCATE_AGGRESSIVE,
+        value = 0x00008000,
         minSdk = Build.VERSION_CODES.O,
         labelResource = R.string.allocate_aggressive,
         descResource = R.string.allocate_aggressive_desc,
@@ -153,7 +152,7 @@ sealed class InstallOption(
 
     @Keep
     data object VirtualPreload : InstallOption(
-        value = PackageManager.INSTALL_VIRTUAL_PRELOAD,
+        value = 0x00010000,
         minSdk = Build.VERSION_CODES.O_MR1,
         labelResource = R.string.virtual_preload,
         descResource = R.string.virtual_preload_desc,
@@ -161,7 +160,7 @@ sealed class InstallOption(
 
     @Keep
     data object Apex : InstallOption(
-        value = PackageManager.INSTALL_APEX,
+        value = 0x00020000,
         minSdk = Build.VERSION_CODES.Q,
         labelResource = R.string.apex,
         descResource = R.string.apex_desc,
@@ -169,7 +168,7 @@ sealed class InstallOption(
 
     @Keep
     data object EnableRollback : InstallOption(
-        value = PackageManager.INSTALL_ENABLE_ROLLBACK,
+        value = 0x00040000,
         minSdk = Build.VERSION_CODES.Q,
         labelResource = R.string.enable_rollback,
         descResource = R.string.enable_rollback_desc,
@@ -177,7 +176,7 @@ sealed class InstallOption(
 
     @Keep
     data object DisableVerification : InstallOption(
-        value = PackageManager.INSTALL_DISABLE_VERIFICATION,
+        value = 0x00080000,
         minSdk = Build.VERSION_CODES.Q,
         labelResource = R.string.disable_verification,
         descResource = R.string.disable_verification_desc,
@@ -185,7 +184,7 @@ sealed class InstallOption(
 
     @Keep
     data object Staged : InstallOption(
-        value = PackageManager.INSTALL_STAGED,
+        value = 0x00200000,
         minSdk = Build.VERSION_CODES.Q,
         labelResource = R.string.staged,
         descResource = R.string.staged_desc,
@@ -202,7 +201,7 @@ sealed class InstallOption(
 
     @Keep
     data object AllWhitelistRestrictedPermissions : InstallOption(
-        value = PackageManager.INSTALL_ALL_WHITELIST_RESTRICTED_PERMISSIONS,
+        value = 0x00400000,
         minSdk = Build.VERSION_CODES.S,
         labelResource = R.string.all_whitelist_restricted_permissions,
         descResource = R.string.all_whitelist_restricted_permissions_desc,
@@ -211,7 +210,7 @@ sealed class InstallOption(
     @Keep
     data object DisableAllowedApexUpdateCheck : InstallOption(
         // Bug in AOSP from 12-13 where the APEX flag here shared a value with AllWhitelistRestrictedPermissions.
-        value = PackageManager.INSTALL_DISABLE_ALLOWED_APEX_UPDATE_CHECK,
+        value = 0x00800000,
         minSdk = Build.VERSION_CODES.UPSIDE_DOWN_CAKE,
         labelResource = R.string.disable_allowed_apex_update_check,
         descResource = R.string.disable_allowed_apex_update_check_desc,
@@ -219,7 +218,7 @@ sealed class InstallOption(
 
     @Keep
     data object BypassLowTargetSdkBlock : InstallOption(
-        value = PackageManager.INSTALL_BYPASS_LOW_TARGET_SDK_BLOCK,
+        value = 0x01000000,
         minSdk = Build.VERSION_CODES.UPSIDE_DOWN_CAKE,
         labelResource = R.string.bypass_low_target_sdk_block,
         descResource = R.string.bypass_low_target_sdk_block_desc,

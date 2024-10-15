@@ -1,9 +1,8 @@
-@file:Suppress("DEPRECATION")
+@file:Suppress("PrivateApi")
 
 package dev.zwander.installwithoptions.util
 
 import android.content.Context
-import android.content.pm.PackageParser
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
 import com.bugsnag.android.Bugsnag
@@ -32,21 +31,39 @@ fun Context.handleIncomingUris(uris: List<Uri>) {
     DataModel.isImporting.value = false
 }
 
+private val apkLiteClass by lazy {
+    Class.forName("android.content.pm.PackageParser\$ApkLite")
+}
+private val apkLitePackageNameField by lazy {
+    apkLiteClass.getField("packageName")
+}
+
+private val parseApkLiteMethod by lazy {
+    Class.forName("android.content.pm.PackageParser")
+        .getMethod("parseApkLite", File::class.java, Int::class.java)
+}
+
 private fun Context.addApkFile(file: DocumentFile, currentSelection: MutableMap<String, List<DocumentFile>>) {
     try {
         val realFile = if (file.uri.scheme == "file") file else run {
             contentResolver.openInputStream(file.uri).use { input ->
                 val dest = File(cacheDir, "${file.name ?: file.uri}")
                 dest.outputStream().use { output ->
-                    input.copyTo(output)
+                    input?.copyTo(output)
                 }
                 DocumentFile.fromFile(dest)
             }
         }
-        val apkFile = PackageParser.parseApkLite(File(realFile.uri.path), 0)
-        val packageList = currentSelection[apkFile.packageName] ?: listOf()
+        val apkFile = realFile.uri.path?.let {
+            parseApkLiteMethod.invoke(null, File(it), 0)
+        }
 
-        currentSelection[apkFile.packageName] = (packageList + file).distinctBy { "${apkFile.packageName}:${it.name}" }
+        if (apkFile != null) {
+            val packageName = apkLitePackageNameField.get(apkFile) as String
+            val packageList = currentSelection[packageName] ?: listOf()
+
+            currentSelection[packageName] = (packageList + file).distinctBy { "${packageName}:${it.name}" }
+        }
     } catch (_: Throwable) {}
 }
 
@@ -59,7 +76,7 @@ private fun Context.copyZipToCacheAndExtract(zip: DocumentFile): List<DocumentFi
 
     contentResolver.openInputStream(zip.uri).use { input ->
         destFile.outputStream().use { output ->
-            input.copyTo(output)
+            input?.copyTo(output)
         }
     }
 
