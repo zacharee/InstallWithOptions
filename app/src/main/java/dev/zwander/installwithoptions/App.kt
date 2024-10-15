@@ -6,7 +6,6 @@ import android.content.Context
 import android.os.Build
 import com.bugsnag.android.Bugsnag
 import com.bugsnag.android.performance.BugsnagPerformance
-import com.getkeepsafe.relinker.ReLinker
 import dev.zwander.installwithoptions.data.Settings
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -44,9 +43,6 @@ class App : Application() {
     }
 
     private fun startBugsnag() {
-        ReLinker.loadLibrary(this, "bugsnag-ndk")
-        ReLinker.loadLibrary(this, "bugsnag-plugin-android-anr")
-
         Bugsnag.start(this)
         BugsnagPerformance.start(this)
     }

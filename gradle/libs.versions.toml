@@ -16,7 +16,6 @@ materialComponents = "1.12.0"
 moko-mvvm = "0.16.1"
 patreonsupportersretrieval = "d2e9143db2"
 preference = "1.2.1"
-relinker = "1.4.5"
 shizuku = "13.1.5"
 zip4j = "2.11.5"
 
@@ -41,7 +40,6 @@ libsu-service = { module = "com.github.topjohnwu.libsu:service", version.ref = "
 material-components = { module = "com.google.android.material:material", version.ref = "materialComponents" }
 moko-mvvm = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "moko-mvvm" }
 patreonSupportersRetrieval = { module = "com.github.zacharee:PatreonSupportersRetrieval", version.ref = "patreonsupportersretrieval" }
-relinker = { module = "com.getkeepsafe.relinker:relinker", version.ref = "relinker" }
 shizuku-api = { module = "dev.rikka.shizuku:api", version.ref = "shizuku" }
 shizuku-provider = { module = "dev.rikka.shizuku:provider", version.ref = "shizuku" }
 zip4j = { module = "net.lingala.zip4j:zip4j", version.ref = "zip4j" }

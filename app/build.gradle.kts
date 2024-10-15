@@ -78,9 +78,11 @@ dependencies {
     implementation(libs.androidx.preference)
     implementation(libs.gson)
     implementation(libs.patreonSupportersRetrieval)
-    implementation(libs.bugsnag.android)
+    implementation(libs.bugsnag.android) {
+        exclude("com.bugsnag", "bugsnag-plugin-android-anr")
+        exclude("com.bugsnag", "bugsnag-plugin-android-ndk")
+    }
     implementation(libs.bugsnag.android.performance)
-    implementation(libs.relinker)
     implementation(libs.material.components)
     implementation(libs.libsu.core)
     implementation(libs.libsu.service)

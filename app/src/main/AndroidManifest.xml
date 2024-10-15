@@ -53,6 +53,9 @@
         <meta-data
             android:name="com.bugsnag.android.BUILD_UUID"
             android:value="${build_uuid}" />
+
+        <meta-data android:name="com.bugsnag.android.DETECT_NDK_CRASHES" android:value="false"/>
+        <meta-data android:name="com.bugsnag.android.DETECT_ANRS" android:value="false"/>
     </application>
 
 </manifest>
