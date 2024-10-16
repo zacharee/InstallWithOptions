@@ -16,7 +16,6 @@ import android.os.UserHandle
 import android.util.Log
 import dev.zwander.installwithoptions.BuildConfig
 import dev.zwander.installwithoptions.IOptionsApplier
-import rikka.shizuku.ShizukuSystemProperties
 import rikka.shizuku.SystemServiceHelper
 import java.io.OutputStream
 import kotlin.random.Random
@@ -91,7 +90,7 @@ class InternalInstaller(private val context: Context) {
                         myUserId(),
                     ) as Int
             }
-            val session = packageInstaller::class.java.getMethod("openSession")
+            val session = packageInstaller::class.java.getMethod("openSession", Int::class.java)
                 .invoke(packageInstaller, sessionId) as Any
 
             try {
@@ -115,7 +114,10 @@ class InternalInstaller(private val context: Context) {
                         0,
                         fd.length,
                     ) as ParcelFileDescriptor?)?.run {
-                        if (ShizukuSystemProperties.getBoolean("fw.revocable_fd", false)) {
+                        if (Class.forName("android.os.SystemProperties")
+                                .getMethod("getBoolean", String::class.java, Boolean::class.java)
+                                .invoke(null, "fw.revocable_fd", false) as Boolean
+                        ) {
                             ParcelFileDescriptor.AutoCloseOutputStream(this)
                         } else {
                             Class.forName("android.os.FileBridge\$FileBridgeOutputStream")
@@ -131,8 +133,11 @@ class InternalInstaller(private val context: Context) {
                     }
                 }
 
-                session::class.java.getMethod("commit", IntentSender::class.java, Boolean::class.java)
-                    .invoke(session, statusIntent.intentSender, false)
+                session::class.java.getMethod(
+                    "commit",
+                    IntentSender::class.java,
+                    Boolean::class.java
+                ).invoke(session, statusIntent.intentSender, false)
             } catch (e: Throwable) {
                 Log.e("InstallWithOptions", "error", e)
                 session::class.java.getMethod("abandon").invoke(session)
