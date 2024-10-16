@@ -1,3 +1,6 @@
+# 0.6.4
+- Fix some issues with reflection that caused installation errors or hangs.
+
 # 0.6.3
 - Reduce APK size by removing native Bugsnag modules.
 
