@@ -13,17 +13,18 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.currentStateAsState
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuProvider
+import rikka.sui.Sui
 
 object ShizukuUtils {
-    fun isInstalled(context: Context): Boolean {
+    private fun isInstalled(context: Context): Boolean {
         return try {
             context.packageManager.getApplicationInfo(ShizukuProvider.MANAGER_APPLICATION_ID, 0) != null
         } catch (e: Throwable) {
-            false
+            Sui.isSui()
         }
     }
 
-    val isRunning: Boolean
+    private val isRunning: Boolean
         get() = Shizuku.pingBinder()
 
     @Composable
