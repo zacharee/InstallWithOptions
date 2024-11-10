@@ -60,6 +60,10 @@ class InternalInstaller(private val context: Context) {
                         .set(this, flags)
                 }
                 applier.applyOptions(this)
+                PackageInstaller.SessionParams::class.java
+                    .getMethod("setPackageSource", Int::class.java)
+                    .invoke(this, PackageInstaller.PACKAGE_SOURCE_STORE)
+                this.setInstallerPackageName(installerPackageName)
             }
             val sessionId = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 packageInstaller::class.java
