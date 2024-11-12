@@ -41,9 +41,9 @@
     <string name="allow_downgrade_desc">Попытка понизить текущую версию пакета до устанавливаемой.</string>
     <string name="grant_all_permissions">Предоставить все запрошенные разрешения</string>
     <string name="grant_all_permissions_desc">Автоматически предоставлять все разрешения, запрашиваемые пакетом. Обратите внимание, что это относится только к разрешениям во время выполнения. Специальные разрешения, такие как «Доступ ко всем файлам» или «Доступность», не будут предоставлены автоматически.</string>
-    <string name="force_volume_uuid">Уровень громкости UUID</string>
+    <string name="force_volume_uuid">Усилить громкость UUID</string>
     <string name="force_volume_uuid_desc">Позволяет задавать UUID тома для установки пакета.</string>
-    <string name="force_permission_prompt">Принудительный запрос разрешений</string>
+    <string name="force_permission_prompt">Принудительный запрос разрешения</string>
     <string name="force_permission_prompt_desc">Принуждает даже системные установщики отображать запрос на подтверждение установки.</string>
     <string name="instant_app">Приложения с мгновенным запуском</string>
     <string name="instant_app_desc">Установить пакет как мгновенное приложение.</string>
@@ -51,7 +51,7 @@
     <string name="dont_kill_app_desc">Используется при установке функции для раздельного приложения, чтобы не допустить закрытия основного приложения во время установки.</string>
     <string name="full_app">Полное приложение</string>
     <string name="full_app_desc">Указывает, что устанавливаемый пакет является полным приложением. Может быть использован для обновления мгновенных приложений до полных приложений.</string>
-    <string name="allocate_aggressive">Allocate Aggressive</string>
+    <string name="allocate_aggressive">Выделять агрессивные</string>
     <string name="allocate_aggressive_desc">Указывает, что пакет \"имеет решающее значение для здоровья системы или безопасности\" и будет более агрессивно удалять очищаемые файлы, чтобы при необходимости освободить место.</string>
     <string name="virtual_preload">Виртуальная предзагрузка</string>
     <string name="virtual_preload_desc">Указывает, что пакет является виртуальной загрузкой.</string>
