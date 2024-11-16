@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "dev.zwander.installwithoptions"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "dev.zwander.installwithoptions"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 16
         versionName = "0.6.4"
 
