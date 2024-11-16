@@ -58,7 +58,7 @@ class ElevatedPermissionHandler(
                         confirmButton = {
                             TextButton(
                                 onClick = {
-                                    context.launchUrl("https://shizuku.rikka.app/")
+                                    context.launchUrl("https://shizuku.rikka.app/download")
                                 },
                             ) {
                                 Text(text = stringResource(id = R.string.download))
