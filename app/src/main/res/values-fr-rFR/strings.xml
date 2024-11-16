@@ -18,7 +18,7 @@
     <string name="settings">Paramètres</string>
     <string name="remove">Enlever</string>
     <string name="translate">Traduire</string>
-    <string name="permission_intent_was_null">•  Transition is empty</string>
+    <string name="permission_intent_was_null">Permission Intent was null!</string>
     <string name="enable_crash_reports">Activer les Rapports de Plantage</string>
     <string name="enable_crash_reports_desc">Autoriser l\'installation avec les options à envoyer des plantages anonymes et des logs d\'erreur à Bugsnag. Désactiver ceci nécessite un redémarrage de l\'application pour prendre effet.</string>
     <string name="shizuku_not_installed">Shizuku n\'est pas installé</string>
@@ -68,7 +68,7 @@
     <string name="disable_allowed_apex_update_check">Désactiver la Vérification Autorisée des Mises À Jour APEX</string>
     <string name="disable_allowed_apex_update_check_desc">Ne pas vérifier si l\'APEX installé peut être mis à jour.</string>
     <string name="bypass_low_target_sdk_block">Contourner le Blocage lié à un SDK Cible Bas</string>
-    <string name="bypass_low_target_sdk_block_desc">•  Translation is empty. </string>
+    <string name="bypass_low_target_sdk_block_desc">Allows apps targeting old SDK versions to be installed.</string>
     <string name="force_sdk">Force SDK</string>
     <string name="force_sdk_desc">Permet d\'installer ou de mettre à jour des paquets ciblant les lettres SDK.</string>
     <string name="dry_run">Essai à sec</string>
