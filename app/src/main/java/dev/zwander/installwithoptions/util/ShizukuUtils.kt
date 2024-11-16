@@ -18,6 +18,7 @@ import rikka.sui.Sui
 object ShizukuUtils {
     private fun isInstalled(context: Context): Boolean {
         return try {
+            @Suppress("SENSELESS_COMPARISON")
             context.packageManager.getApplicationInfo(ShizukuProvider.MANAGER_APPLICATION_ID, 0) != null
         } catch (e: Throwable) {
             Sui.isSui()
