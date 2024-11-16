@@ -41,9 +41,9 @@
     <string name="allow_downgrade_desc">Попытка понизить текущую версию пакета до устанавливаемой.</string>
     <string name="grant_all_permissions">Предоставить все запрошенные разрешения</string>
     <string name="grant_all_permissions_desc">Автоматически предоставлять все разрешения, запрашиваемые пакетом. Обратите внимание, что это относится только к разрешениям во время выполнения. Специальные разрешения, такие как «Доступ ко всем файлам» или «Доступность», не будут предоставлены автоматически.</string>
-    <string name="force_volume_uuid">Уровень громкости UUID</string>
-    <string name="force_volume_uuid_desc">Позволяет задавать UUID тома для установки пакета.</string>
-    <string name="force_permission_prompt">Принудительный запрос разрешений</string>
+    <string name="force_volume_uuid">Принудительный том UUID</string>
+    <string name="force_volume_uuid_desc">Позволяет указать UUID тома, на который будет установлен пакет.</string>
+    <string name="force_permission_prompt">Принудительный запрос разрешения</string>
     <string name="force_permission_prompt_desc">Принуждает даже системные установщики отображать запрос на подтверждение установки.</string>
     <string name="instant_app">Приложения с мгновенным запуском</string>
     <string name="instant_app_desc">Установить пакет как мгновенное приложение.</string>
@@ -51,7 +51,7 @@
     <string name="dont_kill_app_desc">Используется при установке функции для раздельного приложения, чтобы не допустить закрытия основного приложения во время установки.</string>
     <string name="full_app">Полное приложение</string>
     <string name="full_app_desc">Указывает, что устанавливаемый пакет является полным приложением. Может быть использован для обновления мгновенных приложений до полных приложений.</string>
-    <string name="allocate_aggressive">Allocate Aggressive</string>
+    <string name="allocate_aggressive">Выделять агрессивные</string>
     <string name="allocate_aggressive_desc">Указывает, что пакет \"имеет решающее значение для здоровья системы или безопасности\" и будет более агрессивно удалять очищаемые файлы, чтобы при необходимости освободить место.</string>
     <string name="virtual_preload">Виртуальная предзагрузка</string>
     <string name="virtual_preload_desc">Указывает, что пакет является виртуальной загрузкой.</string>
@@ -71,11 +71,11 @@
     <string name="bypass_low_target_sdk_block_desc">Разрешить установку приложений со старой целевой версией SDK.</string>
     <string name="force_sdk">Принудительно SDK</string>
     <string name="force_sdk_desc">Позволяет устанавливать или обновлять пакеты, ориентированные на описание SDK.</string>
-    <string name="dry_run">Dry Run</string>
-    <string name="dry_run_desc">Проверить пакет, но не установить его.</string>
+    <string name="dry_run">Пробный запуск</string>
+    <string name="dry_run_desc">Проверить пакет, но не устанавливать его.</string>
     <string name="request_update_ownership">Request Update Ownership</string>
     <string name="request_update_ownership_desc">Включить обновление прав собственности на текущую сессию.</string>
-    <string name="from_managed_user_or_profile">От управляемого пользователя или профиля</string>
+    <string name="from_managed_user_or_profile">От управляющего пользователя или профиля</string>
     <string name="from_managed_user_or_profile_desc">Указывает, что текущая сессия из управляемого пользователя или профиля.</string>
     <string name="ignore_dexopt_profile">Игнорировать Dexopt профиль</string>
     <string name="ignore_dexopt_profile_desc">Игнорировать профили dexopt для этого пакета во время установки.</string>
@@ -84,11 +84,11 @@
     <string name="install_reason">Причина установки</string>
     <string name="install_reason_desc">Задайте причину для этой установки.</string>
     <string name="error_selecting_files">Пожалуйста, убедитесь, что у вас есть проводник для выбора APK файла.</string>
-    <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
-    <string name="install_reason_unknown">Неизвестна</string>
-    <string name="install_reason_policy">Policy</string>
-    <string name="install_reason_device_restore">Device Restore</string>
-    <string name="install_reason_device_setup">Device Setup</string>
+    <string name="error_binding_service">Невозможно связать привилегированную службу. Пожалуйста, перезагрузите устройство и повторите попытку.</string>
+    <string name="install_reason_unknown">Неизвестная причина установки</string>
+    <string name="install_reason_policy">Политика</string>
+    <string name="install_reason_device_restore">Восстановление Устройства</string>
+    <string name="install_reason_device_setup">Настройка Устройства</string>
     <string name="install_reason_user">Пользователь</string>
     <string name="install_reason_rollback">Откат</string>
 </resources>
