@@ -52,18 +52,18 @@ class InternalInstaller(private val context: Context) {
         installerPackageName: String,
     ) {
         try {
-            val params = PackageInstaller.SessionParams(
+            val params: PackageInstaller.SessionParams = PackageInstaller.SessionParams(
                 PackageInstaller.SessionParams.MODE_FULL_INSTALL,
             ).run {
                 options.reduceOrNull { acc, i -> acc or i }?.let { flags ->
                     PackageInstaller.SessionParams::class.java.getField("installFlags")
                         .set(this, flags)
                 }
-                applier.applyOptions(this)
                 PackageInstaller.SessionParams::class.java
                     .getMethod("setPackageSource", Int::class.java)
                     .invoke(this, PackageInstaller.PACKAGE_SOURCE_STORE)
                 this.setInstallerPackageName(installerPackageName)
+                applier.applyOptions(this)
             }
             val sessionId = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 packageInstaller::class.java
