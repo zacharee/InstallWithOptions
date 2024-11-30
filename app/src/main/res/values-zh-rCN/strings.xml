@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Choose File</string>
+    <string name="choose_files">Choose Files</string>
     <string name="selected_files">选择的文件</string>
     <string name="install">安装</string>
     <string name="success">成功</string>
