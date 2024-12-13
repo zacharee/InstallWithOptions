@@ -40,7 +40,7 @@
     <string name="allow_downgrade">السماح بالرجوع إلى إصدار أقدم</string>
     <string name="allow_downgrade_desc">محاولات الرجوع إلى إصدار أقدم من الإصدار المثبت حاليا من الحزمة إلى الإصدار الذي يتم تثبيته.</string>
     <string name="grant_all_permissions">منح كافة الأذونات المطلوبة</string>
-    <string name="grant_all_permissions_desc">منح كافة الأذونات التي تطلبها الحزمة تلقائيا. لاحظ أن هذا ينطبق فقط على أذونات وقت التشغيل. لن يتم منح أذونات خاصة مثل الوصول إلى كافة الملفات أو إمكانية الوصول تلقائيا.</string>
+    <string name="grant_all_permissions_desc">Automatically grant all permissions the package is requesting. Note that this only applies to runtime permissions. Special permissions like All Files Access or Accessibility won\'t be automatically granted.</string>
     <string name="force_volume_uuid">فرض حجم UUID</string>
     <string name="force_volume_uuid_desc">يسمح بتحديد وحدة تخزين UUID لتثبيت الحزمة عليها.</string>
     <string name="force_permission_prompt">فرض موجه الإذن</string>
