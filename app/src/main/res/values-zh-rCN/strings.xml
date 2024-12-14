@@ -7,7 +7,7 @@
     <string name="installation_complete">安装完成</string>
     <string name="installation_errors">安装错误</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
-    <string name="download">下载</string>
+    <string name="download">Download</string>
     <string name="close_app">关闭App</string>
     <string name="open_shizuku">打开 Shizuku</string>
     <string name="website">网站</string>
@@ -49,7 +49,7 @@
     <string name="instant_app_desc">安装软件包作为即时应用。</string>
     <string name="dont_kill_app">Don\'t Kill App</string>
     <string name="dont_kill_app_desc">在为拆分应用安装功能时使用，以防止主应用在安装过程中被杀死.</string>
-    <string name="full_app">完整应用</string>
+    <string name="full_app">Full App</string>
     <string name="full_app_desc">表示正在安装的软件包是完整的应用程序。可以用来将即时应用程序升级为完整的应用程序。</string>
     <string name="allocate_aggressive">分配侵略模式</string>
     <string name="allocate_aggressive_desc">指示包“对系统健康或安全至关重要”，并将更积极地删除可清除的文件，以便在需要时腾出空间。</string>
