@@ -49,7 +49,7 @@
     <string name="instant_app_desc">تثبيت الحزمة كتطبيق فوري.</string>
     <string name="dont_kill_app">عدم قتل التطبيق</string>
     <string name="dont_kill_app_desc">تستخدم عند تثبيت ميزة لتطبيق منقسم لمنع إيقاف التطبيق الرئيسي أثناء التثبيت.</string>
-    <string name="full_app">التطبيق الكامل</string>
+    <string name="full_app">التطبيق كامل</string>
     <string name="full_app_desc">يشير إلى أن الحزمة التي يتم تثبيتها هي تطبيق كامل. يمكن استخدامها لترقية التطبيقات الفورية إلى التطبيقات الكاملة.</string>
     <string name="allocate_aggressive">تخصيص العدوانية</string>
     <string name="allocate_aggressive_desc">يشير إلى أن الحزمة \"حرجة لصحة النظام أو أمانه\" وستحذف الملفات القابلة للمسح بقوة أكبر لتوفير مساحة إذا لزم الأمر.</string>
