@@ -3,7 +3,7 @@
     <string name="choose_files">Seleccionar archivos</string>
     <string name="selected_files">Archivos seleccionados</string>
     <string name="install">Instalar</string>
-    <string name="success">Completado</string>
+    <string name="success">Succes</string>
     <string name="installation_complete">Instalación completada</string>
     <string name="installation_errors">Errores de instalación</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
