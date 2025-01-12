@@ -73,7 +73,7 @@
     <string name="force_sdk_desc">Позволяет устанавливать или обновлять пакеты, ориентированные на описание SDK.</string>
     <string name="dry_run">Пробный запуск</string>
     <string name="dry_run_desc">Проверить пакет, но не устанавливать его.</string>
-    <string name="request_update_ownership">Request Update Ownership</string>
+    <string name="request_update_ownership">Запрос обновления на права администратора</string>
     <string name="request_update_ownership_desc">Включить обновление прав собственности на текущую сессию.</string>
     <string name="from_managed_user_or_profile">От управляющего пользователя или профиля</string>
     <string name="from_managed_user_or_profile_desc">Указывает, что текущая сессия из управляемого пользователя или профиля.</string>
