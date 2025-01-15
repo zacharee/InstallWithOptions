@@ -2,9 +2,9 @@
 <resources>
     <string name="choose_files">اختر الملفات</string>
     <string name="selected_files">الملفات المختارة</string>
-    <string name="install">تثبيت</string>
+    <string name="install">Install</string>
     <string name="success">تم بنجاح</string>
-    <string name="installation_complete">تم التثبيت</string>
+    <string name="installation_complete">Installation Complete</string>
     <string name="installation_errors">خطأ في التثبيت</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">تحميل</string>
