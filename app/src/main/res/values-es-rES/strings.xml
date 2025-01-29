@@ -52,7 +52,7 @@
     <string name="full_app">Aplicación completa</string>
     <string name="full_app_desc">Indica que el paquete que se está instalando es una aplicación completa. Puede utilizarse para actualizar aplicaciones instantáneas a aplicaciones completas.</string>
     <string name="allocate_aggressive">Asignar agresivo</string>
-    <string name="allocate_aggressive_desc">Indica que el paquete es \"crítico para la seguridad o salud del sistema\" y borrará de forma más agresiva los archivos limpiables para hacer espacio si es necesario.</string>
+    <string name="allocate_aggressive_desc">Indicates that the package is \"critical to system health or security\" and will more aggressively delete clearable files to make space if needed.</string>
     <string name="virtual_preload">Precarga virtual</string>
     <string name="virtual_preload_desc">Indica que el paquete es una precarga virtual.</string>
     <string name="apex">APEX</string>
