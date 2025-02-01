@@ -50,7 +50,7 @@
     <string name="dont_kill_app">Don\'t Kill App</string>
     <string name="dont_kill_app_desc">在为拆分应用安装功能时使用，以防止主应用在安装过程中被杀死.</string>
     <string name="full_app">Full App</string>
-    <string name="full_app_desc">表示正在安装的软件包是完整的应用程序。可以用来将即时应用程序升级为完整的应用程序。</string>
+    <string name="full_app_desc">Indicates that the package being installed is a full app. Can be used to upgrade instant apps to full apps.</string>
     <string name="allocate_aggressive">分配侵略模式</string>
     <string name="allocate_aggressive_desc">指示包“对系统健康或安全至关重要”，并将更积极地删除可清除的文件，以便在需要时腾出空间。</string>
     <string name="virtual_preload">虚拟预加载</string>
