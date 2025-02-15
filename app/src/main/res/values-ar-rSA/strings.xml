@@ -2,9 +2,9 @@
 <resources>
     <string name="choose_files">اختر الملفات</string>
     <string name="selected_files">الملفات المختارة</string>
-    <string name="install">تثبيت</string>
+    <string name="install">Install</string>
     <string name="success">تم بنجاح</string>
-    <string name="installation_complete">تم التثبيت</string>
+    <string name="installation_complete">Installation Complete</string>
     <string name="installation_errors">خطأ في التثبيت</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">تحميل</string>
@@ -40,7 +40,7 @@
     <string name="allow_downgrade">السماح بالرجوع إلى إصدار أقدم</string>
     <string name="allow_downgrade_desc">محاولات الرجوع إلى إصدار أقدم من الإصدار المثبت حاليا من الحزمة إلى الإصدار الذي يتم تثبيته.</string>
     <string name="grant_all_permissions">منح كافة الأذونات المطلوبة</string>
-    <string name="grant_all_permissions_desc">منح كافة الأذونات التي تطلبها الحزمة تلقائيا. لاحظ أن هذا ينطبق فقط على أذونات وقت التشغيل. لن يتم منح أذونات خاصة مثل الوصول إلى كافة الملفات أو إمكانية الوصول تلقائيا.</string>
+    <string name="grant_all_permissions_desc">Automatically grant all permissions the package is requesting. Note that this only applies to runtime permissions. Special permissions like All Files Access or Accessibility won\'t be automatically granted.</string>
     <string name="force_volume_uuid">فرض حجم UUID</string>
     <string name="force_volume_uuid_desc">يسمح بتحديد وحدة تخزين UUID لتثبيت الحزمة عليها.</string>
     <string name="force_permission_prompt">فرض موجه الإذن</string>
@@ -49,7 +49,7 @@
     <string name="instant_app_desc">تثبيت الحزمة كتطبيق فوري.</string>
     <string name="dont_kill_app">عدم قتل التطبيق</string>
     <string name="dont_kill_app_desc">تستخدم عند تثبيت ميزة لتطبيق منقسم لمنع إيقاف التطبيق الرئيسي أثناء التثبيت.</string>
-    <string name="full_app">التطبيق الكامل</string>
+    <string name="full_app">التطبيق كامل</string>
     <string name="full_app_desc">يشير إلى أن الحزمة التي يتم تثبيتها هي تطبيق كامل. يمكن استخدامها لترقية التطبيقات الفورية إلى التطبيقات الكاملة.</string>
     <string name="allocate_aggressive">تخصيص العدوانية</string>
     <string name="allocate_aggressive_desc">يشير إلى أن الحزمة \"حرجة لصحة النظام أو أمانه\" وستحذف الملفات القابلة للمسح بقوة أكبر لتوفير مساحة إذا لزم الأمر.</string>

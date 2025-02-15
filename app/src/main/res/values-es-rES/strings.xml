@@ -3,9 +3,9 @@
     <string name="choose_files">Seleccionar archivos</string>
     <string name="selected_files">Archivos seleccionados</string>
     <string name="install">Instalar</string>
-    <string name="success">Completado</string>
+    <string name="success">Realizado correctamente</string>
     <string name="installation_complete">Instalación completada</string>
-    <string name="installation_errors">Errores de instalación</string>
+    <string name="installation_errors">Errores al instalar</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Descarga</string>
     <string name="close_app">Cerrar la aplicación</string>
@@ -52,7 +52,7 @@
     <string name="full_app">Aplicación completa</string>
     <string name="full_app_desc">Indica que el paquete que se está instalando es una aplicación completa. Puede utilizarse para actualizar aplicaciones instantáneas a aplicaciones completas.</string>
     <string name="allocate_aggressive">Asignar agresivo</string>
-    <string name="allocate_aggressive_desc">Indica que el paquete es \"crítico para la seguridad o salud del sistema\" y borrará de forma más agresiva los archivos limpiables para hacer espacio si es necesario.</string>
+    <string name="allocate_aggressive_desc">Indicates that the package is \"critical to system health or security\" and will more aggressively delete clearable files to make space if needed.</string>
     <string name="virtual_preload">Precarga virtual</string>
     <string name="virtual_preload_desc">Indica que el paquete es una precarga virtual.</string>
     <string name="apex">APEX</string>
@@ -80,7 +80,7 @@
     <string name="ignore_dexopt_profile">Ignorar perfil de Dexopt</string>
     <string name="ignore_dexopt_profile_desc">Ignore dexopt perfiles para este paquete durante la instalación.</string>
     <string name="installer_package">Paquetes instalados</string>
-    <string name="installer_package_desc">Especifique el nombre del paquete de la aplicación que Android debe reportar que este APK fue instalado por (por ejemplo, cm. Android. Vendió).</string>
+    <string name="installer_package_desc">Especifique el nombre del paquete de la aplicación que Android debe reportar que este APK fue instalado por (Ejemplo: com.android.vending).</string>
     <string name="install_reason">Razón de instalación</string>
     <string name="install_reason_desc">Establecer la razón de esta instalación.</string>
     <string name="error_selecting_files">Por favor, asegúrese de que tiene un navegador de archivos instalado para elegir APKs.</string>
