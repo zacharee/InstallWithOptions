@@ -74,10 +74,16 @@ private fun Context.copyZipToCacheAndExtract(zip: DocumentFile): List<DocumentFi
         mkdirs()
     }
 
-    contentResolver.openInputStream(zip.uri).use { input ->
-        destFile.outputStream().use { output ->
-            input?.copyTo(output)
+    try {
+        contentResolver.openInputStream(zip.uri).use { input ->
+            destFile.outputStream().use { output ->
+                input?.copyTo(output)
+            }
         }
+    } catch (e: IllegalStateException) {
+        return listOf()
+    } catch (e: SecurityException) {
+        return listOf()
     }
 
     val zipFile = ZipFile(destFile)
@@ -85,7 +91,6 @@ private fun Context.copyZipToCacheAndExtract(zip: DocumentFile): List<DocumentFi
     try {
         zipFile.extractAll(destDir.absolutePath)
     } catch (e: ZipException) {
-        Bugsnag.notify(e)
         return listOf()
     }
 
