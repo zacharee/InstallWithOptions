@@ -5,7 +5,6 @@ package dev.zwander.installwithoptions.util
 import android.content.Context
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
-import com.bugsnag.android.Bugsnag
 import dev.zwander.installwithoptions.data.DataModel
 import net.lingala.zip4j.ZipFile
 import net.lingala.zip4j.exception.ZipException
