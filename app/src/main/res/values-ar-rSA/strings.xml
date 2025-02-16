@@ -9,7 +9,7 @@
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">تحميل</string>
     <string name="close_app">1غلق التطبيق</string>
-    <string name="open_shizuku">فتح شيزوفريني1</string>
+    <string name="open_shizuku"></string>
     <string name="website">موقع1</string>
     <string name="github">الحصول1</string>
     <string name="patreon">باتريون</string>
@@ -22,9 +22,9 @@
     <string name="enable_crash_reports">تمكين تقارير الأعطال</string>
     <string name="enable_crash_reports_desc">السماح للتثبيت باستخدام الخيارات لإرسال سجلات الأعطال والأخطاء المجهولة إلى Bugsnag. يتطلب تعطيل هذا إعادة تشغيل التطبيق ليصبح ساري المفعول.</string>
     <string name="shizuku_not_installed">تطبيق Shizuku غير مثبت</string>
-    <string name="shizuku_not_installed_desc">مطلوب Shizuku لهذا التطبيق للعمل. هل ترغب في تحميله الآن؟</string>
+    <string name="shizuku_not_installed_desc">مطلوب شيز لهذا التطبيق للعمل. هل ترغب في تحميله الآن؟</string>
     <string name="shizuku_not_running">تطبيق Shizuku لا يعمل</string>
-    <string name="shizuku_not_running_desc">يجب تشغيل Shizuku حتى يعمل هذا التطبيق. اتبع الإرشادات الموجودة في تطبيق Shizuku لبدء تشغيله.</string>
+    <string name="shizuku_not_running_desc">Shizuku needs to be running for this app to function. Follow the directions in the Shizuku app to start it.</string>
     <string name="replace_existing">استبدال القائمة</string>
     <string name="replace_existing_desc">إذا كانت الحزمة التي يتم تثبيتها موجودة بالفعل ، فاستبدلها / قم بترقيتها.</string>
     <string name="allow_test">السماح بالاختبار</string>
