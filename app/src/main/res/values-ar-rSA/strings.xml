@@ -23,7 +23,7 @@
     <string name="enable_crash_reports_desc">السماح للتثبيت باستخدام الخيارات لإرسال سجلات الأعطال والأخطاء المجهولة إلى Bugsnag. يتطلب تعطيل هذا إعادة تشغيل التطبيق ليصبح ساري المفعول.</string>
     <string name="shizuku_not_installed">تطبيق Shizuku غير مثبت</string>
     <string name="shizuku_not_installed_desc">مطلوب شيز لهذا التطبيق للعمل. هل ترغب في تحميله الآن؟</string>
-    <string name="shizuku_not_running">تطبيق Shizuku لا يعمل</string>
+    <string name="shizuku_not_running">Shizuku not Running</string>
     <string name="shizuku_not_running_desc">Shizuku needs to be running for this app to function. Follow the directions in the Shizuku app to start it.</string>
     <string name="replace_existing">استبدال القائمة</string>
     <string name="replace_existing_desc">إذا كانت الحزمة التي يتم تثبيتها موجودة بالفعل ، فاستبدلها / قم بترقيتها.</string>
@@ -34,7 +34,7 @@
     <string name="external">الخارجية</string>
     <string name="external_desc">فرض تثبيت الحزمة على وحدة تخزين خارجية.</string>
     <string name="from_adb">من ADB</string>
-    <string name="from_adb_desc">يخبر النظام أن طلب التثبيت تم بواسطة ADB.</string>
+    <string name="from_adb_desc">Tells the system that the install request was made by ADB.</string>
     <string name="all_users">كافة المستخدمين</string>
     <string name="all_users_desc">تثبيت الحزمة لكافة المستخدمين على النظام ، بدلا من المستخدم المحدد أو الافتراضي فقط.</string>
     <string name="allow_downgrade">السماح بالرجوع إلى إصدار أقدم</string>
