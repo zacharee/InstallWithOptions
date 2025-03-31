@@ -18,7 +18,7 @@
     <string name="settings">Paramètres</string>
     <string name="remove">Enlever</string>
     <string name="translate">Traduire</string>
-    <string name="permission_intent_was_null">Permission Intent was null!</string>
+    <string name="permission_intent_was_null">adb install -r -t /path/to/add-on. apk!</string>
     <string name="enable_crash_reports">Activer les Rapports de Plantage</string>
     <string name="enable_crash_reports_desc">Autoriser l\'installation avec les options à envoyer des plantages anonymes et des logs d\'erreur à Bugsnag. Désactiver ceci nécessite un redémarrage de l\'application pour prendre effet.</string>
     <string name="shizuku_not_installed">Shizuku n\'est pas installé</string>
