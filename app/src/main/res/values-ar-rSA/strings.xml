@@ -50,8 +50,8 @@
     <string name="dont_kill_app">عدم قتل التطبيق</string>
     <string name="dont_kill_app_desc">تستخدم عند تثبيت ميزة لتطبيق منقسم لمنع إيقاف التطبيق الرئيسي أثناء التثبيت.</string>
     <string name="full_app">التطبيق كامل</string>
-    <string name="full_app_desc">يشير إلى أن الحزمة التي يتم تثبيتها هي تطبيق كامل. يمكن استخدامها لترقية التطبيقات الفورية إلى التطبيقات الكاملة.</string>
-    <string name="allocate_aggressive">تخصيص العدوانية</string>
+    <string name="full_app_desc">Indicates that the package being installed is a full app. Can be used to upgrade instant apps to full apps.</string>
+    <string name="allocate_aggressive">Allocate Aggressive</string>
     <string name="allocate_aggressive_desc">يشير إلى أن الحزمة \"حرجة لصحة النظام أو أمانه\" وستحذف الملفات القابلة للمسح بقوة أكبر لتوفير مساحة إذا لزم الأمر.</string>
     <string name="virtual_preload">التحميل المسبق الافتراضي</string>
     <string name="virtual_preload_desc">يشير إلى أن الحزمة عبارة عن تحميل مسبق افتراضي.</string>
