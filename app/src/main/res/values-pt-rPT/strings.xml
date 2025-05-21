@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Escolher Arquivo</string>
+    <string name="choose_files">Escolhe ficheiros</string>
     <string name="selected_files">Arquivos selecionados</string>
     <string name="install">Install</string>
     <string name="success">Êxito</string>
