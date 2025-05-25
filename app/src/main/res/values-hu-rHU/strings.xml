@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="choose_files">Magyar</string>
-    <string name="selected_files">Selected Files</string>
-    <string name="install">Install</string>
-    <string name="success">Success</string>
-    <string name="installation_complete">Installation Complete</string>
-    <string name="installation_errors">Errors Installing</string>
+    <string name="selected_files">Kiválasztott Fájlok</string>
+    <string name="install">Letöltés</string>
+    <string name="success">Siker</string>
+    <string name="installation_complete">Letöltés Befejezve</string>
+    <string name="installation_errors">Letöltési Hiba</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
-    <string name="download">Download</string>
-    <string name="close_app">Close App</string>
-    <string name="open_shizuku">Open Shizuku</string>
-    <string name="website">Website</string>
+    <string name="download">Letöltés</string>
+    <string name="close_app">Alkalmazás Bezárása</string>
+    <string name="open_shizuku">Shizuku Megnyitása</string>
+    <string name="website">Weboldal</string>
     <string name="github">GitHub</string>
     <string name="patreon">Patreon</string>
     <string name="mastodon">Mastodon</string>
-    <string name="supporters">Supporters</string>
-    <string name="settings">Settings</string>
+    <string name="supporters">Támogatók</string>
+    <string name="settings">Beállítások</string>
     <string name="remove">Remove</string>
     <string name="translate">Translate</string>
     <string name="permission_intent_was_null">Permission Intent was null!</string>
