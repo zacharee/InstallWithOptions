@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Magyar</string>
+    <string name="choose_files">Fájlok Kiválasztása</string>
     <string name="selected_files">Kiválasztott Fájlok</string>
     <string name="install">Letöltés</string>
     <string name="success">Siker</string>
