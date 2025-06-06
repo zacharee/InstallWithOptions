@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Terminal</string>
-    <string name="selected_files">aaa</string>
+    <string name="choose_files">Choose Files</string>
+    <string name="selected_files">Selected Files</string>
     <string name="install">Asenna</string>
     <string name="success">Onnistui</string>
     <string name="installation_complete">Asennus Valmis</string>
