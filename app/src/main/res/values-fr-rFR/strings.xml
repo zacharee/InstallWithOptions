@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="choose_files">Choisissez un fichier</string>
-    <string name="selected_files">Fichiers Choisis</string>
+    <string name="selected_files">Fichiers choisis</string>
     <string name="install">Install</string>
     <string name="success">Succès</string>
-    <string name="installation_complete">Installation Complétée</string>
-    <string name="installation_errors">Erreurs en cours lors de l\'installation</string>
+    <string name="installation_complete">Installation Terminée</string>
+    <string name="installation_errors">Erreurs lors de l\'installation</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Télécharger</string>
     <string name="close_app">Fermer L\'application</string>
@@ -20,7 +20,7 @@
     <string name="translate">Traduire</string>
     <string name="permission_intent_was_null">Permission Intent was null!</string>
     <string name="enable_crash_reports">Activer les Rapports de Plantage</string>
-    <string name="enable_crash_reports_desc">Autoriser l\'installation avec les options à envoyer des plantages anonymes et des logs d\'erreur à Bugsnag. Désactiver ceci nécessite un redémarrage de l\'application pour prendre effet.</string>
+    <string name="enable_crash_reports_desc">Autoriser Install with Options à envoyer des rapports de plantages anonymes et des logs d\'erreur à Bugsnag. Désactiver ceci nécessite un redémarrage de l\'application pour prendre effet.</string>
     <string name="shizuku_not_installed">Shizuku n\'est pas installé</string>
     <string name="shizuku_not_installed_desc">Shizuku est nécesaire pour que cette application fonctionne. Voulez-vous la télécharger maintenant ?</string>
     <string name="shizuku_not_running">Shizuku n\'est pas en cours d\'exécution</string>
@@ -44,7 +44,7 @@
     <string name="force_volume_uuid">Forcer l\'UUID du Volume</string>
     <string name="force_volume_uuid_desc">Permet de spécifier un UUID de volume pour installer le paquet.</string>
     <string name="force_permission_prompt">Forcer la Demande d\'Autorisation</string>
-    <string name="force_permission_prompt_desc">Force même les installateurs système à afficher la demande de confirmation d\'installation.</string>
+    <string name="force_permission_prompt_desc">Forcer les installateurs système à afficher la demande de confirmation d\'installation.</string>
     <string name="instant_app">Application Instantanée</string>
     <string name="instant_app_desc">Installez le paquet en tant qu\'application instantanée.</string>
     <string name="dont_kill_app">Ne Pas Tuer l\'Application</string>
@@ -68,7 +68,7 @@
     <string name="disable_allowed_apex_update_check">Désactiver la Vérification Autorisée des Mises À Jour APEX</string>
     <string name="disable_allowed_apex_update_check_desc">Ne pas vérifier si l\'APEX installé peut être mis à jour.</string>
     <string name="bypass_low_target_sdk_block">Contourner le Blocage lié à un SDK Cible Bas</string>
-    <string name="bypass_low_target_sdk_block_desc">Allows apps targeting old SDK versions to be installed.</string>
+    <string name="bypass_low_target_sdk_block_desc">Autoriser l\'installation d\'une application avec une version d\'Android dépassée.</string>
     <string name="force_sdk">Force SDK</string>
     <string name="force_sdk_desc">Permet d\'installer ou de mettre à jour des paquets ciblant les lettres SDK.</string>
     <string name="dry_run">Essai à sec</string>

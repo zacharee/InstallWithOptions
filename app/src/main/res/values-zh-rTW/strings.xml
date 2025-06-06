@@ -21,10 +21,10 @@
     <string name="permission_intent_was_null">Permission Intent was null!</string>
     <string name="enable_crash_reports">啟用崩潰報告</string>
     <string name="enable_crash_reports_desc">Allow Install with Options to send anonymous crash and error logs to Bugsnag. Disabling this requires an app restart to take effect.</string>
-    <string name="shizuku_not_installed">Shizuku not Installed</string>
-    <string name="shizuku_not_installed_desc">Shizuku is required for this app to function. Would you like to download it now?</string>
-    <string name="shizuku_not_running">Shizuku not Running</string>
-    <string name="shizuku_not_running_desc">Shizuku needs to be running for this app to function. Follow the directions in the Shizuku app to start it.</string>
+    <string name="shizuku_not_installed">未安裝Shizuku</string>
+    <string name="shizuku_not_installed_desc">此應用程式需要 Shizuku 才能運行。你想要現在下載嗎？</string>
+    <string name="shizuku_not_running">Shizuku未運行</string>
+    <string name="shizuku_not_running_desc">Shizuku 需要運行此應用程式才能運行。 按照 Shizuku 應用程式中的說明啟動它。</string>
     <string name="replace_existing">Replace Existing</string>
     <string name="replace_existing_desc">If the package being installed already exists, replace/upgrade it.</string>
     <string name="allow_test">允許測試</string>
