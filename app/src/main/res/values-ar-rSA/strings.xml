@@ -2,14 +2,14 @@
 <resources>
     <string name="choose_files">اختر الملفات</string>
     <string name="selected_files">الملفات المختارة</string>
-    <string name="install">Install</string>
+    <string name="install">تثبيت</string>
     <string name="success">تم بنجاح</string>
-    <string name="installation_complete">Installation Complete</string>
+    <string name="installation_complete">تم التثبيت</string>
     <string name="installation_errors">خطأ في التثبيت</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">تحميل</string>
     <string name="close_app">1غلق التطبيق</string>
-    <string name="open_shizuku"></string>
+    <string name="open_shizuku">فتح شيزوفريني1</string>
     <string name="website">موقع1</string>
     <string name="github">الحصول1</string>
     <string name="patreon">باتريون</string>
@@ -22,9 +22,9 @@
     <string name="enable_crash_reports">تمكين تقارير الأعطال</string>
     <string name="enable_crash_reports_desc">السماح للتثبيت باستخدام الخيارات لإرسال سجلات الأعطال والأخطاء المجهولة إلى Bugsnag. يتطلب تعطيل هذا إعادة تشغيل التطبيق ليصبح ساري المفعول.</string>
     <string name="shizuku_not_installed">تطبيق Shizuku غير مثبت</string>
-    <string name="shizuku_not_installed_desc">مطلوب شيز لهذا التطبيق للعمل. هل ترغب في تحميله الآن؟</string>
-    <string name="shizuku_not_running">Shizuku not Running</string>
-    <string name="shizuku_not_running_desc">Shizuku needs to be running for this app to function. Follow the directions in the Shizuku app to start it.</string>
+    <string name="shizuku_not_installed_desc">مطلوب Shizuku لهذا التطبيق للعمل. هل ترغب في تحميله الآن؟</string>
+    <string name="shizuku_not_running">تطبيق Shizuku لا يعمل</string>
+    <string name="shizuku_not_running_desc">يجب تشغيل Shizuku حتى يعمل هذا التطبيق. اتبع الإرشادات الموجودة في تطبيق Shizuku لبدء تشغيله.</string>
     <string name="replace_existing">استبدال القائمة</string>
     <string name="replace_existing_desc">إذا كانت الحزمة التي يتم تثبيتها موجودة بالفعل ، فاستبدلها / قم بترقيتها.</string>
     <string name="allow_test">السماح بالاختبار</string>
@@ -34,13 +34,13 @@
     <string name="external">الخارجية</string>
     <string name="external_desc">فرض تثبيت الحزمة على وحدة تخزين خارجية.</string>
     <string name="from_adb">من ADB</string>
-    <string name="from_adb_desc">Tells the system that the install request was made by ADB.</string>
+    <string name="from_adb_desc">يخبر النظام أن طلب التثبيت تم بواسطة ADB.</string>
     <string name="all_users">كافة المستخدمين</string>
     <string name="all_users_desc">تثبيت الحزمة لكافة المستخدمين على النظام ، بدلا من المستخدم المحدد أو الافتراضي فقط.</string>
     <string name="allow_downgrade">السماح بالرجوع إلى إصدار أقدم</string>
     <string name="allow_downgrade_desc">محاولات الرجوع إلى إصدار أقدم من الإصدار المثبت حاليا من الحزمة إلى الإصدار الذي يتم تثبيته.</string>
     <string name="grant_all_permissions">منح كافة الأذونات المطلوبة</string>
-    <string name="grant_all_permissions_desc">Automatically grant all permissions the package is requesting. Note that this only applies to runtime permissions. Special permissions like All Files Access or Accessibility won\'t be automatically granted.</string>
+    <string name="grant_all_permissions_desc">منح كافة الأذونات التي تطلبها الحزمة تلقائيا. لاحظ أن هذا ينطبق فقط على أذونات وقت التشغيل. لن يتم منح أذونات خاصة مثل الوصول إلى كافة الملفات أو إمكانية الوصول تلقائيا.</string>
     <string name="force_volume_uuid">فرض حجم UUID</string>
     <string name="force_volume_uuid_desc">يسمح بتحديد وحدة تخزين UUID لتثبيت الحزمة عليها.</string>
     <string name="force_permission_prompt">فرض موجه الإذن</string>
@@ -50,8 +50,8 @@
     <string name="dont_kill_app">عدم قتل التطبيق</string>
     <string name="dont_kill_app_desc">تستخدم عند تثبيت ميزة لتطبيق منقسم لمنع إيقاف التطبيق الرئيسي أثناء التثبيت.</string>
     <string name="full_app">التطبيق كامل</string>
-    <string name="full_app_desc">Indicates that the package being installed is a full app. Can be used to upgrade instant apps to full apps.</string>
-    <string name="allocate_aggressive">Allocate Aggressive</string>
+    <string name="full_app_desc">يشير إلى أن الحزمة التي يتم تثبيتها هي تطبيق كامل. يمكن استخدامها لترقية التطبيقات الفورية إلى التطبيقات الكاملة.</string>
+    <string name="allocate_aggressive">تخصيص العدوانية</string>
     <string name="allocate_aggressive_desc">يشير إلى أن الحزمة \"حرجة لصحة النظام أو أمانه\" وستحذف الملفات القابلة للمسح بقوة أكبر لتوفير مساحة إذا لزم الأمر.</string>
     <string name="virtual_preload">التحميل المسبق الافتراضي</string>
     <string name="virtual_preload_desc">يشير إلى أن الحزمة عبارة عن تحميل مسبق افتراضي.</string>
