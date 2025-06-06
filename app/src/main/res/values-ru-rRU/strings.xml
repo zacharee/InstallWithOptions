@@ -71,7 +71,7 @@
     <string name="bypass_low_target_sdk_block_desc">Разрешить установку приложений со старой целевой версией SDK.</string>
     <string name="force_sdk">Принудительно SDK</string>
     <string name="force_sdk_desc">Позволяет устанавливать или обновлять пакеты, ориентированные на описание SDK.</string>
-    <string name="dry_run">Dry Run</string>
+    <string name="dry_run">Пробный запуск</string>
     <string name="dry_run_desc">Проверить пакет, но не устанавливать его.</string>
     <string name="request_update_ownership">Запрос обновления на права администратора</string>
     <string name="request_update_ownership_desc">Включить обновление прав собственности на текущую сессию.</string>
