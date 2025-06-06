@@ -234,7 +234,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                                         try {
                                             context.packageManager.getApplicationInfo(res.packageName, 0)
                                                 .loadLabel(context.packageManager).toString()
-                                        } catch (e: Throwable) {
+                                        } catch (_: Throwable) {
                                             res.packageName
                                         },
                                         res.message,

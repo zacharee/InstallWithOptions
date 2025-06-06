@@ -79,9 +79,9 @@ private fun Context.copyZipToCacheAndExtract(zip: DocumentFile): List<DocumentFi
                 input?.copyTo(output)
             }
         }
-    } catch (e: IllegalStateException) {
+    } catch (_: IllegalStateException) {
         return listOf()
-    } catch (e: SecurityException) {
+    } catch (_: SecurityException) {
         return listOf()
     }
 
@@ -89,7 +89,7 @@ private fun Context.copyZipToCacheAndExtract(zip: DocumentFile): List<DocumentFi
 
     try {
         zipFile.extractAll(destDir.absolutePath)
-    } catch (e: ZipException) {
+    } catch (_: ZipException) {
         return listOf()
     }
 

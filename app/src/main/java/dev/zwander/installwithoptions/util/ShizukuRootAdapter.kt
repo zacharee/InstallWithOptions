@@ -92,7 +92,7 @@ class ShizukuRootAdapter(private val context: Context) {
                 Mode.ROOT -> RootService.bind(rootServiceIntent, connection)
                 else -> {}
             }
-        } catch (e: Throwable) {
+        } catch (_: Throwable) {
             Toast.makeText(context, R.string.error_binding_service, Toast.LENGTH_SHORT).show()
         }
     }

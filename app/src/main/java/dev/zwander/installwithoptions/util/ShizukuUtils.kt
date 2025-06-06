@@ -20,7 +20,7 @@ object ShizukuUtils {
         return try {
             @Suppress("SENSELESS_COMPARISON")
             context.packageManager.getApplicationInfo(ShizukuProvider.MANAGER_APPLICATION_ID, 0) != null
-        } catch (e: Throwable) {
+        } catch (_: Throwable) {
             Sui.isSui()
         }
     }
