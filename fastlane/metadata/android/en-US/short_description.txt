@@ -1,0 +1,1 @@
+Simple-ish app using Shizuku to install APKs on-device with advanced options
