@@ -1,3 +1,9 @@
+# 0.7.0
+- Add option to specify target user by ID.
+- Support Sui.
+- Update translations.
+- Crash fixes.
+
 # 0.6.4
 - Fix some issues with reflection that caused installation errors or hangs.
 
