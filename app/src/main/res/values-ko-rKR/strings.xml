@@ -88,6 +88,8 @@
     <string name="target_user">Target User</string>
     <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="selected_option">Selected option</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="clear_cache_desc">Clear Install with Options\' internal file cache.</string>
     <string name="install_reason_unknown">알 수 없음</string>
     <string name="install_reason_policy">정책</string>
     <string name="install_reason_device_restore">기기 복원</string>
