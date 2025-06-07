@@ -1,3 +1,7 @@
+# 0.7.2
+- Add a settings action to clear IWO's cache.
+- Replace more hidden API usages with reflection.
+
 # 0.7.1
 - Replace direct hidden API usage with reflection.
 - Show a check-mark next to the currently-selected dropdown menu option.
