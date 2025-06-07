@@ -85,6 +85,8 @@
     <string name="install_reason_desc">Définissez la raison de cette installation.</string>
     <string name="error_selecting_files">Assurez-vous d\'avoir installé un navigateur de fichiers pour récupérer les APK.</string>
     <string name="error_binding_service">Impossible de lier le service privilégié. Veuillez redémarrer votre appareil et réessayer.</string>
+    <string name="target_user">Target User</string>
+    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="install_reason_unknown">Inconnu</string>
     <string name="install_reason_policy">Politique</string>
     <string name="install_reason_device_restore">Restauration de l\'Appareil</string>
