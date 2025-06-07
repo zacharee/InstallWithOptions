@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
@@ -19,6 +20,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalTextToolbar
+import androidx.compose.ui.res.stringResource
+import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.util.NoOpTextToolbar
 
 data class Option<T>(
@@ -84,8 +87,16 @@ fun <T> DropdownMenuSelector(
                         Text(text = opt.label())
                     },
                     onClick = {
-                        onValueChanged(opt)
                         expanded = false
+                        onValueChanged(opt)
+                    },
+                    trailingIcon = {
+                        if (opt.value == value?.value) {
+                            Icon(
+                                imageVector = Icons.Default.Check,
+                                contentDescription = stringResource(R.string.selected_option),
+                            )
+                        }
                     },
                 )
             }
