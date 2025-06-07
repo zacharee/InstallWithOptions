@@ -1,19 +1,24 @@
 package dev.zwander.installwithoptions.util
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.pm.UserInfo
 import android.content.res.AssetFileDescriptor
 import android.os.Build
-import android.os.IUserManager
+import android.os.IBinder
 import android.os.Looper
-import android.os.ServiceManager
 import android.os.UserHandle
 import dev.zwander.installwithoptions.IOptionsApplier
 import dev.zwander.installwithoptions.IShellInterface
 import org.lsposed.hiddenapibypass.HiddenApiBypass
+import rikka.shizuku.SystemServiceHelper
 import kotlin.system.exitProcess
 
+@SuppressLint("PrivateApi")
 @Suppress("RedundantConstructorKeyword")
 class ShellInterface constructor() : IShellInterface.Stub() {
+
+
     init {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             HiddenApiBypass.setHiddenApiExemptions("")
@@ -50,10 +55,34 @@ class ShellInterface constructor() : IShellInterface.Stub() {
     }
 
     override fun getUserIds(): List<Int> {
-        val userManager = IUserManager.Stub.asInterface(ServiceManager.getService(Context.USER_SERVICE))
+        val userManagerInstance = Class.forName("android.os.IUserManager\$Stub")
+            .getMethod("asInterface", IBinder::class.java)
+            .invoke(null, SystemServiceHelper.getSystemService(Context.USER_SERVICE))
+        @Suppress("UNCHECKED_CAST")
+        val users = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            userManagerInstance::class.java.getMethod(
+                "getUsers",
+                Boolean::class.java,
+                Boolean::class.java,
+                Boolean::class.java,
+            ).invoke(userManagerInstance, false, false, false)
+        } else {
+            userManagerInstance::class.java.getMethod(
+                "getUsers",
+                Boolean::class.java,
+            ).invoke(userManagerInstance, false)
+        } as? List<UserInfo>
+        val getProfiles = userManagerInstance::class.java.getMethod(
+            "getProfiles",
+            Int::class.java,
+            Boolean::class.java,
+        )
 
-        val users = userManager.getUsers(false, false, false)
-        val profiles = users.flatMap { userManager.getProfiles(it.id, false).map { it.id } }
+        @Suppress("UNCHECKED_CAST")
+        val profiles = users?.flatMap { user ->
+            (getProfiles.invoke(userManagerInstance, user.id, false) as? List<UserInfo>)?.map { it.id }
+                ?: listOf()
+        } ?: listOf()
 
         return profiles
     }

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.pm.PackageInstaller.SessionParams
 import android.content.pm.PackageManager
 import android.os.Build
-import android.os.UserHandle
 import androidx.annotation.Keep
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
@@ -193,7 +192,7 @@ sealed class MutableOption<T : Any?>(
     data object TargetUser : MutableOption<Int>(
         settingsKey = SettingsKey.Int(
             key = "target_user",
-            default = UserHandle.USER_SYSTEM,
+            default = 0 /* UserHandle.USER_SYSTEM */,
             settings = Settings.settings,
         ),
         operator = {},
@@ -207,7 +206,7 @@ sealed class MutableOption<T : Any?>(
             val userIds = shellInterface?.userIds as? List<Int>
 
             val options = remember(userIds) {
-                (userIds ?: listOf(UserHandle.USER_SYSTEM)).associate { id ->
+                (userIds ?: listOf(0 /* UserHandle.USER_SYSTEM */)).associate { id ->
                     id to Option(
                         label = { id.toString() },
                         value = id,
