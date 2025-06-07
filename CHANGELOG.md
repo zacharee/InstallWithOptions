@@ -1,3 +1,8 @@
+# 0.7.1
+- Replace direct hidden API usage with reflection.
+- Show a check-mark next to the currently-selected dropdown menu option.
+- Fix the Target User function for Android < 10.
+
 # 0.7.0
 - Add option to specify target user by ID.
 - Support Sui.
