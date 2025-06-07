@@ -2,7 +2,6 @@ package dev.zwander.installwithoptions.util
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.pm.UserInfo
 import android.content.res.AssetFileDescriptor
 import android.os.Build
 import android.os.IBinder
@@ -17,8 +16,6 @@ import kotlin.system.exitProcess
 @SuppressLint("PrivateApi")
 @Suppress("RedundantConstructorKeyword")
 class ShellInterface constructor() : IShellInterface.Stub() {
-
-
     init {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             HiddenApiBypass.setHiddenApiExemptions("")
@@ -55,10 +52,11 @@ class ShellInterface constructor() : IShellInterface.Stub() {
     }
 
     override fun getUserIds(): List<Int> {
+        val userInfoClass = Class.forName("android.content.pm.UserInfo")
+        val userInfoIdField = userInfoClass.getField("id")
         val userManagerInstance = Class.forName("android.os.IUserManager\$Stub")
             .getMethod("asInterface", IBinder::class.java)
             .invoke(null, SystemServiceHelper.getSystemService(Context.USER_SERVICE))
-        @Suppress("UNCHECKED_CAST")
         val users = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             userManagerInstance::class.java.getMethod(
                 "getUsers",
@@ -71,7 +69,7 @@ class ShellInterface constructor() : IShellInterface.Stub() {
                 "getUsers",
                 Boolean::class.java,
             ).invoke(userManagerInstance, false)
-        } as? List<UserInfo>
+        } as? List<*>
         val getProfiles = userManagerInstance::class.java.getMethod(
             "getProfiles",
             Int::class.java,
@@ -80,7 +78,7 @@ class ShellInterface constructor() : IShellInterface.Stub() {
 
         @Suppress("UNCHECKED_CAST")
         val profiles = users?.flatMap { user ->
-            (getProfiles.invoke(userManagerInstance, user.id, false) as? List<UserInfo>)?.map { it.id }
+            (getProfiles.invoke(userManagerInstance, userInfoIdField.get(user) as Int, false) as? List<*>)?.map { userInfoIdField.get(it) as Int }
                 ?: listOf()
         } ?: listOf()
 
