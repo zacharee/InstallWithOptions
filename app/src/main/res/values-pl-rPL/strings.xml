@@ -85,6 +85,8 @@
     <string name="install_reason_desc">Ustaw powód tej instalacji.</string>
     <string name="error_selecting_files">Upewnij się, że masz zainstalowany menedżer plików, aby wybrać pliki APK.</string>
     <string name="error_binding_service">Nie można połączyć się z usługą uprzywilejowaną. Uruchom ponownie urządzenie i spróbuj ponownie.</string>
+    <string name="target_user">Target User</string>
+    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="install_reason_unknown">Nieznany</string>
     <string name="install_reason_policy">Polityka</string>
     <string name="install_reason_device_restore">Przywracanie urządzenia</string>
