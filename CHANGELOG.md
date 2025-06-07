@@ -1,3 +1,6 @@
+# 0.7.3
+- Replace UserHandle construction with reflection.
+
 # 0.7.2
 - Add a settings action to clear IWO's cache.
 - Replace more hidden API usages with reflection.
