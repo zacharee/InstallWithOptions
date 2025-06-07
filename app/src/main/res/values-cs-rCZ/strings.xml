@@ -85,6 +85,8 @@
     <string name="install_reason_desc">Nastavte důvod této instalace.</string>
     <string name="error_selecting_files">Pro výběr APK se ujistěte, že máte nainstalovaný prohlížeč souborů.</string>
     <string name="error_binding_service">Nelze přiřadit privilegovanou službu. Restartujte prosím zařízení a zkuste to znovu.</string>
+    <string name="target_user">Target User</string>
+    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="install_reason_unknown">Neznámý</string>
     <string name="install_reason_policy">Zásady</string>
     <string name="install_reason_device_restore">Obnovení zařízení</string>
