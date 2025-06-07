@@ -29,6 +29,7 @@ class ShizukuRootAdapter(private val context: Context) {
             .processNameSuffix("shell_service")
             .debuggable(BuildConfig.DEBUG)
             .daemon(false)
+            .version(100000)
     }
     private val rootServiceIntent by lazy {
         Intent(context, RootInterface::class.java)

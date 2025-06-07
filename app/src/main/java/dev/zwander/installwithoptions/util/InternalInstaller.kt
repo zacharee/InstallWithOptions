@@ -12,7 +12,6 @@ import android.content.res.AssetFileDescriptor
 import android.os.Build
 import android.os.IBinder
 import android.os.ParcelFileDescriptor
-import android.os.UserHandle
 import android.util.Log
 import dev.zwander.installwithoptions.BuildConfig
 import dev.zwander.installwithoptions.IOptionsApplier
@@ -31,16 +30,15 @@ class InternalInstaller(private val context: Context) {
             .invoke(pmInstance)
     }
 
-    private fun myUserId() = UserHandle::class.java.getMethod("myUserId").invoke(null) as Int
-
     fun installPackage(
         fileDescriptors: Map<String, List<AssetFileDescriptor>>,
         options: IntArray,
         applier: IOptionsApplier,
         installerPackageName: String,
+        userId: Int,
     ) {
         fileDescriptors.forEach { (_, fds) ->
-            installPackagesInSession(fds.toTypedArray(), options, applier, installerPackageName)
+            installPackagesInSession(fds.toTypedArray(), options, applier, installerPackageName, userId)
         }
     }
 
@@ -50,6 +48,7 @@ class InternalInstaller(private val context: Context) {
         options: IntArray,
         applier: IOptionsApplier,
         installerPackageName: String,
+        userId: Int,
     ) {
         try {
             val params: PackageInstaller.SessionParams = PackageInstaller.SessionParams(
@@ -77,7 +76,7 @@ class InternalInstaller(private val context: Context) {
                         params,
                         installerPackageName,
                         installerPackageName,
-                        myUserId(),
+                        userId,
                     ) as Int
             } else {
                 packageInstaller::class.java
@@ -91,7 +90,7 @@ class InternalInstaller(private val context: Context) {
                         packageInstaller,
                         params,
                         installerPackageName,
-                        myUserId(),
+                        userId,
                     ) as Int
             }
             val session = packageInstaller::class.java.getMethod("openSession", Int::class.java)

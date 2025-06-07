@@ -4,42 +4,34 @@ import android.annotation.SuppressLint
 import android.content.pm.PackageInstaller.SessionParams
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.UserHandle
 import androidx.annotation.Keep
 import androidx.annotation.StringRes
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalTextToolbar
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import dev.icerock.moko.mvvm.flow.compose.collectAsMutableState
 import dev.zwander.installwithoptions.R
-import dev.zwander.installwithoptions.util.NoOpTextToolbar
+import dev.zwander.installwithoptions.ui.views.DropdownMenuSelector
+import dev.zwander.installwithoptions.ui.views.Option
+import dev.zwander.installwithoptions.util.rememberShellInterface
 import kotlinx.coroutines.flow.MutableStateFlow
 
 @Composable
@@ -150,31 +142,25 @@ sealed class MutableOption<T : Any?>(
         descResource = R.string.install_reason_desc,
         minSdk = Build.VERSION_CODES.O,
     ) {
-        data class Option(
-            @StringRes
-            val labelRes: Int,
-            val value: Int,
-        )
-
         private val options = mutableMapOf(
             PackageManager.INSTALL_REASON_UNKNOWN to Option(
-                labelRes = R.string.install_reason_unknown,
+                label = { stringResource(R.string.install_reason_unknown) },
                 value = PackageManager.INSTALL_REASON_UNKNOWN,
             ),
             PackageManager.INSTALL_REASON_POLICY to Option(
-                labelRes = R.string.install_reason_policy,
+                label = { stringResource(R.string.install_reason_policy) },
                 value = PackageManager.INSTALL_REASON_POLICY,
             ),
             PackageManager.INSTALL_REASON_DEVICE_RESTORE to Option(
-                labelRes = R.string.install_reason_device_restore,
+                label = { stringResource(R.string.install_reason_device_restore) },
                 value = PackageManager.INSTALL_REASON_DEVICE_RESTORE,
             ),
             PackageManager.INSTALL_REASON_DEVICE_SETUP to Option(
-                labelRes = R.string.install_reason_device_setup,
+                label = { stringResource(R.string.install_reason_device_setup) },
                 value = PackageManager.INSTALL_REASON_DEVICE_SETUP,
             ),
             PackageManager.INSTALL_REASON_USER to Option(
-                labelRes = R.string.install_reason_user,
+                label = { stringResource(R.string.install_reason_user) },
                 value = PackageManager.INSTALL_REASON_USER,
             ),
         ).apply {
@@ -182,7 +168,7 @@ sealed class MutableOption<T : Any?>(
                 put(
                     5 /* INSTALL_REASON_ROLLBACK */,
                     Option(
-                        labelRes = R.string.install_reason_rollback,
+                        label = { stringResource(R.string.install_reason_rollback) },
                         value = 5 /* INSTALL_REASON_ROLLBACK */,
                     ),
                 )
@@ -192,64 +178,51 @@ sealed class MutableOption<T : Any?>(
         @Composable
         override fun RenderValueSelector(modifier: Modifier) {
             var state by value.collectAsMutableState()
-            var expanded by remember {
-                mutableStateOf(false)
-            }
 
-            Box(modifier = modifier) {
-                CompositionLocalProvider(
-                    LocalTextToolbar provides NoOpTextToolbar,
-                ) {
-                    OutlinedTextField(
-                        value = options[state]?.let { stringResource(id = it.labelRes) } ?: "",
-                        onValueChange = {},
-                        trailingIcon = {
-                            Icon(
-                                imageVector = Icons.Default.ArrowDropDown,
-                                contentDescription = null,
-                            )
-                        },
-                        enabled = false,
-                        colors = OutlinedTextFieldDefaults.colors().run {
-                            copy(
-                                disabledContainerColor = unfocusedContainerColor,
-                                disabledPrefixColor = unfocusedPrefixColor,
-                                disabledSuffixColor = unfocusedSuffixColor,
-                                disabledTextColor = unfocusedTextColor,
-                                disabledIndicatorColor = unfocusedIndicatorColor,
-                                disabledLabelColor = unfocusedLabelColor,
-                                disabledPlaceholderColor = unfocusedPlaceholderColor,
-                                disabledLeadingIconColor = unfocusedLeadingIconColor,
-                                disabledTrailingIconColor = unfocusedTrailingIconColor,
-                                disabledSupportingTextColor = unfocusedSupportingTextColor,
-                            )
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                expanded = true
-                            },
-                        readOnly = true,
+            DropdownMenuSelector(
+                value = options[state],
+                onValueChanged = { state = it.value },
+                values = options.values,
+                modifier = modifier,
+            )
+        }
+    }
+
+    @SuppressLint("InlinedApi")
+    @Keep
+    data object TargetUser : MutableOption<Int>(
+        settingsKey = SettingsKey.Int(
+            key = "target_user",
+            default = UserHandle.USER_SYSTEM,
+            settings = Settings.settings,
+        ),
+        operator = {},
+        labelResource = R.string.target_user,
+        descResource = R.string.target_user_desc,
+    ) {
+        @Composable
+        override fun RenderValueSelector(modifier: Modifier) {
+            val shellInterface = rememberShellInterface()
+            @Suppress("UNCHECKED_CAST")
+            val userIds = shellInterface?.userIds as? List<Int>
+
+            val options = remember(userIds) {
+                (userIds ?: listOf(UserHandle.USER_SYSTEM)).associate { id ->
+                    id to Option(
+                        label = { id.toString() },
+                        value = id,
                     )
                 }
-
-                DropdownMenu(
-                    expanded = expanded,
-                    onDismissRequest = { expanded = false },
-                ) {
-                    options.forEach { (_, opt) ->
-                        DropdownMenuItem(
-                            text = {
-                                Text(text = stringResource(id = opt.labelRes))
-                            },
-                            onClick = {
-                                state = opt.value
-                                expanded = false
-                            },
-                        )
-                    }
-                }
             }
+
+            var state by value.collectAsMutableState()
+
+            DropdownMenuSelector(
+                value = options[state],
+                onValueChanged = { state = it.value },
+                values = options.values,
+                modifier = modifier,
+            )
         }
     }
 }

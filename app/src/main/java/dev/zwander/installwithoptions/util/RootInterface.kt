@@ -6,6 +6,6 @@ import com.topjohnwu.superuser.ipc.RootService
 
 class RootInterface : RootService() {
     override fun onBind(intent: Intent): IBinder {
-        return ShellInterface(this)
+        return ShellInterface()
     }
 }
