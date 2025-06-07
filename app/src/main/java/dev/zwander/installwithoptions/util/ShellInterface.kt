@@ -16,6 +16,10 @@ import kotlin.system.exitProcess
 @SuppressLint("PrivateApi")
 @Suppress("RedundantConstructorKeyword")
 class ShellInterface constructor() : IShellInterface.Stub() {
+    private val installer by lazy {
+        InternalInstaller(createContext())
+    }
+
     init {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             HiddenApiBypass.setHiddenApiExemptions("")
@@ -34,8 +38,6 @@ class ShellInterface constructor() : IShellInterface.Stub() {
         }
 
         val actualUserId = userId.takeIf { it != Int.MIN_VALUE } ?: myUserId()
-
-        val installer = InternalInstaller(createContext())
 
         @Suppress("UNCHECKED_CAST")
         installer.installPackage(
@@ -101,7 +103,7 @@ class ShellInterface constructor() : IShellInterface.Stub() {
             systemContext,
             "com.android.shell",
             Context.CONTEXT_INCLUDE_CODE or Context.CONTEXT_IGNORE_SECURITY,
-            UserHandle(myUserId()),
+            UserHandle::class.java.getConstructor(Int::class.java).newInstance(myUserId()),
         ) as Context
 
         return context.createPackageContext("com.android.shell", 0)
