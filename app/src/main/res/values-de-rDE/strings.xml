@@ -85,6 +85,8 @@
     <string name="install_reason_desc">Den Grund für diese Installation festlegen.</string>
     <string name="error_selecting_files">Bitte stellen Sie sicher, dass Sie einen Dateibrowser installiert haben, um APKs auszuwählen.</string>
     <string name="error_binding_service">Kann den privilegierten Dienst nicht verbinden. Bitte starte dein Gerät neu und versuche es erneut.</string>
+    <string name="target_user">Target User</string>
+    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="install_reason_unknown">Unbekannt</string>
     <string name="install_reason_policy">Richtlinie</string>
     <string name="install_reason_device_restore">Gerätewiederherstellung</string>
