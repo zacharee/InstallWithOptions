@@ -42,6 +42,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import dev.zwander.installwithoptions.R
+import dev.zwander.installwithoptions.data.DataModel
 import dev.zwander.installwithoptions.data.IOptionItem
 import dev.zwander.installwithoptions.data.Settings
 import dev.zwander.installwithoptions.util.launchUrl
@@ -89,6 +90,16 @@ fun Footer(
                 label = context.resources.getString(R.string.enable_crash_reports),
                 desc = context.resources.getString(R.string.enable_crash_reports_desc),
                 key = Settings.Keys.enableCrashReports,
+            ),
+            IOptionItem.ActionOptionItem(
+                label = context.resources.getString(R.string.clear_cache),
+                desc = context.resources.getString(R.string.clear_cache_desc),
+                action = {
+                    context.cacheDir.deleteRecursively()
+                    context.cacheDir.mkdir()
+                    DataModel.selectedFiles.value = mapOf()
+                },
+                listKey = "clear_cache",
             ),
         )
     }
