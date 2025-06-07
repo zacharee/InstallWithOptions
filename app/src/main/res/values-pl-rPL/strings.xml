@@ -87,6 +87,7 @@
     <string name="error_binding_service">Nie można połączyć się z usługą uprzywilejowaną. Uruchom ponownie urządzenie i spróbuj ponownie.</string>
     <string name="target_user">Target User</string>
     <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
+    <string name="selected_option">Selected option</string>
     <string name="install_reason_unknown">Nieznany</string>
     <string name="install_reason_policy">Polityka</string>
     <string name="install_reason_device_restore">Przywracanie urządzenia</string>
