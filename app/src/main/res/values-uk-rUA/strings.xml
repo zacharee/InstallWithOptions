@@ -85,6 +85,8 @@
     <string name="install_reason_desc">Вкажіть причину цієї інсталяції.</string>
     <string name="error_selecting_files">Будь ласка, переконайтеся, що у вас встановлено файловий браузер для вибору APK-файлів.</string>
     <string name="error_binding_service">Не вдалося прив’язати привілейований сервіс. Перезавантажте пристрій і спробуйте ще раз.</string>
+    <string name="target_user">Target User</string>
+    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="install_reason_unknown">Невідомо</string>
     <string name="install_reason_policy">Політика</string>
     <string name="install_reason_device_restore">Відновлення пристрою</string>
