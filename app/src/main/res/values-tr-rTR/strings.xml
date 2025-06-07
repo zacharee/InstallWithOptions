@@ -85,6 +85,8 @@
     <string name="install_reason_desc">Bu yükleme için nedeni ayarlayınız.</string>
     <string name="error_selecting_files">Lütfen APK\'ları seçmek için yüklü bir dosya tarayıcınız olduğundan emin olun.</string>
     <string name="error_binding_service">Ayrıcalıklı hizmet bağlanamıyor. Lütfen cihazınızı yeniden başlatın ve tekrar deneyin.</string>
+    <string name="target_user">Target User</string>
+    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="install_reason_unknown">Bilinmeyen</string>
     <string name="install_reason_policy">Politika</string>
     <string name="install_reason_device_restore">Cihazı Geri Yükle</string>
