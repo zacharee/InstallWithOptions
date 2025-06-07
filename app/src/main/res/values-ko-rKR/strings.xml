@@ -85,6 +85,8 @@
     <string name="install_reason_desc">이 설치의 사유를 설정해요.</string>
     <string name="error_selecting_files">APK를 고를 파일 탐색기를 설치했는지 확인해 주세요.</string>
     <string name="error_binding_service">권한 서비스와 결합할 수 없어요. 기기를 재시작하고 다시 시도해 주세요.</string>
+    <string name="target_user">Target User</string>
+    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="install_reason_unknown">알 수 없음</string>
     <string name="install_reason_policy">정책</string>
     <string name="install_reason_device_restore">기기 복원</string>
