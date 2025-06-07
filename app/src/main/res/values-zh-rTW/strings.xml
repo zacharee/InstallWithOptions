@@ -85,6 +85,8 @@
     <string name="install_reason_desc">設定此安裝的原因。</string>
     <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
     <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
+    <string name="target_user">Target User</string>
+    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="install_reason_unknown">未知</string>
     <string name="install_reason_policy">政策</string>
     <string name="install_reason_device_restore">Device Restore</string>
