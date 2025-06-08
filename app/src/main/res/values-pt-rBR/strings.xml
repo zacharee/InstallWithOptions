@@ -54,7 +54,7 @@
     <string name="allocate_aggressive">Alocação Agressiva</string>
     <string name="allocate_aggressive_desc">Indica que o pacote é \"crítico para a integridade ou segurança do sistema\" e excluirá mais agressivamente arquivos limpáveis para obter espaço, se necessário.</string>
     <string name="virtual_preload">Pré-carregador Virtual (VPL)</string>
-    <string name="virtual_preload_desc">Indicates that the package is a virtual preload.</string>
+    <string name="virtual_preload_desc">Indica que o pacote é uma pré-carga virtual.</string>
     <string name="apex">APEX</string>
     <string name="apex_desc">Indica que o pacote que está sendo instalado é um pacote APEX.</string>
     <string name="enable_rollback">Habilitar Rollback</string>
@@ -85,11 +85,11 @@
     <string name="install_reason_desc">Defina a razão para esta instalação.</string>
     <string name="error_selecting_files">Por favor, certifique-se de que você tem um navegador de arquivos instalado para escolher APKs.</string>
     <string name="error_binding_service">Não foi possível vincular serviço privilegiado. Por favor, reinicie o seu dispositivo e tente novamente.</string>
-    <string name="target_user">Target User</string>
-    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
-    <string name="selected_option">Selected option</string>
-    <string name="clear_cache">Clear Cache</string>
-    <string name="clear_cache_desc">Clear Install with Options\' internal file cache.</string>
+    <string name="target_user">Usuário destino</string>
+    <string name="target_user_desc">Selecione o usuário do dispositivo por ID onde este aplicativo deve ser instalado.</string>
+    <string name="selected_option">Opção selecionada</string>
+    <string name="clear_cache">Limpar Cache</string>
+    <string name="clear_cache_desc">Instalação Limpa com as opções internas do arquivo de cache.</string>
     <string name="install_reason_unknown">Desconhecida</string>
     <string name="install_reason_policy">Diretriz</string>
     <string name="install_reason_device_restore">Restauração do Dispositivo</string>
