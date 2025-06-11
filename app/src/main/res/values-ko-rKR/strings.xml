@@ -18,6 +18,7 @@
     <string name="settings">설정</string>
     <string name="remove">제거</string>
     <string name="translate">번역</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">권한 인텐트가 null이에요!</string>
     <string name="enable_crash_reports">충돌 보고서 사용</string>
     <string name="enable_crash_reports_desc">Install With Options가 익명으로 충돌 및 오류 기록 Bugsnag로 전송할 수 있도록 해요. 이 옵션을 사용 중지하면 앱을 다시 시작해야 적용돼요.</string>
