@@ -61,6 +61,11 @@ This option will only automatically grant _runtime_ permissions, like Camera or 
 
 Special permissions, like All Files Access, or special access, like Accessibility Services, will not be automatically granted or enabled.
 
+### Why does setting the installer package name not work?
+In Android 14, Google restricted what the shell user (ADB) is allowed to do in terms of specifying who installed an app. ADB is allowed to set the installer package field, but not the originating package field anymore.
+
+There isn't a workaround for this, unfortunately. If your workflow depended on the originating package being set to a custom value, it won't work on Android 14 or later.
+
 # Screenshots
 <img src="https://github.com/user-attachments/assets/ce04ade4-a0f6-4a87-bd1c-f72c2e9fbd22" width="400"></img>
 <img src="https://github.com/user-attachments/assets/95834de4-b657-4024-b2e4-50e0df3cda36" width="400"></img>
