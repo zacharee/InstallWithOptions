@@ -76,6 +76,11 @@ private val footerItems = listOf(
         description = R.string.patreon,
         onClick = { launchUrl("https://patreon.com/zacharywander") },
     ),
+    FooterItem(
+        painter = { painterResource(id = R.drawable.outline_attach_money_24) },
+        description = R.string.donate,
+        onClick = { launchUrl("https://www.paypal.com/donate/?hosted_button_id=EWAPDSENZ7U44") },
+    )
 )
 
 @Composable
@@ -171,23 +176,11 @@ fun Footer(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     items(items = supporters, key = { it.link }) { supporter ->
-                        OutlinedCard(
+                        ClickableCard(
+                            text = supporter.name,
                             onClick = { context.launchUrl(supporter.link) },
                             modifier = Modifier.fillMaxWidth(),
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .heightIn(min = 48.dp)
-                                    .padding(8.dp),
-                                contentAlignment = Alignment.Center,
-                            ) {
-                                Text(
-                                    text = supporter.name,
-                                    modifier = Modifier,
-                                )
-                            }
-                        }
+                        )
                     }
                 }
             },
