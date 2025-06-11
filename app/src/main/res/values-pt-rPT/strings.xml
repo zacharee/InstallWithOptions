@@ -18,6 +18,7 @@
     <string name="settings">Configurações</string>
     <string name="remove">Remover</string>
     <string name="translate">Traduzir</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">A intenção de permissão era nula!</string>
     <string name="enable_crash_reports">Ativar relatórios de erros</string>
     <string name="enable_crash_reports_desc">Permita Instalar com Opções para enviar logs de falhas e erros anónimos para o Bugsnag. Desativar isso requer que o aplicativo reinicie para que ele tenha efeito.</string>
