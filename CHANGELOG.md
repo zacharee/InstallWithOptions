@@ -1,3 +1,7 @@
+# 0.7.4
+- Only call setPackageSource() on Android 13+
+- Update translations.
+
 # 0.7.3
 - Replace UserHandle construction with reflection.
 
