@@ -18,6 +18,7 @@
     <string name="settings">Einstellungen</string>
     <string name="remove">Entfernen</string>
     <string name="translate">Übersetzen</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">Berechtigungs-Intent war null!</string>
     <string name="enable_crash_reports">Absturzberichte aktivieren</string>
     <string name="enable_crash_reports_desc">Erlaube Install with Options, anonyme Abstürze und Fehlerprotokolle an Bugsnag zu senden. Deaktivieren erfordert einen Neustart der App.</string>
