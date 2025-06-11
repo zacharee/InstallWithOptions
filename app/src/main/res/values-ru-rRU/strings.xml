@@ -18,6 +18,7 @@
     <string name="settings">Настройки</string>
     <string name="remove">Удалить</string>
     <string name="translate">Перевод</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">Цель разрешения была пустой!</string>
     <string name="enable_crash_reports">Включить отчеты о сбоях</string>
     <string name="enable_crash_reports_desc">Разрешить установку с параметрами отправлять анонимные журналы сбоев и ошибок в Bugsnag. Отключение этого параметра требует перезапуска приложения, чтобы оно вступило в силу.</string>
