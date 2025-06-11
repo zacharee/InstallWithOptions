@@ -18,6 +18,7 @@
     <string name="settings">設定</string>
     <string name="remove">削除</string>
     <string name="translate">翻訳</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">権限の意図はnullでした！</string>
     <string name="enable_crash_reports">クラッシュレポートを有効化</string>
     <string name="enable_crash_reports_desc">オプション付きインストールで匿名クラッシュとエラーログを Bugsnag に送信することを許可します。無効にするにはアプリの再起動が必要です。</string>
