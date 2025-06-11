@@ -18,6 +18,7 @@
     <string name="settings">設定</string>
     <string name="remove">移除</string>
     <string name="translate">翻譯</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">Permission Intent was null!</string>
     <string name="enable_crash_reports">啟用崩潰報告</string>
     <string name="enable_crash_reports_desc">Allow Install with Options to send anonymous crash and error logs to Bugsnag. Disabling this requires an app restart to take effect.</string>
