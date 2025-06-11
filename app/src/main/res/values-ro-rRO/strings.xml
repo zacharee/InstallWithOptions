@@ -18,6 +18,7 @@
     <string name="settings">Setări</string>
     <string name="remove">Ștergere</string>
     <string name="translate">Traducere</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">Permisiunea intenție a fost nulă!</string>
     <string name="enable_crash_reports">Activați rapoartele de avarie</string>
     <string name="enable_crash_reports_desc">Permite Instalării cu Opțiuni să trimită jurnalele de erori anonime la Bugsnag. Dezactivarea necesită repornirea aplicației pentru a avea efect.</string>
