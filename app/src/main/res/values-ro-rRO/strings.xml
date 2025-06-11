@@ -85,6 +85,11 @@
     <string name="install_reason_desc">Setați motivul acestei instalări.</string>
     <string name="error_selecting_files">Asigurați-vă că aveți un browser de fișiere instalat pentru a alege APK-uri.</string>
     <string name="error_binding_service">Nu se poate lega serviciul privilegiat. Te rugăm să repornești dispozitivul și să încerci din nou.</string>
+    <string name="target_user">Target User</string>
+    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
+    <string name="selected_option">Selected option</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="clear_cache_desc">Clear Install with Options\' internal file cache.</string>
     <string name="install_reason_unknown">Necunoscut</string>
     <string name="install_reason_policy">Politică</string>
     <string name="install_reason_device_restore">Restaurare dispozitiv</string>

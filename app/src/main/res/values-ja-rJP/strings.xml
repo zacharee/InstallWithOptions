@@ -85,6 +85,11 @@
     <string name="install_reason_desc">このインストールの理由を設定します。</string>
     <string name="error_selecting_files">APKを選択するためのファイルブラウザがインストールされていることを確認してください。</string>
     <string name="error_binding_service">特権サービスをバインドできませんでした。デバイスを再起動して再度お試しください。</string>
+    <string name="target_user">Target User</string>
+    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
+    <string name="selected_option">Selected option</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="clear_cache_desc">Clear Install with Options\' internal file cache.</string>
     <string name="install_reason_unknown">不明</string>
     <string name="install_reason_policy">ポリシー</string>
     <string name="install_reason_device_restore">デバイスの復元</string>
