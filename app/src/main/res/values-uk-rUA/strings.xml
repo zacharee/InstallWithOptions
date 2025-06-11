@@ -18,6 +18,7 @@
     <string name="settings">Налаштування</string>
     <string name="remove">Видалити</string>
     <string name="translate">Перекласти</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">Намір дозволу був нульовим!</string>
     <string name="enable_crash_reports">Увімкнути звіт про збої</string>
     <string name="enable_crash_reports_desc">Дозволити встановити з параметрами надсилати анонімні журнали збоїв і помилок до Bugsnag. Вимкнення цієї опції потребує перезапуску програми для набуття чинності.</string>
