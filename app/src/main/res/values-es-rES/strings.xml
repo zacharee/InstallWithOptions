@@ -18,6 +18,7 @@
     <string name="settings">Ajustes</string>
     <string name="remove">Eliminar</string>
     <string name="translate">Traducir</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">¡Intento de permiso fue null!</string>
     <string name="enable_crash_reports">Activar reporte de errores</string>
     <string name="enable_crash_reports_desc">Permitir que Install with Options envie fallos y registros de errores anónimos a Bugsnag. Deshabilitar esto requiere reiniciar la aplicación para que surta efecto.</string>
