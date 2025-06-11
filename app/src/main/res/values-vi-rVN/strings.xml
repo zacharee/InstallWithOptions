@@ -36,7 +36,7 @@
     <string name="from_adb">Từ ADB</string>
     <string name="from_adb_desc">Cho hệ thống biết rằng yêu cầu cài đặt được thực hiện bởi ADB.</string>
     <string name="all_users">Tất cả người dùng</string>
-    <string name="all_users_desc">Cài đặt gói cho tất cả người dùng trên hệ thống, thay vì chỉ người dùng được chỉ định hoặc mặc định.</string>
+    <string name="all_users_desc">Install the package for all users on the system, instead of just the specified or default user.</string>
     <string name="allow_downgrade">Cho phép hạ cấp</string>
     <string name="allow_downgrade_desc">Cố gắng hạ cấp phiên bản hiện được cài đặt của gói xuống phiên bản đang được cài đặt.</string>
     <string name="grant_all_permissions">Cấp tất cả các quyền được yêu cầu</string>
