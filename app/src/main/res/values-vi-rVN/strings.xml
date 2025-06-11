@@ -18,6 +18,7 @@
     <string name="settings">Cài đặt</string>
     <string name="remove">Xóa</string>
     <string name="translate">Dịch</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">Lỗi: Permission Intent was null!</string>
     <string name="enable_crash_reports">Bật chức năng Báo cáo Lỗi</string>
     <string name="enable_crash_reports_desc">Cho phép ứng dụng này gửi logs bao gồm lỗi và thông tin bổ sung khi gặp trục trặc. Thông tin này sẽ được gửi ẩn danh tới Bugsnag. Cần khởi động lại ứng dụng này để có hiệu lực.</string>
