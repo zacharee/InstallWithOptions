@@ -18,6 +18,7 @@
     <string name="settings">Paramètres</string>
     <string name="remove">Enlever</string>
     <string name="translate">Traduire</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">Permission Intent was null!</string>
     <string name="enable_crash_reports">Activer les Rapports de Plantage</string>
     <string name="enable_crash_reports_desc">Autoriser Install with Options à envoyer des rapports de plantages anonymes et des logs d\'erreur à Bugsnag. Désactiver ceci nécessite un redémarrage de l\'application pour prendre effet.</string>
