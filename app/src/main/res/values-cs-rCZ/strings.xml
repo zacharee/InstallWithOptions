@@ -18,6 +18,7 @@
     <string name="settings">Nastavení</string>
     <string name="remove">Odstranit</string>
     <string name="translate">Přeložit</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">Záměr oprávnění byl neplatný!</string>
     <string name="enable_crash_reports">Povolit hlášení o pádech</string>
     <string name="enable_crash_reports_desc">Povolit instalaci s možnostmi odesílání anonymního pádu a chybových protokolů do Bughledu. Zakázání vyžaduje restartování aplikace.</string>
