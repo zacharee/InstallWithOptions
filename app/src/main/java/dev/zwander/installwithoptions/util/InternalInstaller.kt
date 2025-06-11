@@ -58,10 +58,14 @@ class InternalInstaller(private val context: Context) {
                     PackageInstaller.SessionParams::class.java.getField("installFlags")
                         .set(this, flags)
                 }
-                PackageInstaller.SessionParams::class.java
-                    .getMethod("setPackageSource", Int::class.java)
-                    .invoke(this, PackageInstaller.PACKAGE_SOURCE_STORE)
-                this.setInstallerPackageName(installerPackageName)
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    PackageInstaller.SessionParams::class.java
+                        .getMethod("setPackageSource", Int::class.java)
+                        .invoke(this, PackageInstaller.PACKAGE_SOURCE_STORE)
+                    this.setInstallerPackageName(installerPackageName)
+                }
+
                 applier.applyOptions(this)
             }
             val sessionId = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
