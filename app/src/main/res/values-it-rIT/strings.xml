@@ -18,6 +18,7 @@
     <string name="settings">Impostazioni</string>
     <string name="remove">Rimuovi</string>
     <string name="translate">Traduci</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">Il permesso intent è nullo!</string>
     <string name="enable_crash_reports">Abilita Crash Report</string>
     <string name="enable_crash_reports_desc">Consente ad Install with Options di inviare registri anonimi su arresti anomali ed errori a Bugsnag. La disabilitazione di questa opzione richiede il riavvio dell\'app per avere effetto.</string>
