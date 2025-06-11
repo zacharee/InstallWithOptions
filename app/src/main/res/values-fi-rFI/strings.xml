@@ -18,6 +18,7 @@
     <string name="settings">Asetukset</string>
     <string name="remove">Poista</string>
     <string name="translate">Kääntää</string>
+    <string name="donate">Donate</string>
     <string name="permission_intent_was_null">Lupaintentti oli tyhjä!</string>
     <string name="enable_crash_reports">Salli virheraportit</string>
     <string name="enable_crash_reports_desc">Salli Install with Options lähettämään anonyymejä kaatumis- ja virhelokeja Bugsnagille. Tämän poistaminen käytöstä vaatii sovelluksen uudelleenkäynnistyksen astuakseen voimaan.</string>
