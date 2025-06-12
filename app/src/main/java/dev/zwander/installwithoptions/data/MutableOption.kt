@@ -30,7 +30,7 @@ import dev.icerock.moko.mvvm.flow.compose.collectAsMutableState
 import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.ui.views.DropdownMenuSelector
 import dev.zwander.installwithoptions.ui.views.Option
-import dev.zwander.installwithoptions.util.rememberShellInterface
+import dev.zwander.installwithoptions.util.LocalShellInterface
 import kotlinx.coroutines.flow.MutableStateFlow
 
 @Composable
@@ -201,7 +201,7 @@ sealed class MutableOption<T : Any?>(
     ) {
         @Composable
         override fun RenderValueSelector(modifier: Modifier) {
-            val shellInterface = rememberShellInterface()
+            val shellInterface = LocalShellInterface.current
             @Suppress("UNCHECKED_CAST")
             val userIds = shellInterface?.userIds as? List<Int>
 

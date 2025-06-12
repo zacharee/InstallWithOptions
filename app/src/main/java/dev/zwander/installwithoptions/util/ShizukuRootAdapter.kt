@@ -1,5 +1,6 @@
 package dev.zwander.installwithoptions.util
 
+import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -20,7 +22,23 @@ import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.data.DataModel
 import rikka.shizuku.Shizuku
 
-class ShizukuRootAdapter(private val context: Context) {
+val LocalShellInterface = compositionLocalOf<IShellInterface?> { null }
+
+val Context.shizukuRootAdapter: ShizukuRootAdapter
+    get() = ShizukuRootAdapter.getInstance(this)
+
+class ShizukuRootAdapter private constructor(private val context: Context) {
+    companion object {
+        @SuppressLint("StaticFieldLeak")
+        private var instance: ShizukuRootAdapter? = null
+
+        fun getInstance(context: Context): ShizukuRootAdapter {
+            return instance ?: ShizukuRootAdapter(context.applicationContext ?: context).also {
+                instance = it
+            }
+        }
+    }
+
     private val shizukuArgs by lazy {
         Shizuku.UserServiceArgs(
             ComponentName(context, ShellInterface::class.java),
@@ -44,8 +62,7 @@ class ShizukuRootAdapter(private val context: Context) {
             mutableStateOf<IShellInterface?>(null)
         }
 
-        DisposableEffect(key1 = shizukuAvailable, key2 = rootGranted, key3 = context) {
-            val adapter = ShizukuRootAdapter(context)
+        DisposableEffect(key1 = shizukuAvailable, key2 = rootGranted) {
             val connection = object : ServiceConnection {
                 override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
                     shellInterface = IShellInterface.Stub.asInterface(service)
@@ -65,13 +82,13 @@ class ShizukuRootAdapter(private val context: Context) {
                 else -> Mode.NONE
             }
 
-            adapter.bindService(
+            bindService(
                 connection = connection,
                 mode = mode,
             )
 
             onDispose {
-                adapter.unbindService(
+                unbindService(
                     connection = connection,
                     mode = mode,
                 )

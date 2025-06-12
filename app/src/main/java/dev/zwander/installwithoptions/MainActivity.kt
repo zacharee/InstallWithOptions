@@ -58,6 +58,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -84,9 +85,11 @@ import dev.zwander.installwithoptions.data.rememberInstallOptions
 import dev.zwander.installwithoptions.data.rememberMutableOptions
 import dev.zwander.installwithoptions.ui.theme.InstallWithOptionsTheme
 import dev.zwander.installwithoptions.util.ElevatedPermissionHandler
+import dev.zwander.installwithoptions.util.LocalShellInterface
 import dev.zwander.installwithoptions.util.handleIncomingUris
 import dev.zwander.installwithoptions.util.plus
 import dev.zwander.installwithoptions.util.rememberPackageInstaller
+import dev.zwander.installwithoptions.util.shizukuRootAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -112,13 +115,17 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         permissionHandler.onCreate()
 
         setContent {
-            InstallWithOptionsTheme {
-                MainContent(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                )
+            CompositionLocalProvider(
+                LocalShellInterface provides shizukuRootAdapter.rememberShellInterface(),
+            ) {
+                InstallWithOptionsTheme {
+                    MainContent(
+                        modifier = Modifier
+                            .fillMaxSize(),
+                    )
 
-                permissionHandler.PermissionTracker()
+                    permissionHandler.PermissionTracker()
+                }
             }
         }
 

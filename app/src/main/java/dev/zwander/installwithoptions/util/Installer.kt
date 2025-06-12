@@ -37,7 +37,6 @@ import androidx.core.text.HtmlCompat
 import androidx.documentfile.provider.DocumentFile
 import dev.zwander.installwithoptions.BuildConfig
 import dev.zwander.installwithoptions.IOptionsApplier
-import dev.zwander.installwithoptions.IShellInterface
 import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.data.DataModel
 import dev.zwander.installwithoptions.data.InstallOption
@@ -60,17 +59,10 @@ data class Installer(
 )
 
 @Composable
-fun rememberShellInterface(): IShellInterface? {
-    val context = LocalContext.current
-    val rootAdapter = remember {
-        ShizukuRootAdapter(context)
-    }
-    return rootAdapter.rememberShellInterface()
-}
-
-@Composable
 fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer {
     val context = LocalContext.current
+    val shellInterface = LocalShellInterface.current
+
     val scope = rememberCoroutineScope()
     val permissionStarter =
         rememberLauncherForActivityResult(contract = ActivityResultContracts.StartActivityForResult()) {
@@ -85,8 +77,6 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
     }
 
     val options by DataModel.selectedOptions.collectAsState()
-
-    val shellInterface = rememberShellInterface()
 
     val applier = remember {
         object : IOptionsApplier.Stub() {
