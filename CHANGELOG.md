@@ -1,3 +1,8 @@
+# 0.7.5
+- Fix an issue where the Install button wouldn't work after scrolling down and up.
+- Add donate button to footer.
+- Update translations.
+
 # 0.7.4
 - Only call setPackageSource() on Android 13+
 - Update translations.
