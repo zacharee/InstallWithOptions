@@ -18,7 +18,7 @@
     <string name="settings">Ayarlar</string>
     <string name="remove">Kaldırın</string>
     <string name="translate">Çeviri</string>
-    <string name="donate">Donate</string>
+    <string name="donate">Bağış Yap</string>
     <string name="permission_intent_was_null">İzin Niyeti geçersiz!</string>
     <string name="enable_crash_reports">Çökme Raporlarını Etkinleştir</string>
     <string name="enable_crash_reports_desc">Seçeneklerle Yükle\'nin anonim çökme ve hata günlüklerini Bugsnag\'e göndermesine izin verin. Bu özelliği devre dışı bırakmak, uygulamanın yeniden başlatılmasını gerektirir.</string>
