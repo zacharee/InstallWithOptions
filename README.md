@@ -50,6 +50,15 @@ This error can occur for a number of reasons:
 * If you're using an Android skin that limits sideloading.
   * Check Developer Options for settings like "Install via USB" and "USB Debugging (Security Settings)", and make sure they're enabled.
 
+### "Shell does not have permission to access user X"
+This error will likely occur when you try to install an app inside a Work Profile created by an app like Shelter or TestDPC.
+
+To solve it, you need to enable debugging features in the Work Profile by disabling the "Disallow debugging features" user restriction.
+
+In TestDPC, you can do this by opening the app inside the Work Profile, scrolling down to "User restrictions", tapping "Set user restrictions", and disabling "Disallow debugging features".
+
+If your Work Profile creator doesn't provide the option to disable this restriction, you'll need to request the app developer add it.
+
 ## FAQ
 ### Where is the "Bypass Low Target SDK Block" option?
 This flag was only added to Android in Android 14. If you're using Install with Options on Android 13 or below, you won't see it in the app.
@@ -65,6 +74,9 @@ Special permissions, like All Files Access, or special access, like Accessibilit
 In Android 14, Google restricted what the shell user (ADB) is allowed to do in terms of specifying who installed an app. ADB is allowed to set the installer package field, but not the originating package field anymore.
 
 There isn't a workaround for this, unfortunately. If your workflow depended on the originating package being set to a custom value, it won't work on Android 14 or later.
+
+### Why can't I install apps in a Work Profile?
+See the "Shell does not have permission to access user X" section above.
 
 # Screenshots
 <img src="https://github.com/user-attachments/assets/ce04ade4-a0f6-4a87-bd1c-f72c2e9fbd22" width="400"></img>
