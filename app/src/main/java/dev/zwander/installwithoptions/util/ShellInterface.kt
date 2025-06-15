@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.IBinder
 import android.os.Looper
 import android.os.UserHandle
+import dev.zwander.installwithoptions.IErrorCallback
 import dev.zwander.installwithoptions.IOptionsApplier
 import dev.zwander.installwithoptions.IShellInterface
 import org.lsposed.hiddenapibypass.HiddenApiBypass
@@ -32,6 +33,7 @@ class ShellInterface constructor() : IShellInterface.Stub() {
         applier: IOptionsApplier,
         installerPackageName: String?,
         userId: Int,
+        errorCallback: IErrorCallback,
     ) {
         if (Looper.myLooper() == null) {
             Looper.prepare()
@@ -39,14 +41,18 @@ class ShellInterface constructor() : IShellInterface.Stub() {
 
         val actualUserId = userId.takeIf { it != Int.MIN_VALUE } ?: myUserId()
 
-        @Suppress("UNCHECKED_CAST")
-        installer.installPackage(
-            fileDescriptors as Map<String, List<AssetFileDescriptor>>,
-            options,
-            applier,
-            installerPackageName.takeIf { !it.isNullOrBlank() } ?: "shell",
-            actualUserId,
-        )
+        try {
+            @Suppress("UNCHECKED_CAST")
+            installer.installPackage(
+                fileDescriptors as Map<String, List<AssetFileDescriptor>>,
+                options,
+                applier,
+                installerPackageName.takeIf { !it.isNullOrBlank() } ?: "shell",
+                actualUserId,
+            )
+        } catch (e: Throwable) {
+            errorCallback.onError(e.extractErrorMessage())
+        }
     }
 
     override fun destroy() {

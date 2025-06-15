@@ -36,10 +36,10 @@ import androidx.core.content.IntentCompat
 import androidx.core.text.HtmlCompat
 import androidx.documentfile.provider.DocumentFile
 import dev.zwander.installwithoptions.BuildConfig
+import dev.zwander.installwithoptions.IErrorCallback
 import dev.zwander.installwithoptions.IOptionsApplier
 import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.data.DataModel
-import dev.zwander.installwithoptions.data.InstallOption
 import dev.zwander.installwithoptions.data.InstallResult
 import dev.zwander.installwithoptions.data.InstallStatus
 import dev.zwander.installwithoptions.data.MutableOption
@@ -143,41 +143,6 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
         }
     }
 
-    fun installPackage(files: Map<String, List<DocumentFile>>, options: List<InstallOption>) {
-        if (shellInterface != null) {
-            isInstalling = true
-        }
-
-        scope.launch(Dispatchers.IO) {
-            try {
-                shellInterface?.install(
-                    files.map { (k, v) ->
-                        k to v.map {
-                            context.contentResolver.openAssetFileDescriptor(
-                                it.uri,
-                                "r",
-                            )
-                        }
-                    }.toMap(),
-                    options.map { it.value }.toIntArray(),
-                    applier,
-                    MutableOption.InstallerPackage.settingsKey.getValue(),
-                    MutableOption.TargetUser.settingsKey.getValue(),
-                )
-            } catch (e: Exception) {
-                statuses = files.flatMap { (_, v) ->
-                    v.map {
-                        InstallResult(
-                            status = InstallStatus.FAILURE,
-                            packageName = it.name ?: it.uri.toString(),
-                            message = e.localizedMessage ?: e.message ?: e.toString(),
-                        )
-                    }
-                }
-            }
-        }
-    }
-
     LaunchedEffect(key1 = statuses.size) {
         if (statuses.size == files.size) {
             isInstalling = false
@@ -250,7 +215,51 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
     return Installer(
         install = remember(files.hashCode(), options.hashCode()) {
             {
-                installPackage(files, options)
+                if (shellInterface != null) {
+                    isInstalling = true
+                }
+
+                scope.launch(Dispatchers.IO) {
+                    try {
+                        shellInterface?.install(
+                            files.map { (k, v) ->
+                                k to v.map {
+                                    context.contentResolver.openAssetFileDescriptor(
+                                        it.uri,
+                                        "r",
+                                    )
+                                }
+                            }.toMap(),
+                            options.map { it.value }.toIntArray(),
+                            applier,
+                            MutableOption.InstallerPackage.settingsKey.getValue(),
+                            MutableOption.TargetUser.settingsKey.getValue(),
+                            object : IErrorCallback.Stub() {
+                                override fun onError(error: String?) {
+                                    statuses = files.flatMap { (_, v) ->
+                                        v.map {
+                                            InstallResult(
+                                                status = InstallStatus.FAILURE,
+                                                packageName = it.name ?: it.uri.toString(),
+                                                message = error.toString(),
+                                            )
+                                        }
+                                    }
+                                }
+                            },
+                        )
+                    } catch (e: Exception) {
+                        statuses = files.flatMap { (_, v) ->
+                            v.map {
+                                InstallResult(
+                                    status = InstallStatus.FAILURE,
+                                    packageName = it.name ?: it.uri.toString(),
+                                    message = e.extractErrorMessage() ?: e.toString(),
+                                )
+                            }
+                        }
+                    }
+                }
             }
         },
         isInstalling = isInstalling,
