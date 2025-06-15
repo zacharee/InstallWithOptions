@@ -76,7 +76,7 @@ In Android 14, Google restricted what the shell user (ADB) is allowed to do in t
 There isn't a workaround for this, unfortunately. If your workflow depended on the originating package being set to a custom value, it won't work on Android 14 or later.
 
 ### Why can't I install apps in a Work Profile?
-See the "Shell does not have permission to access user X" section above.
+See the ["Shell does not have permission to access user X"](#shell-does-not-have-permission-to-access-user-x) section above.
 
 # Screenshots
 <img src="https://github.com/user-attachments/assets/ce04ade4-a0f6-4a87-bd1c-f72c2e9fbd22" width="400"></img>
