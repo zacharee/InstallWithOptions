@@ -82,6 +82,7 @@
     <string name="ignore_dexopt_profile_desc">Ігноруйте профілі dexopt для цього пакета під час встановлення.</string>
     <string name="installer_package">Пакет інсталятора</string>
     <string name="installer_package_desc">Укажіть ім’я пакета застосунку, від імені якого Android має повідомити, що цей APK було встановлено (наприклад, com.android.vending).</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">Причина встановлення</string>
     <string name="install_reason_desc">Вкажіть причину цієї інсталяції.</string>
     <string name="error_selecting_files">Будь ласка, переконайтеся, що у вас встановлено файловий браузер для вибору APK-файлів.</string>
