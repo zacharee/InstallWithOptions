@@ -82,6 +82,7 @@
     <string name="ignore_dexopt_profile_desc">설치 동안 이 패키지의 dexpot 프로필을 무시해요.</string>
     <string name="installer_package">패키지 설치기</string>
     <string name="installer_package_desc">Android가 이 앱이 설치됐다고 보고할 앱의 패키지 이름을 정하세요(예: com.android.vending).</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">설치 사유</string>
     <string name="install_reason_desc">이 설치의 사유를 설정해요.</string>
     <string name="error_selecting_files">APK를 고를 파일 탐색기를 설치했는지 확인해 주세요.</string>
