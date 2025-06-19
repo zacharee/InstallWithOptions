@@ -116,11 +116,23 @@ sealed class MutableOption<T : Any?>(
         override fun RenderValueSelector(modifier: Modifier) {
             var state by value.collectAsMutableState()
 
-            OutlinedTextField(
-                value = state ?: "",
-                onValueChange = { state = it },
+            Column(
                 modifier = modifier,
-            )
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                OutlinedTextField(
+                    value = state ?: "",
+                    onValueChange = { state = it },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE && LocalShellInterface.current?.isRootOrSystem != true) {
+                    Text(
+                        text = stringResource(R.string.installer_package_warning),
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                }
+            }
         }
     }
 
@@ -206,8 +218,8 @@ sealed class MutableOption<T : Any?>(
             val userIds = shellInterface?.userIds as? List<Int>
 
             val options = remember(userIds) {
-                (userIds ?: listOf(0 /* UserHandle.USER_SYSTEM */)).associate { id ->
-                    id to Option(
+                (userIds ?: listOf(0 /* UserHandle.USER_SYSTEM */)).associateWith { id ->
+                    Option(
                         label = { id.toString() },
                         value = id,
                     )

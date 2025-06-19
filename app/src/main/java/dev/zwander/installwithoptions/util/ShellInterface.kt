@@ -6,6 +6,7 @@ import android.content.res.AssetFileDescriptor
 import android.os.Build
 import android.os.IBinder
 import android.os.Looper
+import android.os.Process
 import android.os.UserHandle
 import dev.zwander.installwithoptions.IErrorCallback
 import dev.zwander.installwithoptions.IOptionsApplier
@@ -91,6 +92,12 @@ class ShellInterface constructor() : IShellInterface.Stub() {
         } ?: listOf()
 
         return profiles
+    }
+
+    override fun isRootOrSystem(): Boolean {
+        val uid = Process.myUid()
+
+        return uid == 1000 || uid == 0
     }
 
     private fun createContext(): Context {

@@ -15,6 +15,7 @@ interface IShellInterface {
         IErrorCallback errorCallback
     ) = 1;
     List getUserIds() = 2;
+    boolean isRootOrSystem() = 3;
 
     void destroy() = 16777114;
 }
