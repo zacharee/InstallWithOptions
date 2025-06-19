@@ -82,6 +82,7 @@
     <string name="ignore_dexopt_profile_desc">在安装过程中忽略此软件包的离子配置文件。</string>
     <string name="installer_package">已安装的软件包</string>
     <string name="installer_package_desc">指定 Android 应该报告此 APK 被安装的应用程序的软件包名称(如com.android.vending)。</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">安装原因</string>
     <string name="install_reason_desc">设置此安装的原因。</string>
     <string name="error_selecting_files">请确保您安装了一个文件管理器来选择 APK。</string>
