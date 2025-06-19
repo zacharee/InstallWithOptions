@@ -82,6 +82,7 @@
     <string name="ignore_dexopt_profile_desc">Ignore dexopt profiles for this package during installation.</string>
     <string name="installer_package">Installer Package</string>
     <string name="installer_package_desc">Specify the package name of the app that Android should report this APK was installed by (e.g., com.android.vending).</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">Install Reason</string>
     <string name="install_reason_desc">Set the reason for this installation.</string>
     <string name="error_selecting_files">Please make sure you have a file browser installed to pick APKs.</string>
