@@ -82,6 +82,7 @@
     <string name="ignore_dexopt_profile_desc">Ignorovat dexopt profily pro tento balíček během instalace.</string>
     <string name="installer_package">Balíček instalátoru</string>
     <string name="installer_package_desc">Zadejte název balíčku, který by měl Android nahlásit, že tento APK byl nainstalován (např. com.android.vending).</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">Důvod instalace</string>
     <string name="install_reason_desc">Nastavte důvod této instalace.</string>
     <string name="error_selecting_files">Pro výběr APK se ujistěte, že máte nainstalovaný prohlížeč souborů.</string>
