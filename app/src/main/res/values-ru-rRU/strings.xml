@@ -82,6 +82,7 @@
     <string name="ignore_dexopt_profile_desc">Игнорировать профили dexopt для этого пакета во время установки.</string>
     <string name="installer_package">Пакет установки</string>
     <string name="installer_package_desc">Указать название пакета приложения, которое Android будет сообщать как установщик этого приложения (например com.android.vending).</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">Причина установки</string>
     <string name="install_reason_desc">Задайте причину для этой установки.</string>
     <string name="error_selecting_files">Пожалуйста, убедитесь, что у вас есть проводник для выбора APK файла.</string>
