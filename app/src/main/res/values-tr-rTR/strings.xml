@@ -82,6 +82,7 @@
     <string name="ignore_dexopt_profile_desc">Yükleme sırasında bu paket için dexopt profillerini yoksay.</string>
     <string name="installer_package">Kurulum Paketi</string>
     <string name="installer_package_desc">Android\'in bu APK\'nın hangi uygulama tarafından yüklendiğini bildirmesi gereken paket adını belirtin (örn. com.android.vending).</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">Yükleme Nedeni</string>
     <string name="install_reason_desc">Bu yükleme için nedeni ayarlayınız.</string>
     <string name="error_selecting_files">Lütfen APK\'ları seçmek için yüklü bir dosya tarayıcınız olduğundan emin olun.</string>

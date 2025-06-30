@@ -82,6 +82,7 @@
     <string name="ignore_dexopt_profile_desc">Ignoră profilele dexopt pentru acest pachet în timpul instalării.</string>
     <string name="installer_package">Pachet de instalare</string>
     <string name="installer_package_desc">Specificați numele pachetului aplicației cu care Android trebuie să raporteze că acest APK a fost instalat (de exemplu, com.android.vending).</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">Motiv de instalare</string>
     <string name="install_reason_desc">Setați motivul acestei instalări.</string>
     <string name="error_selecting_files">Asigurați-vă că aveți un browser de fișiere instalat pentru a alege APK-uri.</string>
