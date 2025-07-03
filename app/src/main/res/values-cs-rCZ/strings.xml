@@ -18,7 +18,7 @@
     <string name="settings">Nastavení</string>
     <string name="remove">Odstranit</string>
     <string name="translate">Přeložit</string>
-    <string name="donate">Donate</string>
+    <string name="donate">Podpořit</string>
     <string name="permission_intent_was_null">Záměr oprávnění byl neplatný!</string>
     <string name="enable_crash_reports">Povolit hlášení o pádech</string>
     <string name="enable_crash_reports_desc">Povolit instalaci s možnostmi odesílání anonymního pádu a chybových protokolů do Bughledu. Zakázání vyžaduje restartování aplikace.</string>
@@ -82,6 +82,7 @@
     <string name="ignore_dexopt_profile_desc">Ignorovat dexopt profily pro tento balíček během instalace.</string>
     <string name="installer_package">Balíček instalátoru</string>
     <string name="installer_package_desc">Zadejte název balíčku, který by měl Android nahlásit, že tento APK byl nainstalován (např. com.android.vending).</string>
+    <string name="installer_package_warning">Nastavení nemusí fungovat s některými aplikacemi. Android 14 omezil schopnost ADB přepsat instalační zdroj.</string>
     <string name="install_reason">Důvod instalace</string>
     <string name="install_reason_desc">Nastavte důvod této instalace.</string>
     <string name="error_selecting_files">Pro výběr APK se ujistěte, že máte nainstalovaný prohlížeč souborů.</string>
