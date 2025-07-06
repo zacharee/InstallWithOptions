@@ -91,7 +91,7 @@
     <string name="target_user_desc">Устанавливает приложение в выбранного по ID пользователя (бесполезно при включении \"Все пользователи\", может не работать с Рабочим Профилем).</string>
     <string name="selected_option">Выбранная опция</string>
     <string name="clear_cache">Удалить кэш</string>
-    <string name="clear_cache_desc">Очищает кэш приложения ¯⁠\⁠_⁠(⁠ツ⁠)⁠_⁠/⁠¯</string>
+    <string name="clear_cache_desc">Очищает кэш приложения</string>
     <string name="install_reason_unknown">Неизвестная причина установки</string>
     <string name="install_reason_policy">Политика</string>
     <string name="install_reason_device_restore">Восстановление Устройства</string>
