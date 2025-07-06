@@ -82,6 +82,7 @@
     <string name="ignore_dexopt_profile_desc">Ignora i profili dexopt per questo pacchetto durante l\'installazione.</string>
     <string name="installer_package">Pacchetto D\'installazione</string>
     <string name="installer_package_desc">Specifica il nome del pacchetto dell\'app da cui Android deve segnalare l\'installazione di questo APK (ad esempio, com.android.vending).</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">Motivo Installazione</string>
     <string name="install_reason_desc">Specifica una ragione per cui stai installando un pacchetto.</string>
     <string name="error_selecting_files">Assicurati di avere un browser di file installato per scegliere gli APK.</string>
