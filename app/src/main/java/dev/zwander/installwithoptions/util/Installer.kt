@@ -25,6 +25,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -61,7 +62,8 @@ data class Installer(
 @Composable
 fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer {
     val context = LocalContext.current
-    val shellInterface = LocalShellInterface.current
+    val shellInterface by rememberUpdatedState(LocalShellInterface.current)
+    val updatedFiles by rememberUpdatedState(files)
 
     val scope = rememberCoroutineScope()
     val permissionStarter =
@@ -144,7 +146,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
     }
 
     LaunchedEffect(key1 = statuses.size) {
-        if (statuses.size == files.size) {
+        if (statuses.size == updatedFiles.size) {
             isInstalling = false
         }
     }
@@ -162,7 +164,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
         }
     }
 
-    statuses.takeIf { it.isNotEmpty() && it.size == files.size }?.let { s ->
+    statuses.takeIf { it.isNotEmpty() && it.size == updatedFiles.size }?.let { s ->
         AlertDialog(
             onDismissRequest = { statuses = listOf() },
             confirmButton = {
@@ -213,7 +215,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
     }
 
     return Installer(
-        install = remember(files.hashCode(), options.hashCode()) {
+        install = remember {
             {
                 if (shellInterface != null) {
                     isInstalling = true
@@ -222,7 +224,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                 scope.launch(Dispatchers.IO) {
                     try {
                         shellInterface?.install(
-                            files.map { (k, v) ->
+                            updatedFiles.map { (k, v) ->
                                 k to v.map {
                                     context.contentResolver.openAssetFileDescriptor(
                                         it.uri,
@@ -236,7 +238,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                             MutableOption.TargetUser.settingsKey.getValue(),
                             object : IErrorCallback.Stub() {
                                 override fun onError(error: String?) {
-                                    statuses = files.flatMap { (_, v) ->
+                                    statuses = updatedFiles.flatMap { (_, v) ->
                                         v.map {
                                             InstallResult(
                                                 status = InstallStatus.FAILURE,
@@ -249,7 +251,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                             },
                         )
                     } catch (e: Exception) {
-                        statuses = files.flatMap { (_, v) ->
+                        statuses = updatedFiles.flatMap { (_, v) ->
                             v.map {
                                 InstallResult(
                                     status = InstallStatus.FAILURE,
@@ -263,7 +265,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
             }
         },
         isInstalling = isInstalling,
-        totalPackages = files.size,
+        totalPackages = updatedFiles.size,
         completed = statuses.size,
     )
 }
