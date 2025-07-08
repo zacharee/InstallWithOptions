@@ -2,9 +2,9 @@ package dev.zwander.installwithoptions
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -77,6 +77,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.core.content.IntentCompat
 import dev.icerock.moko.mvvm.flow.compose.collectAsMutableState
 import dev.zwander.installwithoptions.components.Footer
 import dev.zwander.installwithoptions.data.DataModel
@@ -146,9 +147,31 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     }
 
     private fun checkIntentForPackage(intent: Intent) {
+        val uris = arrayListOf<Uri>()
+
         intent.data?.let {
+            uris.add(it)
+        }
+
+        IntentCompat.getParcelableExtra(
+            intent,
+            Intent.EXTRA_STREAM,
+            Uri::class.java,
+        )?.let {
+            uris.add(it)
+        }
+
+        IntentCompat.getParcelableArrayListExtra(
+            intent,
+            Intent.EXTRA_STREAM,
+            Uri::class.java,
+        )?.let {
+            uris.addAll(it)
+        }
+
+        if (uris.isNotEmpty()) {
             launch(Dispatchers.IO) {
-                handleIncomingUris(listOf(it))
+                handleIncomingUris(uris)
             }
         }
     }

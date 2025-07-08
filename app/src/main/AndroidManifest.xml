@@ -34,6 +34,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="application/vnd.android.package-archive" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="application/vnd.android.package-archive" />
             </intent-filter>
         </activity>
