@@ -89,8 +89,8 @@
     <string name="error_binding_service">No se puede enlazar el servicio privilegiado. Por favor, reinicia el dispositivo e inténtalo de nuevo.</string>
     <string name="target_user">Target User</string>
     <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
-    <string name="selected_option">Selected option</string>
-    <string name="clear_cache">Clear Cache</string>
+    <string name="selected_option">Opción Seleccionada</string>
+    <string name="clear_cache">Limpiar cache</string>
     <string name="clear_cache_desc">Clear Install with Options\' internal file cache.</string>
     <string name="install_reason_unknown">Desconocido</string>
     <string name="install_reason_policy">Política</string>
