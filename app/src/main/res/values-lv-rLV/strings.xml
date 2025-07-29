@@ -97,5 +97,5 @@
     <string name="install_reason_device_restore">Device Restore</string>
     <string name="install_reason_device_setup">Device Setup</string>
     <string name="install_reason_user">Lietotājs</string>
-    <string name="install_reason_rollback">Rollback</string>
+    <string name="install_reason_rollback">Iepriekšējās versijas atritināšana</string>
 </resources>
