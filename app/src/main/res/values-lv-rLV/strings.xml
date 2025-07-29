@@ -23,9 +23,9 @@
     <string name="enable_crash_reports">Enable Crash Reports</string>
     <string name="enable_crash_reports_desc">Allow Install with Options to send anonymous crash and error logs to Bugsnag. Disabling this requires an app restart to take effect.</string>
     <string name="shizuku_not_installed">Shizuku nav uzstādīts</string>
-    <string name="shizuku_not_installed_desc">Shizuku is required for this app to function. Would you like to download it now?</string>
+    <string name="shizuku_not_installed_desc">Lai šī lietotne varētu darboties, ir nepieciešams Shizuku. Vai vēlaties to lejupielādēt tagad?</string>
     <string name="shizuku_not_running">Shizuku nav palaists</string>
-    <string name="shizuku_not_running_desc">Shizuku needs to be running for this app to function. Follow the directions in the Shizuku app to start it.</string>
+    <string name="shizuku_not_running_desc">Lai šī lietotne varētu darboties, ir jāpalaiž Shizuku. Izpildiet Shizuku lietotnes norādījumus, lai to palaistu.</string>
     <string name="replace_existing">Aizvietot esošo</string>
     <string name="replace_existing_desc">Ja lietotne jau pastāv, aizvieto/atjaunina to.</string>
     <string name="allow_test">Allow Test</string>
@@ -36,10 +36,10 @@
     <string name="external_desc">Force the package to be installed to external storage.</string>
     <string name="from_adb">From ADB</string>
     <string name="from_adb_desc">Tells the system that the install request was made by ADB.</string>
-    <string name="all_users">All Users</string>
-    <string name="all_users_desc">Install the package for all users on the system, instead of just the specified or default user.</string>
-    <string name="allow_downgrade">Allow Downgrade</string>
-    <string name="allow_downgrade_desc">Attempts to downgrade the currently-installed version of the package to the one being installed.</string>
+    <string name="all_users">Visiem lietotājiem</string>
+    <string name="all_users_desc">Uzstāda lietotni visiem sistēmas lietotājiem, nevis tikai norādītajam vai noklusējuma lietotājam.</string>
+    <string name="allow_downgrade">Atļaut uzstādīt vecāku versiju</string>
+    <string name="allow_downgrade_desc">Mēģina aizstāt pašreiz uzstādītās lietotnes versiju ar konkrēto (vecāku) lietotnes versiju.</string>
     <string name="grant_all_permissions">Grant All Requested Permissions</string>
     <string name="grant_all_permissions_desc">Automatically grant all permissions the package is requesting. Note that this only applies to runtime permissions. Special permissions like All Files Access or Accessibility won\'t be automatically granted.</string>
     <string name="force_volume_uuid">Force Volume UUID</string>
@@ -84,7 +84,7 @@
     <string name="installer_package_desc">Norādiet lietotnes unikālo nosaukumu, ko Android ziņot, ka atlasītās lietotnes uzstādītas pateicoties (piemēram, com.android.vending).</string>
     <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">Uzstādīšanas iemesls</string>
-    <string name="install_reason_desc">Set the reason for this installation.</string>
+    <string name="install_reason_desc">Iestata šī uzstādīšanas iemeslu.</string>
     <string name="error_selecting_files">Lūdzu, pārliecinieties, ka jums ir uzstādīts datņu pārlūks, lai atlasītu APK datnes.</string>
     <string name="error_binding_service">Unable to bind privileged service. Please restart your device and try again.</string>
     <string name="target_user">Lietotāja profils</string>
