@@ -6,7 +6,7 @@
     <string name="success">Hoàn tất</string>
     <string name="installation_complete">Cài đặt thành công</string>
     <string name="installation_errors">Lỗi</string>
-    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
+    <string name="status_item"><![CDATA[%1$s%1$s<br>%1$s%1$s<br><br>%1$s]]></string>
     <string name="download">Tải xuống</string>
     <string name="close_app">Đóng app</string>
     <string name="open_shizuku">Mở Shizuku</string>
@@ -16,9 +16,9 @@
     <string name="mastodon">Mastodon</string>
     <string name="supporters">Người hỗ trợ</string>
     <string name="settings">Cài đặt</string>
-    <string name="remove">Xóa</string>
+    <string name="remove">X ó a</string>
     <string name="translate">Dịch</string>
-    <string name="donate">Donate</string>
+    <string name="donate">S</string>
     <string name="permission_intent_was_null">Lỗi: Permission Intent was null!</string>
     <string name="enable_crash_reports">Bật chức năng Báo cáo Lỗi</string>
     <string name="enable_crash_reports_desc">Cho phép ứng dụng này gửi logs bao gồm lỗi và thông tin bổ sung khi gặp trục trặc. Thông tin này sẽ được gửi ẩn danh tới Bugsnag. Cần khởi động lại ứng dụng này để có hiệu lực.</string>
