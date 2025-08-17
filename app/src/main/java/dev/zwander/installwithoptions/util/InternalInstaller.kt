@@ -140,11 +140,18 @@ class InternalInstaller(private val context: Context) {
                     }
                 }
 
-                session::class.java.getMethod(
-                    "commit",
-                    IntentSender::class.java,
-                    Boolean::class.java
-                ).invoke(session, statusIntent.intentSender, false)
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+                    session::class.java.getMethod(
+                        "commit",
+                        IntentSender::class.java,
+                        Boolean::class.java,
+                    ).invoke(session, statusIntent.intentSender, false)
+                } else {
+                    session::class.java.getMethod(
+                        "commit",
+                        IntentSender::class.java,
+                    ).invoke(session, statusIntent.intentSender)
+                }
             } catch (e: Throwable) {
                 Log.e("InstallWithOptions", "error", e)
                 session::class.java.getMethod("abandon").invoke(session)
