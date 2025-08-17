@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Fayllarni tanlash</string>
+    <string name="choose_files">Faylni tanlash</string>
     <string name="selected_files">Tanlangan fayllar</string>
     <string name="install">O\'rnatish</string>
     <string name="success">Muvafaqqiyatli yakunlandi</string>
@@ -34,12 +34,12 @@
     <string name="internal_desc">Paketni ichki xotiraga o\'rnatishga majbur qilish.</string>
     <string name="external">Tashqi</string>
     <string name="external_desc">Paketni tashqi xotiraga o\'rnatishga majbur qilish.</string>
-    <string name="from_adb">ADB dan</string>
+    <string name="from_adb">ADB</string>
     <string name="from_adb_desc">Tizimga o\'rnatish so\'rovi ADB tomonidan amalga oshirilganini aytadi.</string>
     <string name="all_users">Barcha foydalanuvchilar</string>
     <string name="all_users_desc">Faqat ko\'rsatilgan yoki standart foydalanuvchi o\'rniga tizimdagi barcha foydalanuvchilar uchun paketni o\'rnating.</string>
     <string name="allow_downgrade">Pastga tushirishga ruxsat berish</string>
-    <string name="allow_downgrade_desc">Paketning joriy o\'rnatilgan versiyasini o\'rnatilayotgan versiyaga tushirishga urinishlar.</string>
+    <string name="allow_downgrade_desc">Paketning joriy o\'rnatilgan versiyasini o\'rnatilayotgan versiyani tushirishga urinishlar.</string>
     <string name="grant_all_permissions">Barcha so\'ralganlarga ruxsat berish</string>
     <string name="grant_all_permissions_desc">Paket so\'rayotgan barcha ruxsatlarni avtomatik bering. Unutmang, bu faqat ishlash vaqti ruxsatlariga tegishli. Barcha fayllarga kirish yoki Maxsus imkoniyatlar kabi maxsus ruxsatlar avtomatik berilmaydi.</string>
     <string name="force_volume_uuid">UUID Kuch balandligi</string>
@@ -69,7 +69,7 @@
     <string name="disable_allowed_apex_update_check">Ruxsat etilgan APEX yangilanish tekshiruvini faolsizlantirish</string>
     <string name="disable_allowed_apex_update_check_desc">O\'rnatilgan APEXni yangilash mumkinligini tekshirmang.</string>
     <string name="bypass_low_target_sdk_block">Eski SDK versiyani aylanib o\'tish</string>
-    <string name="bypass_low_target_sdk_block_desc">Eski SDK versiyalariga mo\'ljallangan ilovalarni o\'rnatish imkonini beradi.</string>
+    <string name="bypass_low_target_sdk_block_desc">Eski SDK versiyalarga mo\'ljallangan ilovalarni o\'rnatish imkonini beradi.</string>
     <string name="force_sdk">Majburiy SDK</string>
     <string name="force_sdk_desc">SDK harflariga mo\'ljallangan paketlarni o\'rnatish yoki yangilash imkonini beradi.</string>
     <string name="dry_run">Sinov ishi</string>
