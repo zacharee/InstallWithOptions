@@ -52,7 +52,7 @@ class ShellInterface constructor() : IShellInterface.Stub() {
                 actualUserId,
             )
         } catch (e: Throwable) {
-            errorCallback.onError(e.extractErrorMessage())
+            errorCallback.onError(e.extractErrorMessage(), e::class.java.canonicalName ?: e::class.java.name)
         }
     }
 

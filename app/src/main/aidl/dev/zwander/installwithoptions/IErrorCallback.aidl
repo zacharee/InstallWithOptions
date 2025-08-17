@@ -1,5 +1,5 @@
 package dev.zwander.installwithoptions;
 
 interface IErrorCallback {
-    void onError(String error) = 1;
+    void onError(String error, String errorClass) = 1;
 }

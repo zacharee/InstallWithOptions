@@ -36,6 +36,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.IntentCompat
 import androidx.core.text.HtmlCompat
 import androidx.documentfile.provider.DocumentFile
+import com.bugsnag.android.Bugsnag
 import dev.zwander.installwithoptions.BuildConfig
 import dev.zwander.installwithoptions.IErrorCallback
 import dev.zwander.installwithoptions.IOptionsApplier
@@ -237,13 +238,17 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                             MutableOption.InstallerPackage.settingsKey.getValue(),
                             MutableOption.TargetUser.settingsKey.getValue(),
                             object : IErrorCallback.Stub() {
-                                override fun onError(error: String?) {
+                                override fun onError(error: String?, errorClass: String?) {
+                                    Bugsnag.leaveBreadcrumb(
+                                        "$errorClass: $error",
+                                    )
+
                                     statuses = updatedFiles.flatMap { (_, v) ->
                                         v.map {
                                             InstallResult(
                                                 status = InstallStatus.FAILURE,
                                                 packageName = it.name ?: it.uri.toString(),
-                                                message = error.toString(),
+                                                message = "$errorClass: $error",
                                             )
                                         }
                                     }
