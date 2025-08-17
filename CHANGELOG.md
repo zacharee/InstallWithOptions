@@ -1,3 +1,13 @@
+# 0.8.1
+- Fix an install issue on Android 8.0 and below.
+- Make install errors a little more detailed.
+
+# 0.8.0
+- Add share target for importing APKs.
+- Fix imports from share/open Intents not being installable.
+- Support file-scheme URIs when importing APKs.
+- Update translations.
+
 # 0.7.5
 - Fix an issue where the Install button wouldn't work after scrolling down and up.
 - Add donate button to footer.
