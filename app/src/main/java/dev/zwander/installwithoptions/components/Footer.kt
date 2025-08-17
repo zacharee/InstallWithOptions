@@ -35,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -86,17 +87,18 @@ fun Footer(
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
+    val resources = LocalResources.current
 
     val options = remember {
-        listOf<IOptionItem>(
+        listOf(
             IOptionItem.BasicOptionItem.BooleanItem(
-                label = context.resources.getString(R.string.enable_crash_reports),
-                desc = context.resources.getString(R.string.enable_crash_reports_desc),
+                label = resources.getString(R.string.enable_crash_reports),
+                desc = resources.getString(R.string.enable_crash_reports_desc),
                 key = Settings.Keys.enableCrashReports,
             ),
             IOptionItem.ActionOptionItem(
-                label = context.resources.getString(R.string.clear_cache),
-                desc = context.resources.getString(R.string.clear_cache_desc),
+                label = resources.getString(R.string.clear_cache),
+                desc = resources.getString(R.string.clear_cache_desc),
                 action = {
                     context.cacheDir.deleteRecursively()
                     context.cacheDir.mkdir()

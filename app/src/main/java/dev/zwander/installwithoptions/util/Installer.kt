@@ -29,6 +29,7 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -63,6 +64,7 @@ data class Installer(
 @Composable
 fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer {
     val context = LocalContext.current
+    val resources = LocalResources.current
     val shellInterface by rememberUpdatedState(LocalShellInterface.current)
     val updatedFiles by rememberUpdatedState(files)
 
@@ -195,7 +197,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                                 factory = { AppCompatTextView(it) },
                             ) { tv ->
                                 tv.text = HtmlCompat.fromHtml(
-                                    context.resources.getString(
+                                    resources.getString(
                                         R.string.status_item,
                                         try {
                                             context.packageManager.getApplicationInfo(res.packageName, 0)

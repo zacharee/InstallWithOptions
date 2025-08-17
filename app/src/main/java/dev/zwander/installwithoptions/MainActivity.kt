@@ -73,6 +73,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
@@ -190,6 +191,7 @@ fun MainContent(modifier: Modifier = Modifier) {
     val isImporting by DataModel.isImporting.collectAsState()
 
     val context = LocalContext.current
+    val resources = LocalResources.current
     val fileSelector =
         rememberLauncherForActivityResult(contract = ActivityResultContracts.OpenMultipleDocuments()) { uris ->
             scope.launch(Dispatchers.IO) {
@@ -197,7 +199,7 @@ fun MainContent(modifier: Modifier = Modifier) {
             }
         }
     val options = (rememberInstallOptions() + rememberMutableOptions()).sortedBy {
-        context.resources.getString(it.labelResource)
+        resources.getString(it.labelResource)
     }
     val (install, isInstalling, total, completed) = rememberPackageInstaller(selectedFiles)
 

@@ -5,16 +5,16 @@ import androidx.annotation.Keep
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
 import dev.zwander.installwithoptions.R
 
 @Composable
 fun rememberInstallOptions(): List<InstallOption> {
-    val context = LocalContext.current
+    val resources = LocalResources.current
 
     return remember {
         getInstallOptions().sortedBy { opt ->
-            context.resources.getString(opt.labelResource)
+            resources.getString(opt.labelResource)
         }
     }
 }

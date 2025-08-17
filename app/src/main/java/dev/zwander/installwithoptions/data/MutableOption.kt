@@ -23,7 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import dev.icerock.moko.mvvm.flow.compose.collectAsMutableState
@@ -35,11 +35,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 @Composable
 fun rememberMutableOptions(): List<MutableOption<*>> {
-    val context = LocalContext.current
+    val resources = LocalResources.current
 
     return remember {
         getMutableOptions().sortedBy { opt ->
-            context.resources.getString(opt.labelResource)
+            resources.getString(opt.labelResource)
         }
     }
 }
