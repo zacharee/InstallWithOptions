@@ -18,7 +18,7 @@
     <string name="settings">Configurações</string>
     <string name="remove">Remover</string>
     <string name="translate">Traduzir</string>
-    <string name="donate">Donate</string>
+    <string name="donate">português </string>
     <string name="permission_intent_was_null">A intenção de permissão era nula!</string>
     <string name="enable_crash_reports">Ativar relatórios de erros</string>
     <string name="enable_crash_reports_desc">Permita Instalar com Opções para enviar logs de falhas e erros anónimos para o Bugsnag. Desativar isso requer que o aplicativo reinicie para que ele tenha efeito.</string>
@@ -82,12 +82,12 @@
     <string name="ignore_dexopt_profile_desc">Ignorar perfis de dexopt para este pacote durante a instalação.</string>
     <string name="installer_package">Pacote do Instalador</string>
     <string name="installer_package_desc">Especifique o nome do pacote do aplicativo que o Android deve relatar que este APK foi instalado (por exemplo, com.android.vending).</string>
-    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
+    <string name="installer_package_warning">português </string>
     <string name="install_reason">Motivo da Instalação</string>
     <string name="install_reason_desc">Defina a razão para esta instalação.</string>
     <string name="error_selecting_files">Por favor, certifique-se de que você tem um navegador de arquivos instalado para escolher APKs.</string>
     <string name="error_binding_service">Não foi possível vincular o serviço privilegiado. Por favor, reinicie o seu dispositivo e tente novamente.</string>
-    <string name="target_user">Target User</string>
+    <string name="target_user">português </string>
     <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="selected_option">Selected option</string>
     <string name="clear_cache">Clear Cache</string>
