@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Chọn tệp</string>
+    <string name="choose_files">Choosef Filesc</string>
     <string name="selected_files">Tệp đã chọn</string>
     <string name="install">Cài đặt</string>
     <string name="success">Hoàn tất</string>
