@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Crowdin. com</string>
+    <string name="choose_files">Выберите файл</string>
     <string name="selected_files">Выбранные файлы</string>
     <string name="install">Установить</string>
     <string name="success">Успешно</string>
