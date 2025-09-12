@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Pilih Berkas</string>
+    <string name="choose_files">Res</string>
     <string name="selected_files">Berkas Dipilh</string>
     <string name="install">Pasang</string>
     <string name="success">Berhasil</string>
