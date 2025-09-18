@@ -87,7 +87,7 @@
     <string name="install_reason_desc">Establecer la razón de esta instalación.</string>
     <string name="error_selecting_files">Por favor, asegúrese de que tiene un navegador de archivos instalado para elegir APKs.</string>
     <string name="error_binding_service">No se puede enlazar el servicio privilegiado. Por favor, reinicia el dispositivo e inténtalo de nuevo.</string>
-    <string name="target_user">Target User</string>
+    <string name="target_user">Usuario Objetivo</string>
     <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
     <string name="selected_option">Opción Seleccionada</string>
     <string name="clear_cache">Limpiar cache</string>
