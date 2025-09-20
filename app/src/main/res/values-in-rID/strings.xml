@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Res</string>
-    <string name="selected_files">Berkas Dipilh</string>
+    <string name="choose_files">Pilih berkas</string>
+    <string name="selected_files">Berkas Telah dipilih</string>
     <string name="install">Pasang</string>
     <string name="success">Berhasil</string>
     <string name="installation_complete">Pemasangan Berhasil</string>
