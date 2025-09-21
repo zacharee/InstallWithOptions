@@ -66,20 +66,13 @@ class ShellInterface constructor() : IShellInterface.Stub() {
         val userManagerInstance = Class.forName("android.os.IUserManager\$Stub")
             .getMethod("asInterface", IBinder::class.java)
             .invoke(null, SystemServiceHelper.getSystemService(Context.USER_SERVICE))
-        val users = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            try {
-                userManagerInstance::class.java.getMethod(
-                    "getUsers",
-                    Boolean::class.java,
-                    Boolean::class.java,
-                    Boolean::class.java,
-                ).invoke(userManagerInstance, false, false, false)
-            } catch (_: Throwable) {
-                userManagerInstance::class.java.getMethod(
-                    "getUsers",
-                    Boolean::class.java,
-                ).invoke(userManagerInstance, false)
-            }
+        val users = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && Build.VERSION.SDK_INT_FULL <= Build.VERSION_CODES_FULL.BAKLAVA) {
+            userManagerInstance::class.java.getMethod(
+                "getUsers",
+                Boolean::class.java,
+                Boolean::class.java,
+                Boolean::class.java,
+            ).invoke(userManagerInstance, false, false, false)
         } else {
             userManagerInstance::class.java.getMethod(
                 "getUsers",
