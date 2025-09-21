@@ -25,6 +25,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -44,6 +45,9 @@ import dev.zwander.installwithoptions.R
 import dev.zwander.installwithoptions.data.DataModel
 import dev.zwander.installwithoptions.data.IOptionItem
 import dev.zwander.installwithoptions.data.Settings
+import dev.zwander.installwithoptions.data.Theme
+import dev.zwander.installwithoptions.ui.views.DropdownMenuSelector
+import dev.zwander.installwithoptions.ui.views.Option
 import dev.zwander.installwithoptions.util.launchUrl
 import kotlinx.coroutines.launch
 import tk.zwander.patreonsupportersretrieval.data.SupporterInfo
@@ -91,6 +95,17 @@ fun Footer(
 
     val options = remember {
         listOf(
+            IOptionItem.BasicOptionItem.ListOptionItem(
+                label = resources.getString(R.string.theme),
+                desc = null,
+                key = Settings.Keys.theme,
+                options = Theme.entries.map {
+                    Option(
+                        label = { stringResource(it.labelRes) },
+                        value = it,
+                    )
+                },
+            ),
             IOptionItem.BasicOptionItem.BooleanItem(
                 label = resources.getString(R.string.enable_crash_reports),
                 desc = resources.getString(R.string.enable_crash_reports_desc),
@@ -208,6 +223,10 @@ fun Footer(
                                     BooleanPreference(item = item)
                                 }
 
+                                is IOptionItem.BasicOptionItem.ListOptionItem<*, *> -> {
+                                    ListPreference(item = item)
+                                }
+
                                 // TODO: Layouts for other settings types.
                             }
                         }
@@ -271,6 +290,41 @@ private fun BooleanPreference(
                 onCheckedChange = {
                     state = it
                 },
+            )
+        }
+    }
+}
+
+@Composable
+fun <E, T : Option<E>> ListPreference(
+    item: IOptionItem.BasicOptionItem.ListOptionItem<E, T>,
+    modifier: Modifier = Modifier,
+) {
+    var state by item.key.collectAsMutableState()
+    val stateOption by remember {
+        derivedStateOf {
+            item.options.first { it.value == state }
+        }
+    }
+
+    Card(
+        modifier = modifier,
+    ) {
+        Column(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            LabelDesc(
+                item = item,
+            )
+
+            DropdownMenuSelector(
+                value = stateOption,
+                onValueChanged = {
+                    state = it.value
+                },
+                values = item.options,
             )
         }
     }

@@ -9,9 +9,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import dev.zwander.installwithoptions.App
+import dev.zwander.installwithoptions.ui.views.Option
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -50,12 +52,30 @@ object Settings {
                 settings = settings,
             )
         }
+
+        val theme by lazy {
+            SettingsKey.Complex(
+                key = "selectedTheme",
+                default = Theme.SYSTEM,
+                serializer = {
+                    it.key
+                },
+                deserializer = {
+                    if (it == null) {
+                        Theme.SYSTEM
+                    } else {
+                        Theme.fromKey(it, Theme.SYSTEM)
+                    }
+                },
+                settings = settings,
+            )
+        }
     }
 
-    val settings by lazy {
+    val settings: SharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(App.context)
     }
-    val gson = GsonBuilder().create()
+    val gson: Gson = GsonBuilder().create()
 }
 
 @Suppress("unused", "UNCHECKED_CAST")
@@ -320,5 +340,12 @@ sealed interface IOptionItem {
             override val desc: String?,
             override val key: SettingsKey<Boolean>,
         ) : BasicOptionItem<Boolean>
+
+        data class ListOptionItem<E, T : Option<E>>(
+            override val label: String,
+            override val desc: String?,
+            override val key: SettingsKey<E>,
+            val options: List<T>,
+        ) : BasicOptionItem<E>
     }
 }
