@@ -8,7 +8,7 @@
     <string name="installation_errors">خطأ في التثبيت</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">تحميل</string>
-    <string name="close_app">Close App</string>
+    <string name="close_app">1غلق التطبيق</string>
     <string name="open_shizuku">فتح شيزوفريني1</string>
     <string name="website">موقع1</string>
     <string name="github">الحصول1</string>
@@ -19,7 +19,7 @@
     <string name="remove">إزالة</string>
     <string name="translate">ترجمة</string>
     <string name="donate">Donate</string>
-    <string name="permission_intent_was_null">نية الإذن كانت فارغة! c!</string>
+    <string name="permission_intent_was_null">نية الإذن كانت فارغة!</string>
     <string name="enable_crash_reports">تمكين تقارير الأعطال</string>
     <string name="enable_crash_reports_desc">السماح للتثبيت باستخدام الخيارات لإرسال سجلات الأعطال والأخطاء المجهولة إلى Bugsnag. يتطلب تعطيل هذا إعادة تشغيل التطبيق ليصبح ساري المفعول.</string>
     <string name="shizuku_not_installed">تطبيق Shizuku غير مثبت</string>
