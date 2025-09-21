@@ -1,3 +1,8 @@
+# 0.9.0
+- Add a theme selector setting.
+- Fix an issue on Android API 36.1 (16.1).
+- Update translations.
+
 # 0.8.1
 - Fix an install issue on Android 8.0 and below.
 - Make install errors a little more detailed.
