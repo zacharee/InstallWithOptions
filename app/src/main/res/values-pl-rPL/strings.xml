@@ -18,7 +18,7 @@
     <string name="settings">Ustawienia</string>
     <string name="remove">Usuń</string>
     <string name="translate">Przetłumacz</string>
-    <string name="donate">Donate</string>
+    <string name="donate">Wspomóż</string>
     <string name="permission_intent_was_null">Zamiar uprawnień był pusty!</string>
     <string name="enable_crash_reports">Włącz raporty o awariach</string>
     <string name="enable_crash_reports_desc">Zezwól aplikacji Install with Options na wysyłanie anonimowych raportów o błędach i awariach do Bugsnag. Wyłączenie tej opcji wymaga ponownego uruchomienia aplikacji.</string>
