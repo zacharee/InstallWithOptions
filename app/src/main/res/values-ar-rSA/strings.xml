@@ -98,4 +98,8 @@
     <string name="install_reason_device_setup">إعداد الجهاز</string>
     <string name="install_reason_user">المستخدم</string>
     <string name="install_reason_rollback">التراجع</string>
+    <string name="theme">Theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_system">System</string>
 </resources>
