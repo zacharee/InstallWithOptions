@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Vyberte soubory</string>
+    <string name="choose_files">Choose Files</string>
     <string name="selected_files">Vybrané soubory</string>
     <string name="install">Instalovat</string>
     <string name="success">Úspěch</string>
@@ -98,4 +98,8 @@
     <string name="install_reason_device_setup">Nastavení zařízení</string>
     <string name="install_reason_user">Uživatel</string>
     <string name="install_reason_rollback">Vrácení zpět</string>
+    <string name="theme">Motiv</string>
+    <string name="theme_light">Světlý</string>
+    <string name="theme_dark">Tmavý</string>
+    <string name="theme_system">Systémový</string>
 </resources>
