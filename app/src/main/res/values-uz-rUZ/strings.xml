@@ -23,7 +23,7 @@
     <string name="enable_crash_reports">Nosozlik hisobotlarini yoqish</string>
     <string name="enable_crash_reports_desc">Bugsnag xizmatiga anonim tarzda nosozlik va xatolik jurnallarini yuborish uchun \"Parametrlar bilan o‘rnatish\" funksiyasiga ruxsat bering. Ushbu funksiyani o‘chirish ilova qayta ishga tushirilgandan so‘nggina kuchga kiradi.</string>
     <string name="shizuku_not_installed">Shizuku ilovasi o\'rnatilmagan</string>
-    <string name="shizuku_not_installed_desc">Bu ilova ishlashi uchun Shizuku talab qilinadi. Uni hozir yuklab olasizmi?</string>
+    <string name="shizuku_not_installed_desc">Bu ilova ishlashi uchun Shizuku talab qilinadi. Ilovani hozir yuklab olasizmi?</string>
     <string name="shizuku_not_running">Shizuku ishlamayapti</string>
     <string name="shizuku_not_running_desc">Ushbu ilova ishlashi uchun Shizuku ilovasi faol bo‘lishi shart. Shizukuni ishga tushirish uchun ilova ichidagi yo‘riqnomaga rioya qiling.</string>
     <string name="replace_existing">Mavjudlarini almashtirish</string>
@@ -58,11 +58,11 @@
     <string name="virtual_preload_desc">Paket oldindan vertual yuklanganini bildiradi.</string>
     <string name="apex">APEX</string>
     <string name="apex_desc">O\'rnatilgan paket APEX paketi ekanligini bildiradi.</string>
-    <string name="enable_rollback">Ortqa qaytish funksiyasini yoqish</string>
+    <string name="enable_rollback">Ortga qaytish funksiyasini yoqish</string>
     <string name="enable_rollback_desc">Bu paketni kelajakda ortga qaytarishga ruxsat berish</string>
     <string name="disable_verification">Tasdiqlashni faolsizlantirish</string>
     <string name="disable_verification_desc">O‘rnatish jarayonida paket tekshiruvini o‘chiradi. Bu imzo tekshiruvi emas.</string>
-    <string name="staged">Bosqichli</string>
+    <string name="staged">Bosqichli o‘rnatish</string>
     <string name="staged_desc">Bu paket bosqichli o\'rnatishning bir qismi sifatida o\'rnatilayotganini bildiradi.</string>
     <string name="all_whitelist_restricted_permissions">Cheklangan ruxsatlarni berish</string>
     <string name="all_whitelist_restricted_permissions_desc">O\'rnatilgan paketga cheklangan ruxsatlar berilishiga ruxsat berish.</string>
@@ -100,6 +100,6 @@
     <string name="install_reason_rollback">Ortga qaytish</string>
     <string name="theme">Mavzu</string>
     <string name="theme_light">Yorug‘</string>
-    <string name="theme_dark">Dark</string>
-    <string name="theme_system">System</string>
+    <string name="theme_dark">Qorong‘i</string>
+    <string name="theme_system">Tizim</string>
 </resources>
