@@ -28,7 +28,7 @@
     <string name="shizuku_not_running_desc">此应用需要启用Shizuku才能正常运行。请按照Shizuku的教程来启用它。</string>
     <string name="replace_existing">替换已有</string>
     <string name="replace_existing_desc">如果该软件包已被安装，则替换或升级</string>
-    <string name="allow_test">Allow Test</string>
+    <string name="allow_test">允许安装测试包</string>
     <string name="allow_test_desc">允许安装 test-only 软件包</string>
     <string name="internal">内置</string>
     <string name="internal_desc">强制将软件包安装到内部存储。</string>
@@ -82,24 +82,25 @@
     <string name="ignore_dexopt_profile_desc">在安装过程中忽略此软件包的离子配置文件。</string>
     <string name="installer_package">已安装的软件包</string>
     <string name="installer_package_desc">指定 Android 应该报告此 APK 被安装的应用程序的软件包名称(如com.android.vending)。</string>
-    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
+    <string name="installer_package_warning">这些设置可能对某些应用不起作用。
+Android 14 限制了ADB覆盖安装来源的权力。</string>
     <string name="install_reason">安装原因</string>
     <string name="install_reason_desc">设置此安装的原因。</string>
     <string name="error_selecting_files">请确保您安装了一个文件管理器来选择 APK。</string>
     <string name="error_binding_service">无法绑定特权服务。请重新启动您的设备，然后重试。</string>
-    <string name="target_user">Target User</string>
-    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
-    <string name="selected_option">Selected option</string>
-    <string name="clear_cache">Clear Cache</string>
-    <string name="clear_cache_desc">Clear Install with Options\' internal file cache.</string>
+    <string name="target_user">目标用户编号</string>
+    <string name="target_user_desc">选择应用将安装到的用户编号。</string>
+    <string name="selected_option">已选择的选项</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="clear_cache_desc">清除本应用的内部缓存。</string>
     <string name="install_reason_unknown">未知</string>
     <string name="install_reason_policy">策略</string>
     <string name="install_reason_device_restore">设备恢复</string>
     <string name="install_reason_device_setup">设备设置</string>
     <string name="install_reason_user">用户</string>
     <string name="install_reason_rollback">回滚</string>
-    <string name="theme">Theme</string>
-    <string name="theme_light">Light</string>
-    <string name="theme_dark">Dark</string>
-    <string name="theme_system">System</string>
+    <string name="theme">主题</string>
+    <string name="theme_light">亮色主题</string>
+    <string name="theme_dark">暗色主题</string>
+    <string name="theme_system">跟随系统</string>
 </resources>
