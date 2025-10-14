@@ -98,7 +98,7 @@
     <string name="install_reason_device_setup">Configuración del dispositivo</string>
     <string name="install_reason_user">Usuario</string>
     <string name="install_reason_rollback">Deshacer</string>
-    <string name="theme">Theme</string>
+    <string name="theme">Tema</string>
     <string name="theme_light">Light</string>
     <string name="theme_dark">Downloads</string>
     <string name="theme_system">System</string>
