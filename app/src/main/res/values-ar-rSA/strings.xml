@@ -82,7 +82,7 @@
     <string name="ignore_dexopt_profile_desc">تجاهل ملفات dexopt لهذه الحزمة أثناء التثبيت.</string>
     <string name="installer_package">مثبت الحزمة</string>
     <string name="installer_package_desc">تحديد اسم حزمة التطبيق الذي يجب على Android الإبلاغ عن أنه تم تثبيت ملف APK هذا من خلاله (على سبيل المثال، com.android.vending).</string>
-    <string name="installer_package_warning">ااا</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">سبب التثبيت</string>
     <string name="install_reason_desc">تعيين سبب التثبيت.</string>
     <string name="error_selecting_files">الرجاء التأكد من تثبيت متصفح الملفات لاختيار ملفات APK.</string>
