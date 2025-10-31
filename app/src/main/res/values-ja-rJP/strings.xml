@@ -98,4 +98,8 @@
     <string name="install_reason_device_setup">デバイスのセットアップ</string>
     <string name="install_reason_user">ユーザー</string>
     <string name="install_reason_rollback">ロールバック</string>
+    <string name="theme">Theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_system">System</string>
 </resources>

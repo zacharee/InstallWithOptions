@@ -98,4 +98,8 @@
     <string name="install_reason_device_setup">Nastavení zařízení</string>
     <string name="install_reason_user">Uživatel</string>
     <string name="install_reason_rollback">Vrácení zpět</string>
+    <string name="theme">Motiv</string>
+    <string name="theme_light">Světlý</string>
+    <string name="theme_dark">Tmavý</string>
+    <string name="theme_system">Systémový</string>
 </resources>

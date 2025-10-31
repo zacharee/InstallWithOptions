@@ -98,4 +98,8 @@
     <string name="install_reason_device_setup">Configura Dispositivo</string>
     <string name="install_reason_user">Utente</string>
     <string name="install_reason_rollback">Rollback</string>
+    <string name="theme">Theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_system">System</string>
 </resources>
