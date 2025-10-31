@@ -100,6 +100,6 @@
     <string name="install_reason_rollback">Deshacer</string>
     <string name="theme">Tema</string>
     <string name="theme_light">Light</string>
-    <string name="theme_dark">Downloads</string>
+    <string name="theme_dark">Dark</string>
     <string name="theme_system">System</string>
 </resources>
