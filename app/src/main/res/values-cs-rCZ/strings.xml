@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Choose Files</string>
+    <string name="choose_files">Vyberte soubory</string>
     <string name="selected_files">Vybrané soubory</string>
     <string name="install">Instalovat</string>
     <string name="success">Úspěch</string>
