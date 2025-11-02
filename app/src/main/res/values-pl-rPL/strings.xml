@@ -3,11 +3,11 @@
     <string name="choose_files">Wybierz pliki</string>
     <string name="selected_files">Wybrane pliki</string>
     <string name="install">Zainstaluj</string>
-    <string name="success">Sukces</string>
+    <string name="success">Powodzenie</string>
     <string name="installation_complete">Instalacja zakończona</string>
     <string name="installation_errors">Błędy podczas instalacji</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
-    <string name="download">Pobierz</string>
+    <string name="download">Sciagnij</string>
     <string name="close_app">Zamknij aplikację</string>
     <string name="open_shizuku">Otwórz Shizuku</string>
     <string name="website">Strona internetowa</string>
@@ -21,7 +21,7 @@
     <string name="donate">Wspomóż</string>
     <string name="permission_intent_was_null">Zamiar uprawnień był pusty!</string>
     <string name="enable_crash_reports">Włącz raporty o awariach</string>
-    <string name="enable_crash_reports_desc">Zezwól aplikacji Install with Options na wysyłanie anonimowych raportów o błędach i awariach do Bugsnag. Wyłączenie tej opcji wymaga ponownego uruchomienia aplikacji.</string>
+    <string name="enable_crash_reports_desc"></string>
     <string name="shizuku_not_installed">Aplikacja Shizuku nie jest zainstalowana</string>
     <string name="shizuku_not_installed_desc">Aplikacja Shizuku jest wymagana do działania tej aplikacji. Chcesz pobrać ją teraz?</string>
     <string name="shizuku_not_running">Aplikacja Shizuku nie jest uruchomiona</string>
