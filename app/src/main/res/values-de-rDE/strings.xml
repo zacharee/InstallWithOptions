@@ -24,7 +24,7 @@
     <string name="enable_crash_reports_desc">Erlaube Install with Options, anonyme Abstürze und Fehlerprotokolle an Bugsnag zu senden. Deaktivieren erfordert einen Neustart der App.</string>
     <string name="shizuku_not_installed">Shizuku nicht installiert</string>
     <string name="shizuku_not_installed_desc">Shizuku wird benötigt, damit diese App funktioniert. Möchten Sie es jetzt herunterladen?</string>
-    <string name="shizuku_not_running">Shizuku läuft nicht</string>
+    <string name="shizuku_not_running">Shizuku läuft derzeit nicht</string>
     <string name="shizuku_not_running_desc">Shizuku muss ausgeführt werden, damit diese App funktioniert. Folgen Sie den Anweisungen in der Shizuku-App, um sie zu starten.</string>
     <string name="replace_existing">Vorhandene ersetzen</string>
     <string name="replace_existing_desc">Wenn das zu installierende Paket bereits existiert, ersetzen/aktualisieren.</string>
@@ -98,8 +98,8 @@
     <string name="install_reason_device_setup">Geräteeinrichtung</string>
     <string name="install_reason_user">Nutzer</string>
     <string name="install_reason_rollback">Rollback</string>
-    <string name="theme">Theme</string>
-    <string name="theme_light">Light</string>
-    <string name="theme_dark">Dark</string>
-    <string name="theme_system">System</string>
+    <string name="theme">Aussehen</string>
+    <string name="theme_light">Hell</string>
+    <string name="theme_dark">Dunkel</string>
+    <string name="theme_system">Systemvoreinstellung</string>
 </resources>
