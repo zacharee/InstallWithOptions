@@ -3,7 +3,7 @@
     <string name="choose_files">Wybierz pliki</string>
     <string name="selected_files">Wybrane pliki</string>
     <string name="install">Zainstaluj</string>
-    <string name="success">Powodzenie</string>
+    <string name="success">Powodzeniem</string>
     <string name="installation_complete">Instalacja zakończona</string>
     <string name="installation_errors">Błędy podczas instalacji</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
@@ -90,7 +90,7 @@
     <string name="target_user">Docelowy użytkownik</string>
     <string name="target_user_desc">Wybierz użytkownika urządzenia według identyfikatora, na którym ta aplikacja powinna zostać zainstalowana.</string>
     <string name="selected_option">Wybrana opcja</string>
-    <string name="clear_cache">Clear Cache</string>
+    <string name="clear_cache">Wyczyść pamięć podręczną</string>
     <string name="clear_cache_desc">Wyczyść pamięć podręczną plików wewnętrznych opcji instalacji.</string>
     <string name="install_reason_unknown">Nieznany</string>
     <string name="install_reason_policy">Polityka</string>
