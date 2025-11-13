@@ -76,7 +76,7 @@
     <string name="dry_run_desc">Проверить пакет, но не устанавливать его.</string>
     <string name="request_update_ownership">Запрос обновления на права администратора</string>
     <string name="request_update_ownership_desc">Включить обновление прав собственности на текущую сессию.</string>
-    <string name="from_managed_user_or_profile">От управляющего пользователя или профиля</string>
+    <string name="from_managed_user_or_profile">От управляющего или профиля</string>
     <string name="from_managed_user_or_profile_desc">Указывает, что текущая сессия из управляемого пользователя или профиля.</string>
     <string name="ignore_dexopt_profile">Игнорировать Dexopt профиль</string>
     <string name="ignore_dexopt_profile_desc">Игнорировать профили dexopt для этого пакета во время установки.</string>
@@ -91,15 +91,15 @@
     <string name="target_user_desc">Устанавливает приложение в выбранного по ID пользователя (бесполезно при включении \"Все пользователи\", может не работать с Рабочим Профилем).</string>
     <string name="selected_option">Выбранная опция</string>
     <string name="clear_cache">Удалить кэш</string>
-    <string name="clear_cache_desc">Очищает кэш приложения</string>
-    <string name="install_reason_unknown">Неизвестная причина установки</string>
-    <string name="install_reason_policy">Политика</string>
+    <string name="clear_cache_desc">Очищает кэш приложения.</string>
+    <string name="install_reason_unknown">Неизвестная причина установки.</string>
+    <string name="install_reason_policy">Политика.</string>
     <string name="install_reason_device_restore">Восстановление Устройства</string>
     <string name="install_reason_device_setup">Настройка Устройства</string>
     <string name="install_reason_user">Пользователь</string>
     <string name="install_reason_rollback">Откат</string>
-    <string name="theme">Theme</string>
-    <string name="theme_light">Light</string>
-    <string name="theme_dark">Dark</string>
-    <string name="theme_system">System</string>
+    <string name="theme">Тема</string>
+    <string name="theme_light">Прозрачный</string>
+    <string name="theme_dark">Темный</string>
+    <string name="theme_system">Система</string>
 </resources>
