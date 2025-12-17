@@ -96,8 +96,8 @@
     <string name="install_reason_policy">Política</string>
     <string name="install_reason_device_restore">Restaurar dispositivo</string>
     <string name="install_reason_device_setup">Configuração do dispositivo</string>
-    <string name="install_reason_user">Usuário</string>
-    <string name="install_reason_rollback">Reverter</string>
+    <string name="install_reason_user">Proprietário</string>
+    <string name="install_reason_rollback">Proprietário</string>
     <string name="theme">Theme</string>
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
