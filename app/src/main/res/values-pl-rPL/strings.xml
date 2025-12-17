@@ -2,7 +2,7 @@
 <resources>
     <string name="choose_files">Wybierz Plik</string>
     <string name="selected_files">Wybrane pliki</string>
-    <string name="install">Zainstaluj</string>
+    <string name="install">Install</string>
     <string name="success">Powodzeniem</string>
     <string name="installation_complete">Instalacja zakończona</string>
     <string name="installation_errors">Błędy podczas instalacji</string>
