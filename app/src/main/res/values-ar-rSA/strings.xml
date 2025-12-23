@@ -2,7 +2,7 @@
 <resources>
     <string name="choose_files">اختر الملفات</string>
     <string name="selected_files">الملفات المختارة</string>
-    <string name="install">Install</string>
+    <string name="install">Instalعربيl</string>
     <string name="success">تم بنجاح</string>
     <string name="installation_complete">Installation Complete</string>
     <string name="installation_errors">Errors Installing</string>
@@ -47,7 +47,7 @@
     <string name="force_permission_prompt">فرض موجه الإذن</string>
     <string name="force_permission_prompt_desc">يفرض حتى مثبتات النظام إظهار مطالبة تأكيد التثبيت.</string>
     <string name="instant_app">تطبيق فوري</string>
-    <string name="instant_app_desc">تثبيت الحزمة كتطبيق فوري.</string>
+    <string name="instant_app_desc">Install the package as an instant app.</string>
     <string name="dont_kill_app">عدم قتل التطبيق</string>
     <string name="dont_kill_app_desc">تستخدم عند تثبيت ميزة لتطبيق منقسم لمنع إيقاف التطبيق الرئيسي أثناء التثبيت.</string>
     <string name="full_app">التطبيق كامل</string>
@@ -88,10 +88,10 @@
     <string name="error_selecting_files">الرجاء التأكد من تثبيت متصفح الملفات لاختيار ملفات APK.</string>
     <string name="error_binding_service">غير قادر على ربط الخدمة المميزة. الرجاء إعادة تشغيل جهازك والمحاولة مرة أخرى.</string>
     <string name="target_user">العرب</string>
-    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
-    <string name="selected_option">Selected option</string>
-    <string name="clear_cache">Clear Cache</string>
-    <string name="clear_cache_desc">Clear Install with Options\' internal file cache.</string>
+    <string name="target_user_desc">عربي.</string>
+    <string name="selected_option">عربي</string>
+    <string name="clear_cache">عربي</string>
+    <string name="clear_cache_desc">عربي.</string>
     <string name="install_reason_unknown">غير معروف</string>
     <string name="install_reason_policy">السياسة</string>
     <string name="install_reason_device_restore">استعادة الجهاز</string>
@@ -99,7 +99,7 @@
     <string name="install_reason_user">المستخدم</string>
     <string name="install_reason_rollback">التراجع</string>
     <string name="theme">ثيمات</string>
-    <string name="theme_light">Light</string>
+    <string name="theme_light">عربي</string>
     <string name="theme_dark">داكن</string>
     <string name="theme_system">النظام</string>
 </resources>
