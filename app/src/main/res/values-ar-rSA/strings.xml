@@ -28,7 +28,7 @@
     <string name="shizuku_not_running_desc">Shizuku needs to be running for this app to function. Follow the directions in the Shizuku app to start it.1</string>
     <string name="replace_existing">استبدال القائمة</string>
     <string name="replace_existing_desc">إذا كانت الحزمة التي يتم تثبيتها موجودة بالفعل ، فاستبدلها / قم بترقيتها.</string>
-    <string name="allow_test">السماح بالاختبار</string>
+    <string name="allow_test">Allow Test</string>
     <string name="allow_test_desc">إذا كانت الحزمة التي يتم تثبيتها عبارة عن تطبيق اختبار فقط، فاسمح بتثبيته.</string>
     <string name="internal">الداخلية</string>
     <string name="internal_desc">فرض تثبيت الحزمة على وحدة التخزين الداخلية.</string>
