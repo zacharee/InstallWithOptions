@@ -35,7 +35,7 @@
     <string name="external">الخارجية</string>
     <string name="external_desc">فرض تثبيت الحزمة على وحدة تخزين خارجية.</string>
     <string name="from_adb">من ADB</string>
-    <string name="from_adb_desc">يخبر النظام أن طلب التثبيت تم بواسطة ADB.</string>
+    <string name="from_adb_desc">Tells the system that the install request was made by ADB.</string>
     <string name="all_users">كافة المستخدمين</string>
     <string name="all_users_desc">تثبيت الحزمة لكافة المستخدمين على النظام ، بدلا من المستخدم المحدد أو الافتراضي فقط.</string>
     <string name="allow_downgrade">السماح بالرجوع إلى إصدار أقدم</string>
@@ -46,7 +46,7 @@
     <string name="force_volume_uuid_desc">يسمح بتحديد وحدة تخزين UUID لتثبيت الحزمة عليها.</string>
     <string name="force_permission_prompt">فرض موجه الإذن</string>
     <string name="force_permission_prompt_desc">يفرض حتى مثبتات النظام إظهار مطالبة تأكيد التثبيت.</string>
-    <string name="instant_app">تطبيق فوري</string>
+    <string name="instant_app">Instant Ap</string>
     <string name="instant_app_desc">Install the package as an instant app.</string>
     <string name="dont_kill_app">عدم قتل التطبيق</string>
     <string name="dont_kill_app_desc">تستخدم عند تثبيت ميزة لتطبيق منقسم لمنع إيقاف التطبيق الرئيسي أثناء التثبيت.</string>
