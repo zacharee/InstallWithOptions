@@ -2,12 +2,12 @@
 <resources>
     <string name="choose_files">Escolhe ficheiros</string>
     <string name="selected_files">Arquivos selecionados</string>
-    <string name="install">Install</string>
+    <string name="install">Instalar</string>
     <string name="success">Êxito</string>
     <string name="installation_complete">Instalação completa</string>
     <string name="installation_errors">Erros Instalando</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
-    <string name="download">Baixar</string>
+    <string name="download">Download</string>
     <string name="close_app">Fechar Aplicação</string>
     <string name="open_shizuku">Abrir Shizuku</string>
     <string name="website">Página web</string>
@@ -97,7 +97,7 @@
     <string name="install_reason_device_restore">Restaurar dispositivo</string>
     <string name="install_reason_device_setup">Configuração do dispositivo</string>
     <string name="install_reason_user">Proprietário</string>
-    <string name="install_reason_rollback">Proprietário</string>
+    <string name="install_reason_rollback">Reverter</string>
     <string name="theme">Theme</string>
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
