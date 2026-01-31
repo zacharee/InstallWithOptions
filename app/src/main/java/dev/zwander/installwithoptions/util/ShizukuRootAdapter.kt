@@ -108,7 +108,6 @@ class ShizukuRootAdapter private constructor(private val context: Context) {
             when (mode) {
                 Mode.SHIZUKU -> Shizuku.bindUserService(shizukuArgs, connection)
                 Mode.ROOT -> RootService.bind(rootServiceIntent, connection)
-                else -> {}
             }
         } catch (_: Throwable) {
             Toast.makeText(context, R.string.error_binding_service, Toast.LENGTH_SHORT).show()
@@ -124,7 +123,6 @@ class ShizukuRootAdapter private constructor(private val context: Context) {
             when (mode) {
                 Mode.SHIZUKU -> Shizuku.unbindUserService(shizukuArgs, connection, true)
                 Mode.ROOT -> RootService.unbind(connection)
-                else -> {}
             }
         } catch (_: Exception) {}
     }

@@ -42,8 +42,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.ButtonDefaults
@@ -74,6 +72,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
@@ -433,7 +432,7 @@ fun MainContent(modifier: Modifier = Modifier) {
                                     },
                                 ) {
                                     Icon(
-                                        imageVector = Icons.Filled.Delete,
+                                        painter = painterResource(R.drawable.delete_24px),
                                         contentDescription = stringResource(id = R.string.remove),
                                     )
                                 }
@@ -468,7 +467,7 @@ fun MainContent(modifier: Modifier = Modifier) {
                                         },
                                     ) {
                                         Icon(
-                                            imageVector = Icons.Filled.Delete,
+                                            painter = painterResource(R.drawable.delete_24px),
                                             contentDescription = stringResource(id = R.string.remove),
                                         )
                                     }
