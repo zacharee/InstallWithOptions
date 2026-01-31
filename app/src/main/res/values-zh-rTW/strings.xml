@@ -74,7 +74,7 @@
     <string name="force_sdk_desc">Allows installing or upgrading packages targeting SDK letters.</string>
     <string name="dry_run">空運行</string>
     <string name="dry_run_desc">Verify the package, but don\'t install it.</string>
-    <string name="request_update_ownership">Wechat</string>
+    <string name="request_update_ownership">Request Update Ownership</string>
     <string name="request_update_ownership_desc">Enable update ownership enforcement on the current session.</string>
     <string name="from_managed_user_or_profile">From Managed User or Profile</string>
     <string name="from_managed_user_or_profile_desc">Indicates that the current session is from a managed user or profile.</string>
