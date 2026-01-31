@@ -51,7 +51,7 @@ Bugsnag. Menonaktifkan opsi ini memerlukan muat ulang aplikasi agar perubahan be
     <string name="instant_app_desc">Pasang paket sebagai aplikasi instan.</string>
     <string name="dont_kill_app">Jangan Matikan Aplikasi</string>
     <string name="dont_kill_app_desc">Digunakan saat memasang fitur untuk aplikasi terpisah guna mencegah aplikasi utama dimatikan selama proses pemasangan.</string>
-    <string name="full_app"></string>
+    <string name="full_app">Aplikasi Lengkap</string>
     <string name="full_app_desc">Menunjukkan bahwa paket yang sedang dipasang adalah aplikasi lengkap. Dapat digunakan untuk meningkatkan aplikasi instan ke aplikasi lengkap.</string>
     <string name="allocate_aggressive">Alokasikan Agresif</string>
     <string name="allocate_aggressive_desc">Menunjukkan bahwa paket tersebut \"penting bagi kesehatan atau keamanan sistem\" 
