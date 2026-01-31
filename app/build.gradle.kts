@@ -3,7 +3,6 @@ import java.util.UUID
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.bugsnag.android)
 }
@@ -22,7 +21,6 @@ android {
             useSupportLibrary = true
         }
 
-        extensions.getByType(BasePluginExtension::class.java).archivesName.set("InstallWithOptions_${versionName}")
         manifestPlaceholders["build_uuid"] = UUID.nameUUIDFromBytes("InstallWithOptions_${versionCode}".toByteArray()).toString()
     }
 
@@ -39,11 +37,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlin {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
-    }
     buildFeatures {
         compose = true
         buildConfig = true
@@ -59,6 +52,18 @@ android {
         includeInApk = false
         // Disables dependency metadata when building Android App Bundles.
         includeInBundle = false
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
+    }
+}
+
+afterEvaluate {
+    base {
+        archivesName.set("InstallWithOptions_${android.defaultConfig.versionName}")
     }
 }
 

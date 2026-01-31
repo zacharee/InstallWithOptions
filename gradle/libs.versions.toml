@@ -1,18 +1,18 @@
 [versions]
-activityCompose = "1.10.1"
-agp = "8.12.0"
-bugsnag-android = "6.16.0"
+activityCompose = "1.12.3"
+agp = "9.0.0"
+bugsnag-android = "6.22.0"
 bugsnag-android-gradle = "8.2.0"
-bugsnag-android-performance = "2.0.0"
-composeBom = "2025.08.00"
+bugsnag-android-performance = "2.2.0"
+composeBom = "2026.01.01"
 coreKtx = "1.17.0"
 documentfile = "1.1.0"
-gson = "2.13.1"
+gson = "2.13.2"
 hiddenapibypass = "6.1"
-kotlin = "2.2.10"
+kotlin = "2.3.0"
 libsu = "6.0.0"
-lifecycleRuntimeKtx = "2.9.2"
-materialComponents = "1.12.0"
+lifecycleRuntimeKtx = "2.10.0"
+materialComponents = "1.13.0"
 moko-mvvm = "0.16.1"
 patreonsupportersretrieval = "d2e9143db2"
 preference = "1.2.1"
@@ -47,5 +47,4 @@ zip4j = { module = "net.lingala.zip4j:zip4j", version.ref = "zip4j" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 bugsnag-android = { id = "com.bugsnag.android.gradle", version.ref = "bugsnag-android-gradle" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
