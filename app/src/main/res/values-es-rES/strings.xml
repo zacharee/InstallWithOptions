@@ -82,7 +82,7 @@
     <string name="ignore_dexopt_profile_desc">Ignore dexopt perfiles para este paquete durante la instalación.</string>
     <string name="installer_package">Paquetes instalados</string>
     <string name="installer_package_desc">Especifique el nombre del paquete de la aplicación que Android debe reportar que este APK fue instalado por (Ejemplo: conAAndroid</string>
-    <string name="installer_package_warning">Sexting tris mayo no Word hito suene apps. Android 14 restrictas ADB habilita el berrido he instalación so urce.</string>
+    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
     <string name="install_reason">Razón de instalación</string>
     <string name="install_reason_desc">Establecer la razón de esta instalación.</string>
     <string name="error_selecting_files">Por favor, asegúrese de que tiene un navegador de archivos instalado para elegir APKs.</string>
@@ -100,6 +100,6 @@
     <string name="install_reason_rollback">Deshacer</string>
     <string name="theme">Tema</string>
     <string name="theme_light">Light</string>
-    <string name="theme_dark">Dar</string>
+    <string name="theme_dark">Dark</string>
     <string name="theme_system">System</string>
 </resources>
