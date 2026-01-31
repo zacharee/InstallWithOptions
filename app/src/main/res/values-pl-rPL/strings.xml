@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Wybierz pliki</string>
+    <string name="choose_files">Wybrać plik</string>
     <string name="selected_files">Wybrane pliki</string>
     <string name="install">Zainstaluj</string>
-    <string name="success">Sukces</string>
+    <string name="success">Powodzeniem</string>
     <string name="installation_complete">Instalacja zakończona</string>
     <string name="installation_errors">Błędy podczas instalacji</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
-    <string name="download">Pobierz</string>
+    <string name="download">Sciagnij</string>
     <string name="close_app">Zamknij aplikację</string>
     <string name="open_shizuku">Otwórz Shizuku</string>
     <string name="website">Strona internetowa</string>
@@ -82,24 +82,24 @@
     <string name="ignore_dexopt_profile_desc">Ignoruj profile dexopt dla tego pakietu podczas instalacji.</string>
     <string name="installer_package">Pakiet instalatora</string>
     <string name="installer_package_desc">Określ nazwę pakietu aplikacji, którą Android powinien zgłosić jako źródło instalacji tego APK (np. com.android.vending).</string>
-    <string name="installer_package_warning">Setting this may not work with some apps. Android 14 restricted ADB\'s ability to override the installation source.</string>
+    <string name="installer_package_warning">Ustawienie to może nie działać w przypadku niektórych aplikacji. System Android 14 ograniczył możliwość ADB do nadpisywania źródła instalacji.</string>
     <string name="install_reason">Powód instalacji</string>
     <string name="install_reason_desc">Ustaw powód tej instalacji.</string>
     <string name="error_selecting_files">Upewnij się, że masz zainstalowany menedżer plików, aby wybrać pliki APK.</string>
     <string name="error_binding_service">Nie można połączyć się z usługą uprzywilejowaną. Uruchom ponownie urządzenie i spróbuj ponownie.</string>
-    <string name="target_user">Target User</string>
-    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
-    <string name="selected_option">Selected option</string>
-    <string name="clear_cache">Clear Cache</string>
-    <string name="clear_cache_desc">Clear Install with Options\' internal file cache.</string>
+    <string name="target_user">Docelowy użytkownik</string>
+    <string name="target_user_desc">Wybierz użytkownika urządzenia według identyfikatora, na którym ta aplikacja powinna zostać zainstalowana.</string>
+    <string name="selected_option">Wybrana opcja</string>
+    <string name="clear_cache">Wyczyść pamięć podręczną</string>
+    <string name="clear_cache_desc">Wyczyść pamięć podręczną plików wewnętrznych opcji instalacji.</string>
     <string name="install_reason_unknown">Nieznany</string>
     <string name="install_reason_policy">Polityka</string>
     <string name="install_reason_device_restore">Przywracanie urządzenia</string>
     <string name="install_reason_device_setup">Konfiguracja urządzenia</string>
     <string name="install_reason_user">Użytkownik</string>
     <string name="install_reason_rollback">Wycofanie</string>
-    <string name="theme">Theme</string>
-    <string name="theme_light">Light</string>
-    <string name="theme_dark">Dark</string>
+    <string name="theme">Temat</string>
+    <string name="theme_light">Światło</string>
+    <string name="theme_dark">Ciemny</string>
     <string name="theme_system">System</string>
 </resources>

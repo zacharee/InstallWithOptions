@@ -98,8 +98,8 @@
     <string name="install_reason_device_setup">Configuração do Dispositivo</string>
     <string name="install_reason_user">Usuário</string>
     <string name="install_reason_rollback">Rollback</string>
-    <string name="theme">Theme</string>
-    <string name="theme_light">Light</string>
-    <string name="theme_dark">Dark</string>
-    <string name="theme_system">System</string>
+    <string name="theme">Tema</string>
+    <string name="theme_light">Tema Claro</string>
+    <string name="theme_dark">Tema Escuro</string>
+    <string name="theme_system">Tema Sistema</string>
 </resources>

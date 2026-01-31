@@ -8,13 +8,13 @@
     <string name="installation_errors">خطأ في التثبيت</string>
     <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">تحميل</string>
-    <string name="close_app">1غلق التطبيق</string>
-    <string name="open_shizuku">فتح شيزوفريني1</string>
-    <string name="website">موقع1</string>
-    <string name="github">الحصول1</string>
+    <string name="close_app">غلق التطبيق</string>
+    <string name="open_shizuku">فتح شيزوكو</string>
+    <string name="website">موقع</string>
+    <string name="github">الحصول</string>
     <string name="patreon">باتريون</string>
-    <string name="mastodon">1يجب</string>
-    <string name="supporters">1مؤيدين</string>
+    <string name="mastodon">يجب</string>
+    <string name="supporters">مؤيدين</string>
     <string name="settings">إعدادات</string>
     <string name="remove">إزالة</string>
     <string name="translate">ترجمة</string>
@@ -26,7 +26,7 @@
     <string name="shizuku_not_installed_desc">مطلوب Shizuku لهذا التطبيق للعمل. هل ترغب في تحميله الآن؟</string>
     <string name="shizuku_not_running">تطبيق Shizuku لا يعمل</string>
     <string name="shizuku_not_running_desc">يجب تشغيل Shizuku حتى يعمل هذا التطبيق. اتبع الإرشادات الموجودة في تطبيق Shizuku لبدء تشغيله.</string>
-    <string name="replace_existing">استبدال القائمة</string>
+    <string name="replace_existing">Replace Existing</string>
     <string name="replace_existing_desc">إذا كانت الحزمة التي يتم تثبيتها موجودة بالفعل ، فاستبدلها / قم بترقيتها.</string>
     <string name="allow_test">السماح بالاختبار</string>
     <string name="allow_test_desc">إذا كانت الحزمة التي يتم تثبيتها عبارة عن تطبيق اختبار فقط، فاسمح بتثبيته.</string>
@@ -47,7 +47,7 @@
     <string name="force_permission_prompt">فرض موجه الإذن</string>
     <string name="force_permission_prompt_desc">يفرض حتى مثبتات النظام إظهار مطالبة تأكيد التثبيت.</string>
     <string name="instant_app">تطبيق فوري</string>
-    <string name="instant_app_desc">تثبيت الحزمة كتطبيق فوري.</string>
+    <string name="instant_app_desc">تثبيت الحhزمة كتطبيق فوري.</string>
     <string name="dont_kill_app">عدم قتل التطبيق</string>
     <string name="dont_kill_app_desc">تستخدم عند تثبيت ميزة لتطبيق منقسم لمنع إيقاف التطبيق الرئيسي أثناء التثبيت.</string>
     <string name="full_app">التطبيق كامل</string>
@@ -87,11 +87,11 @@
     <string name="install_reason_desc">تعيين سبب التثبيت.</string>
     <string name="error_selecting_files">الرجاء التأكد من تثبيت متصفح الملفات لاختيار ملفات APK.</string>
     <string name="error_binding_service">غير قادر على ربط الخدمة المميزة. الرجاء إعادة تشغيل جهازك والمحاولة مرة أخرى.</string>
-    <string name="target_user">Target User</string>
-    <string name="target_user_desc">Select the device user by ID where this app should be installed.</string>
-    <string name="selected_option">Selected option</string>
-    <string name="clear_cache">Clear Cache</string>
-    <string name="clear_cache_desc">Clear Install with Options\' internal file cache.</string>
+    <string name="target_user">العرب</string>
+    <string name="target_user_desc">عربي.</string>
+    <string name="selected_option">عربي</string>
+    <string name="clear_cache">عربي</string>
+    <string name="clear_cache_desc">عربي.</string>
     <string name="install_reason_unknown">غير معروف</string>
     <string name="install_reason_policy">السياسة</string>
     <string name="install_reason_device_restore">استعادة الجهاز</string>
@@ -99,7 +99,7 @@
     <string name="install_reason_user">المستخدم</string>
     <string name="install_reason_rollback">التراجع</string>
     <string name="theme">ثيمات</string>
-    <string name="theme_light">Light</string>
+    <string name="theme_light">عربي</string>
     <string name="theme_dark">داكن</string>
     <string name="theme_system">النظام</string>
 </resources>

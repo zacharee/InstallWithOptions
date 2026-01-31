@@ -2,7 +2,7 @@
 <resources>
     <string name="choose_files">Choisissez un fichier</string>
     <string name="selected_files">Fichiers choisis</string>
-    <string name="install">Install</string>
+    <string name="install">Installer</string>
     <string name="success">Succès</string>
     <string name="installation_complete">Installation Terminée</string>
     <string name="installation_errors">Erreurs lors de l\'installation</string>
@@ -11,7 +11,7 @@
     <string name="close_app">Fermer L\'application</string>
     <string name="open_shizuku">Lancer Shizuku</string>
     <string name="website">Site internet</string>
-    <string name="github">Git Hub</string>
+    <string name="github">GitHub</string>
     <string name="patreon">Patreon</string>
     <string name="mastodon">Mastodon</string>
     <string name="supporters">Supporteurs</string>
