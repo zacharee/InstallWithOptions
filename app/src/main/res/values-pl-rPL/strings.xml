@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Chhttps://crowdin. com/editor/install-with-options/72/en-pl? view=side-by-side#3050oose Files</string>
+    <string name="choose_files">Wybrać plik</string>
     <string name="selected_files">Wybrane pliki</string>
-    <string name="install">Install</string>
+    <string name="install">Zainstaluj</string>
     <string name="success">Powodzeniem</string>
     <string name="installation_complete">Instalacja zakończona</string>
     <string name="installation_errors">Błędy podczas instalacji</string>
@@ -21,7 +21,7 @@
     <string name="donate">Wspomóż</string>
     <string name="permission_intent_was_null">Zamiar uprawnień był pusty!</string>
     <string name="enable_crash_reports">Włącz raporty o awariach</string>
-    <string name="enable_crash_reports_desc"></string>
+    <string name="enable_crash_reports_desc">Zezwól aplikacji Install with Options na wysyłanie anonimowych raportów o błędach i awariach do Bugsnag. Wyłączenie tej opcji wymaga ponownego uruchomienia aplikacji.</string>
     <string name="shizuku_not_installed">Aplikacja Shizuku nie jest zainstalowana</string>
     <string name="shizuku_not_installed_desc">Aplikacja Shizuku jest wymagana do działania tej aplikacji. Chcesz pobrać ją teraz?</string>
     <string name="shizuku_not_running">Aplikacja Shizuku nie jest uruchomiona</string>
