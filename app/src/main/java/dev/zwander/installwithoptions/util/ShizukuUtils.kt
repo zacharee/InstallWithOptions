@@ -42,9 +42,9 @@ object ShizukuUtils {
                 val isRunning = isRunning
 
                 shizukuState.value = when {
+                    isRunning -> ShizukuState.RUNNING
                     !installed -> ShizukuState.NOT_INSTALLED
-                    installed && !isRunning -> ShizukuState.INSTALLED_NOT_RUNNING
-                    else -> ShizukuState.RUNNING
+                    else -> ShizukuState.INSTALLED_NOT_RUNNING
                 }
             }
         }
