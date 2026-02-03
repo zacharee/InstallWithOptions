@@ -18,7 +18,7 @@
     <string name="settings">إعدادات</string>
     <string name="remove">إزالة</string>
     <string name="translate">ترجمة</string>
-    <string name="donate">Donate</string>
+    <string name="donate">arabic</string>
     <string name="permission_intent_was_null">نية الإذن كانت فارغة!</string>
     <string name="enable_crash_reports">تمكين تقارير الأعطال</string>
     <string name="enable_crash_reports_desc">السماح للتثبيت باستخدام الخيارات لإرسال سجلات الأعطال والأخطاء المجهولة إلى Bugsnag. يتطلب تعطيل هذا إعادة تشغيل التطبيق ليصبح ساري المفعول.</string>
