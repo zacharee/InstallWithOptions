@@ -17,8 +17,8 @@
     <string name="supporters">مؤيدين</string>
     <string name="settings">إعدادات</string>
     <string name="remove">إزالة</string>
-    <string name="translate">ترجمة</string>
-    <string name="donate">Donate</string>
+    <string name="translate">ترجم</string>
+    <string name="donate">عربي</string>
     <string name="permission_intent_was_null">نية الإذن كانت فارغة!</string>
     <string name="enable_crash_reports">تمكين تقارير الأعطال</string>
     <string name="enable_crash_reports_desc">السماح للتثبيت باستخدام الخيارات لإرسال سجلات الأعطال والأخطاء المجهولة إلى Bugsnag. يتطلب تعطيل هذا إعادة تشغيل التطبيق ليصبح ساري المفعول.</string>
@@ -26,7 +26,7 @@
     <string name="shizuku_not_installed_desc">مطلوب Shizuku لهذا التطبيق للعمل. هل ترغب في تحميله الآن؟</string>
     <string name="shizuku_not_running">تطبيق Shizuku لا يعمل</string>
     <string name="shizuku_not_running_desc">يجب تشغيل Shizuku حتى يعمل هذا التطبيق. اتبع الإرشادات الموجودة في تطبيق Shizuku لبدء تشغيله.</string>
-    <string name="replace_existing">Replace Existing</string>
+    <string name="replace_existing">عربي</string>
     <string name="replace_existing_desc">إذا كانت الحزمة التي يتم تثبيتها موجودة بالفعل ، فاستبدلها / قم بترقيتها.</string>
     <string name="allow_test">السماح بالاختبار</string>
     <string name="allow_test_desc">إذا كانت الحزمة التي يتم تثبيتها عبارة عن تطبيق اختبار فقط، فاسمح بتثبيته.</string>
