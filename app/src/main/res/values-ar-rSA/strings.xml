@@ -100,6 +100,6 @@
     <string name="install_reason_rollback">التراجع</string>
     <string name="theme">ثيمات</string>
     <string name="theme_light">عربي</string>
-    <string name="theme_dark">داكن</string>
+    <string name="theme_dark">مظلم</string>
     <string name="theme_system">النظام</string>
 </resources>
