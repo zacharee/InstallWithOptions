@@ -63,7 +63,7 @@
     <string name="disable_verification">Dezactivează verificarea</string>
     <string name="disable_verification_desc">Dezactivează verificarea pachetului în timpul instalării. Aceasta nu este verificarea semnăturii.</string>
     <string name="staged">În etape</string>
-    <string name="staged_desc">Indică că acest pachet este instalat ca parte a unei instalări în etape.</string>
+    <string name="staged_desc">Indică faptul că acest pachet este instalat ca parte a unei instalări în etape.</string>
     <string name="all_whitelist_restricted_permissions">Permite permisiuni restricționate</string>
     <string name="all_whitelist_restricted_permissions_desc">Permite acordarea de permisiuni restricționate pentru pachetul care se instalează.</string>
     <string name="disable_allowed_apex_update_check">Dezactivează verificarea actualizărilor APEX permise</string>
