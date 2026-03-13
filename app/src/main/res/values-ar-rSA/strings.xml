@@ -17,7 +17,7 @@
     <string name="supporters">مؤيدين</string>
     <string name="settings">إعدادات</string>
     <string name="remove">إزالة</string>
-    <string name="translate">ترجم</string>
+    <string name="translate">Translate</string>
     <string name="donate">عربي</string>
     <string name="permission_intent_was_null">نية الإذن كانت فارغة!</string>
     <string name="enable_crash_reports">تمكين تقارير الأعطال</string>
