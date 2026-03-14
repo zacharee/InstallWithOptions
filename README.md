@@ -17,6 +17,11 @@ Install with Options uses Shizuku to gain elevated permissions needed to install
 
 Note that on Mediatek devices, version 13.6.0 of Shizuku does not work. The fix has been merged in the Shizuku repo, but it's been almost a year since 13.6.0 was released. If you have a Mediatek device, either downgrade to Shizuku 13.5.4, or use a fork (e.g., [thedjchi's Shizuku](https://github.com/thedjchi/Shizuku)).
 
+## InstallerX Revived
+[InstallerX Revived](https://github.com/wxxsfxyzm/InstallerX-Revived) is an advanced package installation manager app that includes the features of Install with Options and a lot more.
+
+Install with Options is intentionally kept simple. If you need or want more features, consider using InstallerX Revived instead.
+
 # Translating
 [![Crowdin](https://badges.crowdin.net/install-with-options/localized.svg)](https://crowdin.com/project/install-with-options)
 
