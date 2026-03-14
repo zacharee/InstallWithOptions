@@ -14,8 +14,8 @@ android {
         applicationId = "dev.zwander.installwithoptions"
         minSdk = 24
         targetSdk = 36
-        versionCode = 26
-        versionName = "0.9.1"
+        versionCode = 27
+        versionName = "0.9.2"
 
         vectorDrawables {
             useSupportLibrary = true

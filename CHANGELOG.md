@@ -1,3 +1,11 @@
+# 0.9.2
+- Improve Shizuku detection to support forked or hidden manager apps.
+- Update translations.
+
+# 0.9.1
+-Fix crashes caused by disabling Bugsnag.
+-Update translations.
+
 # 0.9.0
 - Add a theme selector setting.
 - Fix an issue on Android API 36.1 (16.1).
