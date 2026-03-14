@@ -87,8 +87,12 @@ class ElevatedPermissionHandler(
                             TextButton(
                                 onClick = {
                                     try {
-                                        context.startActivity(context.packageManager.getLaunchIntentForPackage(
-                                            ShizukuProvider.MANAGER_APPLICATION_ID))
+                                        context.startActivity(
+                                            context.packageManager.getLaunchIntentForPackage(
+                                            context.getShizukuPackageName()
+                                                ?: ShizukuProvider.MANAGER_APPLICATION_ID,
+                                            ),
+                                        )
                                     } catch (_: Exception) {}
                                 },
                             ) {
