@@ -15,11 +15,22 @@ import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuProvider
 import rikka.sui.Sui
 
+private fun Context.shizukuPermission() =
+    runCatching {
+        packageManager.getPermissionInfo(ShizukuProvider.PERMISSION, 0)
+    }.getOrNull()
+
+fun Context.isShizukuInstalled() =
+    shizukuPermission() != null
+
+fun Context.getShizukuPackageName() =
+    shizukuPermission()?.packageName
+
 object ShizukuUtils {
     private fun isInstalled(context: Context): Boolean {
         return try {
             @Suppress("SENSELESS_COMPARISON")
-            context.packageManager.getApplicationInfo(ShizukuProvider.MANAGER_APPLICATION_ID, 0) != null
+            context.isShizukuInstalled()
         } catch (_: Throwable) {
             Sui.isSui()
         }
