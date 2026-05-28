@@ -19,7 +19,7 @@
     <string name="remove">Ta Bort</string>
     <string name="translate">Översätta</string>
     <string name="donate">Donera</string>
-    <string name="permission_intent_was_null">Permission Intent was null!</string>
+    <string name="permission_intent_was_null">Tillstånds-Intent var null!</string>
     <string name="enable_crash_reports">Sätt på Crashrapporter</string>
     <string name="enable_crash_reports_desc">Tillåt Install with Options att skicka anonyma crash- och errorloggar till Bugsnag. Att stänga av detta kräver en appomstart för att ta effekt.</string>
     <string name="shizuku_not_installed">Shizuku ej Installerat</string>
@@ -39,7 +39,7 @@
     <string name="all_users">Alla Användare</string>
     <string name="all_users_desc">Install the package for all users on the system, instead of just the specified or default user.</string>
     <string name="allow_downgrade">Tillåt Nedgradering</string>
-    <string name="allow_downgrade_desc">Attempts to downgrade the currently-installed version of the package to the one being installed.</string>
+    <string name="allow_downgrade_desc">Försöker nedgradera den nu installerade versionen av paketet till den som installeras.</string>
     <string name="grant_all_permissions">Tillåt Alla Begärda Tillstånd</string>
     <string name="grant_all_permissions_desc">Automatically grant all permissions the package is requesting. Note that this only applies to runtime permissions. Special permissions like All Files Access or Accessibility won\'t be automatically granted.</string>
     <string name="force_volume_uuid">Tvinga Volym-UUID</string>
