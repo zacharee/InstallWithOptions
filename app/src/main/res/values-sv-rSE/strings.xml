@@ -25,7 +25,7 @@
     <string name="shizuku_not_installed">Shizuku ej Installerat</string>
     <string name="shizuku_not_installed_desc">Shizuku krävs för att denna app ska fungera. Vill du installera den nu?</string>
     <string name="shizuku_not_running">Shizuku Körs inte</string>
-    <string name="shizuku_not_running_desc">Shizuku needs to be running for this app to function. Follow the directions in the Shizuku app to start it.</string>
+    <string name="shizuku_not_running_desc">Shizuku behöver köras för att denna app ska fungera. Följ instruktionerna i Shizuku-appen för att starta den.</string>
     <string name="replace_existing">Ersätt Existerande</string>
     <string name="replace_existing_desc">Om paketet som installeras redan existerar, ersätt/upgradera det.</string>
     <string name="allow_test">Allow Test</string>
