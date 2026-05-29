@@ -45,7 +45,7 @@
     <string name="force_volume_uuid">Tvinga Volym-UUID</string>
     <string name="force_volume_uuid_desc">Tillåter att specificera ett volym-UUID att installera paketet till.</string>
     <string name="force_permission_prompt">Tvinga Tillståndsförfrågan</string>
-    <string name="force_permission_prompt_desc">Forces even system installers to show the install confirmation prompt.</string>
+    <string name="force_permission_prompt_desc">Tvinga även systeminstallerare att visa installationsbekräftelseförfrågan.</string>
     <string name="instant_app">Omedelbar App</string>
     <string name="instant_app_desc">Installera paketet som en omedelbar app.</string>
     <string name="dont_kill_app">Döda Inte Appen</string>
@@ -58,10 +58,10 @@
     <string name="virtual_preload_desc">Indicates that the package is a virtual preload.</string>
     <string name="apex">APEX</string>
     <string name="apex_desc">Indicates that the package being installed is an APEX package.</string>
-    <string name="enable_rollback">Enable Rollback</string>
-    <string name="enable_rollback_desc">Allow future rollbacks of this package.</string>
+    <string name="enable_rollback">Aktivera Återgång</string>
+    <string name="enable_rollback_desc">Tillåt framtida återgångar av detta paket.</string>
     <string name="disable_verification">Inaktivera Verifiering</string>
-    <string name="disable_verification_desc">Disables package verification during install. This is not signature verification.</string>
+    <string name="disable_verification_desc">Avaktiverar paketverifiering under installation. Det här är inte signaturverifiering.</string>
     <string name="staged">Staged</string>
     <string name="staged_desc">Indicates this package is being installed as part of a staged install.</string>
     <string name="all_whitelist_restricted_permissions">Tillåt Begränsade Tillstånd</string>
