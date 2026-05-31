@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="choose_files">选择文件</string>
-    <string name="selected_files">已選擇的檔案</string>
+    <string name="selected_files">选择的文件</string>
     <string name="install">安装</string>
     <string name="success">成功</string>
     <string name="installation_complete">安装完成</string>
@@ -48,7 +48,7 @@
     <string name="force_permission_prompt_desc">强制系统安装程序显示安装确认提示。</string>
     <string name="instant_app">免安装应用</string>
     <string name="instant_app_desc">安装软件包作为即时应用。</string>
-    <string name="dont_kill_app">Don\'t Kill App</string>
+    <string name="dont_kill_app">不要终止应用</string>
     <string name="dont_kill_app_desc">在为拆分应用安装功能时使用，以防止主应用在安装过程中被杀死.</string>
     <string name="full_app">完整应用</string>
     <string name="full_app_desc">表示正在安装的软件包是完整的应用程序。可以用来将即时应用程序升级为完整的应用程序。</string>
