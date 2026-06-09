@@ -19,7 +19,7 @@
     <string name="remove">Ta Bort</string>
     <string name="translate">Översätta</string>
     <string name="donate">Donera</string>
-    <string name="permission_intent_was_null">Tillstånds-Intent var null!</string>
+    <string name="permission_intent_was_null">Behlrighetsavsikt var null!</string>
     <string name="enable_crash_reports">Sätt på Crashrapporter</string>
     <string name="enable_crash_reports_desc">Tillåt Install with Options att skicka anonyma crash- och errorloggar till Bugsnag. Att stänga av detta kräver en appomstart för att ta effekt.</string>
     <string name="shizuku_not_installed">Shizuku ej Installerat</string>
@@ -44,7 +44,7 @@
     <string name="grant_all_permissions_desc">Tillåt automatisk alla behörigheter paketet begär. Observera att detta endast gäller körtidsbehörigheter. Särskilda behörigheter som Åtkomst till Alla Filer eller Tillgänglighet kommer inte beviljas automatiskt.</string>
     <string name="force_volume_uuid">Tvinga Volym-UUID</string>
     <string name="force_volume_uuid_desc">Tillåter att specificera ett volym-UUID att installera paketet till.</string>
-    <string name="force_permission_prompt">Tvinga Tillståndsförfrågan</string>
+    <string name="force_permission_prompt">Tvinga Behörighetsförfrågan</string>
     <string name="force_permission_prompt_desc">Tvinga även systeminstallerare att visa installationsbekräftelseförfrågan.</string>
     <string name="instant_app">Omedelbar App</string>
     <string name="instant_app_desc">Installera paketet som en omedelbar app.</string>
