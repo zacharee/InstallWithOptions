@@ -35,7 +35,9 @@
 
                 <data android:scheme="content" />
                 <data android:scheme="file" />
+
                 <data android:mimeType="application/vnd.android.package-archive" />
+                <data android:mimeType="application/zip" />
             </intent-filter>
 
             <intent-filter>
@@ -44,6 +46,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:mimeType="application/vnd.android.package-archive" />
+                <data android:mimeType="application/zip" />
             </intent-filter>
         </activity>
 
