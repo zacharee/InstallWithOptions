@@ -19,7 +19,7 @@
     <string name="remove">Remover</string>
     <string name="translate">Traduzir</string>
     <string name="donate">Doar</string>
-    <string name="permission_intent_was_null">Intenção de Permissão (Permission Intent) inválida!</string>
+    <string name="permission_intent_was_null">Intenção de Permissão inválida!</string>
     <string name="enable_crash_reports">Ativar Relatório de Erros</string>
     <string name="enable_crash_reports_desc">Permitir ao app enviar relatórios anônimos de travamentos e erros para o Bugsnag. Desabilitar essa opção requer a reinicialização do aplicativo para entrar em vigor.</string>
     <string name="shizuku_not_installed">Shizuku não instalado</string>
@@ -42,9 +42,9 @@
     <string name="allow_downgrade_desc">Tenta fazer downgrade da versão atualmente instalada do pacote para a que está sendo instalada.</string>
     <string name="grant_all_permissions">Conceder Todas as Permissões Solicitadas</string>
     <string name="grant_all_permissions_desc">Conceder automaticamente todas as permissões que o pacote estiver solicitando. Observe que isso se aplica apenas a permissões de tempo de execução. Permissões especiais como Acesso a todos os arquivos ou Acessibilidade não serão concedidas automaticamente.</string>
-    <string name="force_volume_uuid">Forçar Volume (UUID)</string>
+    <string name="force_volume_uuid">Forçar Volume UUID</string>
     <string name="force_volume_uuid_desc">Permite especificar o UUID do volume onde instalar o pacote.</string>
-    <string name="force_permission_prompt">Forçar Prompt de Permissão</string>
+    <string name="force_permission_prompt">Forçar Limite de Permissão</string>
     <string name="force_permission_prompt_desc">Força até mesmo os instaladores do sistema a mostrar o diálogo de confirmação de instalação.</string>
     <string name="instant_app">Instant App</string>
     <string name="instant_app_desc">Instalar o pacote como um instant app.</string>
