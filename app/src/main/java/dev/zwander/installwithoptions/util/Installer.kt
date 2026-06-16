@@ -97,6 +97,9 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
             override fun onReceive(context: Context, intent: Intent) {
                 if (intent.action == INSTALL_STATUS_ACTION) {
                     val status = intent.getIntExtra(PackageInstaller.EXTRA_STATUS, Int.MIN_VALUE)
+                    val specificMessage = context.getSpecificErrorMessage(
+                        legacyStatus = intent.getIntExtra("android.content.pm.extra.LEGACY_STATUS", Int.MIN_VALUE),
+                    )
                     val message = intent.getStringExtra(PackageInstaller.EXTRA_STATUS_MESSAGE) ?: ""
                     val packageName =
                         intent.getStringExtra(PackageInstaller.EXTRA_PACKAGE_NAME) ?: ""
@@ -118,6 +121,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                                     status = InstallStatus.FAILURE,
                                     packageName = packageName,
                                     message = context.resources.getString(R.string.permission_intent_was_null),
+                                    specificMessage = specificMessage,
                                 )
                             }
                         }
@@ -129,6 +133,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                                 status = InstallStatus.SUCCESS,
                                 packageName = packageName,
                                 message = context.resources.getString(R.string.success),
+                                specificMessage = specificMessage,
                             )
                         }
 
@@ -139,6 +144,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                                 status = InstallStatus.FAILURE,
                                 packageName = packageName,
                                 message = message,
+                                specificMessage = specificMessage,
                             )
                         }
                     }
@@ -197,7 +203,11 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                             ) { tv ->
                                 tv.text = HtmlCompat.fromHtml(
                                     resources.getString(
-                                        R.string.status_item,
+                                        if (res.specificMessage != null) {
+                                            R.string.status_item_extra_message
+                                        } else {
+                                            R.string.status_item
+                                        },
                                         try {
                                             context.packageManager.getApplicationInfo(res.packageName, 0)
                                                 .loadLabel(context.packageManager).toString()
@@ -205,6 +215,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                                             res.packageName
                                         },
                                         res.message,
+                                        res.specificMessage,
                                     ),
                                     HtmlCompat.FROM_HTML_MODE_COMPACT,
                                 )
@@ -250,6 +261,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                                                 status = InstallStatus.FAILURE,
                                                 packageName = it.name ?: it.uri.toString(),
                                                 message = "$errorClass: $error",
+                                                specificMessage = null,
                                             )
                                         }
                                     }
@@ -263,6 +275,7 @@ fun rememberPackageInstaller(files: Map<String, List<DocumentFile>>): Installer 
                                     status = InstallStatus.FAILURE,
                                     packageName = it.name ?: it.uri.toString(),
                                     message = e.extractErrorMessage() ?: e.toString(),
+                                    specificMessage = null,
                                 )
                             }
                         }

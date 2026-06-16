@@ -6,7 +6,6 @@
     <string name="success">Onnistui</string>
     <string name="installation_complete">Asennus Valmis</string>
     <string name="installation_errors">Virhe asennuksessa</string>
-    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Lataa</string>
     <string name="close_app">Sulje sovellus</string>
     <string name="open_shizuku">Avaa Shizuku</string>

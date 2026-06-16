@@ -6,7 +6,6 @@
     <string name="success"> Успіх</string>
     <string name="installation_complete">Встановлення завершено</string>
     <string name="installation_errors">Помилки під час встановлення</string>
-    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Завантажити</string>
     <string name="close_app">Закрити додаток</string>
     <string name="open_shizuku">Відкрити Shizuku</string>

@@ -6,7 +6,6 @@
     <string name="success">Succes</string>
     <string name="installation_complete">Instalare finalizată</string>
     <string name="installation_errors">Eroare de instalare</string>
-    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Descărcare</string>
     <string name="close_app">Închide aplicația</string>
     <string name="open_shizuku">Deschide Shizuku</string>

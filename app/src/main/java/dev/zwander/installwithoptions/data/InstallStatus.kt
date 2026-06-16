@@ -9,4 +9,5 @@ data class InstallResult(
     val status: InstallStatus,
     val packageName: String,
     val message: String,
+    val specificMessage: String?,
 )

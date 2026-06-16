@@ -6,7 +6,6 @@
     <string name="success">완료</string>
     <string name="installation_complete">설치 완료</string>
     <string name="installation_errors">설치 중 오류 발생</string>
-    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">다운로드</string>
     <string name="close_app">앱 닫기</string>
     <string name="open_shizuku">Shizuku 설치</string>

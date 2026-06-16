@@ -6,7 +6,6 @@
     <string name="success">Úspěch</string>
     <string name="installation_complete">Instalace dokončena</string>
     <string name="installation_errors">Chyby při instalaci</string>
-    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Stáhnout</string>
     <string name="close_app">Zavřít aplikaci</string>
     <string name="open_shizuku">Otevřít Shizuku</string>

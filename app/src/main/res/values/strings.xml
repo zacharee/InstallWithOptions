@@ -7,7 +7,8 @@
     <string name="success">Success</string>
     <string name="installation_complete">Installation Complete</string>
     <string name="installation_errors">Errors Installing</string>
-    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
+    <string name="status_item" translatable="false"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
+    <string name="status_item_extra_message" translatable="false"><![CDATA[<b>%1$s</b><br>%2$s<br>%3$s]]></string>
     <string name="download">Download</string>
     <string name="close_app">Close App</string>
     <string name="open_shizuku">Open Shizuku</string>
@@ -143,4 +144,6 @@
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
     <string name="theme_system">System</string>
+
+    <string name="install_failed_no_matching_abis">The app you\'re attempting to install contains 32-bit-only code and your device only supports 64-bit code. You won\'t be able to install or use this app.</string>
 </resources>

@@ -6,7 +6,6 @@
     <string name="success">Başarılı</string>
     <string name="installation_complete">Yükleme Tamamlandı</string>
     <string name="installation_errors">Kurulum hataları</string>
-    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">İndir</string>
     <string name="close_app">Uygulamayı Kapatın</string>
     <string name="open_shizuku">Shizuku\'yu Aç</string>

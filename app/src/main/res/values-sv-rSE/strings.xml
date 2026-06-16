@@ -6,7 +6,6 @@
     <string name="success">Lyckades</string>
     <string name="installation_complete">Installation Slutförd</string>
     <string name="installation_errors">Fel vid Installation</string>
-    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Ladda ned</string>
     <string name="close_app">Stäng App</string>
     <string name="open_shizuku">Open Shizuku</string>

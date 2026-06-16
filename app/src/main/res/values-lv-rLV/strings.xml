@@ -6,7 +6,6 @@
     <string name="success">Veiksmīgi</string>
     <string name="installation_complete">Uzstādīšana pabeigta</string>
     <string name="installation_errors">Uzstādīšanas kļūdas</string>
-    <string name="status_item"><![CDATA[<b>%1$s</b><br>%2$s]]></string>
     <string name="download">Lejupielādēt</string>
     <string name="close_app">Aizvērt lietotni</string>
     <string name="open_shizuku">Atvērt Shizuku</string>
