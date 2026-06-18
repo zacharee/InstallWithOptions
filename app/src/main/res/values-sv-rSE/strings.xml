@@ -102,5 +102,5 @@
     <string name="theme_dark">Mörkt</string>
     <string name="theme_system">System</string>
     <string name="install_failed_no_matching_abis">Appen du försöker installera innehåller 32-bitarskod och enheten stödjer endast 64-bitarskod. Du kommer inte kunna installera eller använda denna app.</string>
-    <string name="install_failed_already_exists">This app is already installed. To reinstall or upgrade, make sure the \"Replace Existing\" option is checked.</string>
+    <string name="install_failed_already_exists">Denna app är redan installerad. För att ominstallera eller uppgradera, se till att \"Ersätt Existerande\"-inställningen är markerad.</string>
 </resources>
