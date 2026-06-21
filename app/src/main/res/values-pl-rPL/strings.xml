@@ -101,4 +101,6 @@
     <string name="theme_light">Światło</string>
     <string name="theme_dark">Ciemny</string>
     <string name="theme_system">System</string>
+    <string name="install_failed_no_matching_abis">The app you\'re attempting to install contains 32-bit-only code and your device only supports 64-bit code. You won\'t be able to install or use this app.</string>
+    <string name="install_failed_already_exists">This app is already installed. To reinstall or upgrade, make sure the \"Replace Existing\" option is checked.</string>
 </resources>
