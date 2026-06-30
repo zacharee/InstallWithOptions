@@ -104,4 +104,6 @@ diperlukan.</string>
     <string name="theme_light">Terang</string>
     <string name="theme_dark">Gelap</string>
     <string name="theme_system">Sistem</string>
+    <string name="install_failed_no_matching_abis">Aplikasi yang ingin Anda pasang berisi kode khusus 32-bit, sedangkan perangkat Anda hanya mendukung kode 64-bit. Anda tidak akan dapat memasang atau menggunakan aplikasi ini.</string>
+    <string name="install_failed_already_exists">Aplikasi ini sudah terpasang. Untuk memasang ulang atau memperbarui, pastikan pilihan \"Ganti yang Sudah Ada\" telah dicentang.</string>
 </resources>
