@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">Wybrać plik</string>
-    <string name="selected_files">Wybrane pliki</string>
-    <string name="install">Zainstaluj</string>
-    <string name="success">Powodzeniem</string>
+    <string name="choose_files">Choose Files</string>
+    <string name="selected_files">Selected Files</string>
+    <string name="install">Install</string>
+    <string name="success">Success</string>
     <string name="installation_complete">Instalacja zakończona</string>
     <string name="installation_errors">Błędy podczas instalacji</string>
     <string name="download">Sciagnij</string>
