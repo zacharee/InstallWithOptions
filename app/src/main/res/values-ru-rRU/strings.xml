@@ -101,4 +101,6 @@
     <string name="theme_light">Прозрачный</string>
     <string name="theme_dark">Темный</string>
     <string name="theme_system">Система</string>
+    <string name="install_failed_no_matching_abis">Приложение которое вы пытаетесь установить только 32 битный код, а ваше устройство поддерживает только 64 битный код. Приложение установить или использовать не получится.</string>
+    <string name="install_failed_already_exists">Это приложение уже установлено. Для переустановки или обновления убедитесь, что опция \"Заменить существующий\" включена.</string>
 </resources>

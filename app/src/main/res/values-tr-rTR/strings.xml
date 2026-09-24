@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="choose_files">Dosya Seç</string>
-    <string name="selected_files">Seçilmiş Dosyalar</string>
+    <string name="selected_files">Seçili Dosyalar</string>
     <string name="install">Yükle</string>
     <string name="success">Başarılı</string>
     <string name="installation_complete">Yükleme Tamamlandı</string>
@@ -101,4 +101,6 @@
     <string name="theme_light">Aydınlık</string>
     <string name="theme_dark">Karanlık</string>
     <string name="theme_system">Sistem</string>
+    <string name="install_failed_no_matching_abis">Yüklemeye çalıştığınız uygulama sadece 32-bit kod içeriyor ve cihazınız sadece 64-bit kod destekliyor. Bu uygulamayı yükleyemezsiniz veya kullanamazsınız.</string>
+    <string name="install_failed_already_exists">Bu uygulama zaten yüklü. Yeniden yüklemek veya güncellemek için, \"Mevcut olanı değiştir\" seçeneğinin seçili olduğundan emin olun.</string>
 </resources>

@@ -8,16 +8,16 @@
     <string name="installation_errors">Fel vid Installation</string>
     <string name="download">Ladda ned</string>
     <string name="close_app">Stäng App</string>
-    <string name="open_shizuku">Open Shizuku</string>
-    <string name="website">Website</string>
+    <string name="open_shizuku">Öppna Shizuku</string>
+    <string name="website">Webbsida</string>
     <string name="github">GitHub</string>
     <string name="patreon">Patreon</string>
     <string name="mastodon">Mastodon</string>
     <string name="supporters">Supportrar</string>
-    <string name="settings">Settings</string>
-    <string name="remove">Remove</string>
-    <string name="translate">Translate</string>
-    <string name="donate">Donate</string>
+    <string name="settings">Inställningar</string>
+    <string name="remove">Ta bort</string>
+    <string name="translate">Översätt</string>
+    <string name="donate">Donera</string>
     <string name="permission_intent_was_null">Behlrighetsavsikt var null!</string>
     <string name="enable_crash_reports">Sätt på Crashrapporter</string>
     <string name="enable_crash_reports_desc">Tillåt Install with Options att skicka anonyma crash- och errorloggar till Bugsnag. Att stänga av detta kräver en appomstart för att ta effekt.</string>
@@ -35,7 +35,7 @@
     <string name="external_desc">Tvinga paketet att installeras till extern lagring.</string>
     <string name="from_adb">Från ADB</string>
     <string name="from_adb_desc">Säger åt systemet att installationsbegäran gjordes av ADB.</string>
-    <string name="all_users">All Users</string>
+    <string name="all_users">Alla Användare</string>
     <string name="all_users_desc">Installera paketet för alla användare på systemet, istället för bara den specificerade användaren eller standardanvändaren.</string>
     <string name="allow_downgrade">Tillåt Nedgradering</string>
     <string name="allow_downgrade_desc">Försöker nedgradera den nu installerade versionen av paketet till den som installeras.</string>
@@ -101,4 +101,6 @@
     <string name="theme_light">Ljust</string>
     <string name="theme_dark">Mörkt</string>
     <string name="theme_system">System</string>
+    <string name="install_failed_no_matching_abis">Appen du försöker installera innehåller 32-bitarskod och enheten stödjer endast 64-bitarskod. Du kommer inte kunna installera eller använda denna app.</string>
+    <string name="install_failed_already_exists">Denna app är redan installerad. För att ominstallera eller uppgradera, se till att \"Ersätt Existerande\"-inställningen är markerad.</string>
 </resources>
