@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="choose_files">Pilih berkas</string>
-    <string name="selected_files">Berkas Terpilih</string>
+    <string name="selected_files">Selected</string>
     <string name="install">Pasang</string>
     <string name="success">Berhasil</string>
     <string name="installation_complete">Pemasangan Berhasil</string>
     <string name="installation_errors">Kesalahan Pemasangan</string>
     <string name="download">Unduh</string>
     <string name="close_app">Tutup Aplikasi</string>
-    <string name="open_shizuku">Buka Shizuku</string>
+    <string name="open_shizuku">Buka</string>
     <string name="website">Situs Web</string>
     <string name="github">GitHub</string>
     <string name="patreon">Patreon</string>
@@ -104,4 +104,6 @@ diperlukan.</string>
     <string name="theme_light">Terang</string>
     <string name="theme_dark">Gelap</string>
     <string name="theme_system">Sistem</string>
+    <string name="install_failed_no_matching_abis">Aplikasi yang ingin Anda pasang berisi kode khusus 32-bit, sedangkan perangkat Anda hanya mendukung kode 64-bit. Anda tidak akan dapat memasang atau menggunakan aplikasi ini.</string>
+    <string name="install_failed_already_exists">Aplikasi ini sudah terpasang. Untuk memasang ulang atau memperbarui, pastikan pilihan \"Ganti yang Sudah Ada\" telah dicentang.</string>
 </resources>

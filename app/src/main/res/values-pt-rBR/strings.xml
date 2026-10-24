@@ -101,4 +101,6 @@
     <string name="theme_light">Tema Claro</string>
     <string name="theme_dark">Tema Escuro</string>
     <string name="theme_system">Tema Sistema</string>
+    <string name="install_failed_no_matching_abis">O aplicativo que você está tentando instalar contém código de 32 bits e seu dispositivo suporta apenas código de 64 bits. Você não será capaz de instalar ou usar este app.</string>
+    <string name="install_failed_already_exists">Este aplicativo já está instalado. Para reinstalar ou atualizar, certifique-se de que a opção \"Substituir Existente\" está marcada.</string>
 </resources>

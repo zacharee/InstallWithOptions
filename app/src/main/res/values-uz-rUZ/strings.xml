@@ -101,4 +101,6 @@
     <string name="theme_light">Yorug‘</string>
     <string name="theme_dark">Qorong‘i</string>
     <string name="theme_system">Tizim</string>
+    <string name="install_failed_no_matching_abis">Siz o\'rnatmoqchi bo\'lgan ilova faqat 32-bitli kodni o\'z ichiga oladi va qurilmangiz faqat 64-bitli kodni qo\'llab-quvvatlaydi. Siz ushbu ilovani o\'rnata olmaysiz yoki undan foydalana olmaysiz.</string>
+    <string name="install_failed_already_exists">Bu ilova allaqachon o\'rnatilgan. Qayta o\'rnatish yoki yangilash uchun \"Mavjud ilovani almashtirish\" opsiyasi belgilanganligiga ishonch hosil qiling.</string>
 </resources>

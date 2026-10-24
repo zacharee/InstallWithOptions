@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_files">اختر ملفاً</string>
+    <string name="choose_files">عربي</string>
     <string name="selected_files">الملفات المختارة</string>
-    <string name="install">تثبيت</string>
+    <string name="install">جيلي بين تثبيت</string>
     <string name="success">تم بنجاح</string>
     <string name="installation_complete">تم التثبيت</string>
     <string name="installation_errors">خطأ في التثبيت</string>
     <string name="download">تحميل</string>
     <string name="close_app">غلق التطبيق</string>
     <string name="open_shizuku">فتح شيزوكو</string>
-    <string name="website">موقع</string>
-    <string name="github">الحصول</string>
+    <string name="website">الموقع الإلكتروني</string>
+    <string name="github">GitHub</string>
     <string name="patreon">باتريون</string>
     <string name="mastodon">يجب</string>
     <string name="supporters">مؤيدين</string>
@@ -101,4 +101,6 @@
     <string name="theme_light">عربي</string>
     <string name="theme_dark">مظلم</string>
     <string name="theme_system">النظام</string>
+    <string name="install_failed_no_matching_abis">التطبيق الذي تحاول تثبيته يحتوي على كود برمجي يعمل على أنظمة 32 بت فقط، بينما يدعم جهازك أنظمة 64 بت فقط. لن تتمكن من تثبيت هذا التطبيق أو استخدامه.</string>
+    <string name="install_failed_already_exists">هذا التطبيق مثبت مسبقاً. لإعادة تثبيته أو ترقيته، تأكيد من تحديد خيارات \"استبدال الموجود\".</string>
 </resources>
